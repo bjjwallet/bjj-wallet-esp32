@@ -1,0 +1,1157 @@
+{
+  "example": true,
+  "data_source": "Public BIP39 test fixtures, not the real device",
+  "terminator": "###EOF###",
+  "exchanges": [
+    {
+      "request": {
+        "id": "info-1",
+        "method": "get_device_info",
+        "params": {}
+      },
+      "response": {
+        "id": "info-1",
+        "status": "success",
+        "data": {
+          "pin_required": true,
+          "name": "BJJ-Cold-Wallet-Flips",
+          "version": "1",
+          "platform": "ESP-IDF v5.4.2 / FreeRTOS V10.5.1",
+          "hardware": "ESP32-S3 ES3N28P",
+          "screen": "240x320",
+          "CPU": "42.3 °C",
+          "wallet_sync_version": 1
+        }
+      }
+    },
+    {
+      "request": {
+        "id": "wallets-1",
+        "method": "get_wallets",
+        "params": {}
+      },
+      "response": {
+        "id": "wallets-1",
+        "status": "success",
+        "data": [
+          {
+            "config": {
+              "word_count": 12,
+              "passphrase_enabled": true,
+              "imported": true
+            },
+            "id": "56da8a6b59913c7de07cbbaf5b40f8a53d3dd67378ba0f461265d5176a2601fd",
+            "name": "Minha wallet"
+          },
+          {
+            "config": {
+              "word_count": 12,
+              "passphrase_enabled": true,
+              "imported": true
+            },
+            "id": "d5217e932a065a0fcbcd127a82ae8b0748113b7091217bda9f9879685c532d11",
+            "name": "Carteira 2"
+          }
+        ]
+      }
+    },
+    {
+      "request": {
+        "id": "all-STANDARD",
+        "method": "get_accounts",
+        "params": {
+          "mode": "STANDARD",
+          "all_wallets": true,
+          "include_all_addresses": true,
+          "coins": [
+            "arbitrum",
+            "avalanchec",
+            "base",
+            "bitcoin",
+            "bitcoincash",
+            "classic",
+            "dash",
+            "doge",
+            "ethereum",
+            "hyperevm",
+            "litecoin",
+            "polygon",
+            "ripple",
+            "robinhoodchain",
+            "smartchain",
+            "solana",
+            "stellar",
+            "sui",
+            "ton",
+            "tron"
+          ]
+        }
+      },
+      "response": {
+        "id": "all-STANDARD",
+        "status": "success",
+        "data": [
+          {
+            "config": {
+              "word_count": 12,
+              "passphrase_enabled": true,
+              "imported": true
+            },
+            "wallet_id": "56da8a6b59913c7de07cbbaf5b40f8a53d3dd67378ba0f461265d5176a2601fd",
+            "wallet_name": "Minha wallet",
+            "accounts": [
+              {
+                "coin": "arbitrum",
+                "symbol": "ETH",
+                "name": "Arbitrum One",
+                "address": "0x9858EfFD232B4033E47d90003D41EC34EcaEda94",
+                "xpub": "xpub6DCoCpSuQZB2jawqnGMEPS63ePKWkwWPH4TU45Q7LPXWuNd8TMtVxRrgjtEshuqpK3mdhaWHPFsBngh5GFZaM6si3yZdUsT8ddYM3PwnATt",
+                "path": "m/44'/60'/0'/0/0",
+                "blockchain": "Arbitrum One",
+                "curve": "secp256k1",
+                "decimals": 18,
+                "is_main": 0
+              },
+              {
+                "coin": "avalanchec",
+                "symbol": "AVAX",
+                "name": "Avalanche C-Chain",
+                "address": "0x9858EfFD232B4033E47d90003D41EC34EcaEda94",
+                "xpub": "xpub6DCoCpSuQZB2jawqnGMEPS63ePKWkwWPH4TU45Q7LPXWuNd8TMtVxRrgjtEshuqpK3mdhaWHPFsBngh5GFZaM6si3yZdUsT8ddYM3PwnATt",
+                "path": "m/44'/60'/0'/0/0",
+                "blockchain": "Avalanche C-Chain",
+                "curve": "secp256k1",
+                "decimals": 18,
+                "is_main": 0
+              },
+              {
+                "coin": "base",
+                "symbol": "ETH",
+                "name": "Base",
+                "address": "0x9858EfFD232B4033E47d90003D41EC34EcaEda94",
+                "xpub": "xpub6DCoCpSuQZB2jawqnGMEPS63ePKWkwWPH4TU45Q7LPXWuNd8TMtVxRrgjtEshuqpK3mdhaWHPFsBngh5GFZaM6si3yZdUsT8ddYM3PwnATt",
+                "path": "m/44'/60'/0'/0/0",
+                "blockchain": "Base",
+                "curve": "secp256k1",
+                "decimals": 18,
+                "is_main": 0
+              },
+              {
+                "coin": "bitcoin",
+                "symbol": "BTC",
+                "name": "Bitcoin",
+                "address": "bc1qcr8te4kr609gcawutmrza0j4xv80jy8z306fyu",
+                "xpub": "zpub6rFR7y4Q2AijBEqTUquhVz398htDFrtymD9xYYfG1m4wAcvPhXNfE3EfH1r1ADqtfSdVCToUG868RvUUkgDKf31mGDtKsAYz2oz2AGutZYs",
+                "path": "m/84'/0'/0'/0/0",
+                "blockchain": "Bitcoin",
+                "curve": "secp256k1",
+                "decimals": 8,
+                "is_main": 0
+              },
+              {
+                "coin": "bitcoincash",
+                "symbol": "BCH",
+                "name": "Bitcoin Cash",
+                "address": "bitcoincash:qqyx49mu0kkn9ftfj6hje6g2wfer34yfnq5tahq3q6",
+                "xpub": "xpub6ByHsPNSQXTWZ7PLESMY2FufyYWtLXagSUpMQq7Un96SiThZH2iJB1X7pwviH1WtKVeDP6K8d6xxFzzoaFzF3s8BKCZx8oEDdDkNnp4owAZ",
+                "path": "m/44'/145'/0'/0/0",
+                "blockchain": "Bitcoin Cash",
+                "curve": "secp256k1",
+                "decimals": 8,
+                "is_main": 0
+              },
+              {
+                "coin": "classic",
+                "symbol": "ETC",
+                "name": "Ethereum Classic",
+                "address": "0xFA22515E43658ce56A7682B801e9B5456f511420",
+                "xpub": "xpub6CqTNrUVV95XgHEP2LVe42cdpWKh2jeA4GnyXrQ219wJJVPAFajkbuFEdzf6xfGgdJWrhKuK5p8v47vxVQHFGU85J1J8Di95Z6hFJx8GhYz",
+                "path": "m/44'/61'/0'/0/0",
+                "blockchain": "Ethereum Classic",
+                "curve": "secp256k1",
+                "decimals": 18,
+                "is_main": 0
+              },
+              {
+                "coin": "dash",
+                "symbol": "DASH",
+                "name": "Dash",
+                "address": "XoJA8qE3N2Y3jMLEtZ3vcN42qseZ8LvFf5",
+                "xpub": "xpub6CYEjsU6zPM3sADS2ubu2aZeGxCm3C5KabkCpo4rkNbXGAH9M7rRUJ4E5CKiyUddmRzrSCopPzisTBrXkfCD4o577XKM9mzyZtP1Xdbizyk",
+                "path": "m/44'/5'/0'/0/0",
+                "blockchain": "Dash",
+                "curve": "secp256k1",
+                "decimals": 8,
+                "is_main": 0
+              },
+              {
+                "coin": "doge",
+                "symbol": "DOGE",
+                "name": "Dogecoin",
+                "address": "DBus3bamQjgJULBJtYXpEzDWQRwF5iwxgC",
+                "xpub": "dgub8rUhDtD3YFGZTUphBfpBbzvFxSMKQXYLzg87Me2ta78r2SdVLmypBUkkxrrn9RTnchsyiJSkHZyLWxD13ibBiXtuFWktBoDaGaZjQUBLNLs",
+                "path": "m/44'/3'/0'/0/0",
+                "blockchain": "Dogecoin",
+                "curve": "secp256k1",
+                "decimals": 8,
+                "is_main": 0
+              },
+              {
+                "coin": "ethereum",
+                "symbol": "ETH",
+                "name": "Ethereum",
+                "address": "0x9858EfFD232B4033E47d90003D41EC34EcaEda94",
+                "xpub": "xpub6DCoCpSuQZB2jawqnGMEPS63ePKWkwWPH4TU45Q7LPXWuNd8TMtVxRrgjtEshuqpK3mdhaWHPFsBngh5GFZaM6si3yZdUsT8ddYM3PwnATt",
+                "path": "m/44'/60'/0'/0/0",
+                "blockchain": "Ethereum",
+                "curve": "secp256k1",
+                "decimals": 18,
+                "is_main": 0
+              },
+              {
+                "coin": "hyperevm",
+                "symbol": "HYPE",
+                "name": "HyperEVM",
+                "address": "0x9858EfFD232B4033E47d90003D41EC34EcaEda94",
+                "xpub": "xpub6DCoCpSuQZB2jawqnGMEPS63ePKWkwWPH4TU45Q7LPXWuNd8TMtVxRrgjtEshuqpK3mdhaWHPFsBngh5GFZaM6si3yZdUsT8ddYM3PwnATt",
+                "path": "m/44'/60'/0'/0/0",
+                "blockchain": "HyperEVM",
+                "curve": "secp256k1",
+                "decimals": 18,
+                "is_main": 0
+              },
+              {
+                "coin": "litecoin",
+                "symbol": "LTC",
+                "name": "Litecoin",
+                "address": "ltc1qjmxnz78nmc8nq77wuxh25n2es7rzm5c2rkk4wh",
+                "xpub": "zpub6rPo5mF47z5coVm5rvWv7fv181awb7Vckn5Cf3xQXBVKu18kuBHDhNi1Jrb4br6vVD3ZbrnXemEsWJoR18mZwkUdzwD8TQnHDUCGxqZ6swA",
+                "path": "m/84'/2'/0'/0/0",
+                "blockchain": "Litecoin",
+                "curve": "secp256k1",
+                "decimals": 8,
+                "is_main": 0
+              },
+              {
+                "coin": "polygon",
+                "symbol": "POL",
+                "name": "Polygon PoS",
+                "address": "0x9858EfFD232B4033E47d90003D41EC34EcaEda94",
+                "xpub": "xpub6DCoCpSuQZB2jawqnGMEPS63ePKWkwWPH4TU45Q7LPXWuNd8TMtVxRrgjtEshuqpK3mdhaWHPFsBngh5GFZaM6si3yZdUsT8ddYM3PwnATt",
+                "path": "m/44'/60'/0'/0/0",
+                "blockchain": "Polygon PoS",
+                "curve": "secp256k1",
+                "decimals": 18,
+                "is_main": 0
+              },
+              {
+                "coin": "ripple",
+                "symbol": "XRP",
+                "name": "XRP Ledger",
+                "address": "rHsMGQEkVNJmpGWs8XUBoTBiAAbwxZN5v3",
+                "xpub": "xpub6CFKyZTfzj3cyeRLUDKwQQ5s1tqTTdVgywKMVkrB2i1taGFbhazkxDzWVsfBHZpv7rg6qpDBGYR5oA8iazEfa44CdQkkknPFHJ7YCzncCS9",
+                "path": "m/44'/144'/0'/0/0",
+                "blockchain": "XRP Ledger",
+                "curve": "secp256k1",
+                "decimals": 6,
+                "is_main": 0
+              },
+              {
+                "coin": "robinhoodchain",
+                "symbol": "ETH",
+                "name": "Robinhood Chain",
+                "address": "0x9858EfFD232B4033E47d90003D41EC34EcaEda94",
+                "xpub": "xpub6DCoCpSuQZB2jawqnGMEPS63ePKWkwWPH4TU45Q7LPXWuNd8TMtVxRrgjtEshuqpK3mdhaWHPFsBngh5GFZaM6si3yZdUsT8ddYM3PwnATt",
+                "path": "m/44'/60'/0'/0/0",
+                "blockchain": "Robinhood Chain",
+                "curve": "secp256k1",
+                "decimals": 18,
+                "is_main": 0
+              },
+              {
+                "coin": "smartchain",
+                "symbol": "BNB",
+                "name": "BNB Smart Chain",
+                "address": "0x9858EfFD232B4033E47d90003D41EC34EcaEda94",
+                "xpub": "xpub6DCoCpSuQZB2jawqnGMEPS63ePKWkwWPH4TU45Q7LPXWuNd8TMtVxRrgjtEshuqpK3mdhaWHPFsBngh5GFZaM6si3yZdUsT8ddYM3PwnATt",
+                "path": "m/44'/60'/0'/0/0",
+                "blockchain": "BNB Smart Chain",
+                "curve": "secp256k1",
+                "decimals": 18,
+                "is_main": 0
+              },
+              {
+                "coin": "solana",
+                "symbol": "SOL",
+                "name": "Solana",
+                "address": "GjJyeC1r2RgkuoCWMyPYkCWSGSGLcz266EaAkLA27AhL",
+                "xpub": "",
+                "path": "m/44'/501'/0'",
+                "blockchain": "Solana",
+                "curve": "ed25519",
+                "decimals": 9,
+                "is_main": 0,
+                "address_index": 0
+              },
+              {
+                "coin": "stellar",
+                "symbol": "XLM",
+                "name": "Stellar",
+                "address": "GB3JDWCQJCWMJ3IILWIGDTQJJC5567PGVEVXSCVPEQOTDN64VJBDQBYX",
+                "xpub": "",
+                "path": "m/44'/148'/0'",
+                "blockchain": "Stellar",
+                "curve": "ed25519",
+                "decimals": 7,
+                "is_main": 0,
+                "address_index": 0
+              },
+              {
+                "coin": "sui",
+                "symbol": "SUI",
+                "name": "Sui",
+                "address": "0x5e93a736d04fbb25737aa40bee40171ef79f65fae833749e3c089fe7cc2161f1",
+                "xpub": "",
+                "path": "m/44'/784'/0'/0'/0'",
+                "blockchain": "Sui",
+                "curve": "ed25519",
+                "decimals": 9,
+                "is_main": 0,
+                "address_index": 0
+              },
+              {
+                "coin": "ton",
+                "symbol": "TON",
+                "name": "TON",
+                "address": "UQAzWZa6nM5mJev91wGc7VCSfBoIsYRqKJpV78N8Add9-RKY",
+                "xpub": "",
+                "path": "m/44'/607'/0'",
+                "blockchain": "TON",
+                "curve": "ed25519",
+                "decimals": 9,
+                "is_main": 0,
+                "address_index": 0
+              },
+              {
+                "coin": "tron",
+                "symbol": "TRX",
+                "name": "TRON",
+                "address": "TUEZSdKsoDHQMeZwihtdoBiN46zxhGWYdH",
+                "xpub": "xpub6D1AabNHCupeiLM65ZR9UStMhJ1vCpyV4XbZdyhMZBiJXALQtmn9p42VTQckoHVn8WNqS7dqnJokZHAHcHGoaQgmv8D45oNUKx6DZMNZBCd",
+                "path": "m/44'/195'/0'/0/0",
+                "blockchain": "TRON",
+                "curve": "secp256k1",
+                "decimals": 6,
+                "is_main": 0
+              }
+            ]
+          },
+          {
+            "config": {
+              "word_count": 12,
+              "passphrase_enabled": true,
+              "imported": true
+            },
+            "wallet_id": "d5217e932a065a0fcbcd127a82ae8b0748113b7091217bda9f9879685c532d11",
+            "wallet_name": "Carteira 2",
+            "accounts": [
+              {
+                "coin": "arbitrum",
+                "symbol": "ETH",
+                "name": "Arbitrum One",
+                "address": "0x58A57ed9d8d624cBD12e2C467D34787555bB1b25",
+                "xpub": "xpub6Bh6Cg7bvjFdW6VEAaZmsyhZh86WdJ9Kr5aqqY5LN7UFLpxTrxsiys213UCu8MAYjcq5JhF7jzZXvruGfWfPbxqsByNNhwWaNQRuhP3JcC3",
+                "path": "m/44'/60'/0'/0/0",
+                "blockchain": "Arbitrum One",
+                "curve": "secp256k1",
+                "decimals": 18,
+                "is_main": 0
+              },
+              {
+                "coin": "avalanchec",
+                "symbol": "AVAX",
+                "name": "Avalanche C-Chain",
+                "address": "0x58A57ed9d8d624cBD12e2C467D34787555bB1b25",
+                "xpub": "xpub6Bh6Cg7bvjFdW6VEAaZmsyhZh86WdJ9Kr5aqqY5LN7UFLpxTrxsiys213UCu8MAYjcq5JhF7jzZXvruGfWfPbxqsByNNhwWaNQRuhP3JcC3",
+                "path": "m/44'/60'/0'/0/0",
+                "blockchain": "Avalanche C-Chain",
+                "curve": "secp256k1",
+                "decimals": 18,
+                "is_main": 0
+              },
+              {
+                "coin": "base",
+                "symbol": "ETH",
+                "name": "Base",
+                "address": "0x58A57ed9d8d624cBD12e2C467D34787555bB1b25",
+                "xpub": "xpub6Bh6Cg7bvjFdW6VEAaZmsyhZh86WdJ9Kr5aqqY5LN7UFLpxTrxsiys213UCu8MAYjcq5JhF7jzZXvruGfWfPbxqsByNNhwWaNQRuhP3JcC3",
+                "path": "m/44'/60'/0'/0/0",
+                "blockchain": "Base",
+                "curve": "secp256k1",
+                "decimals": 18,
+                "is_main": 0
+              },
+              {
+                "coin": "bitcoin",
+                "symbol": "BTC",
+                "name": "Bitcoin",
+                "address": "bc1qgkju4yvvtuz0s8vqn837q396jezu2h8ex7gk98",
+                "xpub": "zpub6s3Buz3fYNRSZk9BFYo9RCMkAvSiknUtRVjuYYCZmDJPrxTwYEW6fBXzYwMdT3DaKaE7TxN1QQwU2tjpNzAYS3S9G2xGEPQcMsrgxQNwh47",
+                "path": "m/84'/0'/0'/0/0",
+                "blockchain": "Bitcoin",
+                "curve": "secp256k1",
+                "decimals": 8,
+                "is_main": 0
+              },
+              {
+                "coin": "bitcoincash",
+                "symbol": "BCH",
+                "name": "Bitcoin Cash",
+                "address": "bitcoincash:qpdtccrxx78kcuc65mceurfwg60gmmqu9cwpjdt25n",
+                "xpub": "xpub6CFQveXZ1UfoeX1R45gtxMq1n33UEYfG1FdrQfNhJ3FyiEZqEZLp5nW474QiDWfVQ6NGk5iPv1h14Vhz2CtzNkGNhimgUucyUtWGdMdofhe",
+                "path": "m/44'/145'/0'/0/0",
+                "blockchain": "Bitcoin Cash",
+                "curve": "secp256k1",
+                "decimals": 8,
+                "is_main": 0
+              },
+              {
+                "coin": "classic",
+                "symbol": "ETC",
+                "name": "Ethereum Classic",
+                "address": "0x80857C0c11b30003Cf74F99Ed4D68DA41C7224aa",
+                "xpub": "xpub6CaC8FuCKmxsBLLxSFArKZTaYAsvQ94oSLkrvLrmnnTnG9B561w7xFCDtrYxbp4TMWE2Bp1h2DB47rQeoS7ECzx9mnBYfhyrBRr8jzoe1Ce",
+                "path": "m/44'/61'/0'/0/0",
+                "blockchain": "Ethereum Classic",
+                "curve": "secp256k1",
+                "decimals": 18,
+                "is_main": 0
+              },
+              {
+                "coin": "dash",
+                "symbol": "DASH",
+                "name": "Dash",
+                "address": "XsKxZ3RiW2ok6v2JtVHiQcbqxQvK85nuAf",
+                "xpub": "xpub6BtGga2dUVSKHcV9ud3G11fnqsV79p7JXvs9UNCNU6J3FTQ1yYHAzW941CTUxmmSjNJuLTaBbYYkVQ3mjUz4stJA76YhRBQReqc6EfYVBt6",
+                "path": "m/44'/5'/0'/0/0",
+                "blockchain": "Dash",
+                "curve": "secp256k1",
+                "decimals": 8,
+                "is_main": 0
+              },
+              {
+                "coin": "doge",
+                "symbol": "DOGE",
+                "name": "Dogecoin",
+                "address": "DMM78DyiwEPzWmykiQQUFcPcUv13YPe2ZK",
+                "xpub": "dgub8rfVKTo1nX3BGbtTykBisoFqAhLqomJAsHhgnMwpEDLbQ8kNpDgfveBKgUvf7LGAMGidJjNWLWVak3nXDvikbhMYKA33hJhbMY5bVTuEGei",
+                "path": "m/44'/3'/0'/0/0",
+                "blockchain": "Dogecoin",
+                "curve": "secp256k1",
+                "decimals": 8,
+                "is_main": 0
+              },
+              {
+                "coin": "ethereum",
+                "symbol": "ETH",
+                "name": "Ethereum",
+                "address": "0x58A57ed9d8d624cBD12e2C467D34787555bB1b25",
+                "xpub": "xpub6Bh6Cg7bvjFdW6VEAaZmsyhZh86WdJ9Kr5aqqY5LN7UFLpxTrxsiys213UCu8MAYjcq5JhF7jzZXvruGfWfPbxqsByNNhwWaNQRuhP3JcC3",
+                "path": "m/44'/60'/0'/0/0",
+                "blockchain": "Ethereum",
+                "curve": "secp256k1",
+                "decimals": 18,
+                "is_main": 0
+              },
+              {
+                "coin": "hyperevm",
+                "symbol": "HYPE",
+                "name": "HyperEVM",
+                "address": "0x58A57ed9d8d624cBD12e2C467D34787555bB1b25",
+                "xpub": "xpub6Bh6Cg7bvjFdW6VEAaZmsyhZh86WdJ9Kr5aqqY5LN7UFLpxTrxsiys213UCu8MAYjcq5JhF7jzZXvruGfWfPbxqsByNNhwWaNQRuhP3JcC3",
+                "path": "m/44'/60'/0'/0/0",
+                "blockchain": "HyperEVM",
+                "curve": "secp256k1",
+                "decimals": 18,
+                "is_main": 0
+              },
+              {
+                "coin": "litecoin",
+                "symbol": "LTC",
+                "name": "Litecoin",
+                "address": "ltc1qg0457yp54vvw74mdkrqhkvp2fyu387x2c8zs43",
+                "xpub": "zpub6qaZLw5VpB7321aYBhiCrxDYUp6j1ZUmXFRcfAHSHfYkLVG68H4nqH1cFDrSgYLaLowdxBQWEjQzPBwfCGvRgKeSfpuEj2xGdMX2iLYdjs2",
+                "path": "m/84'/2'/0'/0/0",
+                "blockchain": "Litecoin",
+                "curve": "secp256k1",
+                "decimals": 8,
+                "is_main": 0
+              },
+              {
+                "coin": "polygon",
+                "symbol": "POL",
+                "name": "Polygon PoS",
+                "address": "0x58A57ed9d8d624cBD12e2C467D34787555bB1b25",
+                "xpub": "xpub6Bh6Cg7bvjFdW6VEAaZmsyhZh86WdJ9Kr5aqqY5LN7UFLpxTrxsiys213UCu8MAYjcq5JhF7jzZXvruGfWfPbxqsByNNhwWaNQRuhP3JcC3",
+                "path": "m/44'/60'/0'/0/0",
+                "blockchain": "Polygon PoS",
+                "curve": "secp256k1",
+                "decimals": 18,
+                "is_main": 0
+              },
+              {
+                "coin": "ripple",
+                "symbol": "XRP",
+                "name": "XRP Ledger",
+                "address": "rpaLPza5oxhJ7V8nFDwPm9F7kmZ16uc8do",
+                "xpub": "xpub6CDAc3p574RwhAa2eb6SfhC9AsgwWcSXCXZYHuu39b2JU5S3HZUd7pAdAEcWeKAZD5oZ4uxFfrNwsoiGQT1xUfZjYWuZSs2UXb3R6zPQtzC",
+                "path": "m/44'/144'/0'/0/0",
+                "blockchain": "XRP Ledger",
+                "curve": "secp256k1",
+                "decimals": 6,
+                "is_main": 0
+              },
+              {
+                "coin": "robinhoodchain",
+                "symbol": "ETH",
+                "name": "Robinhood Chain",
+                "address": "0x58A57ed9d8d624cBD12e2C467D34787555bB1b25",
+                "xpub": "xpub6Bh6Cg7bvjFdW6VEAaZmsyhZh86WdJ9Kr5aqqY5LN7UFLpxTrxsiys213UCu8MAYjcq5JhF7jzZXvruGfWfPbxqsByNNhwWaNQRuhP3JcC3",
+                "path": "m/44'/60'/0'/0/0",
+                "blockchain": "Robinhood Chain",
+                "curve": "secp256k1",
+                "decimals": 18,
+                "is_main": 0
+              },
+              {
+                "coin": "smartchain",
+                "symbol": "BNB",
+                "name": "BNB Smart Chain",
+                "address": "0x58A57ed9d8d624cBD12e2C467D34787555bB1b25",
+                "xpub": "xpub6Bh6Cg7bvjFdW6VEAaZmsyhZh86WdJ9Kr5aqqY5LN7UFLpxTrxsiys213UCu8MAYjcq5JhF7jzZXvruGfWfPbxqsByNNhwWaNQRuhP3JcC3",
+                "path": "m/44'/60'/0'/0/0",
+                "blockchain": "BNB Smart Chain",
+                "curve": "secp256k1",
+                "decimals": 18,
+                "is_main": 0
+              },
+              {
+                "coin": "solana",
+                "symbol": "SOL",
+                "name": "Solana",
+                "address": "6UbR42ttwWY9QBrpkv1ff8bVu6DmFtrny9hej3EFjsuh",
+                "xpub": "",
+                "path": "m/44'/501'/0'",
+                "blockchain": "Solana",
+                "curve": "ed25519",
+                "decimals": 9,
+                "is_main": 0,
+                "address_index": 0
+              },
+              {
+                "coin": "stellar",
+                "symbol": "XLM",
+                "name": "Stellar",
+                "address": "GAFOIIMIXWLSN66RYL32JHCI7AMKWZ3TYYSZTOXSTLPHJWPMZDERMXUO",
+                "xpub": "",
+                "path": "m/44'/148'/0'",
+                "blockchain": "Stellar",
+                "curve": "ed25519",
+                "decimals": 7,
+                "is_main": 0,
+                "address_index": 0
+              },
+              {
+                "coin": "sui",
+                "symbol": "SUI",
+                "name": "Sui",
+                "address": "0x2695f469826971eadfea28e0f8719137482502c44140aead682d41231d60ba92",
+                "xpub": "",
+                "path": "m/44'/784'/0'/0'/0'",
+                "blockchain": "Sui",
+                "curve": "ed25519",
+                "decimals": 9,
+                "is_main": 0,
+                "address_index": 0
+              },
+              {
+                "coin": "ton",
+                "symbol": "TON",
+                "name": "TON",
+                "address": "UQAT3OD7z1oIW9VfKvYxjBe5FHytgET5pnlf88Ed-bCnVflu",
+                "xpub": "",
+                "path": "m/44'/607'/0'",
+                "blockchain": "TON",
+                "curve": "ed25519",
+                "decimals": 9,
+                "is_main": 0,
+                "address_index": 0
+              },
+              {
+                "coin": "tron",
+                "symbol": "TRX",
+                "name": "TRON",
+                "address": "TUJ2YbSDGtCqzRz7quPQidRCMC98jDAPXc",
+                "xpub": "xpub6CCd6xRaRNYQJ9yrjm8WrCbkawvA1W621T26y9JjXGMyq7n4ocuMRoSCMhuwN6hHGkBQxMoQJkSkz7AwoXVzCs4bziNpALtHQBSNQTcVv8w",
+                "path": "m/44'/195'/0'/0/0",
+                "blockchain": "TRON",
+                "curve": "secp256k1",
+                "decimals": 6,
+                "is_main": 0
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "request": {
+        "id": "all-HIDDEN",
+        "method": "get_accounts",
+        "params": {
+          "mode": "HIDDEN",
+          "all_wallets": true,
+          "include_all_addresses": true,
+          "coins": [
+            "arbitrum",
+            "avalanchec",
+            "base",
+            "bitcoin",
+            "bitcoincash",
+            "classic",
+            "dash",
+            "doge",
+            "ethereum",
+            "hyperevm",
+            "litecoin",
+            "polygon",
+            "ripple",
+            "robinhoodchain",
+            "smartchain",
+            "solana",
+            "stellar",
+            "sui",
+            "ton",
+            "tron"
+          ]
+        }
+      },
+      "response": {
+        "id": "all-HIDDEN",
+        "status": "success",
+        "data": [
+          {
+            "config": {
+              "word_count": 12,
+              "passphrase_enabled": true,
+              "imported": true
+            },
+            "wallet_id": "56da8a6b59913c7de07cbbaf5b40f8a53d3dd67378ba0f461265d5176a2601fd",
+            "wallet_name": "Minha wallet",
+            "accounts": [
+              {
+                "coin": "arbitrum",
+                "symbol": "ETH",
+                "name": "Arbitrum One",
+                "address": "0x9c32F71D4DB8Fb9e1A58B0a80dF79935e7256FA6",
+                "xpub": "xpub6CyAvEUSAz99YVGpjogiwm5bWy6WEgzEzh4AnWaC1ZMdEKkdswsotYYLW95BXHfETUoQC5DmpbjcTdkJbLXdnTVf6BcorfWKniZgmu1v5jX",
+                "path": "m/44'/60'/0'/0/0",
+                "blockchain": "Arbitrum One",
+                "curve": "secp256k1",
+                "decimals": 18,
+                "is_main": 1
+              },
+              {
+                "coin": "avalanchec",
+                "symbol": "AVAX",
+                "name": "Avalanche C-Chain",
+                "address": "0x9c32F71D4DB8Fb9e1A58B0a80dF79935e7256FA6",
+                "xpub": "xpub6CyAvEUSAz99YVGpjogiwm5bWy6WEgzEzh4AnWaC1ZMdEKkdswsotYYLW95BXHfETUoQC5DmpbjcTdkJbLXdnTVf6BcorfWKniZgmu1v5jX",
+                "path": "m/44'/60'/0'/0/0",
+                "blockchain": "Avalanche C-Chain",
+                "curve": "secp256k1",
+                "decimals": 18,
+                "is_main": 1
+              },
+              {
+                "coin": "base",
+                "symbol": "ETH",
+                "name": "Base",
+                "address": "0x9c32F71D4DB8Fb9e1A58B0a80dF79935e7256FA6",
+                "xpub": "xpub6CyAvEUSAz99YVGpjogiwm5bWy6WEgzEzh4AnWaC1ZMdEKkdswsotYYLW95BXHfETUoQC5DmpbjcTdkJbLXdnTVf6BcorfWKniZgmu1v5jX",
+                "path": "m/44'/60'/0'/0/0",
+                "blockchain": "Base",
+                "curve": "secp256k1",
+                "decimals": 18,
+                "is_main": 1
+              },
+              {
+                "coin": "bitcoin",
+                "symbol": "BTC",
+                "name": "Bitcoin",
+                "address": "bc1qv5rmq0kt9yz3pm36wvzct7p3x6mtgehjul0feu",
+                "xpub": "zpub6rXDN3yuixCtvAyzKn3uWLDr8qXKEQ2orduEL5AAysdHZmuPVUL2vbMQDEhp8L9hRsgM8J8idDNPdZjrob8R5e7x7UoYXVdfjDG96TLa7La",
+                "path": "m/84'/0'/0'/0/0",
+                "blockchain": "Bitcoin",
+                "curve": "secp256k1",
+                "decimals": 8,
+                "is_main": 1
+              },
+              {
+                "coin": "bitcoincash",
+                "symbol": "BCH",
+                "name": "Bitcoin Cash",
+                "address": "bitcoincash:qpmtwknkc0zfk0j8v6e6p8rye6q48de85stk6qcprd",
+                "xpub": "xpub6DE7kxoaimqfhzJEQJfDmGuS2KSoVWJCsviRtUyZwWmLnPwctNU3dc1iyrNKoGggd4bjCc93MesXJxu74NUwD81g8jvLugVYBe41KD5fMrU",
+                "path": "m/44'/145'/0'/0/0",
+                "blockchain": "Bitcoin Cash",
+                "curve": "secp256k1",
+                "decimals": 8,
+                "is_main": 1
+              },
+              {
+                "coin": "classic",
+                "symbol": "ETC",
+                "name": "Ethereum Classic",
+                "address": "0x4b70Ccc980c6c098d3295E545D03726169960Daa",
+                "xpub": "xpub6DX96SRj5NFFopexCeRQkKtHGSXweLc4ZRPvzBpxMUXK5PsxWuGWfzLqRg2tNuq6BAVYjKEzKmjSBMAthKLXGqF5HTFBpRiXxdamQqBUMPc",
+                "path": "m/44'/61'/0'/0/0",
+                "blockchain": "Ethereum Classic",
+                "curve": "secp256k1",
+                "decimals": 18,
+                "is_main": 1
+              },
+              {
+                "coin": "dash",
+                "symbol": "DASH",
+                "name": "Dash",
+                "address": "Xn9KtWHuvMBuSbpzPFTzYG2bC9Wp2ZZJJG",
+                "xpub": "xpub6DUJ48BwJ7E4o8VZSnCCVUeA2C8B361uqypy2Ck2XYVtV9Sb9TgNEtahp51QCkrdcde3esLvn7BEjRyjBX9JsDQB7fNFVSvnvR4KHEKyGYQ",
+                "path": "m/44'/5'/0'/0/0",
+                "blockchain": "Dash",
+                "curve": "secp256k1",
+                "decimals": 8,
+                "is_main": 1
+              },
+              {
+                "coin": "doge",
+                "symbol": "DOGE",
+                "name": "Dogecoin",
+                "address": "DMn7J63QSZUR9XNxsUJtvsttZVzV9Am4qM",
+                "xpub": "dgub8s3rDipXzSGxH4XrwJA2sfJu83D89FWordpJq7uNJmHL87LAFR5Jm95er4g4Wa64yvNNY193By1pFiGMixHYZvyZiftVabMqWK7r1m4TSFC",
+                "path": "m/44'/3'/0'/0/0",
+                "blockchain": "Dogecoin",
+                "curve": "secp256k1",
+                "decimals": 8,
+                "is_main": 1
+              },
+              {
+                "coin": "ethereum",
+                "symbol": "ETH",
+                "name": "Ethereum",
+                "address": "0x9c32F71D4DB8Fb9e1A58B0a80dF79935e7256FA6",
+                "xpub": "xpub6CyAvEUSAz99YVGpjogiwm5bWy6WEgzEzh4AnWaC1ZMdEKkdswsotYYLW95BXHfETUoQC5DmpbjcTdkJbLXdnTVf6BcorfWKniZgmu1v5jX",
+                "path": "m/44'/60'/0'/0/0",
+                "blockchain": "Ethereum",
+                "curve": "secp256k1",
+                "decimals": 18,
+                "is_main": 1
+              },
+              {
+                "coin": "hyperevm",
+                "symbol": "HYPE",
+                "name": "HyperEVM",
+                "address": "0x9c32F71D4DB8Fb9e1A58B0a80dF79935e7256FA6",
+                "xpub": "xpub6CyAvEUSAz99YVGpjogiwm5bWy6WEgzEzh4AnWaC1ZMdEKkdswsotYYLW95BXHfETUoQC5DmpbjcTdkJbLXdnTVf6BcorfWKniZgmu1v5jX",
+                "path": "m/44'/60'/0'/0/0",
+                "blockchain": "HyperEVM",
+                "curve": "secp256k1",
+                "decimals": 18,
+                "is_main": 1
+              },
+              {
+                "coin": "litecoin",
+                "symbol": "LTC",
+                "name": "Litecoin",
+                "address": "ltc1qmnmdtk82gfvv4khc3w9lrugre34cj65kamf9tz",
+                "xpub": "zpub6rr97kSLwhTthFHsLGYbVzRMT4pfPXPaKKXX2eMcme5a4HsGe378GZj8reb37deZFrXpy6Lv93C43kDrZq9ZTFEz5PCxNASPXJxpUjqKAYZ",
+                "path": "m/84'/2'/0'/0/0",
+                "blockchain": "Litecoin",
+                "curve": "secp256k1",
+                "decimals": 8,
+                "is_main": 1
+              },
+              {
+                "coin": "polygon",
+                "symbol": "POL",
+                "name": "Polygon PoS",
+                "address": "0x9c32F71D4DB8Fb9e1A58B0a80dF79935e7256FA6",
+                "xpub": "xpub6CyAvEUSAz99YVGpjogiwm5bWy6WEgzEzh4AnWaC1ZMdEKkdswsotYYLW95BXHfETUoQC5DmpbjcTdkJbLXdnTVf6BcorfWKniZgmu1v5jX",
+                "path": "m/44'/60'/0'/0/0",
+                "blockchain": "Polygon PoS",
+                "curve": "secp256k1",
+                "decimals": 18,
+                "is_main": 1
+              },
+              {
+                "coin": "ripple",
+                "symbol": "XRP",
+                "name": "XRP Ledger",
+                "address": "rfBUajJsZotvNwZz5yUk7GNqcWehxc2YAs",
+                "xpub": "xpub6CTm72Hnk5h5NyGMBizfi7JW2ikaqs2jJc1eh37kUYKfJMAgWAFZKfUQZE37Y5fXkSAjLnETgPMWp1Qee2PyXnqt7AGHYxzDXaMFaezwzbf",
+                "path": "m/44'/144'/0'/0/0",
+                "blockchain": "XRP Ledger",
+                "curve": "secp256k1",
+                "decimals": 6,
+                "is_main": 1
+              },
+              {
+                "coin": "robinhoodchain",
+                "symbol": "ETH",
+                "name": "Robinhood Chain",
+                "address": "0x9c32F71D4DB8Fb9e1A58B0a80dF79935e7256FA6",
+                "xpub": "xpub6CyAvEUSAz99YVGpjogiwm5bWy6WEgzEzh4AnWaC1ZMdEKkdswsotYYLW95BXHfETUoQC5DmpbjcTdkJbLXdnTVf6BcorfWKniZgmu1v5jX",
+                "path": "m/44'/60'/0'/0/0",
+                "blockchain": "Robinhood Chain",
+                "curve": "secp256k1",
+                "decimals": 18,
+                "is_main": 1
+              },
+              {
+                "coin": "smartchain",
+                "symbol": "BNB",
+                "name": "BNB Smart Chain",
+                "address": "0x9c32F71D4DB8Fb9e1A58B0a80dF79935e7256FA6",
+                "xpub": "xpub6CyAvEUSAz99YVGpjogiwm5bWy6WEgzEzh4AnWaC1ZMdEKkdswsotYYLW95BXHfETUoQC5DmpbjcTdkJbLXdnTVf6BcorfWKniZgmu1v5jX",
+                "path": "m/44'/60'/0'/0/0",
+                "blockchain": "BNB Smart Chain",
+                "curve": "secp256k1",
+                "decimals": 18,
+                "is_main": 1
+              },
+              {
+                "coin": "solana",
+                "symbol": "SOL",
+                "name": "Solana",
+                "address": "9md2ZNCYw622wTzgHn71kh9T6mFSoB4USnA4QdvY8oM4",
+                "xpub": "",
+                "path": "m/44'/501'/0'",
+                "blockchain": "Solana",
+                "curve": "ed25519",
+                "decimals": 9,
+                "is_main": 1,
+                "address_index": 0
+              },
+              {
+                "coin": "stellar",
+                "symbol": "XLM",
+                "name": "Stellar",
+                "address": "GBXISQLLM6OGWWZU7SCNF2GOJSQLHJU3I76P23J6IDSJGKEEGM2AJYG5",
+                "xpub": "",
+                "path": "m/44'/148'/0'",
+                "blockchain": "Stellar",
+                "curve": "ed25519",
+                "decimals": 7,
+                "is_main": 1,
+                "address_index": 0
+              },
+              {
+                "coin": "sui",
+                "symbol": "SUI",
+                "name": "Sui",
+                "address": "0x85614bb760547968e07addd47db5e08c7bebf1e2ed248ff37d9d0ed01b395383",
+                "xpub": "",
+                "path": "m/44'/784'/0'/0'/0'",
+                "blockchain": "Sui",
+                "curve": "ed25519",
+                "decimals": 9,
+                "is_main": 1,
+                "address_index": 0
+              },
+              {
+                "coin": "ton",
+                "symbol": "TON",
+                "name": "TON",
+                "address": "UQC8Yak9NGmaRtppVSD6FAU8ZKvTRIVBLJ18UP9mc2vwdLUS",
+                "xpub": "",
+                "path": "m/44'/607'/0'",
+                "blockchain": "TON",
+                "curve": "ed25519",
+                "decimals": 9,
+                "is_main": 1,
+                "address_index": 0
+              },
+              {
+                "coin": "tron",
+                "symbol": "TRX",
+                "name": "TRON",
+                "address": "TAyDUYP5rcf56xFwrg8cU1qQwvnWpkeapM",
+                "xpub": "xpub6CmkrrscV3jsY7uKtMA12q3p4szVZiFPi5st5NWJqG5TDqtasZysWAVX3LmwYenemBGwp9YaKQ9jQ2PBKGTmVLWdrByyudsS8H1EX1XfDhU",
+                "path": "m/44'/195'/0'/0/0",
+                "blockchain": "TRON",
+                "curve": "secp256k1",
+                "decimals": 6,
+                "is_main": 1
+              }
+            ]
+          },
+          {
+            "config": {
+              "word_count": 12,
+              "passphrase_enabled": true,
+              "imported": true
+            },
+            "wallet_id": "d5217e932a065a0fcbcd127a82ae8b0748113b7091217bda9f9879685c532d11",
+            "wallet_name": "Carteira 2",
+            "accounts": [
+              {
+                "coin": "arbitrum",
+                "symbol": "ETH",
+                "name": "Arbitrum One",
+                "address": "0x3aa24C3903C6cbf6245483604361333Fd7Ec5e8e",
+                "xpub": "xpub6D3TMoVv1fQgL7JcQdxGPz1wpobohcGEAQ2cueVofu9iFCQtokNM1jDQNqZY3Kwy2gNZvB2Nx8Dem738rFRH341Y8Qj6LzVArK9yZDVYVju",
+                "path": "m/44'/60'/0'/0/0",
+                "blockchain": "Arbitrum One",
+                "curve": "secp256k1",
+                "decimals": 18,
+                "is_main": 1
+              },
+              {
+                "coin": "avalanchec",
+                "symbol": "AVAX",
+                "name": "Avalanche C-Chain",
+                "address": "0x3aa24C3903C6cbf6245483604361333Fd7Ec5e8e",
+                "xpub": "xpub6D3TMoVv1fQgL7JcQdxGPz1wpobohcGEAQ2cueVofu9iFCQtokNM1jDQNqZY3Kwy2gNZvB2Nx8Dem738rFRH341Y8Qj6LzVArK9yZDVYVju",
+                "path": "m/44'/60'/0'/0/0",
+                "blockchain": "Avalanche C-Chain",
+                "curve": "secp256k1",
+                "decimals": 18,
+                "is_main": 1
+              },
+              {
+                "coin": "base",
+                "symbol": "ETH",
+                "name": "Base",
+                "address": "0x3aa24C3903C6cbf6245483604361333Fd7Ec5e8e",
+                "xpub": "xpub6D3TMoVv1fQgL7JcQdxGPz1wpobohcGEAQ2cueVofu9iFCQtokNM1jDQNqZY3Kwy2gNZvB2Nx8Dem738rFRH341Y8Qj6LzVArK9yZDVYVju",
+                "path": "m/44'/60'/0'/0/0",
+                "blockchain": "Base",
+                "curve": "secp256k1",
+                "decimals": 18,
+                "is_main": 1
+              },
+              {
+                "coin": "bitcoin",
+                "symbol": "BTC",
+                "name": "Bitcoin",
+                "address": "bc1qw027lsaz9la3h3fmq75a2lmrvht7q8qyr908nr",
+                "xpub": "zpub6qj9qmrmbrNgv3f1u9of6KQihb6Mkspb8SLfBoUjcdzjF8H7KqYpeRGByDM9788JcxBmKJsjNE9Rp6T5eg3jP9xGTzwruF2qMUK14yhofN3",
+                "path": "m/84'/0'/0'/0/0",
+                "blockchain": "Bitcoin",
+                "curve": "secp256k1",
+                "decimals": 8,
+                "is_main": 1
+              },
+              {
+                "coin": "bitcoincash",
+                "symbol": "BCH",
+                "name": "Bitcoin Cash",
+                "address": "bitcoincash:qqeg0577d0q4y63ccm09u33npvu77qt455t55ydfqs",
+                "xpub": "xpub6DJTvpoRJhWstPyTC5ydWffCtrWzWBdFu2hYJxYpk9TPVJwqHj7F4SJFB5z4n4PnebXQiUumG8G53E52vruERvKe6ZZCJVdLjL4sTAKfFmm",
+                "path": "m/44'/145'/0'/0/0",
+                "blockchain": "Bitcoin Cash",
+                "curve": "secp256k1",
+                "decimals": 8,
+                "is_main": 1
+              },
+              {
+                "coin": "classic",
+                "symbol": "ETC",
+                "name": "Ethereum Classic",
+                "address": "0x6EefD3f044a3265B8C1C3267b32c40f24C8cbA2F",
+                "xpub": "xpub6DRbBFGopkJAcoV46Xw1694yhyURCC1VRxSpafYdGvNW3MmCUe8P3qdajCma7kPddBPYF3FXA6SLnQW4BSnmkMZgjah5KyK7oMV9sj2me6j",
+                "path": "m/44'/61'/0'/0/0",
+                "blockchain": "Ethereum Classic",
+                "curve": "secp256k1",
+                "decimals": 18,
+                "is_main": 1
+              },
+              {
+                "coin": "dash",
+                "symbol": "DASH",
+                "name": "Dash",
+                "address": "Xwf4zUbc1RLQHQRxyFtGW46WvHoB7jQewh",
+                "xpub": "xpub6Ce3X2wuyJFKidLHZ5799fh84HfUBMdUZVNm2NihBUyNjDDcYGG3gD6uK9GvaNaF7K2Zc1m8xdm8jdEPGSfB5MpfJ793pWkKVdZQTR4bQTf",
+                "path": "m/44'/5'/0'/0/0",
+                "blockchain": "Dash",
+                "curve": "secp256k1",
+                "decimals": 8,
+                "is_main": 1
+              },
+              {
+                "coin": "doge",
+                "symbol": "DOGE",
+                "name": "Dogecoin",
+                "address": "D7xYjrjvdnuMNb2wPnGCFHuHTXdYYN3eoV",
+                "xpub": "dgub8rkP2wanpK9saXwEAEWTDgsRUhMfp5h9yieoBzGyTW7QYcuDXZoTKnkNjZZizm38gzycpaQYEe8Vx89GKzMbVA2SdzKaESooPuBdfptmffx",
+                "path": "m/44'/3'/0'/0/0",
+                "blockchain": "Dogecoin",
+                "curve": "secp256k1",
+                "decimals": 8,
+                "is_main": 1
+              },
+              {
+                "coin": "ethereum",
+                "symbol": "ETH",
+                "name": "Ethereum",
+                "address": "0x3aa24C3903C6cbf6245483604361333Fd7Ec5e8e",
+                "xpub": "xpub6D3TMoVv1fQgL7JcQdxGPz1wpobohcGEAQ2cueVofu9iFCQtokNM1jDQNqZY3Kwy2gNZvB2Nx8Dem738rFRH341Y8Qj6LzVArK9yZDVYVju",
+                "path": "m/44'/60'/0'/0/0",
+                "blockchain": "Ethereum",
+                "curve": "secp256k1",
+                "decimals": 18,
+                "is_main": 1
+              },
+              {
+                "coin": "hyperevm",
+                "symbol": "HYPE",
+                "name": "HyperEVM",
+                "address": "0x3aa24C3903C6cbf6245483604361333Fd7Ec5e8e",
+                "xpub": "xpub6D3TMoVv1fQgL7JcQdxGPz1wpobohcGEAQ2cueVofu9iFCQtokNM1jDQNqZY3Kwy2gNZvB2Nx8Dem738rFRH341Y8Qj6LzVArK9yZDVYVju",
+                "path": "m/44'/60'/0'/0/0",
+                "blockchain": "HyperEVM",
+                "curve": "secp256k1",
+                "decimals": 18,
+                "is_main": 1
+              },
+              {
+                "coin": "litecoin",
+                "symbol": "LTC",
+                "name": "Litecoin",
+                "address": "ltc1q2w90f4lxzt7tqkkl8rvxz4wywujlwj8m67uvve",
+                "xpub": "zpub6qXkqKf4DRtM9BJCKwW9DgepFXwvVPYAxSkJf3unKPBisHSjjWBaQTjToNjZqJhGcon1L4FGvKo1V1dPVzia6BdtzzggVjpaUtg9r2iV2Q2",
+                "path": "m/84'/2'/0'/0/0",
+                "blockchain": "Litecoin",
+                "curve": "secp256k1",
+                "decimals": 8,
+                "is_main": 1
+              },
+              {
+                "coin": "polygon",
+                "symbol": "POL",
+                "name": "Polygon PoS",
+                "address": "0x3aa24C3903C6cbf6245483604361333Fd7Ec5e8e",
+                "xpub": "xpub6D3TMoVv1fQgL7JcQdxGPz1wpobohcGEAQ2cueVofu9iFCQtokNM1jDQNqZY3Kwy2gNZvB2Nx8Dem738rFRH341Y8Qj6LzVArK9yZDVYVju",
+                "path": "m/44'/60'/0'/0/0",
+                "blockchain": "Polygon PoS",
+                "curve": "secp256k1",
+                "decimals": 18,
+                "is_main": 1
+              },
+              {
+                "coin": "ripple",
+                "symbol": "XRP",
+                "name": "XRP Ledger",
+                "address": "rGrwHg1AGcdYLfYQ1P4ZYiWgcfnP5UXNan",
+                "xpub": "xpub6CFiqPCU46dhohi6ZZvHBv3vuQN6aYNXgJ3qoGC4QfzNfVYQ6PE5PNi7NFmTK8Tmze8KWSfkDPD9hXewjxmRfsfueKVaWpTjWUNxGZGYjMY",
+                "path": "m/44'/144'/0'/0/0",
+                "blockchain": "XRP Ledger",
+                "curve": "secp256k1",
+                "decimals": 6,
+                "is_main": 1
+              },
+              {
+                "coin": "robinhoodchain",
+                "symbol": "ETH",
+                "name": "Robinhood Chain",
+                "address": "0x3aa24C3903C6cbf6245483604361333Fd7Ec5e8e",
+                "xpub": "xpub6D3TMoVv1fQgL7JcQdxGPz1wpobohcGEAQ2cueVofu9iFCQtokNM1jDQNqZY3Kwy2gNZvB2Nx8Dem738rFRH341Y8Qj6LzVArK9yZDVYVju",
+                "path": "m/44'/60'/0'/0/0",
+                "blockchain": "Robinhood Chain",
+                "curve": "secp256k1",
+                "decimals": 18,
+                "is_main": 1
+              },
+              {
+                "coin": "smartchain",
+                "symbol": "BNB",
+                "name": "BNB Smart Chain",
+                "address": "0x3aa24C3903C6cbf6245483604361333Fd7Ec5e8e",
+                "xpub": "xpub6D3TMoVv1fQgL7JcQdxGPz1wpobohcGEAQ2cueVofu9iFCQtokNM1jDQNqZY3Kwy2gNZvB2Nx8Dem738rFRH341Y8Qj6LzVArK9yZDVYVju",
+                "path": "m/44'/60'/0'/0/0",
+                "blockchain": "BNB Smart Chain",
+                "curve": "secp256k1",
+                "decimals": 18,
+                "is_main": 1
+              },
+              {
+                "coin": "solana",
+                "symbol": "SOL",
+                "name": "Solana",
+                "address": "F6jY5hRDvQrAa7LkRZNKUiFoc6K7f7zToNJEmBapXh9M",
+                "xpub": "",
+                "path": "m/44'/501'/0'",
+                "blockchain": "Solana",
+                "curve": "ed25519",
+                "decimals": 9,
+                "is_main": 1,
+                "address_index": 0
+              },
+              {
+                "coin": "stellar",
+                "symbol": "XLM",
+                "name": "Stellar",
+                "address": "GDBABCRYZQXBZTMJ4MQ42T7EHKPVQJA3ZNWKUB46QIHIONOOLW5DJRY4",
+                "xpub": "",
+                "path": "m/44'/148'/0'",
+                "blockchain": "Stellar",
+                "curve": "ed25519",
+                "decimals": 7,
+                "is_main": 1,
+                "address_index": 0
+              },
+              {
+                "coin": "sui",
+                "symbol": "SUI",
+                "name": "Sui",
+                "address": "0xff2938681f0ad54dfd354df59b9433484d3489fbe2846cfcb8837161633357fd",
+                "xpub": "",
+                "path": "m/44'/784'/0'/0'/0'",
+                "blockchain": "Sui",
+                "curve": "ed25519",
+                "decimals": 9,
+                "is_main": 1,
+                "address_index": 0
+              },
+              {
+                "coin": "ton",
+                "symbol": "TON",
+                "name": "TON",
+                "address": "UQDgbWnJJGa25LaIrCgu_LOg1SA9ZQ0jLB8Yd8UVLJPJrLXD",
+                "xpub": "",
+                "path": "m/44'/607'/0'",
+                "blockchain": "TON",
+                "curve": "ed25519",
+                "decimals": 9,
+                "is_main": 1,
+                "address_index": 0
+              },
+              {
+                "coin": "tron",
+                "symbol": "TRX",
+                "name": "TRON",
+                "address": "TYQTvCMCMG7hkM4R9GB7gfkbgXtYByN39F",
+                "xpub": "xpub6BvgxjnuTy495orp3JJXPvM4wuVmJqbQ9fazZvv7kccTTv7EyJEhEu8aQho5yqN9hSK48HBoDCVtNSjmwEaGBejxvqiK6zon52aNaZAXrXk",
+                "path": "m/44'/195'/0'/0/0",
+                "blockchain": "TRON",
+                "curve": "secp256k1",
+                "decimals": 6,
+                "is_main": 1
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

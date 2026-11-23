@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="error_public_data_invalid">Invalid public wallet data. Synchronize again with your BJJ-Cold-Wallet.</string>
+    <string name="error_public_data_incomplete">The hardware did not export all supported networks. Update the firmware and synchronize again.</string>
+    <string name="error_public_data_sync_required">No saved public data is available for this address. Synchronize with the hardware.</string>
+    <string name="error_public_data_changed">The public wallet data has changed. Existing accounts were preserved; check that you connected the correct hardware and wallet.</string>
+    <string name="error_address_index_exhausted">This account has reached its address derivation limit.</string>
+    <string name="error_bluetooth_permission">Allow Bluetooth access to synchronize your hardware.</string>
+    <string name="error_bluetooth_unavailable">Bluetooth is unavailable. Enable Bluetooth and check the app permissions.</string>
+    <string name="hardware_select_title">Select your BJJ-Cold-Wallet</string>
+    <string name="hardware_select_help">Choose your device and confirm the pairing code on your phone and hardware. Public data for all supported networks will be saved separately for the regular wallet and the passphrase wallet.</string>
+    <string name="offline_accounts_hint">Add coins to the list. If a public address has not been saved yet, synchronize it later to query balances, receive and send.</string>
+    <string name="common_add_account_action">Add</string>
+    <string name="account_already_added">Already added</string>
+    <string name="account_public_data_pending">Public address not synchronized yet. The coin can already be displayed in Accounts.</string>
+    <string name="account_sync_public_data">Synchronize public addresses</string>
+    <string name="common_remove_account_action">Remove</string>
+    <string name="account_api_unsupported">Coin or token not supported by the selected API.</string>
+</resources>

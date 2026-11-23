@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="me_sync_cold_wallet">Sincronizza con il portafoglio a freddo</string>
+    <string name="me_sync_reset_caption">Reimposta l’app e riavvia la sincronizzazione</string>
+    <string name="me_sync_reset_title">Reimpostare l’app per sincronizzare?</string>
+    <string name="me_sync_reset_warning">La reimpostazione eliminerà i portafogli salvati, i nomi, gli indirizzi, i saldi in cache, la cronologia, le transazioni in sospeso, il PIN dell’app e le impostazioni. La sincronizzazione verrà quindi riavviata. Eliminare le registrazioni in sospeso non annulla le transazioni già inviate. Il portafoglio a freddo e i fondi sulla blockchain saranno conservati.</string>
+    <string name="me_sync_reset_confirm">Reimposta e sincronizza</string>
+</resources>

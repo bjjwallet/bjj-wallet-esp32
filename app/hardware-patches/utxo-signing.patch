@@ -1,0 +1,1020 @@
+--- a/core/api_handler.py
++++ b/core/api_handler.py
+@@ -87,7 +87,7 @@
+                 print(f"[API] Raw Request: {json.dumps(log_req)}")
+             except Exception as e:
+                 # If redaction fails (rare case), fallback to printing raw data or error message
+-                print(f"[API] Raw Request (Log Error): {raw_data}")
++                print("[API] Request log unavailable")
+ 
+         except json.JSONDecodeError:
+             print("[API] JSON Parse Error")
+@@ -156,6 +156,13 @@
+             if not coin:
+                 self._send_error(req_id, self._t("unsupported_coin"))
+                 return
++
++            if asset_obj.coin in {"bitcoin", "litecoin", "doge", "dash", "bitcoincash"}:
++                try:
++                    self.ctx.svc.validate_utxo_plan(asset_obj, tx_obj, mode)
++                except Exception:
++                    self._send_error(req_id, "INVALID_UTXO_PLAN")
++                    return
+ 
+             # 3.1 Security Check: ed25519 wallet address validation
+             if coin.get('curve') == 'ed25519':
+--- a/core/models.py
++++ b/core/models.py
+@@ -128,6 +128,11 @@
+     data: Optional[str] = None
+ 
+     # UTXO model fields
++    utxoVersion: Optional[int] = None
++    fee: Optional[str] = None
++    changeAmount: Optional[str] = None
++    recipientScript: Optional[str] = None
++    changeScript: Optional[str] = None
+     byteFee: Optional[str] = None
+     utxos: List[dict] = field(default_factory=list)  # Keep list[dict] structure to pass to worker
+     changeAddress: Optional[str] = None
+--- a/core/service.py
++++ b/core/service.py
+@@ -390,6 +390,7 @@
+             "name": config.BLE_DEVICE_NAME,
+             "version": "1.0",
+             "is_initialized": self.wallet_exists(),
++            "utxo_signing_version": 1,
+             "hardware": config.PRODUCT_NAME,
+             "screen": "SSD1306",
+             "CPU": Utils.get_cpu_temp()
+@@ -452,6 +453,30 @@
+         finally:
+             if payload:
+                 del payload
++
++    def validate_utxo_plan(self, asset: Asset, tx: TxData, mode: str):
++        """Validate the immutable public plan before displaying any approval UI."""
++        from dataclasses import asdict
++        import re
++        paths = {"bitcoin": ("84", "0", "BTC"), "litecoin": ("84", "2", "LTC"),
++                 "doge": ("44", "3", "DOGE"), "dash": ("44", "5", "DASH"),
++                 "bitcoincash": ("44", "145", "BCH")}
++        if asset.coin not in paths or mode not in ("STANDARD", "HIDDEN"):
++            raise ValueError("Unsupported UTXO network or mode")
++        purpose, coin_type, symbol = paths[asset.coin]
++        prefix = f"m/{purpose}'/{coin_type}'/0'/0/"
++        suffix = asset.derivation_path[len(prefix):]
++        if (not asset.derivation_path.startswith(prefix) or not re.fullmatch(r"0|[1-9][0-9]{0,9}", suffix)
++                or int(suffix) >= 0x80000000 or asset.symbol != symbol or asset.decimals != 8 or asset.contract
++                or tx.changeAddress != asset.address or tx.utxoVersion != 1):
++            raise ValueError("Invalid UTXO account")
++        payload = json.dumps({"command": "validate_utxo", "asset": asdict(asset), "txData": asdict(tx)})
++        if len(payload.encode()) > 180000:
++            raise ValueError("UTXO plan too large")
++        result = subprocess.run(['node', config.SCRIPT_PATH], input=payload, capture_output=True,
++                                text=True, encoding='utf-8', timeout=45)
++        if result.returncode != 0 or json.loads(result.stdout).get("status") != "success":
++            raise ValueError("Invalid UTXO plan")
+ 
+     def sign_transaction(self, asset: Asset, tx: TxData, mode: str, password: str) -> dict:
+         """
+--- a/esp32/CMakeLists.txt
++++ b/esp32/CMakeLists.txt
+@@ -62,10 +62,13 @@
+     if(AIRLOCK_SANITIZERS AND CMAKE_C_COMPILER_ID MATCHES "Clang|GNU")
+         target_compile_options(airlock_trezor PRIVATE -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer)
+     endif()
+-    add_library(airlock_crypto core/crypto_mbedtls.cpp core/crypto_selftest.cpp core/crypto_cooperative.cpp core/hd_wallet.cpp core/network_accounts.cpp core/trezor_random.cpp core/hd_selftest.cpp core/setup_vault.cpp core/setup_public.cpp)
++    add_library(airlock_crypto core/utxo_signer.cpp core/crypto_mbedtls.cpp core/crypto_selftest.cpp core/crypto_cooperative.cpp core/hd_wallet.cpp core/network_accounts.cpp core/trezor_random.cpp core/hd_selftest.cpp core/setup_vault.cpp core/setup_public.cpp)
+     target_link_libraries(airlock_crypto PUBLIC airlock_core mbedcrypto PRIVATE airlock_trezor)
+     target_compile_options(airlock_crypto PRIVATE -Wall -Wextra -Wpedantic -Werror)
+     if(BUILD_TESTING)
++        add_executable(airlock_utxo_tests tests/utxo_signer_tests.cpp)
++        target_link_libraries(airlock_utxo_tests PRIVATE airlock_crypto airlock_trezor)
++        add_test(NAME utxo_signer COMMAND airlock_utxo_tests)
+         find_package(OpenSSL 3 REQUIRED)
+         add_executable(airlock_crypto_tests tests/crypto_tests.cpp)
+         target_link_libraries(airlock_crypto_tests PRIVATE airlock_crypto OpenSSL::Crypto)
+@@ -89,6 +92,9 @@
+     endif()
+ endif()
+ if(BUILD_TESTING)
++    add_executable(airlock_utxo_rpc_tests tests/utxo_rpc_tests.cpp)
++    target_link_libraries(airlock_utxo_rpc_tests PRIVATE airlock_core)
++    add_test(NAME utxo_rpc COMMAND airlock_utxo_rpc_tests)
+     add_executable(airlock_core_tests tests/core_tests.cpp)
+     target_link_libraries(airlock_core_tests PRIVATE airlock_core)
+     target_compile_options(airlock_core_tests PRIVATE -Wall -Wextra -Wpedantic -Werror)
+--- a/esp32/core/public_wallet_rpc.cpp
++++ b/esp32/core/public_wallet_rpc.cpp
+@@ -2,6 +2,7 @@
+ #include "core/public_wallet_rpc.hpp"
+ #include "core/json_memory.hpp"
+ #include "core/rules.hpp"
++#include "core/secret.hpp"
+ #include "cJSON.h"
+ #include <algorithm>
+ #include <cmath>
+@@ -198,7 +199,7 @@
+     if (!text(method, 64) || (params && !unique_fields(params))) return response(id, nullptr, "INVALID_PARAMS");
+     const std::string_view name(method->valuestring);
+     PublicWalletQuery query;
+-    if (name != "get_accounts" && name != "get_device_info" && name != "verify_pin")
++    if (name != "get_accounts" && name != "get_device_info" && name != "verify_pin" && name != "sign_tx")
+         return response(id, nullptr, "METHOD_NOT_FOUND");
+     if (name == "get_accounts" && !read_query(params, query))
+         return response(id, nullptr, "INVALID_PARAMS");
+@@ -229,7 +230,18 @@
+                  {"platform", &device.platform}, {"hardware", &device.hardware}, {"screen", &device.screen}, {"CPU", &device.cpu}})
+             if (!field.second->empty() && (!valid_text(*field.second) ||
+                 !cJSON_AddStringToObject(info.get(), field.first, field.second->c_str()))) return {};
++        if (service_.utxo_signing_supported() && !cJSON_AddNumberToObject(info.get(), "utxo_signing_version", 1)) return {};
+         return response(id, info.release());
++    }
++    if (name == "sign_tx") {
++        if (!service_.utxo_signing_supported()) return response(id,nullptr,"UNSUPPORTED_SIGNING");
++        Text payload(cJSON_PrintUnformatted(params),json_free);
++        if (!payload) return response(id,nullptr,"INVALID_PARAMS");
++        std::string error;
++        auto encoded=transport_.request_signature(payload.get(),connection_,error);
++        wipe(payload.get(),std::strlen(payload.get()));
++        if (!authorized() || epoch!=service_.public_authorization_epoch()) return response(id,nullptr,"DEVICE_APPROVAL_REQUIRED");
++        return encoded.empty() ? response(id,nullptr,error.empty()?"SIGNING_FAILED":error.c_str()) : response(id,cJSON_CreateString(encoded.c_str()));
+     }
+     if (pin_required && !pin_verified_) return response(id, nullptr, "PIN_REQUIRED");
+     if (stale_) return response(id, nullptr, "WALLET_GENERATION_CHANGED");
+--- a/esp32/core/public_wallet_service.hpp
++++ b/esp32/core/public_wallet_service.hpp
+@@ -31,10 +31,13 @@
+ // then orders cached addresses by index. Failure must discard the whole result.
+ bool validate_public_accounts(const PublicWalletQuery& query, std::vector<PublicAccount>& accounts);
+ 
+-// Only public data crosses this boundary. A backend resolves its own active
+-// generation; neither the request nor the caller can supply a database path.
++// Public exports and hardware-confirmed signing share link authorization.
++// A backend resolves its own wallet generation; no seed/private key leaves it.
+ class PublicWalletService {
+ public:
++    virtual bool utxo_signing_supported() const { return false; }
++    virtual bool review_signing(std::string_view, std::vector<std::pair<std::string,std::string>>&) { return false; }
++    virtual bool sign_transaction(std::string_view, std::string_view, std::string&) { return false; }
+     virtual ~PublicWalletService() = default;
+     // Approval is supplied by the local device UI, never by request parameters.
+     virtual std::uint64_t public_authorization_epoch() const { return 0; }
+@@ -56,6 +59,7 @@
+ // disconnect/failure. Defaults deliberately deny all traffic.
+ class PublicWalletTransport {
+ public:
++    virtual std::string request_signature(std::string_view, std::uint64_t, std::string& error) { error="UNSUPPORTED_SIGNING"; return {}; }
+     virtual ~PublicWalletTransport() = default;
+     virtual PublicPeer public_peer() const { return {}; }
+     // Refresh public telemetry for every request; static adapters use the fallback.
+--- /dev/null
++++ b/esp32/core/utxo_signer.cpp
+@@ -0,0 +1,170 @@
++// SPDX-License-Identifier: GPL-3.0-or-later
++#include "core/utxo_signer.hpp"
++#include "core/json_memory.hpp"
++#include "core/trezor_random_scope.hpp"
++#include "cJSON.h"
++extern "C" {
++#include <TrezorCrypto/base58.h>
++#include <TrezorCrypto/ecdsa.h>
++#include <TrezorCrypto/secp256k1.h>
++}
++#include <algorithm>
++#include <cmath>
++#include <memory>
++#include <set>
++
++namespace airlock {
++namespace {
++using Bytes = std::vector<std::uint8_t>;
++using Json = std::unique_ptr<cJSON, decltype(&cJSON_Delete)>;
++constexpr std::uint64_t limit = 9000000000000000ULL;
++std::string text(const cJSON* o, const char* key) {
++    const auto* v=cJSON_GetObjectItemCaseSensitive(o,key);
++    return cJSON_IsString(v) && v->valuestring ? v->valuestring : "";
++}
++bool unique(const cJSON* o) {
++    if (cJSON_IsObject(o)) {
++        std::set<std::string> keys;
++        for (auto* p=o->child;p;p=p->next) if (!p->string || !keys.insert(p->string).second || !unique(p)) return false;
++    } else if (cJSON_IsArray(o)) for (auto* p=o->child;p;p=p->next) if (!unique(p)) return false;
++    return true;
++}
++bool number(std::string_view s,std::uint64_t& n) {
++    n=0; if (s.empty() || s.size()>16 || (s.size()>1 && s[0]=='0')) return false;
++    for (auto c:s) { if (c<'0'||c>'9'||n>(limit-(c-'0'))/10) return false; n=n*10+c-'0'; }
++    return true;
++}
++bool hex(std::string_view s,Bytes& out) {
++    out.clear(); if (s.empty() || s.size()%2 || s.size()>200000) return false;
++    auto digit=[](char c) { return c>='0'&&c<='9'?c-'0':c>='a'&&c<='f'?c-'a'+10:-1; };
++    for (std::size_t i=0;i<s.size();i+=2) { int a=digit(s[i]),b=digit(s[i+1]); if(a<0||b<0)return false;out.push_back((a<<4)|b); }
++    return true;
++}
++std::string hex(const Bytes& b) {
++    constexpr char alphabet[]="0123456789abcdef";std::string s;
++    for(auto v:b){s+=alphabet[v>>4];s+=alphabet[v&15];}return s;
++}
++void le(Bytes& b,std::uint64_t n,unsigned size){for(unsigned i=0;i<size;++i){b.push_back(n&255);n>>=8;}}
++void var(Bytes& b,std::uint64_t n){if(n<253)b.push_back(n);else if(n<=65535){b.push_back(253);le(b,n,2);}else{b.push_back(254);le(b,n,4);}}
++void append(Bytes& out,const Bytes& in){out.insert(out.end(),in.begin(),in.end());}
++void script(Bytes& out,const Bytes& s){var(out,s.size());append(out,s);}
++Bytes hash(const Bytes& b){std::array<std::uint8_t,32>a{},d{};if(!crypto::sha256({b.data(),b.size()},a)||!crypto::sha256({a.data(),a.size()},d))return {};return {d.begin(),d.end()};}
++struct Reader {
++    const Bytes& b;std::size_t pos=0;bool ok=true;
++    std::uint64_t read(unsigned n){if(n>8||pos+n>b.size()){ok=false;return 0;}std::uint64_t v=0;for(unsigned i=0;i<n;++i)v|=std::uint64_t(b[pos++])<<(8*i);return v;}
++    std::uint64_t compact(){auto v=read(1);if(v<253)return v;auto n=read(v==253?2:v==254?4:8);if((v==253&&n<253)||(v==254&&n<=65535)||(v==255&&n<=0xffffffff))ok=false;return n;}
++    Bytes take(std::uint64_t n){if(n>b.size()-pos){ok=false;return {};}Bytes v(b.begin()+pos,b.begin()+pos+n);pos+=n;return v;}
++    Bytes script(){auto n=compact();if(n>100000){ok=false;return {};}return take(n);}
++};
++bool funding(const Bytes& raw,std::uint64_t wanted, const Bytes& expected,std::uint64_t amount,Bytes& txhash){
++    Reader r{raw};Bytes stripped;auto version=r.read(4);le(stripped,version,4);
++    bool witness=false;
++    if(r.pos<raw.size()&&raw[r.pos]==0){r.read(1);if(r.read(1)!=1)return false;witness=true;}
++    auto count=r.compact();if(!r.ok||count==0||count>10000)return false;var(stripped,count);
++    for(std::uint64_t i=0;i<count&&r.ok;++i){append(stripped,r.take(36));script(stripped,r.script());le(stripped,r.read(4),4);}
++    auto outputs=r.compact();if(!r.ok||outputs==0||outputs>10000||wanted>=outputs)return false;var(stripped,outputs);bool found=false;
++    for(std::uint64_t i=0;i<outputs&&r.ok;++i){auto value=r.read(8);auto s=r.script();le(stripped,value,8);script(stripped,s);if(i==wanted)found=value==amount&&s==expected;}
++    if(witness)for(std::uint64_t i=0;i<count&&r.ok;++i){auto n=r.compact();if(n>10000)return false;for(std::uint64_t j=0;j<n&&r.ok;++j)r.script();}
++    le(stripped,r.read(4),4);if(!r.ok||r.pos!=raw.size()||!found)return false;txhash=hash(stripped);return txhash.size()==32;
++}
++std::string lower(std::string s){for(auto&c:s)if(c>='A'&&c<='Z')c+=32;return s;}
++bool pkh(const Bytes&s){return s.size()==25&&s[0]==0x76&&s[1]==0xa9&&s[2]==20&&s[23]==0x88&&s[24]==0xac;}
++bool wpkh(const Bytes&s){return s.size()==22&&s[0]==0&&s[1]==20;}
++Bytes pkh_script(const Bytes& keyhash){Bytes s{0x76,0xa9,20};append(s,keyhash);s.push_back(0x88);s.push_back(0xac);return s;}
++std::vector<unsigned> groups(const Bytes& b){std::vector<unsigned>d;unsigned acc=0,bits=0;for(auto v:b){acc=(acc<<8)|v;bits+=8;while(bits>=5){bits-=5;d.push_back((acc>>bits)&31);}}if(bits)d.push_back((acc<<(5-bits))&31);return d;}
++std::string witness_address(std::string hrp,const Bytes&s){
++    constexpr char alpha[]="qpzry9x8gf2tvdw0s3jn54khce6mua7l";std::vector<unsigned>d{unsigned(s[0]==0?0:s[0]-0x50)};
++    auto g=groups(Bytes(s.begin()+2,s.end()));d.insert(d.end(),g.begin(),g.end());
++    std::uint32_t c=1;const std::uint32_t gen[]={0x3b6a57b2,0x26508e6d,0x1ea119fa,0x3d4233dd,0x2a1462b3};
++    auto feed=[&](unsigned v){auto top=c>>25;c=((c&0x1ffffff)<<5)^v;for(unsigned i=0;i<5;++i)if((top>>i)&1)c^=gen[i];};
++    for(auto v:hrp) { feed(v>>5); }
++    feed(0);for(auto v:hrp)feed(v&31);for(auto v:d)feed(v);for(unsigned i=0;i<6;++i)feed(0);c^=s[0]==0?1:0x2bc830a3;
++    std::string out=hrp+"1";for(auto v:d)out+=alpha[v];for(int i=5;i>=0;--i)out+=alpha[(c>>(i*5))&31];return out;
++}
++std::string cash_address(const Bytes&s){
++    Bytes b{std::uint8_t(pkh(s)?0:8)};b.insert(b.end(),s.begin()+(pkh(s)?3:2),s.begin()+(pkh(s)?23:22));auto d=groups(b);
++    std::uint64_t c=1;const std::uint64_t gen[]={0x98f2bc8e61,0x79b76d99e2,0xf33e5fb3c4,0xae2eabe2a8,0x1e4f43e470};
++    auto feed=[&](unsigned v){auto top=c>>35;c=((c&0x07ffffffffULL)<<5)^v;for(unsigned i=0;i<5;++i)if((top>>i)&1)c^=gen[i];};
++    for(char v:std::string("bitcoincash")) { feed(v&31); }
++    feed(0);for(auto v:d)feed(v);for(unsigned i=0;i<8;++i)feed(0);c^=1;
++    constexpr char a[]="qpzry9x8gf2tvdw0s3jn54khce6mua7l";std::string out="bitcoincash:";for(auto v:d)out+=a[v];for(int i=7;i>=0;--i)out+=a[(c>>(i*5))&31];return out;
++}
++bool address(std::string coin,std::string a,const Bytes&s){
++    const bool ispkh=pkh(s),issh=s.size()==23&&s[0]==0xa9&&s[1]==20&&s[22]==0x87;
++    if(coin=="bitcoincash") {if(!ispkh&&!issh)return false;if(a!=lower(a)&&std::any_of(a.begin(),a.end(),[](char c){return c>='a'&&c<='z';}))return false;a=lower(a);if(a.find(':')==std::string::npos)a="bitcoincash:"+a;return a==cash_address(s);}
++    if(ispkh||issh){unsigned v=coin=="bitcoin"?(ispkh?0:5):coin=="litecoin"?(ispkh?48:50):coin=="doge"?(ispkh?30:22):(ispkh?76:16);Bytes data{std::uint8_t(v)};data.insert(data.end(),s.begin()+(ispkh?3:2),s.begin()+(ispkh?23:22));char out[128]{};if(!base58_encode_check(data.data(),data.size(),HASHER_SHA2D,out,sizeof(out)))return false;return a==out;}
++    if((coin!="bitcoin"&&coin!="litecoin")||s.size()<4||s[1]!=s.size()-2)return false;
++    if(!((s[0]==0&&(s[1]==20||s[1]==32))||(s[0]==0x51&&s[1]==32)))return false;
++    if(a!=lower(a)&&std::any_of(a.begin(),a.end(),[](char c){return c>='a'&&c<='z';}))return false;
++    return lower(a)==witness_address(coin=="bitcoin"?"bc":"ltc",s);
++}
++struct Input {Bytes txhash,script;std::uint64_t index=0,amount=0;};
++struct Plan {UtxoReview review;std::vector<Input> inputs;Bytes recipient,change;std::uint64_t value=0,change_value=0,fee=0;};
++bool parse(std::string_view payload,Plan&p){
++    if(payload.size()>180000)return false;
++    Json root(parse_json(payload),cJSON_Delete);if(!root||!unique(root.get()))return false;
++    auto* a=cJSON_GetObjectItemCaseSensitive(root.get(),"asset");auto*t=cJSON_GetObjectItemCaseSensitive(root.get(),"txData");
++    if(!cJSON_IsObject(a)||!cJSON_IsObject(t))return false;
++    auto&v=p.review;v.coin=text(a,"coin");v.address=text(a,"address");v.recipient=text(t,"toAddress");v.path=text(a,"derivation_path");v.mode=text(root.get(),"mode");
++    const char* path=nullptr;
++    if(v.coin=="bitcoin"){v.network=Network::Bitcoin;v.symbol="BTC";path="m/84'/0'/0'/0/";}
++    else if(v.coin=="litecoin"){v.network=Network::Litecoin;v.symbol="LTC";path="m/84'/2'/0'/0/";}
++    else if(v.coin=="doge"){v.network=Network::Dogecoin;v.symbol="DOGE";path="m/44'/3'/0'/0/";}
++    else if(v.coin=="dash"){v.network=Network::Dash;v.symbol="DASH";path="m/44'/5'/0'/0/";}
++    else if(v.coin=="bitcoincash"){v.network=Network::BitcoinCash;v.symbol="BCH";path="m/44'/145'/0'/0/";}else return false;
++    std::uint64_t index=0;const std::string prefix(path);if(v.path.substr(0,prefix.size())!=prefix||!number(v.path.substr(prefix.size()),index)||index>=0x80000000)return false;
++    if(v.mode!="STANDARD"&&v.mode!="HIDDEN")return false;
++    auto*version=cJSON_GetObjectItemCaseSensitive(t,"utxoVersion");auto*decimals=cJSON_GetObjectItemCaseSensitive(a,"decimals");
++    if(!cJSON_IsNumber(version)||version->valuedouble!=1||!cJSON_IsNumber(decimals)||decimals->valuedouble!=8||text(a,"symbol")!=v.symbol||!text(a,"contract").empty())return false;
++    if(!hex(text(t,"recipientScript"),p.recipient)||!hex(text(t,"changeScript"),p.change)||!address(v.coin,v.recipient,p.recipient)||!address(v.coin,v.address,p.change)||text(t,"changeAddress")!=v.address)return false;
++    if(!pkh(p.change)&&!wpkh(p.change))return false;
++    if((v.coin=="bitcoin"||v.coin=="litecoin")!=wpkh(p.change))return false;
++    v.amount=text(t,"amount");v.fee=text(t,"fee");v.change=text(t,"changeAmount");std::uint64_t rate=0;
++    if(!number(v.amount,p.value)||!number(v.fee,p.fee)||!number(v.change,p.change_value)||!number(text(t,"byteFee"),rate)||rate==0||rate>10000000||p.fee==0)return false;
++    const auto dust=v.coin=="doge"?1000000U:v.coin=="litecoin"?1000U:546U;
++    if(p.value<dust||(p.change_value&&p.change_value<dust)||p.recipient==p.change)return false;
++    auto*rows=cJSON_GetObjectItemCaseSensitive(t,"utxos");if(!cJSON_IsArray(rows)||cJSON_GetArraySize(rows)<1||cJSON_GetArraySize(rows)>16)return false;
++    std::uint64_t total=0;std::set<std::string>seen;
++    for(auto*row=rows->child;row;row=row->next){Input in;Bytes raw,txid;
++        auto* ix=cJSON_GetObjectItemCaseSensitive(row,"index");auto*seq=cJSON_GetObjectItemCaseSensitive(row,"sequence");
++        if(!cJSON_IsNumber(ix)||ix->valuedouble<0||ix->valuedouble>0xffffffffULL||std::floor(ix->valuedouble)!=ix->valuedouble||!cJSON_IsNumber(seq)||seq->valuedouble!=0xffffffffULL)return false;
++        in.index=static_cast<std::uint64_t>(ix->valuedouble);
++        if(!number(text(row,"amount"),in.amount)||in.amount==0||!hex(text(row,"script"),in.script)||in.script!=p.change||!hex(text(row,"txHash"),txid)||txid.size()!=32||!hex(text(row,"previousTransaction"),raw))return false;
++        if(!seen.insert(text(row,"txHash")+":"+std::to_string(in.index)).second||!funding(raw,in.index,in.script,in.amount,in.txhash))return false;
++        std::reverse(txid.begin(),txid.end());if(in.txhash!=txid||total>limit-in.amount)return false;total+=in.amount;p.inputs.push_back(std::move(in));
++    }
++    if(p.value>total||p.change_value>total-p.value||p.fee!=total-p.value-p.change_value)return false;
++    return true;
++}
++void outpoint(Bytes& b,const Input&i){append(b,i.txhash);le(b,i.index,4);}
++Bytes outputs(const Plan&p){Bytes b;le(b,p.value,8);script(b,p.recipient);if(p.change_value){le(b,p.change_value,8);script(b,p.change);}return b;}
++Bytes transaction(const Plan&p,const std::vector<Bytes>&scripts,const std::vector<Bytes>&signatures,const Bytes&pub){
++    const bool witness=!signatures.empty()&&wpkh(p.change);Bytes b;le(b,2,4);if(witness){b.push_back(0);b.push_back(1);}var(b,p.inputs.size());
++    for(std::size_t i=0;i<p.inputs.size();++i){outpoint(b,p.inputs[i]);script(b,scripts[i]);le(b,0xffffffff,4);}var(b,p.change_value?2:1);append(b,outputs(p));
++    if(witness) { for(auto&sig:signatures){var(b,2);script(b,sig);script(b,pub);} }
++    le(b,0,4);return b;
++}
++}
++bool review_utxo(std::string_view payload,UtxoReview&review){Plan p;if(!parse(payload,p))return false;review=std::move(p.review);return true;}
++bool sign_utxo(std::string_view payload,crypto::Bytes seed,crypto::RandomSource&random,std::string&encoded){
++    crypto::TrezorRandomScope binding(random);
++    encoded.clear();Plan p;if(!parse(payload,p))return false;crypto::DerivedKey key;
++    if(crypto::derive_key(seed,crypto::Curve::Secp256k1,p.review.path,random,key)!=crypto::HdError::None)return false;
++    AccountPublicKey public_key{key.public_key,key.public_key_size};std::string source;
++    if(encode_receiving_address(p.review.network,public_key,source)!=crypto::HdError::None||source!=p.review.address)return false;
++    Bytes pub(key.public_key.begin(),key.public_key.begin()+key.public_key_size);
++    Bytes pkhash(32);hasher_Raw(HASHER_SHA2_RIPEMD,pub.data(),pub.size(),pkhash.data());
++    // hasher_Raw SHA2_RIPEMD writes 20 bytes.
++    pkhash.resize(20);auto code=pkh_script(pkhash);std::vector<Bytes>scripts(p.inputs.size()),signatures;const auto type=p.review.coin=="bitcoincash"?0x41U:1U;
++    for(std::size_t i=0;i<p.inputs.size();++i){Bytes digest;
++        if(wpkh(p.change)||type==0x41){Bytes points,sequences;for(auto&in:p.inputs){outpoint(points,in);le(sequences,0xffffffff,4);}Bytes pre;le(pre,2,4);append(pre,hash(points));append(pre,hash(sequences));outpoint(pre,p.inputs[i]);script(pre,code);le(pre,p.inputs[i].amount,8);le(pre,0xffffffff,4);append(pre,hash(outputs(p)));le(pre,0,4);le(pre,type,4);digest=hash(pre);}
++        else{std::vector<Bytes>unsigned_scripts(p.inputs.size());unsigned_scripts[i]=code;auto pre=transaction(p,unsigned_scripts,{},{});le(pre,type,4);digest=hash(pre);}
++        if(digest.size()!=32)return false;
++        crypto::Sensitive<64>signature;
++        if(ecdsa_sign_digest(&secp256k1,key.private_key.value.data(),digest.data(),signature.value.data(),nullptr,nullptr)!=0)return false;
++        std::array<std::uint8_t,72>der{};auto size=ecdsa_sig_to_der(signature.value.data(),der.data());if(size<8||size>72)return false;Bytes sig(der.begin(),der.begin()+size);sig.push_back(type);signatures.push_back(sig);
++        if(!wpkh(p.change)){scripts[i].push_back(sig.size());append(scripts[i],sig);scripts[i].push_back(pub.size());append(scripts[i],pub);}
++    }
++    encoded=hex(transaction(p,scripts,signatures,pub));return !encoded.empty();
++}
++}
+--- /dev/null
++++ b/esp32/core/utxo_signer.hpp
+@@ -0,0 +1,15 @@
++// SPDX-License-Identifier: GPL-3.0-or-later
++#pragma once
++#include "core/network_accounts.hpp"
++#include <vector>
++namespace airlock {
++struct UtxoReview {
++    std::string coin, symbol, address, recipient, path, amount, fee, change, mode;
++    Network network = Network::Bitcoin;
++};
++// Validates mainnet addresses, funding transactions, exact outputs and fee before review.
++// No seed or password is accepted by the validator.
++bool review_utxo(std::string_view payload, UtxoReview& review);
++// Only the local confirmation lifecycle may call this with a recovered device seed.
++bool sign_utxo(std::string_view payload, crypto::Bytes seed, crypto::RandomSource& random, std::string& encoded);
++}
+--- /dev/null
++++ b/esp32/docs/UTXO_SIGNING.md
+@@ -0,0 +1,28 @@
++# Assinatura e envio UTXO
++
++O app e ambos os firmwares usam `sign_tx` com `txData.utxoVersion = 1`. `get_device_info` anuncia `utxo_signing_version = 1`. A assinatura só é pedida após a consulta desse recurso; firmware anterior não pode assinar silenciosamente usando outro contrato.
++
++## Plano público
++
++`asset` identifica a moeda do hardware (`doge` para DOGE), endereço e caminho público, símbolo e oito casas decimais. `mode` escolhe STANDARD/HIDDEN. `password` é a senha de pagamento, enviada pelo BLE autenticado, nunca uma chave privada.
++
++`txData` contém `amount`, `fee`, `changeAmount`, `byteFee`, `toAddress`, `changeAddress`, `recipientScript`, `changeScript`, `useMax: false` e `utxos`. Quantias são strings inteiras em unidades mínimas. Cada entrada contém `txHash` na ordem do explorador, `index`, `amount`, `script`, `sequence: 4294967295` e `previousTransaction` em hex.
++
++O destino e o troco são decodificados para a mainnet da moeda. Os valores/scripts de cada entrada devem coincidir com a transação de origem autenticada pelo txid. Não se aceitam entradas duplicadas, caminhos de outra moeda, troco para terceiros ou diferença entre soma de entradas e valor + taxa + troco. O troco retorna ao endereço remetente. O hardware mostra valor, taxa, troco e endereços antes da confirmação local.
++
++BTC e LTC usam os caminhos BIP84 existentes e entradas P2WPKH. DOGE, DASH e BCH usam BIP44/P2PKH. BCH assina com SIGHASH_ALL | FORKID (0x41); os demais usam SIGHASH_ALL (0x01). Saídas podem ser P2PKH/P2SH ou witness válidos da rede. Entradas Taproot, tokens/CashTokens, inscrições e fundos de múltiplos endereços não são suportados. O plano é limitado a 16 entradas e 160.000 caracteres hex de transações de origem; uma origem individual tem no máximo 200.000 caracteres. Não há envio máximo automático.
++
++## Persistência e recuperação
++
++O app valida a transação assinada e seu hash antes do POST, verificando entradas, saídas, taxa e assinaturas. Os bytes e o plano são salvos no cofre como `PendingSubmission` antes da primeira chamada de transmissão. A retomada não altera o plano nem solicita nova assinatura.
++
++Cada tentativa consulta o hash primeiro. HTTP 404 é ausência; erros de consulta bloqueiam o POST. Uma resposta incerta mantém a pendência até uma consulta ou retomada manual. A resposta do broadcast deve coincidir com o hash local. Nenhum servidor é selecionado automaticamente. Uma resposta encontrada distingue SUBMITTED de CONFIRMED.
++
++## Implementações e validação
++
++- ESP32: `core/utxo_signer.cpp`, TrezorCrypto fixado no projeto e SHA-256 do backend existente. O worker BLE solicita revisão à UI FirstLogin. Só a confirmação física cria o trabalho de assinatura. A recuperação da seed usa a sessão local desbloqueada e a senha de pagamento, com a carteira e o modo selecionados. Credenciais e chaves usam os buffers existentes que apagam seu conteúdo. A assinatura não bloqueia o loop da UI.
++- Original Python/Wallet Core: `core/service.py` valida o plano público antes da revisão. `js/UtxoPlan.js` autentica as origens e verifica as saídas assinadas. BitcoinSigner/BitcoinCashSigner fornecem `TransactionPlan` explícito, evitando uma nova seleção de entradas ou taxa.
++- Os testes cruzados usam uma frase BIP39 pública de referência e transações sintéticas, sem fundos. São dez cenários por motor: as cinco moedas, com e sem troco. O verificador criptográfico do app aceita os resultados de ambos.
++- Testes do app cobrem o contrato BLE, firmware incompatível, rejeição, alteração de valores/troco, rede errada, falhas de consulta, diário anterior ao HTTP e retomada após reinício sem nova assinatura ou débito duplicado.
++
++Comandos: `./gradlew :shared:testDebugUnitTest --tests 'pub.airlock.Utxo*' :shared:compileKotlinIosSimulatorArm64`; no hardware, `node js/utxo-plan.test.js` após instalar as dependências existentes; CTest `utxo_signer` com `AIRLOCK_MBEDTLS_DIR` configurado. O build ESP-IDF valida também o caminho BLE/UI da placa. Instalação, confirmação em dispositivo físico e transmissão real não fazem parte dos testes locais.
+--- a/esp32/firmware/main/main.cpp
++++ b/esp32/firmware/main/main.cpp
+@@ -107,7 +107,9 @@
+     std::size_t selected_wallet=0;
+     for (;;) {
+         const auto delay = lv_timer_handler();
++        application->poll_signing(bluetooth,esp_timer_get_time() / 1000);
+         application->tick(esp_timer_get_time() / 1000);
++        service.signing_session(application->signing_session());
+         const auto peer=bluetooth.public_peer();
+         service.connection_state(peer.connected ? peer.connection : 0);
+         if (!peer.connected) {
+--- a/esp32/idf_components/airlock_ble/CMakeLists.txt
++++ b/esp32/idf_components/airlock_ble/CMakeLists.txt
+@@ -1,5 +1,5 @@
+ idf_component_register(SRCS "nimble_device.cpp"
+     INCLUDE_DIRS "include" "../.."
+-    PRIV_REQUIRES airlock_core bt nvs_flash esp_timer)
++    PRIV_REQUIRES airlock_core json bt nvs_flash esp_timer)
+ target_compile_features(${COMPONENT_LIB} PUBLIC cxx_std_17)
+ target_compile_options(${COMPONENT_LIB} PRIVATE -Wall -Wextra -Werror -fno-exceptions -fno-rtti)
+--- a/esp32/idf_components/airlock_ble/include/airlock_ble.hpp
++++ b/esp32/idf_components/airlock_ble/include/airlock_ble.hpp
+@@ -29,11 +29,11 @@
+     bool pairing_active(std::uint64_t token) const override;
+     void respond_pairing(std::uint64_t token, bool accept) override;
+     bool connected(std::uint64_t connection) const override;
+-    // Signing is deliberately not implemented by the public synchronization service.
+-    std::optional<TransactionPrompt> poll_transaction() override { return std::nullopt; }
+-    bool sign(SigningJob) override { return false; }
+-    std::optional<SigningResult> poll_signature() override { return std::nullopt; }
+-    void respond_transaction(SignOutcome, std::string_view) override {}
++    std::string request_signature(std::string_view, std::uint64_t, std::string&) override;
++    std::optional<TransactionPrompt> poll_transaction() override;
++    bool sign(SigningJob) override;
++    std::optional<SigningResult> poll_signature() override;
++    void respond_transaction(SignOutcome, std::string_view) override;
+ private:
+     struct State;
+     std::unique_ptr<State> state_;
+--- a/esp32/idf_components/airlock_ble/nimble_device.cpp
++++ b/esp32/idf_components/airlock_ble/nimble_device.cpp
+@@ -3,6 +3,9 @@
+ #include "core/public_wallet_rpc.hpp"
+ #include "core/secret.hpp"
+ #include "core/rules.hpp"
++#include "core/json_memory.hpp"
++#include "cJSON.h"
++#include <cstring>
+ #include "esp_timer.h"
+ #include "esp_log.h"
+ #include "nvs_flash.h"
+@@ -81,6 +84,11 @@
+     ble_npl_event pairing_event{};
+     std::uint64_t decision_token = 0, decision_connection = 0;
+     bool decision_accept = false, decision_pending = false;
++    std::optional<TransactionPrompt> transaction_prompt;
++    std::optional<SigningJob> signing_job;
++    std::optional<SigningResult> signing_result;
++    std::optional<SignOutcome> signing_outcome;
++    std::uint64_t signing_connection=0;
+     QueueHandle_t queue = nullptr;
+     SemaphoreHandle_t tx_done = nullptr, worker_done = nullptr;
+     TaskHandle_t worker_task = nullptr;
+@@ -470,6 +478,69 @@
+     if (state_->temperature) info.cpu=state_->temperature();
+     return info;
+ }
++std::string NimbleDeviceService::request_signature(std::string_view payload,std::uint64_t connection,std::string& error) {
++    auto& state=*state_; std::vector<std::pair<std::string,std::string>> fields;
++    error="INVALID_UTXO_PLAN";
++    if (!state.wallet.review_signing(payload,fields)) return {};
++    using Json=std::unique_ptr<cJSON,decltype(&cJSON_Delete)>;
++    Json object(parse_json(payload),cJSON_Delete);if(!object)return {};
++    auto* password=cJSON_GetObjectItemCaseSensitive(object.get(),"password");
++    if(!cJSON_IsString(password)||!password->valuestring||std::strlen(password->valuestring)>1024)return {};
++    TransactionPrompt prompt;prompt.request.connection=connection;
++    if(!prompt.request.password.assign(password->valuestring))return {};
++    wipe(password->valuestring,std::strlen(password->valuestring));cJSON_DeleteItemFromObjectCaseSensitive(object.get(),"password");
++    char* raw=cJSON_PrintUnformatted(object.get());if(!raw)return {};
++    const bool assigned=prompt.request.payload.assign(raw,180000);json_free(raw);if(!assigned)return {};
++    for(auto&field:fields)prompt.request.review.push_back({field.first,field.second});
++    {
++        std::lock_guard<std::mutex> lock(state.mutex);
++        if(state.signing_connection){error="SIGNING_BUSY";return {};}
++        state.signing_connection=connection;state.transaction_prompt.emplace(std::move(prompt));
++    }
++    const auto started=now_ms(), epoch=state.wallet.public_authorization_epoch();
++    std::string encoded;
++    while(now_ms()-started<180000&&!state.stopping) {
++        const auto peer=state.current();
++        if(!peer.connected||peer.connection!=connection||!peer.authenticated||!peer.encrypted||epoch!=state.wallet.public_authorization_epoch()){error="DEVICE_DISCONNECTED";break;}
++        std::optional<SigningJob> job;
++        {
++            std::lock_guard<std::mutex>lock(state.mutex);
++            if(state.signing_outcome){
++                auto outcome=std::move(*state.signing_outcome);state.signing_outcome.reset();
++                if(outcome.connection==connection&&outcome.reason==SignEnd::Completed)encoded=std::move(outcome.encoded);
++                else error="TRANSACTION_REJECTED";
++                break;
++            }
++            if(state.signing_job){job.emplace(std::move(*state.signing_job));state.signing_job.reset();}
++        }
++        if(job){
++            SigningResult result{job->token,connection,{},{},false};
++            result.success=state.wallet.sign_transaction(job->request.payload.view(),job->request.password.view(),result.encoded);
++            job.reset();if(!result.success)result.error="SIGNING_FAILED";
++            std::lock_guard<std::mutex>lock(state.mutex);state.signing_result.emplace(std::move(result));
++        } else vTaskDelay(pdMS_TO_TICKS(20));
++    }
++    {
++        std::lock_guard<std::mutex>lock(state.mutex);
++        state.transaction_prompt.reset();state.signing_job.reset();state.signing_result.reset();state.signing_outcome.reset();state.signing_connection=0;
++    }
++    return encoded;
++}
++std::optional<TransactionPrompt> NimbleDeviceService::poll_transaction(){
++    std::lock_guard<std::mutex>lock(state_->mutex);auto value=std::move(state_->transaction_prompt);state_->transaction_prompt.reset();return value;
++}
++bool NimbleDeviceService::sign(SigningJob job){
++    std::lock_guard<std::mutex>lock(state_->mutex);
++    if(state_->signing_connection!=job.request.connection||state_->signing_job)return false;
++    state_->signing_job.emplace(std::move(job));return true;
++}
++std::optional<SigningResult> NimbleDeviceService::poll_signature(){
++    std::lock_guard<std::mutex>lock(state_->mutex);auto value=std::move(state_->signing_result);state_->signing_result.reset();return value;
++}
++void NimbleDeviceService::respond_transaction(SignOutcome outcome,std::string_view){
++    std::lock_guard<std::mutex>lock(state_->mutex);
++    if(state_->signing_connection==outcome.connection)state_->signing_outcome.emplace(std::move(outcome));
++}
+ bool NimbleDeviceService::notify_public(std::string_view fragment) {
+     auto& state = *state_;
+     const auto expected = state.current();
+--- a/esp32/idf_components/airlock_crypto/CMakeLists.txt
++++ b/esp32/idf_components/airlock_crypto/CMakeLists.txt
+@@ -1,5 +1,5 @@
+-idf_component_register(SRCS "../../core/crypto_mbedtls.cpp" "../../core/crypto_selftest.cpp"
++idf_component_register(SRCS "../../core/utxo_signer.cpp" "../../core/crypto_mbedtls.cpp" "../../core/crypto_selftest.cpp"
+     "../../core/crypto_cooperative.cpp" "../../core/hd_wallet.cpp" "../../core/network_accounts.cpp" "../../core/trezor_random.cpp" "../../core/hd_selftest.cpp" "../../core/setup_vault.cpp" "../../core/setup_public.cpp" "random.cpp"
+-    INCLUDE_DIRS "../.." "include" REQUIRES mbedtls PRIV_REQUIRES airlock_core airlock_trezor bootloader_support esp_hw_support bt)
++    INCLUDE_DIRS "../.." "include" REQUIRES mbedtls PRIV_REQUIRES airlock_core airlock_trezor json bootloader_support esp_hw_support bt)
+ target_compile_features(${COMPONENT_LIB} PUBLIC cxx_std_17)
+ target_compile_options(${COMPONENT_LIB} PRIVATE -Wall -Wextra -Werror -fno-exceptions -fno-rtti)
+--- a/esp32/idf_components/airlock_setup/include/airlock_setup.hpp
++++ b/esp32/idf_components/airlock_setup/include/airlock_setup.hpp
+@@ -36,6 +36,10 @@
+     PublicWalletError verify_public_pin(std::uint64_t connection, std::string_view pin, std::uint64_t now, bool& accepted) override;
+     PublicWalletError public_generation(std::string& generation) const override;
+     PublicWalletError public_accounts(std::string_view generation, const PublicWalletQuery& query, std::vector<PublicAccount>& rows) const override;
++    bool utxo_signing_supported() const override { return true; }
++    bool review_signing(std::string_view, std::vector<std::pair<std::string,std::string>>&) override;
++    bool sign_transaction(std::string_view, std::string_view, std::string&) override;
++    void signing_session(const UnlockSession* session);
+     VaultError inspect(WalletProfile& profile) override;
+     StoreRead load_language(std::string& code) override;
+     bool save_language(std::string_view code) override;
+@@ -48,6 +52,8 @@
+     std::atomic<std::size_t> active_wallet_{0};
+     SetupStore& store_;
+     mutable SetupVault vault_;
++    crypto::RandomSource& signing_random_;
++    std::unique_ptr<UnlockSession> signing_session_;
+     SemaphoreHandle_t mutex_ = nullptr;
+     bool busy_ = false;
+     std::unique_ptr<SetupJob> pending_;
+--- a/esp32/idf_components/airlock_setup/setup.cpp
++++ b/esp32/idf_components/airlock_setup/setup.cpp
+@@ -1,5 +1,6 @@
+ // SPDX-License-Identifier: GPL-3.0-or-later
+ #include "airlock_setup.hpp"
++#include "core/utxo_signer.hpp"
+ #include "core/device_name.hpp"
+ #include "nvs.h"
+ #include "nvs_flash.h"
+@@ -160,7 +161,7 @@
+     nvs_close(handle); return ok;
+ }
+ BoardSetupService::BoardSetupService(SetupStore& store, crypto::RandomSource& random)
+-    : store_(store), vault_(store, random, [] { vTaskDelay(pdMS_TO_TICKS(1)); }) {
++    : store_(store), vault_(store, random, [] { vTaskDelay(pdMS_TO_TICKS(1)); }), signing_random_(random) {
+     mutex_ = xSemaphoreCreateMutex();
+ }
+ namespace {
+@@ -225,6 +226,47 @@
+         if (!validate_public_accounts(query,rows)) { rows.clear(); error=PublicWalletError::Unavailable; }
+     }
+     xSemaphoreGive(mutex_); return error;
++}
++void BoardSetupService::signing_session(const UnlockSession* session) {
++    if (!mutex_ || xSemaphoreTake(mutex_,0)!=pdTRUE) return;
++    if (!session || !session->authorized) signing_session_.reset();
++    else {
++        if (!signing_session_) signing_session_=std::make_unique<UnlockSession>();
++        signing_session_->pin_key.value=session->pin_key.value; signing_session_->authorized=true;
++    }
++    xSemaphoreGive(mutex_);
++}
++bool BoardSetupService::review_signing(std::string_view payload, std::vector<std::pair<std::string,std::string>>& fields) {
++    UtxoReview review; if (!review_utxo(payload,review)) return false;
++    auto display=[&](std::string value) {
++        if(value.size()<9)value.insert(0,9-value.size(),'0');
++        value.insert(value.size()-8,1,'.');while(value.back()=='0')value.pop_back();
++        if(value.back()=='.')value.pop_back();
++        return value+" "+review.symbol;
++    };
++    fields={{"Rede",review.coin},{"Destino",review.recipient},{"Valor",display(review.amount)},
++        {"Taxa",display(review.fee)},{"Troco",display(review.change)},{"Endereço de troco",review.address}};
++    return true;
++}
++bool BoardSetupService::sign_transaction(std::string_view payload,std::string_view phrase,std::string& encoded) {
++    if (!mutex_) return false;
++    auto session=std::make_unique<UnlockSession>();
++    xSemaphoreTake(mutex_,portMAX_DELAY);
++    if (busy_ || !signing_session_ || !signing_session_->authorized) { xSemaphoreGive(mutex_); return false; }
++    session->pin_key.value=signing_session_->pin_key.value;session->authorized=true;
++    const auto index=active_wallet_.load(); const auto epoch=authorization_epoch_.load();
++    busy_=true; xSemaphoreGive(mutex_);
++    UtxoReview review; crypto::Entropy entropy; Credential pass,words; crypto::Seed seed;
++    bool ok=review_utxo(payload,review) && vault_.recover(*session,phrase,entropy,pass,index)==VaultError::None &&
++        crypto::mnemonic_from_entropy({entropy.data.value.data(),entropy.size},words)==crypto::HdError::None &&
++        crypto::wallet_core_seed(words.view(),review.mode=="HIDDEN"?pass.view():std::string_view{},seed)==crypto::HdError::None &&
++        sign_utxo(payload,{seed.value.data(),seed.value.size()},signing_random_,encoded);
++    session.reset();
++    xSemaphoreTake(mutex_,portMAX_DELAY);busy_=false;
++    ok=ok && signing_session_ && signing_session_->authorized && epoch==authorization_epoch_ && index==active_wallet_;
++    xSemaphoreGive(mutex_);
++    if (!ok) encoded.clear();
++    return ok;
+ }
+ VaultError BoardSetupService::inspect(WalletProfile& profile) {
+     if (!mutex_) return VaultError::Storage;
+--- a/esp32/tests/public_wallet_tests.cpp
++++ b/esp32/tests/public_wallet_tests.cpp
+@@ -205,7 +205,7 @@
+     auto literal_escape = exchange(rpc, transport, R"({"id":"\\u0000","method":"get_device_info","params":{}})");
+     CHECK(text(literal_escape.get(), "id") == "\\u0000");
+     auto unsupported = exchange(rpc, transport, R"({"id":1,"method":"sign_tx","params":{}})");
+-    error_is(unsupported, "METHOD_NOT_FOUND");
++    error_is(unsupported, "UNSUPPORTED_SIGNING");
+     // Response fragmentation also works with the minimum ATT MTU.
+     transport.peer.mtu = 23;
+     auto minimum = exchange(rpc, transport, request("STANDARD"));
+--- /dev/null
++++ b/esp32/tests/utxo_rpc_tests.cpp
+@@ -0,0 +1,41 @@
++// SPDX-License-Identifier: GPL-3.0-or-later
++// Transport-only fixture. Cryptographic signatures are tested by utxo_signer_tests.cpp.
++#include "core/public_wallet_rpc.hpp"
++#include "core/config.hpp"
++#include <cstdlib>
++#include <iostream>
++using namespace airlock;
++void check(bool value){if(!value){std::cerr<<"Signing RPC check failed\n";std::exit(1);}}
++struct Wallet:PublicWalletService {
++    std::uint64_t epoch=1;
++    bool utxo_signing_supported()const override{return true;}
++    std::uint64_t public_authorization_epoch()const override{return epoch;}
++    PublicWalletError public_generation(std::string&g)const override{g="fixture";return PublicWalletError::None;}
++    PublicWalletError public_accounts(std::string_view,const PublicWalletQuery&,std::vector<PublicAccount>&)const override{return PublicWalletError::None;}
++};
++struct Transport:PublicWalletTransport {
++    Wallet&wallet;PublicPeer peer{7,true,true,true,247};std::string reply;unsigned requests=0;bool change=false,reject=false;
++    explicit Transport(Wallet&w):wallet(w){}
++    PublicPeer public_peer()const override{return peer;}
++    bool notify_public(std::string_view chunk)override{reply+=chunk;return true;}
++    std::string request_signature(std::string_view payload,std::uint64_t connection,std::string&error)override{
++        check(connection==7);check(payload.find("fixture")!=std::string::npos);++requests;
++        if(change)++wallet.epoch;
++        if(reject){error="TRANSACTION_REJECTED";return {};}
++        return "010203";
++    }
++};
++int main(){
++    Wallet wallet;Transport transport(wallet);PublicWalletRpc rpc(wallet,{},transport);
++    check(rpc.receive("{\"id\":1,\"method\":\"get_device_info\",\"params\":{}}###EOF###",100)==ReceiveStatus::Ok);
++    check(transport.reply.find("\"utxo_signing_version\":1")!=std::string::npos);transport.reply.clear();
++    const std::string request="{\"id\":2,\"method\":\"sign_tx\",\"params\":{\"password\":\"fixture\"}}###EOF###";
++    check(rpc.receive(request,200)==ReceiveStatus::Ok);check(transport.requests==1);
++    check(transport.reply.find("\"data\":\"010203\"")!=std::string::npos);check(transport.reply.find("fixture")==std::string::npos);transport.reply.clear();
++    transport.reject=true;check(rpc.receive(request,300)==ReceiveStatus::Ok);check(transport.reply.find("TRANSACTION_REJECTED")!=std::string::npos);transport.reply.clear();
++    transport.reject=false;transport.change=true;
++    check(rpc.receive(request,400)==ReceiveStatus::Disconnected);check(transport.reply.empty());
++    Transport insecure(wallet);insecure.peer.encrypted=false;PublicWalletRpc denied(wallet,{},insecure);
++    check(denied.receive(request,500)==ReceiveStatus::Disconnected);check(insecure.requests==0);
++    std::cout<<"Signing RPC capability, rejection, epoch change and encrypted-link checks passed\n";
++}
+--- /dev/null
++++ b/esp32/tests/utxo_signer_tests.cpp
+@@ -0,0 +1,46 @@
++// SPDX-License-Identifier: GPL-3.0-or-later
++#include "core/utxo_signer.hpp"
++#include "core/json_memory.hpp"
++#include "cJSON.h"
++extern "C" {
++#include <TrezorCrypto/hasher.h>
++}
++#include <cstdlib>
++#include <iostream>
++#include <memory>
++namespace {
++using namespace airlock;
++struct Random:crypto::RandomSource { bool fill(crypto::Output o) override { for(std::size_t i=0;i<o.size;++i)o.data[i]=std::rand()%256;return true;} };
++void check(bool b){if(!b){std::cerr<<"UTXO check failed\n";std::exit(1);}}
++std::string hex(const std::vector<std::uint8_t>&b){std::string s;for(auto v:b){s+="0123456789abcdef"[v>>4];s+="0123456789abcdef"[v&15];}return s;}
++void le(std::vector<std::uint8_t>&b,std::uint64_t n,unsigned count){for(unsigned i=0;i<count;++i){b.push_back(n&255);n>>=8;}}
++std::vector<std::uint8_t> script(const crypto::DerivedKey&key,bool witness){std::array<std::uint8_t,32>h{};hasher_Raw(HASHER_SHA2_RIPEMD,key.public_key.data(),key.public_key_size,h.data());std::vector<std::uint8_t>s=witness?std::vector<std::uint8_t>{0,20}:std::vector<std::uint8_t>{0x76,0xa9,20};s.insert(s.end(),h.begin(),h.begin()+20);if(!witness){s.push_back(0x88);s.push_back(0xac);}return s;}
++std::string print(cJSON*o){char*s=cJSON_PrintUnformatted(o);check(s);std::string v=s;json_free(s);return v;}
++}
++int main(){
++    init_json();Random random;crypto::Seed seed;check(crypto::wallet_core_seed("abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon about","",seed)==crypto::HdError::None);
++    std::unique_ptr<cJSON,decltype(&cJSON_Delete)>fixtures(cJSON_CreateArray(),cJSON_Delete);
++    for(auto network:{Network::Bitcoin,Network::Litecoin,Network::Dogecoin,Network::Dash,Network::BitcoinCash})for(bool nochange:{false,true}){
++        const NetworkAccountSpec*spec=nullptr;for(const auto&s:network_accounts)if(s.network==network)spec=&s;check(spec);
++        const std::string coin=network==Network::Bitcoin?"bitcoin":network==Network::Litecoin?"litecoin":network==Network::Dogecoin?"doge":network==Network::Dash?"dash":"bitcoincash";
++        crypto::DerivedKey key,other;std::string path(spec->first_account_path),toPath=path.substr(0,path.size()-1)+"1";
++        check(crypto::derive_key({seed.value.data(),64},crypto::Curve::Secp256k1,path,random,key)==crypto::HdError::None);
++        check(crypto::derive_key({seed.value.data(),64},crypto::Curve::Secp256k1,toPath,random,other)==crypto::HdError::None);
++        const bool witness=network==Network::Bitcoin||network==Network::Litecoin;auto sender=script(key,witness),recipient=script(other,witness);
++        std::string from,to;check(encode_receiving_address(network,{key.public_key,key.public_key_size},from)==crypto::HdError::None);check(encode_receiving_address(network,{other.public_key,other.public_key_size},to)==crypto::HdError::None);
++        // Synthetic public funding transaction. It is never submitted to a network.
++        std::vector<std::uint8_t>parent;le(parent,2,4);parent.push_back(1);parent.insert(parent.end(),32,0x11);le(parent,0,4);parent.push_back(0);le(parent,0xffffffff,4);parent.push_back(1);le(parent,100000000,8);parent.push_back(sender.size());parent.insert(parent.end(),sender.begin(),sender.end());le(parent,0,4);
++        std::array<std::uint8_t,32>hash1{},hash2{};check(crypto::sha256({parent.data(),parent.size()},hash1));check(crypto::sha256({hash1.data(),32},hash2));std::vector<std::uint8_t>id(hash2.rbegin(),hash2.rend());
++        const auto fee=network==Network::Dogecoin?1000000:10000;const auto amount=nochange?100000000-fee:50000000;const auto change=100000000-amount-fee;
++        const std::string payload="{\"mode\":\"STANDARD\",\"asset\":{\"coin\":\""+coin+"\",\"symbol\":\""+std::string(spec->native_symbol)+"\",\"decimals\":8,\"contract\":\"\",\"address\":\""+from+"\",\"derivation_path\":\""+path+"\"},\"txData\":{\"utxoVersion\":1,\"amount\":\""+std::to_string(amount)+"\",\"fee\":\""+std::to_string(fee)+"\",\"changeAmount\":\""+std::to_string(change)+"\",\"byteFee\":\"1\",\"toAddress\":\""+to+"\",\"changeAddress\":\""+from+"\",\"recipientScript\":\""+hex(recipient)+"\",\"changeScript\":\""+hex(sender)+"\",\"utxos\":[{\"txHash\":\""+hex(id)+"\",\"index\":0,\"amount\":\"100000000\",\"script\":\""+hex(sender)+"\",\"sequence\":4294967295,\"previousTransaction\":\""+hex(parent)+"\"}]}}";
++        UtxoReview review;check(review_utxo(payload,review));std::string signedtx;check(sign_utxo(payload,{seed.value.data(),64},random,signedtx));check(!signedtx.empty());
++        auto*fixture=cJSON_CreateObject();auto*request=parse_json(payload);check(request);cJSON_AddItemToObject(fixture,"request",request);cJSON_AddStringToObject(fixture,"signed",signedtx.c_str());cJSON_AddItemToArray(fixtures.get(),fixture);
++        // Any change to a reviewed fee, address, parent amount, input duplication or path must fail.
++        for(const auto*field:{"fee","changeAmount","amount","recipientScript"}){
++            auto*mut=cJSON_Duplicate(request,true);auto*tx=cJSON_GetObjectItemCaseSensitive(mut,"txData");cJSON_ReplaceItemInObjectCaseSensitive(tx,field,cJSON_CreateString("1"));check(!review_utxo(print(mut),review));cJSON_Delete(mut);
++        }
++        auto*mut=cJSON_Duplicate(request,true);auto*rows=cJSON_GetObjectItemCaseSensitive(cJSON_GetObjectItemCaseSensitive(mut,"txData"),"utxos");cJSON_AddItemToArray(rows,cJSON_Duplicate(rows->child,true));check(!review_utxo(print(mut),review));cJSON_Delete(mut);
++        crypto::Seed wrong;check(!sign_utxo(payload,{wrong.value.data(),64},random,signedtx));
++    }
++    std::cout<<print(fixtures.get())<<"\n";
++}
+--- /dev/null
++++ b/esp32/tests/utxo_signing_vectors.json
+@@ -0,0 +1 @@
++[{"request":{"mode":"STANDARD","asset":{"coin":"bitcoin","symbol":"BTC","decimals":8,"contract":"","address":"bc1qcr8te4kr609gcawutmrza0j4xv80jy8z306fyu","derivation_path":"m/84'/0'/0'/0/0"},"txData":{"utxoVersion":1,"amount":"50000000","fee":"10000","changeAmount":"49990000","byteFee":"1","toAddress":"bc1qnjg0jd8228aq7egyzacy8cys3knf9xvrerkf9g","changeAddress":"bc1qcr8te4kr609gcawutmrza0j4xv80jy8z306fyu","recipientScript":"00149c90f934ea51fa0f6504177043e0908da6929983","changeScript":"0014c0cebcd6c3d3ca8c75dc5ec62ebe55330ef910e2","utxos":[{"txHash":"fc4c6f32795c34e69fde71f141b566331ef584a204c05f57f8253ed435b2a225","index":0,"amount":"100000000","script":"0014c0cebcd6c3d3ca8c75dc5ec62ebe55330ef910e2","sequence":4294967295,"previousTransaction":"020000000111111111111111111111111111111111111111111111111111111111111111110000000000ffffffff0100e1f50500000000160014c0cebcd6c3d3ca8c75dc5ec62ebe55330ef910e200000000"}]}},"signed":"0200000000010125a2b235d43e25f8575fc004a284f51e3366b541f171de9fe6345c79326f4cfc0000000000ffffffff0280f0fa02000000001600149c90f934ea51fa0f6504177043e0908da692998370c9fa0200000000160014c0cebcd6c3d3ca8c75dc5ec62ebe55330ef910e202473044022073a7fd28880c957f27f9df6aed69aa5cf01597647f87aa4858e4cf5faffff81e02204d9a333439eb453b5a68a2b53f4b581160eb7a6c084c72afbf445903b35dda3d01210330d54fd0dd420a6e5f8d3624f5f3482cae350f79d5f0753bf5beef9c2d91af3c00000000"},{"request":{"mode":"STANDARD","asset":{"coin":"bitcoin","symbol":"BTC","decimals":8,"contract":"","address":"bc1qcr8te4kr609gcawutmrza0j4xv80jy8z306fyu","derivation_path":"m/84'/0'/0'/0/0"},"txData":{"utxoVersion":1,"amount":"99990000","fee":"10000","changeAmount":"0","byteFee":"1","toAddress":"bc1qnjg0jd8228aq7egyzacy8cys3knf9xvrerkf9g","changeAddress":"bc1qcr8te4kr609gcawutmrza0j4xv80jy8z306fyu","recipientScript":"00149c90f934ea51fa0f6504177043e0908da6929983","changeScript":"0014c0cebcd6c3d3ca8c75dc5ec62ebe55330ef910e2","utxos":[{"txHash":"fc4c6f32795c34e69fde71f141b566331ef584a204c05f57f8253ed435b2a225","index":0,"amount":"100000000","script":"0014c0cebcd6c3d3ca8c75dc5ec62ebe55330ef910e2","sequence":4294967295,"previousTransaction":"020000000111111111111111111111111111111111111111111111111111111111111111110000000000ffffffff0100e1f50500000000160014c0cebcd6c3d3ca8c75dc5ec62ebe55330ef910e200000000"}]}},"signed":"0200000000010125a2b235d43e25f8575fc004a284f51e3366b541f171de9fe6345c79326f4cfc0000000000ffffffff01f0b9f505000000001600149c90f934ea51fa0f6504177043e0908da692998302483045022100fc7ccd1c3e2378a1952e9d26548571f5beb0f074b155e5cdfb1c32c477098c5e02201ade2202a0c85808e66a5ebe83bc2775850ce9e3bec198478ad90186cff154b101210330d54fd0dd420a6e5f8d3624f5f3482cae350f79d5f0753bf5beef9c2d91af3c00000000"},{"request":{"mode":"STANDARD","asset":{"coin":"litecoin","symbol":"LTC","decimals":8,"contract":"","address":"ltc1qjmxnz78nmc8nq77wuxh25n2es7rzm5c2rkk4wh","derivation_path":"m/84'/2'/0'/0/0"},"txData":{"utxoVersion":1,"amount":"50000000","fee":"10000","changeAmount":"49990000","byteFee":"1","toAddress":"ltc1qwlezpr3890hcp6vva9twqh27mr6edadreqvhnn","changeAddress":"ltc1qjmxnz78nmc8nq77wuxh25n2es7rzm5c2rkk4wh","recipientScript":"001477f2208e272bef80e98ce956e05d5ed8f596f5a3","changeScript":"001496cd3178f3de0f307bcee1aeaa4d5987862dd30a","utxos":[{"txHash":"b67fea2c4797a3dfc9bc95e8b6890238f8fb9a24b6ade9462c9791e47e31f776","index":0,"amount":"100000000","script":"001496cd3178f3de0f307bcee1aeaa4d5987862dd30a","sequence":4294967295,"previousTransaction":"020000000111111111111111111111111111111111111111111111111111111111111111110000000000ffffffff0100e1f5050000000016001496cd3178f3de0f307bcee1aeaa4d5987862dd30a00000000"}]}},"signed":"0200000000010176f7317ee491972c46e9adb6249afbf8380289b6e895bcc9dfa397472cea7fb60000000000ffffffff0280f0fa020000000016001477f2208e272bef80e98ce956e05d5ed8f596f5a370c9fa020000000016001496cd3178f3de0f307bcee1aeaa4d5987862dd30a02473044022058a8bc7eddcd61461205d2f6f31b5823116c2efa34ddd95650ec5166beb9602102202b6c0912ab14c43684f4684855aba7c96213807983261b66dd3ee6eb88345ae7012102e49c9b9b5d0f127235dc26a0c252814c52fb333d651a946773f59d72c2da990400000000"},{"request":{"mode":"STANDARD","asset":{"coin":"litecoin","symbol":"LTC","decimals":8,"contract":"","address":"ltc1qjmxnz78nmc8nq77wuxh25n2es7rzm5c2rkk4wh","derivation_path":"m/84'/2'/0'/0/0"},"txData":{"utxoVersion":1,"amount":"99990000","fee":"10000","changeAmount":"0","byteFee":"1","toAddress":"ltc1qwlezpr3890hcp6vva9twqh27mr6edadreqvhnn","changeAddress":"ltc1qjmxnz78nmc8nq77wuxh25n2es7rzm5c2rkk4wh","recipientScript":"001477f2208e272bef80e98ce956e05d5ed8f596f5a3","changeScript":"001496cd3178f3de0f307bcee1aeaa4d5987862dd30a","utxos":[{"txHash":"b67fea2c4797a3dfc9bc95e8b6890238f8fb9a24b6ade9462c9791e47e31f776","index":0,"amount":"100000000","script":"001496cd3178f3de0f307bcee1aeaa4d5987862dd30a","sequence":4294967295,"previousTransaction":"020000000111111111111111111111111111111111111111111111111111111111111111110000000000ffffffff0100e1f5050000000016001496cd3178f3de0f307bcee1aeaa4d5987862dd30a00000000"}]}},"signed":"0200000000010176f7317ee491972c46e9adb6249afbf8380289b6e895bcc9dfa397472cea7fb60000000000ffffffff01f0b9f5050000000016001477f2208e272bef80e98ce956e05d5ed8f596f5a3024830450221009c89c69829770d8916b5c535b08cbaae2443b4e66a58db6ec97fd29113d54e3f02205c7491b2795369573cfe6a30b18589ac4c7f9d9d8f66d0b87cf6d923352b455a012102e49c9b9b5d0f127235dc26a0c252814c52fb333d651a946773f59d72c2da990400000000"},{"request":{"mode":"STANDARD","asset":{"coin":"doge","symbol":"DOGE","decimals":8,"contract":"","address":"DBus3bamQjgJULBJtYXpEzDWQRwF5iwxgC","derivation_path":"m/44'/3'/0'/0/0"},"txData":{"utxoVersion":1,"amount":"50000000","fee":"1000000","changeAmount":"49000000","byteFee":"1","toAddress":"DAcDAtJRztxBHyA6D6h8du1HguyTR43Mas","changeAddress":"DBus3bamQjgJULBJtYXpEzDWQRwF5iwxgC","recipientScript":"76a9143bf96544e911ca728f5fabf5a4f3b65deab684c488ac","changeScript":"76a9144a483568665dcdfa68dd58a1f62893448a64333988ac","utxos":[{"txHash":"524c6d549856b28c428b085bd996dc20a70ff9f0ada949215a940599e79ccc40","index":0,"amount":"100000000","script":"76a9144a483568665dcdfa68dd58a1f62893448a64333988ac","sequence":4294967295,"previousTransaction":"020000000111111111111111111111111111111111111111111111111111111111111111110000000000ffffffff0100e1f505000000001976a9144a483568665dcdfa68dd58a1f62893448a64333988ac00000000"}]}},"signed":"020000000140cc9ce79905945a2149a9adf0f90fa720dc96d95b088b428cb25698546d4c52000000006a473044022048846ffbf21ce03f32ed4920a65ac7383fb58cc77486f90afef6534e232718cb02206052ef751dec7100f5bbe32c38625eb605cf3ec2d1a617551b0651c0fb9d6e7b012102cc6b0dc33aabcf3a23643e5e2919a80c50fb3dd2129ce409bbc5f0d4643d05e0ffffffff0280f0fa02000000001976a9143bf96544e911ca728f5fabf5a4f3b65deab684c488ac40aeeb02000000001976a9144a483568665dcdfa68dd58a1f62893448a64333988ac00000000"},{"request":{"mode":"STANDARD","asset":{"coin":"doge","symbol":"DOGE","decimals":8,"contract":"","address":"DBus3bamQjgJULBJtYXpEzDWQRwF5iwxgC","derivation_path":"m/44'/3'/0'/0/0"},"txData":{"utxoVersion":1,"amount":"99000000","fee":"1000000","changeAmount":"0","byteFee":"1","toAddress":"DAcDAtJRztxBHyA6D6h8du1HguyTR43Mas","changeAddress":"DBus3bamQjgJULBJtYXpEzDWQRwF5iwxgC","recipientScript":"76a9143bf96544e911ca728f5fabf5a4f3b65deab684c488ac","changeScript":"76a9144a483568665dcdfa68dd58a1f62893448a64333988ac","utxos":[{"txHash":"524c6d549856b28c428b085bd996dc20a70ff9f0ada949215a940599e79ccc40","index":0,"amount":"100000000","script":"76a9144a483568665dcdfa68dd58a1f62893448a64333988ac","sequence":4294967295,"previousTransaction":"020000000111111111111111111111111111111111111111111111111111111111111111110000000000ffffffff0100e1f505000000001976a9144a483568665dcdfa68dd58a1f62893448a64333988ac00000000"}]}},"signed":"020000000140cc9ce79905945a2149a9adf0f90fa720dc96d95b088b428cb25698546d4c52000000006a47304402202bd49fef1662318e6a17b43b8b93f15109a7a1773b91de198ea6259835c3fb30022044a9d47584f7fd6e26c2b100befe6114815cf77b20371ae940d776c31ee98fde012102cc6b0dc33aabcf3a23643e5e2919a80c50fb3dd2129ce409bbc5f0d4643d05e0ffffffff01c09ee605000000001976a9143bf96544e911ca728f5fabf5a4f3b65deab684c488ac00000000"},{"request":{"mode":"STANDARD","asset":{"coin":"dash","symbol":"DASH","decimals":8,"contract":"","address":"XoJA8qE3N2Y3jMLEtZ3vcN42qseZ8LvFf5","derivation_path":"m/44'/5'/0'/0/0"},"txData":{"utxoVersion":1,"amount":"50000000","fee":"10000","changeAmount":"49990000","byteFee":"1","toAddress":"XbctnEsgWTn5j1co3emZynemxSFPqkLRKZ","changeAddress":"XoJA8qE3N2Y3jMLEtZ3vcN42qseZ8LvFf5","recipientScript":"76a9140a38ec3f3cc4c169c295ddb037c31c63bf2fa39188ac","changeScript":"76a9148a4f58c222cd5544c527bc66925652baa70b5e8088ac","utxos":[{"txHash":"7973e004bfbb7be26b6d5e3dee85d27c6f4c12bdd3b0310cec61057952dd7fe5","index":0,"amount":"100000000","script":"76a9148a4f58c222cd5544c527bc66925652baa70b5e8088ac","sequence":4294967295,"previousTransaction":"020000000111111111111111111111111111111111111111111111111111111111111111110000000000ffffffff0100e1f505000000001976a9148a4f58c222cd5544c527bc66925652baa70b5e8088ac00000000"}]}},"signed":"0200000001e57fdd52790561ec0c31b0d3bd124c6f7cd285ee3d5e6d6be27bbbbf04e07379000000006b4830450221008dbf1db9a184a29e73c91303c4cc26226246b36cfef356f8bdbbc12a8ae1952f022076e1c9fcc0b508080421f22b280a3dd96792522a13201fa9f1e9c3f984af303b0121026fa9a6f213b6ba86447965f6b4821264aaadd7521f049f00db9c43a770ea7405ffffffff0280f0fa02000000001976a9140a38ec3f3cc4c169c295ddb037c31c63bf2fa39188ac70c9fa02000000001976a9148a4f58c222cd5544c527bc66925652baa70b5e8088ac00000000"},{"request":{"mode":"STANDARD","asset":{"coin":"dash","symbol":"DASH","decimals":8,"contract":"","address":"XoJA8qE3N2Y3jMLEtZ3vcN42qseZ8LvFf5","derivation_path":"m/44'/5'/0'/0/0"},"txData":{"utxoVersion":1,"amount":"99990000","fee":"10000","changeAmount":"0","byteFee":"1","toAddress":"XbctnEsgWTn5j1co3emZynemxSFPqkLRKZ","changeAddress":"XoJA8qE3N2Y3jMLEtZ3vcN42qseZ8LvFf5","recipientScript":"76a9140a38ec3f3cc4c169c295ddb037c31c63bf2fa39188ac","changeScript":"76a9148a4f58c222cd5544c527bc66925652baa70b5e8088ac","utxos":[{"txHash":"7973e004bfbb7be26b6d5e3dee85d27c6f4c12bdd3b0310cec61057952dd7fe5","index":0,"amount":"100000000","script":"76a9148a4f58c222cd5544c527bc66925652baa70b5e8088ac","sequence":4294967295,"previousTransaction":"020000000111111111111111111111111111111111111111111111111111111111111111110000000000ffffffff0100e1f505000000001976a9148a4f58c222cd5544c527bc66925652baa70b5e8088ac00000000"}]}},"signed":"0200000001e57fdd52790561ec0c31b0d3bd124c6f7cd285ee3d5e6d6be27bbbbf04e07379000000006b483045022100a1b4e4ca0ae072bcdbb0a737f9fa8eeb728beda9b698eb702d755bb83816d3d802203db6e510737e585c8a5a8cce0c4559af86cee9524af4561f0f470b51f3ff69b50121026fa9a6f213b6ba86447965f6b4821264aaadd7521f049f00db9c43a770ea7405ffffffff01f0b9f505000000001976a9140a38ec3f3cc4c169c295ddb037c31c63bf2fa39188ac00000000"},{"request":{"mode":"STANDARD","asset":{"coin":"bitcoincash","symbol":"BCH","decimals":8,"contract":"","address":"bitcoincash:qqyx49mu0kkn9ftfj6hje6g2wfer34yfnq5tahq3q6","derivation_path":"m/44'/145'/0'/0/0"},"txData":{"utxoVersion":1,"amount":"50000000","fee":"10000","changeAmount":"49990000","byteFee":"1","toAddress":"bitcoincash:qp8sfdhgjlq68hlzka9lcsxtcnvuvnd0xqxugfzzc5","changeAddress":"bitcoincash:qqyx49mu0kkn9ftfj6hje6g2wfer34yfnq5tahq3q6","recipientScript":"76a9144f04b6e897c1a3dfe2b74bfc40cbc4d9c64daf3088ac","changeScript":"76a914086a977c7dad32a56996af2ce90a727238d4899888ac","utxos":[{"txHash":"097cd3e6648d788ce2e15d14808f5ad5dbd8c8a8b5c02ebd26f55aa4adefe25e","index":0,"amount":"100000000","script":"76a914086a977c7dad32a56996af2ce90a727238d4899888ac","sequence":4294967295,"previousTransaction":"020000000111111111111111111111111111111111111111111111111111111111111111110000000000ffffffff0100e1f505000000001976a914086a977c7dad32a56996af2ce90a727238d4899888ac00000000"}]}},"signed":"02000000015ee2efada45af526bd2ec0b5a8c8d8dbd55a8f80145de1e28c788d64e6d37c09000000006b483045022100ad288a778d9f3a324661927182d8c0ec768e53b9ff809a5cfc26879a0cdd7df902201a6913e7826e8330129789425a40315b034c8c2cb5e6636b4ba1022823477c4e412102bbe7dbcdf8b2261530a867df7180b17a90b482f74f2736b8a30d3f756e42e217ffffffff0280f0fa02000000001976a9144f04b6e897c1a3dfe2b74bfc40cbc4d9c64daf3088ac70c9fa02000000001976a914086a977c7dad32a56996af2ce90a727238d4899888ac00000000"},{"request":{"mode":"STANDARD","asset":{"coin":"bitcoincash","symbol":"BCH","decimals":8,"contract":"","address":"bitcoincash:qqyx49mu0kkn9ftfj6hje6g2wfer34yfnq5tahq3q6","derivation_path":"m/44'/145'/0'/0/0"},"txData":{"utxoVersion":1,"amount":"99990000","fee":"10000","changeAmount":"0","byteFee":"1","toAddress":"bitcoincash:qp8sfdhgjlq68hlzka9lcsxtcnvuvnd0xqxugfzzc5","changeAddress":"bitcoincash:qqyx49mu0kkn9ftfj6hje6g2wfer34yfnq5tahq3q6","recipientScript":"76a9144f04b6e897c1a3dfe2b74bfc40cbc4d9c64daf3088ac","changeScript":"76a914086a977c7dad32a56996af2ce90a727238d4899888ac","utxos":[{"txHash":"097cd3e6648d788ce2e15d14808f5ad5dbd8c8a8b5c02ebd26f55aa4adefe25e","index":0,"amount":"100000000","script":"76a914086a977c7dad32a56996af2ce90a727238d4899888ac","sequence":4294967295,"previousTransaction":"020000000111111111111111111111111111111111111111111111111111111111111111110000000000ffffffff0100e1f505000000001976a914086a977c7dad32a56996af2ce90a727238d4899888ac00000000"}]}},"signed":"02000000015ee2efada45af526bd2ec0b5a8c8d8dbd55a8f80145de1e28c788d64e6d37c09000000006a473044022033b2fc5213b0dc6af8fa71db507367c4951c15b88d0c93561cb7e6b6e7a85700022041443f3d11c02ab1778ff7604a04b658b38aea3093996fd46858c8abcfbcc9e9412102bbe7dbcdf8b2261530a867df7180b17a90b482f74f2736b8a30d3f756e42e217ffffffff01f0b9f505000000001976a9144f04b6e897c1a3dfe2b74bfc40cbc4d9c64daf3088ac00000000"}]
+--- a/esp32/ui/first_login.cpp
++++ b/esp32/ui/first_login.cpp
+@@ -362,6 +362,7 @@
+     submit(std::move(job));
+ }
+ void FirstLogin::tick(std::uint64_t now_ms) {
++    if(signing_.stage()!=SignStage::Idle){now_=now_ms;return;}
+     now_ = now_ms;
+     if (page_ == FirstLoginPage::Splash && now_ms >= splash_until_) after_splash();
+     if (page_ == FirstLoginPage::Cooldown) {
+@@ -517,9 +518,52 @@
+     default: break;
+     }
+ }
++void FirstLogin::end_signing(SignOutcome outcome) {
++    if(signing_device_)signing_device_->respond_transaction(std::move(outcome),{});
++    render(signing_return_);
++}
++void FirstLogin::poll_signing(DeviceService& device,std::uint64_t now) {
++    signing_device_=&device;
++    if(signing_.stage()!=SignStage::Idle){
++        if(!mobile_allowed()||!device.connected(signing_connection_)){
++            if(auto result=signing_.disconnect(signing_connection_))end_signing(std::move(*result));
++        } else if(auto expired=signing_.poll(now))end_signing(std::move(*expired));
++        if(auto result=device.poll_signature()){
++            if(auto completed=signing_.completed(result->token,result->connection,std::move(result->encoded),result->success))end_signing(std::move(*completed));
++        }
++        return;
++    }
++    auto prompt=device.poll_transaction();if(!prompt)return;
++    if(!mobile_allowed() || (page_!=FirstLoginPage::Main&&page_!=FirstLoginPage::Home&&page_!=FirstLoginPage::Balances&&page_!=FirstLoginPage::Ready)){
++        device.respond_transaction({{},prompt->request.connection,SignEnd::Rejected,{}},{});return;
++    }
++    signing_return_=page_;signing_connection_=prompt->request.connection;
++    std::string body;
++    for(const auto&field:prompt->request.review)body+=field.label+":\n"+field.value+"\n\n";
++    if(!signing_.begin(std::move(prompt->request),now))return;
++    signing_.mark_reviewed(signing_.token());
++    view_.text("Revisar transação UTXO",body.c_str(),"Confirmar",false,true,"Rejeitar");
++}
+ void FirstLogin::consume() {
+     auto event = view_.take_event();
+     if (!event || event->screen != view_.screen_id()) return;
++    if(signing_.stage()!=SignStage::Idle){
++        if(signing_.stage()==SignStage::Review){
++            if(event->action==TouchAction::Confirm){
++                if(auto job=signing_.confirm(signing_.token(),now_)){
++                    const auto token=job->token;
++                    view_.status("Assinando transação", "", false);
++                    if(!signing_device_||!signing_device_->sign(std::move(*job))){
++                        if(auto result=signing_.completed(token,signing_connection_,{},false))end_signing(std::move(*result));
++                    }
++                }
++            }else if(event->action==TouchAction::Back||event->action==TouchAction::Cancel){
++                if(auto result=signing_.reject())end_signing(std::move(*result));
++            }
++        }
++        return;
++    }
++
+     if (page_ == FirstLoginPage::MobileApproval) {
+         if (event->action == TouchAction::Confirm || event->action == TouchAction::Cancel || event->action == TouchAction::Back) {
+             mobile_decision_=std::make_pair(mobile_token_,event->action == TouchAction::Confirm);
+--- a/esp32/ui/first_login.hpp
++++ b/esp32/ui/first_login.hpp
+@@ -3,6 +3,7 @@
+ #include "core/setup_vault.hpp"
+ #include "core/device_name.hpp"
+ #include "ui/touch_view.hpp"
++#include "core/device_service.hpp"
+ 
+ namespace airlock {
+ enum class Text;
+@@ -24,7 +25,14 @@
+     FirstLoginPage page() const { return page_; }
+     const WalletProfile& profile() const { return profile_; }
+     bool mobile_allowed() const { return session_ && session_->authorized && page_ != FirstLoginPage::Fault; }
++    void poll_signing(DeviceService& device, std::uint64_t now);
++    const UnlockSession* signing_session() const { return mobile_allowed() ? session_.get() : nullptr; }
+ private:
++    TransactionSignState signing_;
++    DeviceService* signing_device_ = nullptr;
++    std::uint64_t signing_connection_ = 0;
++    FirstLoginPage signing_return_ = FirstLoginPage::Main;
++    void end_signing(SignOutcome outcome);
+     std::uint64_t mobile_token_ = 0;
+     std::string mobile_identity_;
+     std::optional<std::uint32_t> mobile_code_;
+--- /dev/null
++++ b/js/UtxoPlan.js
+@@ -0,0 +1,55 @@
++// SPDX-License-Identifier: GPL-3.0-or-later
++'use strict';
++const crypto = require('node:crypto');
++const assert = require('node:assert/strict');
++const sha = b => crypto.createHash('sha256').update(b).digest();
++const hash = b => sha(sha(b));
++function bytes(s) { assert.equal(typeof s, 'string'); assert(s.length <= 200000 && /^(?:[0-9a-f]{2})+$/.test(s)); return Buffer.from(s, 'hex'); }
++function quantity(s) { assert.equal(typeof s, 'string'); assert(/^(0|[1-9][0-9]{0,15})$/.test(s)); const n = BigInt(s); assert(n <= 9000000000000000n); return n; }
++function parseTransaction(raw) {
++    const data = bytes(raw); let pos = 0;
++    const take = n => { assert(Number.isSafeInteger(n) && n >= 0 && pos + n <= data.length); const b=data.subarray(pos,pos+n);pos+=n;return b; };
++    const read = n => { const b=take(n); return n === 1 ? BigInt(b[0]) : n === 2 ? BigInt(b.readUInt16LE()) : n === 4 ? BigInt(b.readUInt32LE()) : b.readBigUInt64LE(); };
++    const compact = () => { const prefix=read(1); if(prefix<253n)return Number(prefix);const n=read(prefix===253n?2:prefix===254n?4:8);assert(n <= 100000n && n >= (prefix===253n?253n:prefix===254n?65536n:4294967296n));return Number(n); };
++    const script = () => take(compact());
++    const version = take(4); const witness = data[pos] === 0;
++    if(witness) { assert.equal(read(1),0n);assert.equal(read(1),1n); }
++    const inputStart=pos;const count=compact();assert(count>0&&count<=10000);const inputs=[];
++    for(let i=0;i<count;i++) inputs.push({hash:take(32).toString('hex'),index:Number(read(4)),script:script(),sequence:Number(read(4))});
++    const inputEnd=pos;const outputStart=pos;const outputCount=compact();assert(outputCount>0&&outputCount<=10000);const outputs=[];
++    for(let i=0;i<outputCount;i++)outputs.push({amount:read(8),script:script().toString('hex')});
++    const outputEnd=pos;const witnesses=[];
++    if(witness)for(let i=0;i<count;i++){const n=compact();assert(n<=10000);const stack=[];for(let j=0;j<n;j++)stack.push(script());witnesses.push(stack);}
++    const locktime=take(4);assert.equal(pos,data.length);
++    const stripped=Buffer.concat([version,data.subarray(inputStart,inputEnd),data.subarray(outputStart,outputEnd),locktime]);
++    return {txid:Buffer.from(hash(stripped)).reverse().toString('hex'),inputs,outputs,witnesses,version:version.readUInt32LE(),locktime:locktime.readUInt32LE()};
++}
++function validatePlan(core, coinType, tx) {
++    assert.equal(tx.utxoVersion,1);assert.equal(tx.useMax,false);
++    const amount=quantity(tx.amount),fee=quantity(tx.fee),change=quantity(tx.changeAmount),rate=quantity(tx.byteFee);
++    assert(amount>0n&&fee>0n&&rate>0n&&rate<=10000000n);
++    assert.notEqual(tx.toAddress,tx.changeAddress);
++    const scriptFor = a => { const script=core.BitcoinScript.lockScriptForAddress(a,coinType);try{return core.HexCoding.encode(script.data()).toLowerCase().replace(/^0x/, '');}finally{script.delete();} };
++    assert.equal(scriptFor(tx.toAddress),tx.recipientScript);assert.equal(scriptFor(tx.changeAddress),tx.changeScript);
++    assert(Array.isArray(tx.utxos)&&tx.utxos.length>0&&tx.utxos.length<=16);
++    let total=0n;const seen=new Set();
++    for(const input of tx.utxos) {
++        assert.equal(input.sequence,4294967295);assert(Number.isInteger(input.index)&&input.index>=0&&input.index<=4294967295);
++        assert(/^[0-9a-f]{64}$/.test(input.txHash));const key=input.txHash+':'+input.index;assert(!seen.has(key));seen.add(key);
++        const value=quantity(input.amount);assert(value>0n);total+=value;assert(total<=9000000000000000n);
++        assert.equal(input.script,tx.changeScript);
++        const parent=parseTransaction(input.previousTransaction);assert.equal(parent.txid,input.txHash);
++        assert(parent.outputs[input.index]);assert.equal(parent.outputs[input.index].amount,value);assert.equal(parent.outputs[input.index].script,input.script);
++    }
++    assert.equal(total,amount+fee+change);
++    return total.toString();
++}
++function validateSigned(tx,raw) {
++    const result=parseTransaction(raw);assert(result.version===1||result.version===2);assert.equal(result.locktime,0);
++    assert.equal(result.inputs.length,tx.utxos.length);
++    result.inputs.forEach((input,i)=>{assert.equal(input.hash,Buffer.from(tx.utxos[i].txHash,'hex').reverse().toString('hex'));assert.equal(input.index,tx.utxos[i].index);assert.equal(input.sequence,4294967295);});
++    const expected=[{amount:quantity(tx.amount),script:tx.recipientScript}];if(quantity(tx.changeAmount)>0n)expected.push({amount:quantity(tx.changeAmount),script:tx.changeScript});
++    const order = (a,b) => a.script.localeCompare(b.script);
++    assert.deepEqual(result.outputs.sort(order),expected.sort(order));
++}
++module.exports={validatePlan,validateSigned,parseTransaction};
+--- a/js/crypto_worker.js
++++ b/js/crypto_worker.js
+@@ -184,6 +184,14 @@
+             /**
+              * Command: sign_transaction (JSON mode)
+              */
++            case "validate_utxo": {
++                const coin = coins.find(c => c.id === request.asset.coin);
++                if (!coin || !["bitcoin", "litecoin", "doge", "dash", "bitcoincash"].includes(coin.id)) throw new Error("Unsupported UTXO coin");
++                const coinType = await getCoinTypeById(WalletCore, coin.coinId);
++                require('./UtxoPlan').validatePlan(WalletCore, coinType, request.txData);
++                response = {status: "success"};
++                break;
++            }
+             case "sign_transaction": {
+                 let {method, mnemonic, passphrase, asset, txData} = request;
+                 if (!method || !mnemonic || !asset || !txData) {
+@@ -220,6 +228,12 @@
+                         if (realAddress.toLowerCase() !== asset.address.toLowerCase()) {
+                             throw new Error("Address in signing request does not match private key, potential tampering attack intercepted");
+                         }
++                    }
++
++                    if (["bitcoin", "litecoin", "doge", "dash", "bitcoincash"].includes(coin.id)) {
++                        if (txData.utxoVersion !== 1 || txData.changeAddress !== asset.address || asset.contract || asset.decimals !== 8)
++                            throw new Error("Invalid UTXO signing request");
++                        require('./UtxoPlan').validatePlan(WalletCore, coinType, txData);
+                     }
+ 
+                     // UTXO models need privateKeys passed in
+--- a/js/signer/BitcoinCashSigner.js
++++ b/js/signer/BitcoinCashSigner.js
+@@ -66,6 +66,8 @@
+         if (!txData.changeAddress) throw new Error("Missing changeAddress");
+ 
+         // 2. Build UTXO (same as BTC)
++        const { validatePlan, validateSigned } = require('../UtxoPlan');
++        const available = txData.utxoVersion === 1 ? validatePlan(this.core, coinType, txData) : null;
+         const utxos = txData.utxos.map(u => {
+             return Bitcoin.UnspentTransaction.create({
+                 amount: this.toLong(u.amount),
+@@ -96,7 +98,11 @@
+             useMaxAmount: isMaxAmount,
+             privateKey: txData.privateKeys.map(k => HexCoding.decode(k)),
+             utxo: utxos,
+-            coinType: coinType.value
++            coinType: coinType.value,
++            ...(available === null ? {} : { plan: Bitcoin.TransactionPlan.create({
++                amount: this.toLong(txData.amount), availableAmount: this.toLong(available),
++                fee: this.toLong(txData.fee), change: this.toLong(txData.changeAmount), utxos
++            }) })
+         });
+ 
+         // Verify input
+@@ -120,8 +126,9 @@
+             throw new Error(`BCH Signing Logic Error: ${msg}`);
+         }
+ 
++        if (available !== null) validateSigned(txData, HexCoding.encode(output.encoded).replace(/^0x/, ''));
+         return {
+-            encoded: HexCoding.encode(output.encoded),
++            encoded: HexCoding.encode(output.encoded).replace(/^0x/, ''),
+             extend: {
+                 txid: output.transactionId,
+                 json: output.toJSON(),
+--- a/js/signer/BitcoinSigner.js
++++ b/js/signer/BitcoinSigner.js
+@@ -107,6 +107,8 @@
+ 
+         // Auto calculation of Script is not needed anymore, WalletCore will automatically match based on address during Legacy signing
+         // But for strictness, we still process inputs
++        const { validatePlan, validateSigned } = require('../UtxoPlan');
++        const available = txData.utxoVersion === 1 ? validatePlan(this.core, coinType, txData) : null;
+         const utxos = txData.utxos.map(u => {
+             // If script is not passed externally, try to auto-generate (simplified handling here, usually Legacy requires querying script externally)
+             // But since you are using Tatum, Tatum will return script, so use it directly
+@@ -133,7 +135,11 @@
+             useMaxAmount: isMaxAmount,
+             privateKey: txData.privateKeys.map(k => HexCoding.decode(k)),
+             utxo: utxos,
+-            coinType: coinType.value
++            coinType: coinType.value,
++            ...(available === null ? {} : { plan: Bitcoin.TransactionPlan.create({
++                amount: this.toLong(txData.amount), availableAmount: this.toLong(available),
++                fee: this.toLong(txData.fee), change: this.toLong(txData.changeAmount), utxos
++            }) })
+         });
+ 
+         // Verify input
+@@ -157,8 +163,9 @@
+             throw new Error(`Bitcoin Signing Logic Error: ${msg}`);
+         }
+ 
++        if (available !== null) validateSigned(txData, HexCoding.encode(output.encoded).replace(/^0x/, ''));
+         return {
+-            encoded: HexCoding.encode(output.encoded),
++            encoded: HexCoding.encode(output.encoded).replace(/^0x/, ''),
+             extend: {
+                 json: output.toJSON()
+             }
+--- /dev/null
++++ b/js/utxo-plan.test.js
+@@ -0,0 +1,26 @@
++'use strict';
++const fs=require('node:fs');const assert=require('node:assert/strict');
++const {initWasm,TW}=require('@trustwallet/wallet-core');
++const {validatePlan,validateSigned}=require('./UtxoPlan');
++const BitcoinSigner=require('./signer/BitcoinSigner');const BitcoinCashSigner=require('./signer/BitcoinCashSigner');
++(async()=>{
++ const core=await initWasm();let count=0;
++ const vectors=JSON.parse(fs.readFileSync(process.argv[2] || require('node:path').join(__dirname,'../esp32/tests/utxo_signing_vectors.json'),'utf8'));
++ for(const vector of vectors){
++  const request=vector.request;const tx=request.txData;tx.useMax=false;
++  const type={bitcoin:core.CoinType.bitcoin,litecoin:core.CoinType.litecoin,doge:core.CoinType.dogecoin,dash:core.CoinType.dash,bitcoincash:core.CoinType.bitcoinCash}[request.asset.coin];
++  validatePlan(core,type,tx);validateSigned(tx,vector.signed);
++  const seed=Uint8Array.from({length:64},(_,i)=>i);const wallet=core.HDWallet.createWithMnemonic("abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon about", "");const key=wallet.getKey(type,request.asset.derivation_path);
++  try{
++   tx.privateKeys=[core.HexCoding.encode(key.data())];
++   const signer=request.asset.coin==='bitcoincash'?new BitcoinCashSigner():new BitcoinSigner();signer.core=core;
++   const result=signer.signTransfer(tx,type);result.encoded=result.encoded.replace(/^0x/,'');validateSigned(tx,result.encoded);
++   vector.walletCoreSigned=result.encoded;
++   const changed=structuredClone(tx);changed.fee='1';assert.throws(()=>validatePlan(core,type,changed));
++   const duplicate=structuredClone(tx);duplicate.utxos.push(duplicate.utxos[0]);assert.throws(()=>validatePlan(core,type,duplicate));
++   count++;
++  }finally{key.delete();wallet.delete();delete tx.privateKeys;}
++ }
++ if(process.argv[3])fs.writeFileSync(process.argv[3],JSON.stringify(vectors));
++ process.stderr.write(`${count} Wallet Core fixed-plan signatures verified\n`);
++})().catch(e=>{console.error(e);process.exitCode=1;});
+--- a/ui/state_sign.py
++++ b/ui/state_sign.py
+@@ -113,6 +113,9 @@
+                 self._t("amount_row").format(readable_amount),
+                 self._t("to_label"),
+                 to_address,
++                *(["Fee: " + self._format_amount(self.tx.fee, decimals) + " " + symbol,
++                   "Change: " + self._format_amount(self.tx.changeAmount, decimals) + " " + symbol,
++                   "Change address:", self.tx.changeAddress] if self.tx.utxoVersion == 1 else []),
+                 yes,
+                 no
+             ]

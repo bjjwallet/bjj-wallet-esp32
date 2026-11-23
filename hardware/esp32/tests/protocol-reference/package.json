@@ -1,0 +1,16 @@
+{
+  "name": "bjj-public-signature-reference",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Offline independent verification of public firmware fixtures; no funds or signing keys.",
+  "dependencies": {
+    "@stellar/stellar-base": "15.0.0",
+    "tronweb": "6.5.1",
+    "xrpl": "5.3.0",
+    "@mysten/sui": "3.0.1",
+    "@mysten/bcs": "2.1.4",
+    "@ton/core": "0.63.1",
+    "@ton/ton": "16.3.0",
+    "@ton/crypto": "3.3.0"
+  }
+}

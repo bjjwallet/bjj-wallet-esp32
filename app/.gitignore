@@ -1,0 +1,14 @@
+.gradle/
+.kotlin/
+**/build/
+local.properties
+.idea/
+*.iml
+.DS_Store
+iosApp/DerivedData/
+**/xcuserdata/
+*.xcuserstate
+*.jks
+*.keystore
+*.p12
+*.mobileprovision

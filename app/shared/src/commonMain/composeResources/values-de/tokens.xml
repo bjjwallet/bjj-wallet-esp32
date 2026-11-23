@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="transfer_network">Netzwerk</string>
+    <string name="transfer_source">Absenderadresse</string>
+    <string name="transfer_network_hint">Verwenden Sie dasselbe Netzwerk wie der Empfänger. Jedes Netzwerk hat ein eigenes Guthaben; diese Auswahl überträgt kein Guthaben zwischen Netzwerken.</string>
+    <string name="transfer_network_missing">Fügen Sie dieses Netzwerk zuerst unter Konten hinzu.</string>
+    <string name="transfer_fee_balance">Für Netzwerkgebühren verfügbar: %1$s %2$s</string>
+    <string name="token_contract">Token-Kennung</string>
+    <string name="error_insufficient_fee_balance">Das Guthaben der nativen Währung an der Absenderadresse reicht nicht für die Netzwerkgebühr aus.</string>
+    <string name="error_invalid_quote">Diese Schätzung passt nicht zum gewählten Vermögenswert oder Netzwerk. Fordern Sie eine neue Schätzung an.</string>
+    <string name="catalog_network_pending">Netzwerkintegration ausstehend</string>
+    <string name="catalog_assets_pending">Ausstehende Assets (%1$s)</string>
+    <string name="xrpl_trustline_required">Für den Empfang dieses Tokens ist eine XRPL-Trustline erforderlich.</string>
+</resources>

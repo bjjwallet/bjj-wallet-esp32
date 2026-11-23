@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="error_public_data_invalid">Ungültige öffentliche Wallet-Daten. Synchronisieren Sie erneut mit Ihrem BJJ-Cold-Wallet.</string>
+    <string name="error_public_data_incomplete">Das Gerät hat nicht alle unterstützten Netzwerke exportiert. Aktualisieren Sie die Firmware und synchronisieren Sie erneut.</string>
+    <string name="error_public_data_sync_required">Für diese Adresse sind keine öffentlichen Daten gespeichert. Synchronisieren Sie mit dem Gerät.</string>
+    <string name="error_public_data_changed">Die öffentlichen Wallet-Daten haben sich geändert. Bestehende Konten wurden beibehalten; prüfen Sie das verbundene Gerät und die Wallet.</string>
+    <string name="error_address_index_exhausted">Dieses Konto hat sein Limit für die Adressableitung erreicht.</string>
+    <string name="error_bluetooth_permission">Erlauben Sie den Bluetooth-Zugriff, um Ihr Gerät zu synchronisieren.</string>
+    <string name="error_bluetooth_unavailable">Bluetooth ist nicht verfügbar. Aktivieren Sie Bluetooth und prüfen Sie die App-Berechtigungen.</string>
+    <string name="hardware_select_title">BJJ-Cold-Wallet auswählen</string>
+    <string name="hardware_select_help">Wähle dein Gerät und bestätige den Kopplungscode auf dem Telefon und dem Hardwaregerät. Die öffentlichen Daten aller unterstützten Netzwerke werden für die normale Wallet und die Wallet mit Passphrase getrennt gespeichert.</string>
+    <string name="offline_accounts_hint">Füge Coins zur Liste hinzu. Fehlt eine gespeicherte öffentliche Adresse, synchronisiere sie später für Saldoabfragen, Empfang und Versand.</string>
+    <string name="common_add_account_action">Hinzufügen</string>
+    <string name="account_already_added">Bereits hinzugefügt</string>
+    <string name="account_public_data_pending">Die öffentliche Adresse ist noch nicht synchronisiert. Die Kryptowährung kann bereits in der Kontoübersicht angezeigt werden.</string>
+    <string name="account_sync_public_data">Öffentliche Adressen synchronisieren</string>
+    <string name="common_remove_account_action">Entfernen</string>
+    <string name="account_api_unsupported">Die ausgewählte API unterstützt diese Kryptowährung oder diesen Token nicht.</string>
+</resources>

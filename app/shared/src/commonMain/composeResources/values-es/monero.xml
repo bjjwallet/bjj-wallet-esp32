@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="monero_sync">Sincronizar Monero</string>
+    <string name="monero_hardware_help">Esperando a la cartera fría. Confirma la solicitud en el dispositivo si aparece.</string>
+    <string name="monero_connecting">Conectando por Bluetooth…</string>
+    <string name="monero_pairing">Emparejando con la cartera fría… Si aparece un código, compáralo y confírmalo en ambos dispositivos.</string>
+    <string name="monero_pairing_failed">No se pudo autenticar la conexión Bluetooth. Comprueba si hay una solicitud de emparejamiento en ambos dispositivos y vuelve a intentarlo.</string>
+    <string name="monero_connection_failed">No se pudo conectar a la cartera fría por Bluetooth. Desbloquéala, mantenla cerca y vuelve a intentarlo.</string>
+    <string name="monero_last_verified">Último bloque verificado %1$s</string>
+    <string name="monero_scanner_unavailable">Se guardaron los datos de Monero. Esta versión aún no cuenta con un escáner local de Monero para verificar el saldo.</string>
+    <string name="monero_scan_pending">El escaneo de Monero aún no ha verificado el saldo.</string>
+    <string name="monero_sync_rejected">La cartera fría no aprobó la solicitud de Monero.</string>
+    <string name="monero_only_help">Esta pantalla solo sincroniza Monero (XMR). La cartera fría puede pedirte que confirmes la solicitud por Bluetooth.</string>
+    <string name="monero_scanning">Sincronizando Monero…</string>
+    <string name="monero_needs_images">Se encontraron nuevas salidas. Sincroniza con la cartera fría para verificar el saldo.</string>
+    <string name="monero_key_images_unavailable">La cartera fría aún no admite imágenes de clave firmadas para Monero.</string>
+    <string name="monero_view_sync_required">Este firmware aún no ha proporcionado los datos de visualización de Monero.</string>
+    <string name="monero_waiting_for_wallet">La app recibe los datos de visualización de Monero al sincronizar con una cartera fría compatible.</string>
+    <string name="monero_balance_pending">Saldo pendiente de verificación. Sincroniza con una cartera fría que admita imágenes de clave firmadas.</string>
+    <string name="monero_connection_title">Conexión Monero</string>
+    <string name="monero_connect">Conectar para sincronizar XMR</string>
+    <string name="monero_scan_paused">Escaneo de Monero en pausa. Toca Sincronizar Monero para continuar.</string>
+    <string name="monero_scan_timeout">Se agotó el tiempo del escaneo de Monero. Comprueba la conexión a Internet y vuelve a intentarlo.</string>
+    <string name="monero_restore_height">Altura de restauración</string>
+    <string name="monero_restore_height_help">Elige una altura de bloque anterior a la primera recepción de Monero. Déjala en blanco para usar la altura indicada por la cartera fría.</string>
+    <string name="monero_total_balance">Saldo total: %1$s XMR</string>
+    <string name="monero_unlocked_balance">Disponible: %1$s XMR</string>
+    <string name="monero_sync_address_only">Sincronizar solo la dirección de recepción</string>
+    <string name="monero_send_hardware">Revisa y confirma este envío en la cartera fría.</string>
+</resources>

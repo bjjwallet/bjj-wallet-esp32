@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="wallet_choose">Choisir un portefeuille</string>
+    <string name="wallet_sync_another">Synchroniser un autre portefeuille</string>
+    <string name="wallet_name">Nom du portefeuille</string>
+    <string name="wallet_rename">Renommer le portefeuille</string>
+    <string name="wallet_sync_help">Autorisez la synchronisation sur votre appareil. L’application importe les portefeuilles disponibles avec leurs noms et conserve ceux déjà enregistrés.</string>
+    <string name="wallet_name_invalid">Saisissez un nom de 1 à 128 caractères, sans saut de ligne.</string>
+</resources>

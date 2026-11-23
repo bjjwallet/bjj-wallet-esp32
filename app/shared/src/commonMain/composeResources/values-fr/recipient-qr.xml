@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="recipient_scan_button">Scanner le QR du destinataire</string>
+    <string name="recipient_scan_prompt">Pointez la caméra vers le QR de l’adresse du destinataire. La caméra sert uniquement à lire le code.</string>
+    <string name="recipient_scan_invalid">Ce QR ne contient pas d’adresse compatible avec la monnaie sélectionnée.</string>
+    <string name="recipient_scan_permission">Autorisez la caméra dans les réglages de l’app pour scanner les QR codes. Vous pouvez aussi saisir l’adresse.</string>
+    <string name="recipient_scan_failed">Impossible d’ouvrir la caméra. Réessayez ou saisissez l’adresse.</string>
+    <string name="recipient_scan_settings">Ouvrir les réglages de l’app</string>
+</resources>

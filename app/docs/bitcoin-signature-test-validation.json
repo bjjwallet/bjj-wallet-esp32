@@ -1,0 +1,16 @@
+{
+  "validated_at": "2026-11-21T13:08:27.211801-03:00",
+  "test_mode": true,
+  "unit_tests": {
+    "tests": 236,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "android_debug": "passed",
+  "ios_simulator_shared_compilation": "passed",
+  "physical_hardware_signature": "passed after per-connection access PIN authentication; user approved on hardware; app cryptographically verified returned transaction",
+  "log": "/private/tmp/bjj-bitcoin-testmode-final.log",
+  "physical_test_capture": "generated/diagnostics/btc-sign-rs2ctagm/status.json",
+  "synthetic_broadcast_result": "TRANSACTION_REJECTED by API"
+}

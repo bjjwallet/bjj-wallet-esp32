@@ -1,0 +1,5 @@
+<resources>
+    <string name="transfer_sign_authorize">Verifica del PIN della cold wallet…</string>
+    <string name="transfer_hardware_pin_help">Inserisci il PIN usato per sbloccare la cold wallet.</string>
+    <string name="transfer_hardware_pin_required">La cold wallet richiede il PIN prima della firma.</string>
+</resources>

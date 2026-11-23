@@ -1,0 +1,13 @@
+<resources>
+    <string name="transfer_connection_required">Ligue a cold wallet, desbloqueie e mantenha-a próxima. Conecte para solicitar a assinatura da transferência.</string>
+    <string name="transfer_connection_retry_help">Não foi possível conectar. Confira o Bluetooth e mantenha a cold wallet pronta. Tente conectar novamente por aqui.</string>
+    <string name="transfer_connect_sign">Conectar e solicitar assinatura</string>
+    <string name="transfer_sign_title">Assinatura da transferência</string>
+    <string name="transfer_sign_connect">Conectando à cold wallet. Mantenha-a próxima e pronta para receber a solicitação.</string>
+    <string name="transfer_sign_approve">Confira o valor e o destinatário na cold wallet. Aceite nela e aguarde a assinatura.</string>
+    <string name="transfer_sign_verify">Verificando a assinatura devolvida pela cold wallet…</string>
+    <string name="transfer_sign_submit">Enviando a transação assinada para a rede…</string>
+    <string name="transfer_sign_private">Sua chave privada de gasto permanece na cold wallet.</string>
+    <string name="transfer_transactions_title">Transações de %1$s</string>
+    <string name="transfer_pull_refresh">Puxe para baixo para atualizar as transações e o status de confirmação.</string>
+</resources>

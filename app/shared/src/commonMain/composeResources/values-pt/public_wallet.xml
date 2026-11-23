@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="error_public_data_invalid">Dados públicos da carteira inválidos. Sincronize novamente com seu BJJ-Cold-Wallet.</string>
+    <string name="error_public_data_incomplete">O hardware não exportou todas as redes suportadas. Atualize o firmware e sincronize novamente.</string>
+    <string name="error_public_data_sync_required">Não há dados públicos salvos para este endereço. Sincronize com o hardware.</string>
+    <string name="error_public_data_changed">Os dados públicos da carteira mudaram. As contas existentes foram preservadas; confira o hardware e a carteira conectados.</string>
+    <string name="error_address_index_exhausted">Esta conta atingiu o limite de derivação de endereços.</string>
+    <string name="error_bluetooth_permission">Permita o acesso ao Bluetooth para sincronizar o hardware.</string>
+    <string name="error_bluetooth_unavailable">Bluetooth indisponível. Ative o Bluetooth e confira as permissões do app.</string>
+    <string name="hardware_select_title">Selecione seu BJJ-Cold-Wallet</string>
+    <string name="hardware_select_help">Escolha seu dispositivo e confirme o código de pareamento no celular e no hardware. Os dados públicos de todas as redes suportadas serão salvos separadamente para a carteira normal e a carteira com passphrase.</string>
+    <string name="offline_accounts_hint">Adicione moedas à lista. Quando o endereço público ainda não estiver salvo, sincronize-o depois para consultar saldos, receber e enviar.</string>
+    <string name="common_add_account_action">Adicionar</string>
+    <string name="account_already_added">Já adicionada</string>
+    <string name="account_public_data_pending">Endereço público ainda não sincronizado. A moeda já pode aparecer em Accounts.</string>
+    <string name="account_sync_public_data">Sincronizar endereços públicos</string>
+    <string name="common_remove_account_action">Remover</string>
+    <string name="account_api_unsupported">Moeda ou token não suportado pela API selecionada.</string>
+</resources>

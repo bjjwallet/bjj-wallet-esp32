@@ -1,0 +1,3 @@
+<resources>
+    <string name="bitcoin_signature_test_completed">Cold wallet signature verified. The API rejected the test submission with synthetic funding. No payment was made.</string>
+</resources>

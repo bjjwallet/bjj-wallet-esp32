@@ -1,0 +1,3 @@
+"NSBluetoothAlwaysUsageDescription" = "连接 BJJ-Cold-Wallet 以同步钱包的公开数据。私钥保留在硬件设备上。";
+"NSFaceIDUsageDescription" = "请验证身份以解锁 BJJ-App-Wallet。";
+"NSCameraUsageDescription" = "请将相机对准收款地址的二维码。相机仅用于读取二维码。";

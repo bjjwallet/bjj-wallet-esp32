@@ -1,0 +1,33 @@
+# Conexão, aprovação e histórico da transferência
+
+Ao confirmar uma transferência, o app abre uma bottom sheet com **Conectar e solicitar assinatura**. A frase/PIN de pagamento, quando exigida pelo protocolo do ativo, é digitada nessa sheet e não é guardada no ViewModel. Depois de conectar, a sheet mostra o valor e o estado da operação: conectando à cold wallet, aguardando aprovação física, verificando a assinatura e enviando à rede. A solicitação usa a mesma implementação de assinatura do hardware. Antes da conexão é possível cancelar a sheet. Durante a operação ela não pode ser dispensada; recuse no hardware para negar a assinatura. Falha ou timeout da conexão mantém a sheet aberta para uma nova tentativa explícita, sem pedir nova sincronização pública. Recusa da assinatura ou erro de envio encerra a operação. Ao reabrir o processo do app, o Bluetooth procura novamente apenas o ID da cold wallet salva, caso o cache de anúncios esteja vazio. O app bloqueia um segundo envio durante o processamento.
+
+A cold wallet informa que o app solicita uma assinatura e mostra valor, destinatário, taxa e troco na revisão. Ela assina somente depois da aprovação física. As regras existentes de PIN/frase por ativo permanecem. Em Confirm Transaction, o endereço de troco só é mostrado se for diferente do endereço de origem; os dados de troco enviados ao assinador não mudam. A chave privada de gasto permanece no hardware.
+
+Depois de receber uma assinatura, o app verifica criptograficamente a resposta e guarda o envio real pendente antes de transmitir. Somente uma resposta válida de envio abre a tela **Transações**. A transação aparece como enviada/aguardando confirmação, conforme o estado informado pela rede. Um timeout mantém o envio pendente para retomada explícita com os mesmos bytes assinados.
+
+A tela **Transações** pode ser aberta também pelo detalhe da moeda. Ela tem pull to refresh, inclusive quando vazia, e atualiza saldos e os históricos disponíveis no provedor selecionado. Para Bitcoin com Blockstream ou Mempool, consulta `/address/:address/txs`, inclui entradas/saídas, distingue mempool e confirmação e une os resultados ao registro local sem duplicar o envio ou somar troco/taxa ao valor enviado. A primeira página contém os registros recentes; o pull consulta novamente a página inicial. As demais integrações mantêm o histórico já suportado (Moralis, eCash e registros locais). A consulta não troca de API automaticamente.
+
+Referência do contrato Esplora: https://github.com/Blockstream/esplora/blob/master/API.md
+
+O teste Bitcoin com entrada sintética continua identificado e separado dos pagamentos reais: ele permite testar a assinatura, mas a rejeição esperada não gera transferência ou registro na blockchain. O teste atual exige pelo menos 546 satoshis (0,00000546 BTC); digitar `1000` na máscara produz 0,00001000 BTC. A mensagem genérica de `INVALID_AMOUNT` para valores abaixo desse mínimo é uma limitação conhecida.
+
+Validação: 238 testes compartilhados passaram, Android Debug e compilação compartilhada iOS passaram. Os testes novos aguardam aprovação antes de transmitir, verificam recusa sem envio, navegação após sucesso e atualização de status sem duplicação. A aprovação da cold wallet foi testada no host e o firmware `2026.11.21-landscape1` foi gerado com o assinador Monero, USB somente para alimentação e políticas de Wi-Fi/microSD preservadas. A instalação física exige modo BOOT e preservação verificada das partições NVS; gerar o pacote não atualiza a placa.
+
+Instalação em 21/11/2026: app Android atualizado sem apagar dados; firmware landscape gravado apenas na partição da aplicação, com readback e comparação exata de NVS e carteiras. Reinício por watchdog executado; a interface USB desapareceu após o início. O usuário confirmou a orientação landscape e o toque na placa física. A nova tentativa de assinatura Bitcoin ainda precisa ser realizada.
+
+## PIN de acesso na sessão de assinatura — 21/11/2026
+
+O teste físico conectou e leu `get_device_info`, mas `sign_tx` retornou `PIN_REQUIRED` antes do retorno da assinatura. O app foi corrigido para pedir o **PIN da cold wallet** separadamente da **Transaction Phrase**. `verify_pin` ocorre na mesma conexão e antes de qualquer assinatura. O PIN vive apenas no contexto da corrotina da operação, sem cache entre operações ou gravação no cofre. PIN incorreto ou bloqueado impede chegar ao assinador. O erro volta à bottom sheet como autenticação, sem atribuí-lo ao servidor da rede. A sheet tem scroll para acomodar os dois campos e o teclado.
+
+Passaram 240 testes do app, builds Android/iOS e o teste de revisão no hardware. A pergunta “App: assinar transferência?” está no firmware sign2 instalado, com carteiras e pareamentos preservados. A assinatura física deve ser repetida após a atualização.
+
+## Teste físico confirmado — 21/11/2026
+
+Após a correção da autenticação por sessão, o hardware mostrou o valor e o usuário confirmou a transferência. Os eventos registraram conexão pronta, `verify_pin.ok`, `sign_tx.ok`, `bitcoin.signature.verified` e tentativa de envio à API. O app validou criptograficamente a transação assinada devolvida pela cold wallet. A API rejeitou o envio com entrada sintética (`TRANSACTION_REJECTED`), resultado esperado no teste sem financiamento real; não houve pagamento Bitcoin aceito. A captura está em `generated/diagnostics/btc-sign-rs2ctagm/status.json` na raiz do workspace.
+
+Após a assinatura verificada, a rejeição esperada do envio com entrada sintética é exibida como resultado do teste: “Assinatura da cold wallet verificada. A API rejeitou o envio de teste com entrada sintética. Nenhum pagamento foi efetuado.” Somente `TRANSACTION_REJECTED` nessa etapa recebe a mensagem de teste concluído; indisponibilidade, timeout, assinatura inválida e erros de pagamentos reais mantêm seus erros. O teste automatizado confirma que indisponibilidade continua visível e que nenhum pagamento/pendência é criado.
+
+## Nomenclatura multilíngue — 21/11/2026
+
+O app e o firmware labels1 usam, nos oito idiomas, os equivalentes de “Valor que receberá” e “Destinatário” para o valor enviado e o destino. O retorno à própria carteira usa “Valor devolvido à sua carteira” e “Endereço de devolução”. Os textos de orientação também foram atualizados. O teste de revisão usa valores e endereços distintos para destinatário e devolução e passou; a prévia do final da revisão está em `hardware/esp32/docs/signing-flow/labels-return.png`, na raiz do workspace. Android e iOS compilaram e o app foi instalado. O firmware foi instalado com carteiras, PIN e pareamentos preservados por comparação de hashes. Relatório: `hardware/esp32/docs/labels-installation-2026-11-21.json`.

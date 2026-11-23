@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="error_public_data_invalid">ウォレットの公開データが無効です。BJJ-Cold-Walletと再同期してください。</string>
+    <string name="error_public_data_incomplete">ハードウェアが対応するすべてのネットワークをエクスポートしませんでした。ファームウェアを更新して再同期してください。</string>
+    <string name="error_public_data_sync_required">このアドレスの公開データは保存されていません。ハードウェアと同期してください。</string>
+    <string name="error_public_data_changed">ウォレットの公開データが変更されています。既存のアカウントは保持されています。接続したハードウェアとウォレットが正しいか確認してください。</string>
+    <string name="error_address_index_exhausted">このアカウントのアドレス導出数が上限に達しました。</string>
+    <string name="error_bluetooth_permission">ハードウェアと同期するにはBluetoothへのアクセスを許可してください。</string>
+    <string name="error_bluetooth_unavailable">Bluetoothを利用できません。Bluetoothを有効にしてアプリの権限を確認してください。</string>
+    <string name="hardware_select_title">BJJ-Cold-Walletを選択</string>
+    <string name="hardware_select_help">デバイスを選び、スマートフォンとハードウェアでペアリングコードを確認してください。対応する全ネットワークの公開データは、標準ウォレットとパスフレーズ付きウォレットに分けて保存されます。</string>
+    <string name="offline_accounts_hint">一覧に通貨を追加してください。公開アドレスがまだ保存されていない場合は、後から同期して残高照会、受取、送金ができます。</string>
+    <string name="common_add_account_action">追加</string>
+    <string name="account_already_added">追加済み</string>
+    <string name="account_public_data_pending">公開アドレスはまだ同期されていません。通貨はアカウント一覧に表示できます。</string>
+    <string name="account_sync_public_data">公開アドレスを同期</string>
+    <string name="common_remove_account_action">削除</string>
+    <string name="account_api_unsupported">選択したAPIはこの通貨またはトークンに対応していません。</string>
+</resources>

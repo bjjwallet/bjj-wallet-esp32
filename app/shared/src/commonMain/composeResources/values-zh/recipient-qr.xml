@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="recipient_scan_button">扫描收款人二维码</string>
+    <string name="recipient_scan_prompt">请将相机对准收款地址的二维码。相机仅用于读取二维码。</string>
+    <string name="recipient_scan_invalid">此二维码不包含所选币种支持的地址。</string>
+    <string name="recipient_scan_permission">请在应用设置中允许相机访问以扫描二维码。您也可以手动输入地址。</string>
+    <string name="recipient_scan_failed">无法打开相机。请重试或手动输入地址。</string>
+    <string name="recipient_scan_settings">打开应用设置</string>
+</resources>

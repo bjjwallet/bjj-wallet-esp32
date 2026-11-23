@@ -1,0 +1,16 @@
+{
+  "date": "2026-11-21",
+  "physical_capture": "generated/diagnostics/btc-sign-oede2ok6/status.json",
+  "physical_signature_verified": true,
+  "signature_scope": "Valid for the provided synthetic funding transaction plan; funding existence is a separate consensus requirement",
+  "focused_cryptographic_tests": {
+    "tests": 10,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "new_negative_case": "A mathematically corrupted witness signature is rejected even with unchanged txid; an unrelated public key is rejected",
+  "production_verifier": "UtxoStrategy.transactionId: correctlySpends with STANDARD_SCRIPT_VERIFY_FLAGS",
+  "api_error_detail": "Rejection recorded; response body not retained, so exact node rejection text is unknown",
+  "public_network_test": "Bitcoin Signet would require new app and firmware support plus funded test UTXOs"
+}

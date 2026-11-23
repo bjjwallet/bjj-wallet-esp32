@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="error_public_data_invalid">Dati pubblici del portafoglio non validi. Sincronizza di nuovo con BJJ-Cold-Wallet.</string>
+    <string name="error_public_data_incomplete">Il dispositivo non ha esportato tutte le reti supportate. Aggiorna il firmware e sincronizza di nuovo.</string>
+    <string name="error_public_data_sync_required">Non sono disponibili dati pubblici salvati per questo indirizzo. Sincronizza con il dispositivo.</string>
+    <string name="error_public_data_changed">I dati pubblici del portafoglio sono cambiati. Gli account esistenti sono stati conservati; verifica il dispositivo e il portafoglio collegati.</string>
+    <string name="error_address_index_exhausted">Questo account ha raggiunto il limite di derivazione degli indirizzi.</string>
+    <string name="error_bluetooth_permission">Consenti l’accesso al Bluetooth per sincronizzare il dispositivo.</string>
+    <string name="error_bluetooth_unavailable">Bluetooth non disponibile. Attiva il Bluetooth e controlla le autorizzazioni dell’app.</string>
+    <string name="hardware_select_title">Seleziona il tuo BJJ-Cold-Wallet</string>
+    <string name="hardware_select_help">Scegli il dispositivo e conferma il codice di abbinamento sul telefono e sul dispositivo hardware. I dati pubblici di tutte le reti supportate saranno salvati separatamente per il portafoglio normale e quello con passphrase.</string>
+    <string name="offline_accounts_hint">Aggiungi monete alla lista. Se manca un indirizzo pubblico salvato, sincronizzalo in seguito per consultare saldi, ricevere e inviare.</string>
+    <string name="common_add_account_action">Aggiungi</string>
+    <string name="account_already_added">Già aggiunta</string>
+    <string name="account_public_data_pending">L’indirizzo pubblico non è ancora sincronizzato. La moneta può già apparire in Conti.</string>
+    <string name="account_sync_public_data">Sincronizza gli indirizzi pubblici</string>
+    <string name="common_remove_account_action">Rimuovi</string>
+    <string name="account_api_unsupported">La moneta o il token non sono supportati dall’API selezionata.</string>
+</resources>

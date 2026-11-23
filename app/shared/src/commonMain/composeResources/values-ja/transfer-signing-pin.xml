@@ -1,0 +1,5 @@
+<resources>
+    <string name="transfer_sign_authorize">コールドウォレットのPINを確認中…</string>
+    <string name="transfer_hardware_pin_help">コールドウォレットのロック解除に使うPINを入力してください。</string>
+    <string name="transfer_hardware_pin_required">署名する前にコールドウォレットのPINが必要です。</string>
+</resources>

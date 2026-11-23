@@ -1,0 +1,434 @@
+[
+  {
+    "request": {
+      "mode": "STANDARD",
+      "asset": {
+        "coin": "bitcoin",
+        "symbol": "BTC",
+        "decimals": 8,
+        "contract": "",
+        "address": "bc1qcr8te4kr609gcawutmrza0j4xv80jy8z306fyu",
+        "derivation_path": "m/84'/0'/0'/0/0"
+      },
+      "txData": {
+        "utxoVersion": 1,
+        "amount": "50000000",
+        "fee": "10000",
+        "changeAmount": "49990000",
+        "byteFee": "1",
+        "toAddress": "bc1qnjg0jd8228aq7egyzacy8cys3knf9xvrerkf9g",
+        "changeAddress": "bc1qcr8te4kr609gcawutmrza0j4xv80jy8z306fyu",
+        "recipientScript": "00149c90f934ea51fa0f6504177043e0908da6929983",
+        "changeScript": "0014c0cebcd6c3d3ca8c75dc5ec62ebe55330ef910e2",
+        "utxos": [
+          {
+            "txHash": "fc4c6f32795c34e69fde71f141b566331ef584a204c05f57f8253ed435b2a225",
+            "index": 0,
+            "amount": "100000000",
+            "script": "0014c0cebcd6c3d3ca8c75dc5ec62ebe55330ef910e2",
+            "sequence": 4294967295,
+            "previousTransaction": "020000000111111111111111111111111111111111111111111111111111111111111111110000000000ffffffff0100e1f50500000000160014c0cebcd6c3d3ca8c75dc5ec62ebe55330ef910e200000000"
+          }
+        ]
+      }
+    },
+    "signed": "0200000000010125a2b235d43e25f8575fc004a284f51e3366b541f171de9fe6345c79326f4cfc0000000000ffffffff0280f0fa02000000001600149c90f934ea51fa0f6504177043e0908da692998370c9fa0200000000160014c0cebcd6c3d3ca8c75dc5ec62ebe55330ef910e202473044022073a7fd28880c957f27f9df6aed69aa5cf01597647f87aa4858e4cf5faffff81e02204d9a333439eb453b5a68a2b53f4b581160eb7a6c084c72afbf445903b35dda3d01210330d54fd0dd420a6e5f8d3624f5f3482cae350f79d5f0753bf5beef9c2d91af3c00000000",
+    "walletCoreSigned": "0100000000010125a2b235d43e25f8575fc004a284f51e3366b541f171de9fe6345c79326f4cfc0000000000ffffffff0280f0fa02000000001600149c90f934ea51fa0f6504177043e0908da692998370c9fa0200000000160014c0cebcd6c3d3ca8c75dc5ec62ebe55330ef910e2024630430220224848dd145e12f955c5528a2c0527058ece4baf2b95fa7a68d2a6705b5d4968021f450239e27cac17929e03337d5b4a8a221be1fb2a2ec81acb6c2655bf869d1401210330d54fd0dd420a6e5f8d3624f5f3482cae350f79d5f0753bf5beef9c2d91af3c00000000"
+  },
+  {
+    "request": {
+      "mode": "STANDARD",
+      "asset": {
+        "coin": "bitcoin",
+        "symbol": "BTC",
+        "decimals": 8,
+        "contract": "",
+        "address": "bc1qcr8te4kr609gcawutmrza0j4xv80jy8z306fyu",
+        "derivation_path": "m/84'/0'/0'/0/0"
+      },
+      "txData": {
+        "utxoVersion": 1,
+        "amount": "99990000",
+        "fee": "10000",
+        "changeAmount": "0",
+        "byteFee": "1",
+        "toAddress": "bc1qnjg0jd8228aq7egyzacy8cys3knf9xvrerkf9g",
+        "changeAddress": "bc1qcr8te4kr609gcawutmrza0j4xv80jy8z306fyu",
+        "recipientScript": "00149c90f934ea51fa0f6504177043e0908da6929983",
+        "changeScript": "0014c0cebcd6c3d3ca8c75dc5ec62ebe55330ef910e2",
+        "utxos": [
+          {
+            "txHash": "fc4c6f32795c34e69fde71f141b566331ef584a204c05f57f8253ed435b2a225",
+            "index": 0,
+            "amount": "100000000",
+            "script": "0014c0cebcd6c3d3ca8c75dc5ec62ebe55330ef910e2",
+            "sequence": 4294967295,
+            "previousTransaction": "020000000111111111111111111111111111111111111111111111111111111111111111110000000000ffffffff0100e1f50500000000160014c0cebcd6c3d3ca8c75dc5ec62ebe55330ef910e200000000"
+          }
+        ]
+      }
+    },
+    "signed": "0200000000010125a2b235d43e25f8575fc004a284f51e3366b541f171de9fe6345c79326f4cfc0000000000ffffffff01f0b9f505000000001600149c90f934ea51fa0f6504177043e0908da692998302483045022100fc7ccd1c3e2378a1952e9d26548571f5beb0f074b155e5cdfb1c32c477098c5e02201ade2202a0c85808e66a5ebe83bc2775850ce9e3bec198478ad90186cff154b101210330d54fd0dd420a6e5f8d3624f5f3482cae350f79d5f0753bf5beef9c2d91af3c00000000",
+    "walletCoreSigned": "0100000000010125a2b235d43e25f8575fc004a284f51e3366b541f171de9fe6345c79326f4cfc0000000000ffffffff01f0b9f505000000001600149c90f934ea51fa0f6504177043e0908da692998302473044022006154cdff91cb6a326b6710b5dd7b0c9deb742580a55de248df13589c9543dff022053168b7aa8186f432913a3fd566efd26e8fcceb97709b37e3976fccea4b70d6f01210330d54fd0dd420a6e5f8d3624f5f3482cae350f79d5f0753bf5beef9c2d91af3c00000000"
+  },
+  {
+    "request": {
+      "mode": "STANDARD",
+      "asset": {
+        "coin": "litecoin",
+        "symbol": "LTC",
+        "decimals": 8,
+        "contract": "",
+        "address": "ltc1qjmxnz78nmc8nq77wuxh25n2es7rzm5c2rkk4wh",
+        "derivation_path": "m/84'/2'/0'/0/0"
+      },
+      "txData": {
+        "utxoVersion": 1,
+        "amount": "50000000",
+        "fee": "10000",
+        "changeAmount": "49990000",
+        "byteFee": "1",
+        "toAddress": "ltc1qwlezpr3890hcp6vva9twqh27mr6edadreqvhnn",
+        "changeAddress": "ltc1qjmxnz78nmc8nq77wuxh25n2es7rzm5c2rkk4wh",
+        "recipientScript": "001477f2208e272bef80e98ce956e05d5ed8f596f5a3",
+        "changeScript": "001496cd3178f3de0f307bcee1aeaa4d5987862dd30a",
+        "utxos": [
+          {
+            "txHash": "b67fea2c4797a3dfc9bc95e8b6890238f8fb9a24b6ade9462c9791e47e31f776",
+            "index": 0,
+            "amount": "100000000",
+            "script": "001496cd3178f3de0f307bcee1aeaa4d5987862dd30a",
+            "sequence": 4294967295,
+            "previousTransaction": "020000000111111111111111111111111111111111111111111111111111111111111111110000000000ffffffff0100e1f5050000000016001496cd3178f3de0f307bcee1aeaa4d5987862dd30a00000000"
+          }
+        ]
+      }
+    },
+    "signed": "0200000000010176f7317ee491972c46e9adb6249afbf8380289b6e895bcc9dfa397472cea7fb60000000000ffffffff0280f0fa020000000016001477f2208e272bef80e98ce956e05d5ed8f596f5a370c9fa020000000016001496cd3178f3de0f307bcee1aeaa4d5987862dd30a02473044022058a8bc7eddcd61461205d2f6f31b5823116c2efa34ddd95650ec5166beb9602102202b6c0912ab14c43684f4684855aba7c96213807983261b66dd3ee6eb88345ae7012102e49c9b9b5d0f127235dc26a0c252814c52fb333d651a946773f59d72c2da990400000000",
+    "walletCoreSigned": "0100000000010176f7317ee491972c46e9adb6249afbf8380289b6e895bcc9dfa397472cea7fb60000000000ffffffff0280f0fa020000000016001477f2208e272bef80e98ce956e05d5ed8f596f5a370c9fa020000000016001496cd3178f3de0f307bcee1aeaa4d5987862dd30a02483045022100c692ac0c7280a4746f0f38673306b51e2b79dec34b67eeea60923567ad6fca8e0220225607492e9d18b2069665fd4cb7f509b2551dda861ef8bd710c97f24754af49012102e49c9b9b5d0f127235dc26a0c252814c52fb333d651a946773f59d72c2da990400000000"
+  },
+  {
+    "request": {
+      "mode": "STANDARD",
+      "asset": {
+        "coin": "litecoin",
+        "symbol": "LTC",
+        "decimals": 8,
+        "contract": "",
+        "address": "ltc1qjmxnz78nmc8nq77wuxh25n2es7rzm5c2rkk4wh",
+        "derivation_path": "m/84'/2'/0'/0/0"
+      },
+      "txData": {
+        "utxoVersion": 1,
+        "amount": "99990000",
+        "fee": "10000",
+        "changeAmount": "0",
+        "byteFee": "1",
+        "toAddress": "ltc1qwlezpr3890hcp6vva9twqh27mr6edadreqvhnn",
+        "changeAddress": "ltc1qjmxnz78nmc8nq77wuxh25n2es7rzm5c2rkk4wh",
+        "recipientScript": "001477f2208e272bef80e98ce956e05d5ed8f596f5a3",
+        "changeScript": "001496cd3178f3de0f307bcee1aeaa4d5987862dd30a",
+        "utxos": [
+          {
+            "txHash": "b67fea2c4797a3dfc9bc95e8b6890238f8fb9a24b6ade9462c9791e47e31f776",
+            "index": 0,
+            "amount": "100000000",
+            "script": "001496cd3178f3de0f307bcee1aeaa4d5987862dd30a",
+            "sequence": 4294967295,
+            "previousTransaction": "020000000111111111111111111111111111111111111111111111111111111111111111110000000000ffffffff0100e1f5050000000016001496cd3178f3de0f307bcee1aeaa4d5987862dd30a00000000"
+          }
+        ]
+      }
+    },
+    "signed": "0200000000010176f7317ee491972c46e9adb6249afbf8380289b6e895bcc9dfa397472cea7fb60000000000ffffffff01f0b9f5050000000016001477f2208e272bef80e98ce956e05d5ed8f596f5a3024830450221009c89c69829770d8916b5c535b08cbaae2443b4e66a58db6ec97fd29113d54e3f02205c7491b2795369573cfe6a30b18589ac4c7f9d9d8f66d0b87cf6d923352b455a012102e49c9b9b5d0f127235dc26a0c252814c52fb333d651a946773f59d72c2da990400000000",
+    "walletCoreSigned": "0100000000010176f7317ee491972c46e9adb6249afbf8380289b6e895bcc9dfa397472cea7fb60000000000ffffffff01f0b9f5050000000016001477f2208e272bef80e98ce956e05d5ed8f596f5a302483045022100fa5d4653d6b314491bbd974574844791607d5dd6ba8794209c32381752ee4668022076d2cc074f752d2e8fa6d234e0e093ccaa81d489a98ed2a27cb4389a71c73354012102e49c9b9b5d0f127235dc26a0c252814c52fb333d651a946773f59d72c2da990400000000"
+  },
+  {
+    "request": {
+      "mode": "STANDARD",
+      "asset": {
+        "coin": "doge",
+        "symbol": "DOGE",
+        "decimals": 8,
+        "contract": "",
+        "address": "DBus3bamQjgJULBJtYXpEzDWQRwF5iwxgC",
+        "derivation_path": "m/44'/3'/0'/0/0"
+      },
+      "txData": {
+        "utxoVersion": 1,
+        "amount": "50000000",
+        "fee": "1000000",
+        "changeAmount": "49000000",
+        "byteFee": "1",
+        "toAddress": "DAcDAtJRztxBHyA6D6h8du1HguyTR43Mas",
+        "changeAddress": "DBus3bamQjgJULBJtYXpEzDWQRwF5iwxgC",
+        "recipientScript": "76a9143bf96544e911ca728f5fabf5a4f3b65deab684c488ac",
+        "changeScript": "76a9144a483568665dcdfa68dd58a1f62893448a64333988ac",
+        "utxos": [
+          {
+            "txHash": "524c6d549856b28c428b085bd996dc20a70ff9f0ada949215a940599e79ccc40",
+            "index": 0,
+            "amount": "100000000",
+            "script": "76a9144a483568665dcdfa68dd58a1f62893448a64333988ac",
+            "sequence": 4294967295,
+            "previousTransaction": "020000000111111111111111111111111111111111111111111111111111111111111111110000000000ffffffff0100e1f505000000001976a9144a483568665dcdfa68dd58a1f62893448a64333988ac00000000"
+          }
+        ]
+      }
+    },
+    "signed": "020000000140cc9ce79905945a2149a9adf0f90fa720dc96d95b088b428cb25698546d4c52000000006a473044022048846ffbf21ce03f32ed4920a65ac7383fb58cc77486f90afef6534e232718cb02206052ef751dec7100f5bbe32c38625eb605cf3ec2d1a617551b0651c0fb9d6e7b012102cc6b0dc33aabcf3a23643e5e2919a80c50fb3dd2129ce409bbc5f0d4643d05e0ffffffff0280f0fa02000000001976a9143bf96544e911ca728f5fabf5a4f3b65deab684c488ac40aeeb02000000001976a9144a483568665dcdfa68dd58a1f62893448a64333988ac00000000",
+    "walletCoreSigned": "010000000140cc9ce79905945a2149a9adf0f90fa720dc96d95b088b428cb25698546d4c52000000006b483045022100a290495b519e3e0ca8eeb213eed1396ffe40e52007df9cc6ed1a4822c98b8d4602204e39b426a9ef9e4eb2a4a54a81c41512b59e3baa13a6fd1499b0a527f934e06f012102cc6b0dc33aabcf3a23643e5e2919a80c50fb3dd2129ce409bbc5f0d4643d05e0ffffffff0280f0fa02000000001976a9143bf96544e911ca728f5fabf5a4f3b65deab684c488ac40aeeb02000000001976a9144a483568665dcdfa68dd58a1f62893448a64333988ac00000000"
+  },
+  {
+    "request": {
+      "mode": "STANDARD",
+      "asset": {
+        "coin": "doge",
+        "symbol": "DOGE",
+        "decimals": 8,
+        "contract": "",
+        "address": "DBus3bamQjgJULBJtYXpEzDWQRwF5iwxgC",
+        "derivation_path": "m/44'/3'/0'/0/0"
+      },
+      "txData": {
+        "utxoVersion": 1,
+        "amount": "99000000",
+        "fee": "1000000",
+        "changeAmount": "0",
+        "byteFee": "1",
+        "toAddress": "DAcDAtJRztxBHyA6D6h8du1HguyTR43Mas",
+        "changeAddress": "DBus3bamQjgJULBJtYXpEzDWQRwF5iwxgC",
+        "recipientScript": "76a9143bf96544e911ca728f5fabf5a4f3b65deab684c488ac",
+        "changeScript": "76a9144a483568665dcdfa68dd58a1f62893448a64333988ac",
+        "utxos": [
+          {
+            "txHash": "524c6d549856b28c428b085bd996dc20a70ff9f0ada949215a940599e79ccc40",
+            "index": 0,
+            "amount": "100000000",
+            "script": "76a9144a483568665dcdfa68dd58a1f62893448a64333988ac",
+            "sequence": 4294967295,
+            "previousTransaction": "020000000111111111111111111111111111111111111111111111111111111111111111110000000000ffffffff0100e1f505000000001976a9144a483568665dcdfa68dd58a1f62893448a64333988ac00000000"
+          }
+        ]
+      }
+    },
+    "signed": "020000000140cc9ce79905945a2149a9adf0f90fa720dc96d95b088b428cb25698546d4c52000000006a47304402202bd49fef1662318e6a17b43b8b93f15109a7a1773b91de198ea6259835c3fb30022044a9d47584f7fd6e26c2b100befe6114815cf77b20371ae940d776c31ee98fde012102cc6b0dc33aabcf3a23643e5e2919a80c50fb3dd2129ce409bbc5f0d4643d05e0ffffffff01c09ee605000000001976a9143bf96544e911ca728f5fabf5a4f3b65deab684c488ac00000000",
+    "walletCoreSigned": "010000000140cc9ce79905945a2149a9adf0f90fa720dc96d95b088b428cb25698546d4c52000000006b4830450221008030dfa80170771c21723f54c6360a0fb4ce4b31059a07b41788704e268ce41e022015ef030d7cccfdea710835521786aaf5c41d6fa51a49484316032dfb9e15f6f3012102cc6b0dc33aabcf3a23643e5e2919a80c50fb3dd2129ce409bbc5f0d4643d05e0ffffffff01c09ee605000000001976a9143bf96544e911ca728f5fabf5a4f3b65deab684c488ac00000000"
+  },
+  {
+    "request": {
+      "mode": "STANDARD",
+      "asset": {
+        "coin": "dash",
+        "symbol": "DASH",
+        "decimals": 8,
+        "contract": "",
+        "address": "XoJA8qE3N2Y3jMLEtZ3vcN42qseZ8LvFf5",
+        "derivation_path": "m/44'/5'/0'/0/0"
+      },
+      "txData": {
+        "utxoVersion": 1,
+        "amount": "50000000",
+        "fee": "10000",
+        "changeAmount": "49990000",
+        "byteFee": "1",
+        "toAddress": "XbctnEsgWTn5j1co3emZynemxSFPqkLRKZ",
+        "changeAddress": "XoJA8qE3N2Y3jMLEtZ3vcN42qseZ8LvFf5",
+        "recipientScript": "76a9140a38ec3f3cc4c169c295ddb037c31c63bf2fa39188ac",
+        "changeScript": "76a9148a4f58c222cd5544c527bc66925652baa70b5e8088ac",
+        "utxos": [
+          {
+            "txHash": "7973e004bfbb7be26b6d5e3dee85d27c6f4c12bdd3b0310cec61057952dd7fe5",
+            "index": 0,
+            "amount": "100000000",
+            "script": "76a9148a4f58c222cd5544c527bc66925652baa70b5e8088ac",
+            "sequence": 4294967295,
+            "previousTransaction": "020000000111111111111111111111111111111111111111111111111111111111111111110000000000ffffffff0100e1f505000000001976a9148a4f58c222cd5544c527bc66925652baa70b5e8088ac00000000"
+          }
+        ]
+      }
+    },
+    "signed": "0200000001e57fdd52790561ec0c31b0d3bd124c6f7cd285ee3d5e6d6be27bbbbf04e07379000000006b4830450221008dbf1db9a184a29e73c91303c4cc26226246b36cfef356f8bdbbc12a8ae1952f022076e1c9fcc0b508080421f22b280a3dd96792522a13201fa9f1e9c3f984af303b0121026fa9a6f213b6ba86447965f6b4821264aaadd7521f049f00db9c43a770ea7405ffffffff0280f0fa02000000001976a9140a38ec3f3cc4c169c295ddb037c31c63bf2fa39188ac70c9fa02000000001976a9148a4f58c222cd5544c527bc66925652baa70b5e8088ac00000000",
+    "walletCoreSigned": "0100000001e57fdd52790561ec0c31b0d3bd124c6f7cd285ee3d5e6d6be27bbbbf04e07379000000006a473044022066779694ab12878e088ee32b9e42c3cd1e80a93f2d0ec221167d397ba48fe74102205d4fdd992c103727c82731ac2adba389f808508093fb4392f385ebf31aaaba210121026fa9a6f213b6ba86447965f6b4821264aaadd7521f049f00db9c43a770ea7405ffffffff0280f0fa02000000001976a9140a38ec3f3cc4c169c295ddb037c31c63bf2fa39188ac70c9fa02000000001976a9148a4f58c222cd5544c527bc66925652baa70b5e8088ac00000000"
+  },
+  {
+    "request": {
+      "mode": "STANDARD",
+      "asset": {
+        "coin": "dash",
+        "symbol": "DASH",
+        "decimals": 8,
+        "contract": "",
+        "address": "XoJA8qE3N2Y3jMLEtZ3vcN42qseZ8LvFf5",
+        "derivation_path": "m/44'/5'/0'/0/0"
+      },
+      "txData": {
+        "utxoVersion": 1,
+        "amount": "99990000",
+        "fee": "10000",
+        "changeAmount": "0",
+        "byteFee": "1",
+        "toAddress": "XbctnEsgWTn5j1co3emZynemxSFPqkLRKZ",
+        "changeAddress": "XoJA8qE3N2Y3jMLEtZ3vcN42qseZ8LvFf5",
+        "recipientScript": "76a9140a38ec3f3cc4c169c295ddb037c31c63bf2fa39188ac",
+        "changeScript": "76a9148a4f58c222cd5544c527bc66925652baa70b5e8088ac",
+        "utxos": [
+          {
+            "txHash": "7973e004bfbb7be26b6d5e3dee85d27c6f4c12bdd3b0310cec61057952dd7fe5",
+            "index": 0,
+            "amount": "100000000",
+            "script": "76a9148a4f58c222cd5544c527bc66925652baa70b5e8088ac",
+            "sequence": 4294967295,
+            "previousTransaction": "020000000111111111111111111111111111111111111111111111111111111111111111110000000000ffffffff0100e1f505000000001976a9148a4f58c222cd5544c527bc66925652baa70b5e8088ac00000000"
+          }
+        ]
+      }
+    },
+    "signed": "0200000001e57fdd52790561ec0c31b0d3bd124c6f7cd285ee3d5e6d6be27bbbbf04e07379000000006b483045022100a1b4e4ca0ae072bcdbb0a737f9fa8eeb728beda9b698eb702d755bb83816d3d802203db6e510737e585c8a5a8cce0c4559af86cee9524af4561f0f470b51f3ff69b50121026fa9a6f213b6ba86447965f6b4821264aaadd7521f049f00db9c43a770ea7405ffffffff01f0b9f505000000001976a9140a38ec3f3cc4c169c295ddb037c31c63bf2fa39188ac00000000",
+    "walletCoreSigned": "0100000001e57fdd52790561ec0c31b0d3bd124c6f7cd285ee3d5e6d6be27bbbbf04e07379000000006a47304402201bf5cb48527dec4daac3931e58c5372370dc6fb92dc0aa5a8c8c0e30ebe221a80220286ddd0f3a194b75e8b8ea8dd16514767e647c710a9d1639242c3ef42ede38e10121026fa9a6f213b6ba86447965f6b4821264aaadd7521f049f00db9c43a770ea7405ffffffff01f0b9f505000000001976a9140a38ec3f3cc4c169c295ddb037c31c63bf2fa39188ac00000000"
+  },
+  {
+    "request": {
+      "mode": "STANDARD",
+      "asset": {
+        "coin": "bitcoincash",
+        "symbol": "BCH",
+        "decimals": 8,
+        "contract": "",
+        "address": "bitcoincash:qqyx49mu0kkn9ftfj6hje6g2wfer34yfnq5tahq3q6",
+        "derivation_path": "m/44'/145'/0'/0/0"
+      },
+      "txData": {
+        "utxoVersion": 1,
+        "amount": "50000000",
+        "fee": "10000",
+        "changeAmount": "49990000",
+        "byteFee": "1",
+        "toAddress": "bitcoincash:qp8sfdhgjlq68hlzka9lcsxtcnvuvnd0xqxugfzzc5",
+        "changeAddress": "bitcoincash:qqyx49mu0kkn9ftfj6hje6g2wfer34yfnq5tahq3q6",
+        "recipientScript": "76a9144f04b6e897c1a3dfe2b74bfc40cbc4d9c64daf3088ac",
+        "changeScript": "76a914086a977c7dad32a56996af2ce90a727238d4899888ac",
+        "utxos": [
+          {
+            "txHash": "097cd3e6648d788ce2e15d14808f5ad5dbd8c8a8b5c02ebd26f55aa4adefe25e",
+            "index": 0,
+            "amount": "100000000",
+            "script": "76a914086a977c7dad32a56996af2ce90a727238d4899888ac",
+            "sequence": 4294967295,
+            "previousTransaction": "020000000111111111111111111111111111111111111111111111111111111111111111110000000000ffffffff0100e1f505000000001976a914086a977c7dad32a56996af2ce90a727238d4899888ac00000000"
+          }
+        ]
+      }
+    },
+    "signed": "02000000015ee2efada45af526bd2ec0b5a8c8d8dbd55a8f80145de1e28c788d64e6d37c09000000006b483045022100ad288a778d9f3a324661927182d8c0ec768e53b9ff809a5cfc26879a0cdd7df902201a6913e7826e8330129789425a40315b034c8c2cb5e6636b4ba1022823477c4e412102bbe7dbcdf8b2261530a867df7180b17a90b482f74f2736b8a30d3f756e42e217ffffffff0280f0fa02000000001976a9144f04b6e897c1a3dfe2b74bfc40cbc4d9c64daf3088ac70c9fa02000000001976a914086a977c7dad32a56996af2ce90a727238d4899888ac00000000",
+    "walletCoreSigned": "01000000015ee2efada45af526bd2ec0b5a8c8d8dbd55a8f80145de1e28c788d64e6d37c09000000006b4830450221008282150d2886944d650cef03a40bca8c21e4e72450c50fe235c8d65adfe2d5b50220608c2e8ea657b447691ee5138d3a7d5fae152b5693d30253e9ae870c24d33ee3412102bbe7dbcdf8b2261530a867df7180b17a90b482f74f2736b8a30d3f756e42e217ffffffff0280f0fa02000000001976a9144f04b6e897c1a3dfe2b74bfc40cbc4d9c64daf3088ac70c9fa02000000001976a914086a977c7dad32a56996af2ce90a727238d4899888ac00000000"
+  },
+  {
+    "request": {
+      "mode": "STANDARD",
+      "asset": {
+        "coin": "bitcoincash",
+        "symbol": "BCH",
+        "decimals": 8,
+        "contract": "",
+        "address": "bitcoincash:qqyx49mu0kkn9ftfj6hje6g2wfer34yfnq5tahq3q6",
+        "derivation_path": "m/44'/145'/0'/0/0"
+      },
+      "txData": {
+        "utxoVersion": 1,
+        "amount": "99990000",
+        "fee": "10000",
+        "changeAmount": "0",
+        "byteFee": "1",
+        "toAddress": "bitcoincash:qp8sfdhgjlq68hlzka9lcsxtcnvuvnd0xqxugfzzc5",
+        "changeAddress": "bitcoincash:qqyx49mu0kkn9ftfj6hje6g2wfer34yfnq5tahq3q6",
+        "recipientScript": "76a9144f04b6e897c1a3dfe2b74bfc40cbc4d9c64daf3088ac",
+        "changeScript": "76a914086a977c7dad32a56996af2ce90a727238d4899888ac",
+        "utxos": [
+          {
+            "txHash": "097cd3e6648d788ce2e15d14808f5ad5dbd8c8a8b5c02ebd26f55aa4adefe25e",
+            "index": 0,
+            "amount": "100000000",
+            "script": "76a914086a977c7dad32a56996af2ce90a727238d4899888ac",
+            "sequence": 4294967295,
+            "previousTransaction": "020000000111111111111111111111111111111111111111111111111111111111111111110000000000ffffffff0100e1f505000000001976a914086a977c7dad32a56996af2ce90a727238d4899888ac00000000"
+          }
+        ]
+      }
+    },
+    "signed": "02000000015ee2efada45af526bd2ec0b5a8c8d8dbd55a8f80145de1e28c788d64e6d37c09000000006a473044022033b2fc5213b0dc6af8fa71db507367c4951c15b88d0c93561cb7e6b6e7a85700022041443f3d11c02ab1778ff7604a04b658b38aea3093996fd46858c8abcfbcc9e9412102bbe7dbcdf8b2261530a867df7180b17a90b482f74f2736b8a30d3f756e42e217ffffffff01f0b9f505000000001976a9144f04b6e897c1a3dfe2b74bfc40cbc4d9c64daf3088ac00000000",
+    "walletCoreSigned": "01000000015ee2efada45af526bd2ec0b5a8c8d8dbd55a8f80145de1e28c788d64e6d37c09000000006a47304402206cf24c05cc220b1710964bde86af1136043a3529b90096a716d7a2a5c8f22eba02200e368af5f6504ccb533bde82d0324edae9b4202e19308c6347ccfd695fa8b04d412102bbe7dbcdf8b2261530a867df7180b17a90b482f74f2736b8a30d3f756e42e217ffffffff01f0b9f505000000001976a9144f04b6e897c1a3dfe2b74bfc40cbc4d9c64daf3088ac00000000"
+  },
+  {
+    "request": {
+      "mode": "STANDARD",
+      "asset": {
+        "coin": "ecash",
+        "symbol": "XEC",
+        "decimals": 2,
+        "contract": "",
+        "address": "ecash:qpluxjhhlxfjwsymf9nmctvsdrwzwygadsh2pq0ang",
+        "derivation_path": "m/44'/899'/0'/0/0"
+      },
+      "txData": {
+        "utxoVersion": 1,
+        "amount": "50000000",
+        "fee": "10000",
+        "changeAmount": "49990000",
+        "byteFee": "1",
+        "toAddress": "ecash:qrtmy72hp7ks80xalvlt8jxczd6l3wr5zga5vct0s4",
+        "changeAddress": "ecash:qpluxjhhlxfjwsymf9nmctvsdrwzwygadsh2pq0ang",
+        "recipientScript": "76a914d7b279570fad03bcddfb3eb3c8d81375f8b8741288ac",
+        "changeScript": "76a9147fc34af7f99327409b4967bc2d9068dc27111d6c88ac",
+        "utxos": [
+          {
+            "txHash": "e9ac3959ba761e499da0bced488d7467eb30ba332f44d9ff6f22b26e05dd087b",
+            "index": 0,
+            "amount": "100000000",
+            "script": "76a9147fc34af7f99327409b4967bc2d9068dc27111d6c88ac",
+            "sequence": 4294967295,
+            "previousTransaction": "020000000111111111111111111111111111111111111111111111111111111111111111110000000000ffffffff0100e1f505000000001976a9147fc34af7f99327409b4967bc2d9068dc27111d6c88ac00000000"
+          }
+        ]
+      }
+    },
+    "signed": "02000000017b08dd056eb2226fffd9442f33ba30eb67748d48edbca09d491e76ba5939ace9000000006b48304502210092cfa4f3f06a1917a29dfb6d559d1af82d6336ae75584e7169e131487e53257a02201143e407b0664e3845d5eae1d8f76baa5c65d012557b7e400dad0bf5f248942c412103602543a67787c0778df0153e879b33eb16e3759ae63dbed6e9bd3704bfe7a236ffffffff0280f0fa02000000001976a914d7b279570fad03bcddfb3eb3c8d81375f8b8741288ac70c9fa02000000001976a9147fc34af7f99327409b4967bc2d9068dc27111d6c88ac00000000",
+    "walletCoreSigned": "01000000017b08dd056eb2226fffd9442f33ba30eb67748d48edbca09d491e76ba5939ace9000000006a47304402205d0bbb281654a6a12a1b56511b7168a51802fa4d5e679c61b8f04db1f7c8f71a022005400bae3abdaf4025e4821efffc0408f0dba28cd83267cc271a84949eb5bf04412103602543a67787c0778df0153e879b33eb16e3759ae63dbed6e9bd3704bfe7a236ffffffff0280f0fa02000000001976a914d7b279570fad03bcddfb3eb3c8d81375f8b8741288ac70c9fa02000000001976a9147fc34af7f99327409b4967bc2d9068dc27111d6c88ac00000000"
+  },
+  {
+    "request": {
+      "mode": "STANDARD",
+      "asset": {
+        "coin": "ecash",
+        "symbol": "XEC",
+        "decimals": 2,
+        "contract": "",
+        "address": "ecash:qpluxjhhlxfjwsymf9nmctvsdrwzwygadsh2pq0ang",
+        "derivation_path": "m/44'/899'/0'/0/0"
+      },
+      "txData": {
+        "utxoVersion": 1,
+        "amount": "99990000",
+        "fee": "10000",
+        "changeAmount": "0",
+        "byteFee": "1",
+        "toAddress": "ecash:qrtmy72hp7ks80xalvlt8jxczd6l3wr5zga5vct0s4",
+        "changeAddress": "ecash:qpluxjhhlxfjwsymf9nmctvsdrwzwygadsh2pq0ang",
+        "recipientScript": "76a914d7b279570fad03bcddfb3eb3c8d81375f8b8741288ac",
+        "changeScript": "76a9147fc34af7f99327409b4967bc2d9068dc27111d6c88ac",
+        "utxos": [
+          {
+            "txHash": "e9ac3959ba761e499da0bced488d7467eb30ba332f44d9ff6f22b26e05dd087b",
+            "index": 0,
+            "amount": "100000000",
+            "script": "76a9147fc34af7f99327409b4967bc2d9068dc27111d6c88ac",
+            "sequence": 4294967295,
+            "previousTransaction": "020000000111111111111111111111111111111111111111111111111111111111111111110000000000ffffffff0100e1f505000000001976a9147fc34af7f99327409b4967bc2d9068dc27111d6c88ac00000000"
+          }
+        ]
+      }
+    },
+    "signed": "02000000017b08dd056eb2226fffd9442f33ba30eb67748d48edbca09d491e76ba5939ace9000000006b483045022100ee6c79396cc3217583074a00c8292aaee6c8895d5c82eb9ce2604051f1a84185022033aa4363d3024192bdf25ea660c3d39c9b6e23987905a3daf163b12cd0e3c483412103602543a67787c0778df0153e879b33eb16e3759ae63dbed6e9bd3704bfe7a236ffffffff01f0b9f505000000001976a914d7b279570fad03bcddfb3eb3c8d81375f8b8741288ac00000000",
+    "walletCoreSigned": "01000000017b08dd056eb2226fffd9442f33ba30eb67748d48edbca09d491e76ba5939ace9000000006b483045022100fb54f71cbe6b5a8cb7c21ab8f9ac9c9aa543a8809f1aab080b7f8e31cb92fcf4022002e0a9ceae83af5e6e67fa002387cc655473c1638fa707606fa007294a86c6e8412103602543a67787c0778df0153e879b33eb16e3759ae63dbed6e9bd3704bfe7a236ffffffff01f0b9f505000000001976a914d7b279570fad03bcddfb3eb3c8d81375f8b8741288ac00000000"
+  }
+]

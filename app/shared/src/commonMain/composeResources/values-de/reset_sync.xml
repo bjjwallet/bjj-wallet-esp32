@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="me_sync_cold_wallet">Mit der Cold Wallet synchronisieren</string>
+    <string name="me_sync_reset_caption">App zurücksetzen und Synchronisierung neu starten</string>
+    <string name="me_sync_reset_title">App zur Synchronisierung zurücksetzen?</string>
+    <string name="me_sync_reset_warning">Beim Zurücksetzen werden alle gespeicherten Wallets, Namen, Adressen, zwischengespeicherten Salden, der Verlauf, ausstehende Transaktionen, die App-PIN und die Einstellungen gelöscht. Danach wird die Synchronisierung neu gestartet. Das Löschen ausstehender Einträge storniert keine bereits gesendeten Transaktionen. Die Cold Wallet und das Guthaben auf der Blockchain bleiben erhalten.</string>
+    <string name="me_sync_reset_confirm">App zurücksetzen und synchronisieren</string>
+</resources>

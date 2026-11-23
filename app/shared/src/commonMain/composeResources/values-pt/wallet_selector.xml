@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="wallet_choose">Escolher carteira</string>
+    <string name="wallet_sync_another">Sincronizar outra carteira</string>
+    <string name="wallet_name">Nome da carteira</string>
+    <string name="wallet_rename">Renomear carteira</string>
+    <string name="wallet_sync_help">Autorize a sincronização no dispositivo. O app importará as carteiras disponíveis com seus nomes, preservando as carteiras já salvas.</string>
+    <string name="wallet_name_invalid">Informe um nome entre 1 e 128 caracteres, sem quebras de linha.</string>
+</resources>

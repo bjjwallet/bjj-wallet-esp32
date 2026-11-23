@@ -1,0 +1,107 @@
+# Operating system and editor files
+.DS_Store
+._*
+Thumbs.db
+Desktop.ini
+.idea/
+.vscode/
+*.iml
+*.swp
+*.swo
+*~
+
+# Local credentials, signing keys and machine configuration
+.env
+.env.*
+!.env.example
+!.env.sample
+!.env.template
+local.properties
+key.properties
+keystore.properties
+signing.properties
+*.jks
+*.keystore
+*.p12
+*.pfx
+*.p8
+*.pem
+*.key
+*.mobileprovision
+id_rsa
+id_ecdsa
+id_ed25519
+google-services.json
+GoogleService-Info.plist
+*service-account*.json
+*firebase-adminsdk*.json
+.aws/
+.ssh/
+.codex/
+
+# Kotlin, Gradle, Android and Xcode outputs
+.gradle/
+.kotlin/
+build/
+build-*/
+DerivedData/
+xcuserdata/
+*.xcuserstate
+*.apk
+*.aab
+*.ipa
+*.dSYM/
+
+# Downloaded dependencies and local development environments
+node_modules/
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+coverage/
+.coverage
+htmlcov/
+target/
+
+# ESP-IDF generated configuration and managed components
+/hardware/esp32/firmware/managed_components/
+/hardware/esp32/firmware/sdkconfig
+/hardware/esp32/firmware/sdkconfig.old
+/hardware/esp32/sdkconfig
+/hardware/esp32/sdkconfig.old
+
+# Private device state, flash backups, pairing records and simulator wallets
+/hardware/esp32/device-backups/
+/hardware/esp32/device-resets/
+/hardware/esp32/device-updates/
+/hardware/esp32/simulator-wallets/
+keystore.json
+keystore_24.json
+wallet.db
+wallet.db-*
+wallet.db.*
+
+# Local diagnostics, device reports and unreviewed screenshots
+/generated/diagnostics/
+/hardware/esp32/device-*-report.json
+/hardware/esp32/wallets-on-device-report.json
+/hardware/esp32/multi-wallet-sync-report.json
+/hardware/esp32/setup-flow-report.json
+/hardware/esp32/docs/*-installation-*.json
+/hardware/esp32/docs/factory-reset-*.json
+/hardware/esp32/docs/phone-bond-rotation-validation-*.json
+/app/docs/screenshots/
+/hardware/esp32/docs/signing-flow/
+*.log
+*.log.*
+*.hprof
+*.heapdump
+*.dmp
+
+# Publish release ZIPs here; extracted current packages stay local.
+# Historical releases remain available under hardware/historico/instaladores/.
+/hardware/instaladores/*
+!/hardware/instaladores/*.zip

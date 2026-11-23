@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="me_sync_cold_wallet">与冷钱包同步</string>
+    <string name="me_sync_reset_caption">重置应用并重新开始同步</string>
+    <string name="me_sync_reset_title">要重置应用以进行同步吗？</string>
+    <string name="me_sync_reset_warning">重置将清除所有已保存的钱包、名称、地址、缓存余额、历史记录、待处理交易、应用 PIN 码和设置。随后将重新开始同步。删除待处理记录不会取消已发送的交易。冷钱包和区块链上的资金将保留。</string>
+    <string name="me_sync_reset_confirm">重置并同步</string>
+</resources>

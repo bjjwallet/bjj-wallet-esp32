@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="monero_sync">Sincronizza Monero</string>
+    <string name="monero_hardware_help">In attesa del portafoglio a freddo. Conferma la richiesta sul dispositivo se compare.</string>
+    <string name="monero_connecting">Connessione Bluetooth in corso…</string>
+    <string name="monero_pairing">Abbinamento al portafoglio a freddo… Se compare un codice, confrontalo e confermalo su entrambi i dispositivi.</string>
+    <string name="monero_pairing_failed">Impossibile autenticare la connessione Bluetooth. Controlla se c’è una richiesta di abbinamento sui due dispositivi e riprova.</string>
+    <string name="monero_connection_failed">Impossibile connettersi al portafoglio a freddo via Bluetooth. Sbloccalo, tienilo vicino e riprova.</string>
+    <string name="monero_last_verified">Ultimo blocco verificato %1$s</string>
+    <string name="monero_scanner_unavailable">I dati Monero sono stati salvati. Questa versione non dispone ancora di uno scanner Monero locale per verificare il saldo.</string>
+    <string name="monero_scan_pending">La scansione Monero non ha ancora verificato il saldo.</string>
+    <string name="monero_sync_rejected">Il portafoglio a freddo non ha approvato la richiesta Monero.</string>
+    <string name="monero_only_help">Questa schermata sincronizza solo Monero (XMR). Il portafoglio a freddo potrebbe chiederti di confermare la richiesta via Bluetooth.</string>
+    <string name="monero_scanning">Sincronizzazione di Monero in corso…</string>
+    <string name="monero_needs_images">Sono state trovate nuove uscite. Sincronizza con il portafoglio a freddo per verificare il saldo.</string>
+    <string name="monero_key_images_unavailable">Il portafoglio a freddo non supporta ancora le immagini chiave firmate per Monero.</string>
+    <string name="monero_view_sync_required">Questo firmware non ha ancora fornito i dati di visualizzazione di Monero.</string>
+    <string name="monero_waiting_for_wallet">L’app riceve i dati di visualizzazione di Monero durante la sincronizzazione con un portafoglio a freddo compatibile.</string>
+    <string name="monero_balance_pending">Saldo in attesa di verifica. Sincronizza con un portafoglio a freddo che supporta le immagini chiave firmate.</string>
+    <string name="monero_connection_title">Connessione Monero</string>
+    <string name="monero_connect">Connetti per sincronizzare XMR</string>
+    <string name="monero_scan_paused">Scansione Monero in pausa. Tocca Sincronizza Monero per continuare.</string>
+    <string name="monero_scan_timeout">Tempo scaduto per la scansione Monero. Controlla la connessione Internet e riprova.</string>
+    <string name="monero_restore_height">Altezza di ripristino</string>
+    <string name="monero_restore_height_help">Scegli un’altezza di blocco precedente alla prima ricezione di Monero. Lascia vuoto per usare l’altezza fornita dal portafoglio offline.</string>
+    <string name="monero_total_balance">Saldo totale: %1$s XMR</string>
+    <string name="monero_unlocked_balance">Disponibile: %1$s XMR</string>
+    <string name="monero_sync_address_only">Sincronizza solo l’indirizzo di ricezione</string>
+    <string name="monero_send_hardware">Controlla e conferma l’invio sul portafoglio a freddo.</string>
+</resources>

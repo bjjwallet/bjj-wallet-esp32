@@ -1,0 +1,26 @@
+{
+  "validated_at": "2026-11-21T13:30:46.775611-03:00",
+  "app_tests": {
+    "tests": 238,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "android_debug": "built and installed preserving data on Samsung R5CW80HAPSA",
+  "ios_shared_compilation": "passed",
+  "firmware_version": "2026.11.21-landscape1",
+  "firmware_package": "hardware/instaladores/BJJ-Cold-Wallet-ES3C28P-2026-11-21.zip",
+  "firmware_physical_installation": "installed; application readback verified; nvs and wallet_nvs byte-for-byte preserved",
+  "hardware_ui_tests": "22 passed in landscape; touch_view rerun passed after final splash adjustment",
+  "hardware_policy": "USB power-only, Monero signer linked; Wi-Fi and microSD entry points denied",
+  "app_log": "/private/tmp/bjj-reconnect-sheet-tests.log",
+  "hardware_test_log": "/private/tmp/bjj-landscape-host-tests.log",
+  "hardware_retest_log": "/private/tmp/bjj-signing-flow-touch-retest.log",
+  "hardware_ui_preview": "hardware/esp32/docs/signing-flow/landscape-approval.png",
+  "firmware_package_sha256": "8223ef5827b4bfd26455208401959646b3e3abf54c7ef93b52d567e10d2b8987",
+  "app_connection_flow": "explicit Connect button; reconnect in sheet after disconnection; rediscover saved Bluetooth device after process restart",
+  "duplicate_change_address": "hidden in confirmation when equal to source",
+  "installation_report": "hardware/esp32/docs/landscape-installation-2026-11-21.json",
+  "simulator_smoke": "passed",
+  "physical_display_and_touch_confirmation": "confirmed by user: landscape and touch working correctly"
+}

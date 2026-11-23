@@ -1,0 +1,56 @@
+{
+  "total": 221,
+  "passed": 202,
+  "failed": 19,
+  "same_failures_as_prior_run": true,
+  "failed_tests": [
+    "AccountVisibilityTest > catalogStaysVisibleWhileProviderControlsSending",
+    "BrzBscTest > firmwareSignaturesAndSubmissionUseOnlyAirLockRest",
+    "CoinbaseProviderTest > baseAndUsdcBalancesUseCdpWithCorrectChainAndPublicKeyOnly",
+    "CoinbaseProviderTest > baseEstimateIncludesL1AndOperatorFeesAndUsesDocumentedLatestTag",
+    "CoinbaseProviderTest > baseTimeoutCanBeResumedManuallyOnAlchemyWithIdenticalBytesAndChain",
+    "CoinbaseProviderTest > choosingCoinbaseFiltersAccountsPreservesOtherPendingPaymentsAndClearsItsKeyOnLock",
+    "NetworkProviderTest > airlockRestBalancesAreDecimalAndBoundToAddress",
+    "NetworkProviderTest > alchemyUtxoBalancesUseAtomicUnitsForFourNetworks",
+    "NetworkProviderTest > pricesUseProviderSpecificContractsWithoutChangingSymbols",
+    "NetworkProviderTest > readsOnlyTheChosenServerAndManualChangeKeepsChain",
+    "NetworkProviderTest > solanaSumsAllTokenAccountsUsingIntegers",
+    "NetworkProviderTest > suiTokenTypeIsNeverConfusedWithNativeBalance",
+    "NetworkProviderTest > tronTokenQueriesUseBase58AndContractAbiWithoutPrivateData",
+    "NetworkProviderTest > unauthorizedRateLimitedAndServerErrorsNeverSwitchProvider",
+    "NetworkProviderTest > uncertainSubmissionChecksAgainAndOnlyManualRetryChangesServer",
+    "NetworkProviderTest > xrplIssuedAssetChecksValidatedIssuerLineBeforeReceiving",
+    "NetworkRecoveryTest > settingsFilterTheViewWithoutChangingSavedAccountsAndKeysAreClearedOnLock",
+    "NetworkRecoveryTest > unsupportedDraftRetryIsDisabledAndDoesNotStartAnotherOperation",
+    "NetworkRecoveryTest > unsupportedPendingStaysVisibleAndCannotBroadcastAfterProviderSwitch"
+  ],
+  "focused": [
+    {
+      "name": "pub.airlock.AmountTest",
+      "tests": 4,
+      "failures": 0
+    },
+    {
+      "name": "pub.airlock.UtxoPaymentFlowTest",
+      "tests": 2,
+      "failures": 0
+    },
+    {
+      "name": "pub.airlock.RecipientQrTest",
+      "tests": 5,
+      "failures": 0
+    },
+    {
+      "name": "pub.airlock.AmountMaskTest",
+      "tests": 9,
+      "failures": 0
+    },
+    {
+      "name": "pub.airlock.DecimalInputTest",
+      "tests": 7,
+      "failures": 0
+    }
+  ],
+  "status": "historical_before_network_test_repair",
+  "superseded_by": "network-validation.json"
+}

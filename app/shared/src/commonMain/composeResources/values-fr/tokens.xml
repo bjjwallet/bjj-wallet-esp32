@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="transfer_network">Réseau</string>
+    <string name="transfer_source">Adresse source</string>
+    <string name="transfer_network_hint">Utilisez le même réseau que le destinataire. Chaque réseau possède son propre solde ; modifier cette sélection ne transfère pas de fonds entre les réseaux.</string>
+    <string name="transfer_network_missing">Ajoutez d’abord ce réseau dans Comptes.</string>
+    <string name="transfer_fee_balance">Disponible pour les frais de réseau : %1$s %2$s</string>
+    <string name="token_contract">Identifiant du jeton</string>
+    <string name="error_insufficient_fee_balance">Le solde en monnaie native à l’adresse source est insuffisant pour payer les frais de réseau.</string>
+    <string name="error_invalid_quote">Cette estimation ne correspond pas à l’actif ou au réseau sélectionné. Demandez une nouvelle estimation.</string>
+    <string name="catalog_network_pending">Intégration du réseau en attente</string>
+    <string name="catalog_assets_pending">Actifs en attente (%1$s)</string>
+    <string name="xrpl_trustline_required">Ce jeton nécessite une trustline XRPL avant de pouvoir être reçu.</string>
+</resources>

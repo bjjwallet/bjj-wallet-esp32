@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="monero_sync">同步 Monero</string>
+    <string name="monero_hardware_help">正在等待冷钱包响应。如果设备上出现请求，请确认。</string>
+    <string name="monero_connecting">正在通过蓝牙连接…</string>
+    <string name="monero_pairing">正在与冷钱包配对… 如果显示配对码，请核对并在两台设备上确认。</string>
+    <string name="monero_pairing_failed">无法验证蓝牙连接。请检查两台设备是否有配对请求，然后重试。</string>
+    <string name="monero_connection_failed">无法通过蓝牙连接冷钱包。请解锁冷钱包，将其放在附近后重试。</string>
+    <string name="monero_last_verified">最近验证的区块 %1$s</string>
+    <string name="monero_scanner_unavailable">已保存 Monero 数据。此版本尚无用于验证余额的本地 Monero 扫描器。</string>
+    <string name="monero_scan_pending">Monero 扫描尚未验证余额。</string>
+    <string name="monero_sync_rejected">冷钱包未批准 Monero 请求。</string>
+    <string name="monero_only_help">此页面仅同步 Monero（XMR）。冷钱包可能会要求你确认蓝牙请求。</string>
+    <string name="monero_scanning">正在同步 Monero…</string>
+    <string name="monero_needs_images">发现新的输出。请与冷钱包同步以验证余额。</string>
+    <string name="monero_key_images_unavailable">冷钱包尚不支持 Monero 的已签名密钥映像。</string>
+    <string name="monero_view_sync_required">此固件尚未提供 Monero 查看数据。</string>
+    <string name="monero_waiting_for_wallet">与兼容的冷钱包同步时，应用会接收 Monero 查看数据。</string>
+    <string name="monero_balance_pending">余额待验证。请与支持已签名密钥映像的冷钱包同步。</string>
+    <string name="monero_connection_title">Monero 连接</string>
+    <string name="monero_connect">连接并同步 XMR</string>
+    <string name="monero_scan_paused">Monero 扫描已暂停。点击同步 Monero 以继续。</string>
+    <string name="monero_scan_timeout">Monero 扫描超时。请检查网络连接后重试。</string>
+    <string name="monero_restore_height">恢复高度</string>
+    <string name="monero_restore_height_help">请选择首次收到门罗币之前的区块高度。留空可使用冷钱包提供的高度。</string>
+    <string name="monero_total_balance">总余额：%1$s XMR</string>
+    <string name="monero_unlocked_balance">可用余额：%1$s XMR</string>
+    <string name="monero_sync_address_only">仅同步收款地址</string>
+    <string name="monero_send_hardware">请在冷钱包上核对并确认这笔转账。</string>
+</resources>

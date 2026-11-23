@@ -1,0 +1,3 @@
+<resources>
+    <string name="bitcoin_signature_test_completed">コールドウォレットの署名を検証しました。架空の入力を使用したテスト送信はAPIに拒否されました。支払いは行われていません。</string>
+</resources>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="transfer_network">Rete</string>
+    <string name="transfer_source">Indirizzo di origine</string>
+    <string name="transfer_network_hint">Usa la stessa rete del destinatario. Ogni rete ha il proprio saldo; cambiare questa selezione non trasferisce fondi tra le reti.</string>
+    <string name="transfer_network_missing">Aggiungi prima questa rete in Conti.</string>
+    <string name="transfer_fee_balance">Disponibile per le commissioni di rete: %1$s %2$s</string>
+    <string name="token_contract">Identificatore del token</string>
+    <string name="error_insufficient_fee_balance">Saldo della moneta nativa insufficiente all’indirizzo di origine per pagare la commissione di rete.</string>
+    <string name="error_invalid_quote">Questa stima non corrisponde all’asset o alla rete selezionati. Richiedi una nuova stima.</string>
+    <string name="catalog_network_pending">Integrazione della rete in sospeso</string>
+    <string name="catalog_assets_pending">Asset in sospeso (%1$s)</string>
+    <string name="xrpl_trustline_required">Questo token richiede una trustline XRPL prima di poter essere ricevuto.</string>
+</resources>

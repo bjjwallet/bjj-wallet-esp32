@@ -1,0 +1,3863 @@
+{
+  "schema": 1,
+  "status": "partial_port_esp32_offline_onboarding_encrypted_entropy_and_hd_keys",
+  "esp32_crypto_backend": {
+    "primitives": [
+      "sha256",
+      "pbkdf2_sha256",
+      "pbkdf2_sha512",
+      "aes_256_gcm",
+      "ctr_drbg"
+    ],
+    "bip39_word_counts": [
+      12,
+      15,
+      18,
+      21,
+      24
+    ],
+    "key_curves": [
+      "secp256k1",
+      "nist256p1",
+      "ed25519",
+      "ed25519_blake2b"
+    ],
+    "secp256k1_public_serialization": [
+      "xpub",
+      "ypub",
+      "zpub"
+    ],
+    "source": "unmodified_wallet_core_4.4.2_trezor_crypto_pinned_sources",
+    "seed_semantics": "wallet_core_4.4.2_utf8_bytes_no_normalization_reject_over_256_bytes",
+    "hd_host_checks": 8077,
+    "reference_wallets": 34,
+    "reference_keys": 578,
+    "physical_selftest": "passed_ES3N28P_BIP39_BIP32_and_four_curves_2026_11_04",
+    "physical_selftest_ms": 708,
+    "bip39_cache": false,
+    "bip32_cache": false,
+    "wallet_creation_ui": true,
+    "address_builders": "initial_mainnet_receiving_addresses_13_networks",
+    "wallet_storage": "AES256_GCM_encrypted_entropy_and_passphrase_in_internal_NVS",
+    "signing": false,
+    "cardano_icarus_adapter": false
+  },
+  "esp32_initial_setup": {
+    "splash": "supplied_artwork_224x224_RGB565_100352_flash_bytes",
+    "word_counts": [
+      12,
+      18,
+      24
+    ],
+    "name": true,
+    "optional_bip39_passphrase": true,
+    "optional_pin_digits": [
+      4,
+      12
+    ],
+    "mandatory_transaction_phrase": true,
+    "generated_backup": "words_and_optional_passphrase_on_device_only_before_commit",
+    "pin_on_every_boot_if_configured": true,
+    "mobile_access_policy": [
+      "mobile_pin",
+      "device_approval"
+    ],
+    "mobile_authorization": "preference_saved_remote_account_access_still_unavailable",
+    "public_account_builders": false,
+    "private_key_export": false,
+    "network_catalog_entries": 14,
+    "offline_initial_public_key_networks": 13,
+    "offline_mainnet_receiving_address_networks": 13,
+    "monero_key_scheme": "pending",
+    "token_identifiers": "pending_verification",
+    "storage_record_bytes": 476,
+    "wallet_partition": "wallet_nvs_0x810000_0x20000",
+    "hardware_storage_test": "passed_isolated_public_fixture_committed_reopened_and_removed",
+    "final_firmware_installation": "infos_wallet_installed_usb_hash_verified_2026_11_06"
+  },
+  "macos_backend": {
+    "language": "C/C++",
+    "wallet_core": "official_native_4.4.2",
+    "generation": true,
+    "import": true,
+    "encrypted_keystore": true,
+    "account_database": true,
+    "ble": false,
+    "signing": false,
+    "parity_fixture_account_rows": 2692,
+    "additional_fixture_account_rows": 550,
+    "total_fixture_account_rows": 3242,
+    "derived_registry_entries": 163,
+    "cardano_passphrase": "CIP-3 Icarus via Wallet Core-linked primitives; default HDWallet API ignores passphrase",
+    "mnemonic_passphrase_matrix": "12/18/24 words, with/without passphrase; 163 entries in all six cases"
+  },
+  "ui_flow_parity": {
+    "reference": "ui/states_wallet.py + ui/components.py",
+    "differential_observations": 286,
+    "create_import": "verified_against_original_methods",
+    "connections_and_sign_review": "controllers_tested_with_injected_services",
+    "device_transport_and_signers": "esp32_nimble_public_rpc_integrated_signers_pending",
+    "input_limit_bytes": 1024
+  },
+  "ui_languages": [
+    "en",
+    "zh",
+    "pt-BR",
+    "fr",
+    "it",
+    "de",
+    "es"
+  ],
+  "public_wallet_sync": {
+    "language": "C/C++",
+    "methods": [
+      "get_device_info",
+      "get_accounts"
+    ],
+    "modes": [
+      "STANDARD",
+      "HIDDEN"
+    ],
+    "same_authenticated_encrypted_connection": true,
+    "generation_pinned_per_connection": true,
+    "macos_export": "read_only_existing_sqlite_tables_no_keystore_access",
+    "macos_ble_adapter": "not_implemented",
+    "ctest": "public_wallet_export",
+    "app_fixture_wallet_core": "4.4.4",
+    "hardware_fixture_wallet_core": "4.4.2",
+    "app_networks": 16,
+    "standard_fixture_rows": 43,
+    "hidden_fixture_rows": 313,
+    "esp32_transport": "nimble_gatt_integrated_physical_validation_pending",
+    "esp32_accounts": "PUBLIC_DATA_UNAVAILABLE_until_internal_flash_wallet_backend",
+    "esp32_pairing": "nimble_implemented_new_pairings_rejected_during_current_onboarding_scope",
+    "esp32_signing": "not_implemented"
+  },
+  "wallet_core_version": "4.4.2",
+  "target_soc": "esp32s3",
+  "board_model": "ES3N28P",
+  "lcd_controller": "ILI9341V",
+  "board_profiles": {
+    "ES3C28P": "touch_required",
+    "ES3N28P": "explicit_no_touch_usb_validation"
+  },
+  "display_width": 240,
+  "display_height": 320,
+  "board_source": "https://www.lcdwiki.com/2.8inch_ESP32-S3_Display",
+  "peripherals": {
+    "wifi": "forbidden",
+    "microsd": "forbidden",
+    "bluetooth": "allowed",
+    "internal_flash": "allowed",
+    "touch": "absent_in_user_ES3N28P"
+  },
+  "touch_controller": null,
+  "flash_bytes": 16777216,
+  "psram_bytes": 8388608,
+  "psram_mode": "OPI",
+  "legacy_api_methods": [
+    "create_account",
+    "get_account",
+    "get_accounts",
+    "get_device_info",
+    "ping",
+    "reboot",
+    "shutdown",
+    "sign_tx"
+  ],
+  "source_sha256": {
+    "config.py": "91c85c1860da0a065ac915c9782d6a59cf06a123036e49915b6f73ae9e6add6d",
+    "core/__init__.py": "0e7b84cade57467f9d0ff854b071d2d07c2eb0c960fa36041bee1b8b5a1c6057",
+    "core/api_handler.py": "b7c5c23fb6e84e01c3b1c49a80522c7b152a2a9b320cdfc7e166898593b305c4",
+    "core/ble_impl.py": "0f70b4a7ccabe00c2b18a113892ddaaf02d7e7d12894f6928b05e5193574328a",
+    "core/database.py": "d80f1c0d6e718043d5224efe529c5da4b694c2b0e27e2a695fa32a32a50a502e",
+    "core/models.py": "2d80afef892bee9c15745442aaa23300790be5ae46cc058ff7f763612a9cd78c",
+    "core/service.py": "b3a87ca996bb021a20ae902f311ec4b4394cf545cd2cfe3ca58d6ce022917962",
+    "core/utils.py": "aab63521dad8bdd86e621186407548a679c6cf6342324e5e7d8942cdac9fec03",
+    "hardware/__init__.py": "c2a8fcf33d629d3ed1d405d93389ce3518bcf4bf47163fd1a5c58ccfaaeabb25",
+    "hardware/display.py": "4a9711b98b580b613d7607e16712e7f4b8b4412b2724e759236c5da65f737f32",
+    "hardware/input_gpio.py": "014c7fc20e71695396befc8c7e3700d1eb2278a2f1b2c709dc8ddea7152eb276",
+    "hardware/input_usb.py": "9879c5994dfd0eb88ff15cf001944a18178458a775d37e557a732519f97510c5",
+    "js/SignerManager.js": "9d2cd64e60e3171b89fbdb045e7b044d3522516fa6dd6edf887c0aab38fe91b8",
+    "js/Utils.js": "837b9febc61bd5b5a2e8eb996b95af3d30e34aeea80f808da85148f15b09b9c9",
+    "js/crypto_worker.js": "a1d49a119c5b316c24f4a3c1bb8f4b7129a4ff5834422a86b6f55f434a369962",
+    "js/package-lock.json": "5cba8566442b5286ba0244ad5e8503011997be2b77399acad52752f2781d2af8",
+    "js/signer/AcalaSigner.js": "1c768dfc6fcf732015c063ad6475a40afa1767504bc58a074d86b692fb95cc10",
+    "js/signer/AeternitySigner.js": "a9888cded411a0cb32ad839c366ff38d439c06f34d28fdb28aed9be19093ebf0",
+    "js/signer/AgoricSigner.js": "38bde3f27a5f32c8915194eecfe51d6db8f8f8ba379a2a1abd157b73bb5ec86c",
+    "js/signer/AionSigner.js": "6343e0908aba2d5809047cc309ac4ed62161b8ef9824683f1f03951a9fe54afc",
+    "js/signer/AlgorandSigner.js": "fda5e3c345dc5bae46fa029070010c51763f82547aacf38bb9ed7e81f7a99542",
+    "js/signer/AptosSigner.js": "0361ce4d7cfd33b1373f2645f2c401ee121661c13f0cd38947855a4196ec7a2a",
+    "js/signer/BandChainSigner.js": "2e97f3180ed57641d1f463a842b989983f868a9fb329e37b894a5cbb37f286bc",
+    "js/signer/BitcoinCashSigner.js": "da5bfe2e1a06d2a49ef810e15b41b96048ef028364da366bcb62cee2dc690631",
+    "js/signer/BitcoinDiamondSigner.js": "94c9f50baccbc01e1b9bace295c100fd1ee4ae62ff9fb50365687e7846f08fc5",
+    "js/signer/BitcoinSigner.js": "c6cd493b44e390379767e0d2626beec49cd7cac15312abfae2c0c3161477e6eb",
+    "js/signer/BluzelleSigner.js": "22f636f1c46cd35bfe2e98276189cc0549f01e852ed23d80ca289502a9d1dcc4",
+    "js/signer/CardanoSigner.js": "701d1f4801c8cde3a059eb2ebaae5d4006ff23058cfe70017e0d0df40a021026",
+    "js/signer/CosmosSigner.js": "7753b94e624ad39a262b27db2aedf6177f5fce3eafb9ed8dfa6d6ab73282f2c4",
+    "js/signer/CryptoOrgSigner.js": "8ea2dc9e3575fe447ee331e3357c52bf0dd3ae25b91be7e08bf387aec0a75299",
+    "js/signer/EosSigner.js": "31cdee811332c7807b38a5e875e224343ca6e34654d380c99eb9964bc7861bc6",
+    "js/signer/EthereumSigner.js": "5936fa85fe3912de785c4e8f5bb7b8ac6209bd3a708aa8434bf46abe39063af8",
+    "js/signer/EverscaleSigner.js": "a33c6db6176695f9050ec42e5941e3cb95adb487ac834c6009f73b272a0bf9c2",
+    "js/signer/FilecoinSigner.js": "45aae7a8e80245c2b850ccbc06f109edb0f1e8d8963e081b776e45a408d1ca22",
+    "js/signer/FioSigner.js": "2d2d638a761d2dad17f88611662bdd2651f7426ecdc2f76147d2640beb8e9bec",
+    "js/signer/GreenfieldSigner.js": "7acd7e5cbd36f47efe45e434b3e2164728be168f456995c6b48c597ba9d66baf",
+    "js/signer/GroestlcoinSigner.js": "cbbadb3155e8b53da1bade610d37e49125fe398f091d33c9b5aa8472414f140c",
+    "js/signer/HarmonySigner.js": "699857e8afa797944b986a0dcb4760e1e7e934b2e2a8042ff74eeeebfb506f31",
+    "js/signer/HederaSigner.js": "ab002a273914f8a231a94c0bf28600d95c0aa48a5e923f8f0bc4215f467df1c5",
+    "js/signer/IcpSigner.js": "b18b5d84f9eb373213099241aad5829575f881e73e8b828d2cf19ab08a6a579f",
+    "js/signer/IoTeXSigner.js": "fa9cca79eaf466348a3c53c2dd1d6563d8b3c4241ce0a37f47c459e500ef64e6",
+    "js/signer/KavaSigner.js": "77eac21f58651ead6d7957fcc2ea91e39dc185ba6c64cc3035b1f81cc16ddb2e",
+    "js/signer/KusamaSigner.js": "4c4b014dc6a9a6079a3539bc6c76c67b29d4de573a82de8e3c8263f4cee93704",
+    "js/signer/MultiversXSigner.js": "6376d60e9cb08ffb76bb1a9707ae811994393a55423e506fcd5cb09eca455fad",
+    "js/signer/NULSSigner.js": "15295e1bc0259f2c359b7408721d85e07429626ab13ce68054f44c582c69095f",
+    "js/signer/NanoSigner.js": "6c1c38ed49de9420ce9bcb623f6e2e8a0990f5d9cfb0dd645edf08e781e0a418",
+    "js/signer/NativeInjectiveSigner.js": "7c4c6a6f879193350eda22fdae1596d5665b5fd5674aefd7270f43c07569b802",
+    "js/signer/NativeZetaChainSigner.js": "624f7abe708ca2473b695233181b9a5ef7305924511d914ec3aedf9888472bd5",
+    "js/signer/NearSigner.js": "0f1a8bcad7fbec4eb1d96f4eccf70b81469f13c3677fb995c3d1067bed7cd68a",
+    "js/signer/NebulasSigner.js": "6eb7aae4ed07943b4c04fa829a941c4fcddd3c51d2aee20731d875ffdc9bc172",
+    "js/signer/NeoSigner.js": "6be5c07e8efb498954f07d02711cc37d187a67f904f0e75f5feaa338765ac3bb",
+    "js/signer/NervosSigner.js": "a09f29c8a16b2bfda12f4a3cf596d147baf5d38ac3933a8fd9281cf2136c5050",
+    "js/signer/OasisSigner.js": "34d689aa91ef681743c4193dd6f18a43d1d0bbb7c1e3e1093dc9a643e08dd99b",
+    "js/signer/OntologySigner.js": "595f95d14081a4002e22cc45f2aacd625231a17494469867d277a21cd26567d6",
+    "js/signer/OsmosisSigner.js": "d634cfc37b3b328f9d956dbea987a985d6e4c462504ebd1d3391fcd901cafacb",
+    "js/signer/PactusSigner.js": "38a36515236bc79b8ebacf85b079087bddb18d61860a7a7e356f974fdc661f3b",
+    "js/signer/PolkadotSigner.js": "1c79dc3fee1372b311b9a79f85e617742000b6f0bbe4f914dfbdbca316c82367",
+    "js/signer/PolymeshSigner.js": "339ec60a13c1c8dc8b97960fb73411778074fbfcb0493173082d1d9c45358a58",
+    "js/signer/SecretSigner.js": "5ac49bb355aa983a7f08fbfcb5ad283cdbb0b27740c3b910e4e283c427bcb4ef",
+    "js/signer/SolanaSigner.js": "59a175f86f477dc7bd58f98138d840a227db56013ba5faa5a5059f9fd4fc9bd5",
+    "js/signer/StargazeSigner.js": "e7d8956d82ab05c081445c1ab79b5242e0d1420600c8fa8778583611a9aef06a",
+    "js/signer/StarkExSigner.js": "506b1c4abd2e6f9255a141ee19acd06103125de6597296e679b2f9a267f1fc3b",
+    "js/signer/StellarSigner.js": "345598fd095f2d14482cd0beeddc4e8fdbfbe420b05d800938c8744df608fc39",
+    "js/signer/SuiSigner.js": "17c91f750cf96587ffa91a59a826a3fdf6ee96589a2828ae58f59a121c83569c",
+    "js/signer/TerraSigner.js": "4a036d38ea32c907c72f1066d808d73e73c04d86e2bfdf43d0aac5c44f33e730",
+    "js/signer/TezosSigner.js": "26748d5368b1f961897be0b8e7f65a7530af2af4986d8bd38dc79b8a49be463f",
+    "js/signer/ThorchainSigner.js": "05d8d35edcc4803bf814ec0c44c722585f0bf3c732085f5106faa8f309ee92bb",
+    "js/signer/TonSigner.js": "b5886776fb6a9cc334cc2c6ea1711f443cb6d5fdd0f7eb994e06e24755c61637",
+    "js/signer/TronSigner.js": "015d4f5bbc83a91199287d1726f483896a2749c033f47d58e15878882898923f",
+    "js/signer/WavesSigner.js": "9742f2af7b079201732fdfccd5a3ae65b9d5af8cbe89891ab9639223e244e572",
+    "js/signer/XrpSigner.js": "83878288fd3e2e904c97e9f39d06cfb8461896d2dffa83c09e437b6af89c7e75",
+    "js/signer/ZcashSigner.js": "209d8c3a1f7c6c6747a518d58909deac2623cfffc7cf6a8bee3e14ffa58483db",
+    "js/signer/ZenSigner.js": "4ec815c9fc5ebd9b67226baa42203c82194845b8d0f2fa880c9abaff1e26d087",
+    "main.py": "cf01757c351cca4387a7e932f0b3dfa877d5b5dc50ae6e660aa30186a43b9534",
+    "registry.json": "10b059d99563c9175c3260d446c62a4bede867e515e57f1a9fc96b74a3d8ba2d",
+    "ui/__init__.py": "f5339e2d3105248925900c23307588b19c3b2c2518e56e97dc371f7a49f0f897",
+    "ui/base_state.py": "4768b307b136a1aa2fa9fd32b5632df503a3155cd15d1b97843146a447750f58",
+    "ui/components.py": "5e76a8bee7aebb477dc031878dd862987a93cb7a66741a1d10c7a2cb105242d6",
+    "ui/context.py": "59bdc3c4406259f3e2a41c9dbfea6b715462f804ee9293dcadf454e627a24bfd",
+    "ui/state_sign.py": "687750983f6dd6c13c650497a4d6e632ef1dd4317f5a5f84edf1bf3081024775",
+    "ui/states_ble.py": "3980abe10847d96c98df7237d9d1d72bfe422f4bdf15bc635e30732c7566d1bc",
+    "ui/states_menu.py": "2ee6caa1fae6cf8aabe18199a5282a365b429925c09d8aaf7b8697151b80da7c",
+    "ui/states_wallet.py": "3cab02e3259e6fbe099300cddcfce23166550dd62a04c8091c6212766f1ddcaf",
+    "words.txt": "187db04a869dd9bc7be80d21a86497d692c0db6abd3aa8cb6be5d618ff757fae"
+  },
+  "registry_coins": 163,
+  "legacy_signer_classes": 56,
+  "coins": [
+    {
+      "id": "bitcoin",
+      "coin_id": 0,
+      "blockchain": "Bitcoin",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "name": "segwit",
+          "path": "m/84'/0'/0'/0/0",
+          "xpub": "zpub",
+          "xprv": "zprv"
+        },
+        {
+          "name": "legacy",
+          "path": "m/44'/0'/0'/0/0",
+          "xpub": "xpub",
+          "xprv": "xprv"
+        },
+        {
+          "name": "testnet",
+          "path": "m/84'/1'/0'/0/0",
+          "xpub": "zpub",
+          "xprv": "zprv"
+        },
+        {
+          "name": "taproot",
+          "path": "m/86'/0'/0'/0/0",
+          "xpub": "zpub",
+          "xprv": "zprv"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "BitcoinSigner",
+      "legacy_signer_methods": [
+        "signTransfer",
+        "signP2TR",
+        "signBrc20Transfer",
+        "signBrc20Commit",
+        "signBrc20Reveal"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "litecoin",
+      "coin_id": 2,
+      "blockchain": "Bitcoin",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/84'/2'/0'/0/0",
+          "xpub": "zpub",
+          "xprv": "zprv"
+        },
+        {
+          "name": "legacy",
+          "path": "m/44'/2'/0'/0/0",
+          "xpub": "xpub",
+          "xprv": "xprv"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "BitcoinSigner",
+      "legacy_signer_methods": [
+        "signTransfer",
+        "signP2TR",
+        "signBrc20Transfer",
+        "signBrc20Commit",
+        "signBrc20Reveal"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "doge",
+      "coin_id": 3,
+      "blockchain": "Bitcoin",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/3'/0'/0/0",
+          "xpub": "dgub",
+          "xprv": "dgpv"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "BitcoinSigner",
+      "legacy_signer_methods": [
+        "signTransfer",
+        "signP2TR",
+        "signBrc20Transfer",
+        "signBrc20Commit",
+        "signBrc20Reveal"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "dash",
+      "coin_id": 5,
+      "blockchain": "Bitcoin",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/5'/0'/0/0",
+          "xpub": "xpub",
+          "xprv": "xprv"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "BitcoinSigner",
+      "legacy_signer_methods": [
+        "signTransfer",
+        "signP2TR",
+        "signBrc20Transfer",
+        "signBrc20Commit",
+        "signBrc20Reveal"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "viacoin",
+      "coin_id": 14,
+      "blockchain": "Bitcoin",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/84'/14'/0'/0/0",
+          "xpub": "zpub",
+          "xprv": "zprv"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "BitcoinSigner",
+      "legacy_signer_methods": [
+        "signTransfer",
+        "signP2TR",
+        "signBrc20Transfer",
+        "signBrc20Commit",
+        "signBrc20Reveal"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "groestlcoin",
+      "coin_id": 17,
+      "blockchain": "Groestlcoin",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/84'/17'/0'/0/0",
+          "xpub": "zpub",
+          "xprv": "zprv"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "GroestlcoinSigner",
+      "legacy_signer_methods": [
+        "signTransfer"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "digibyte",
+      "coin_id": 20,
+      "blockchain": "Bitcoin",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/84'/20'/0'/0/0",
+          "xpub": "zpub",
+          "xprv": "zprv"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "BitcoinSigner",
+      "legacy_signer_methods": [
+        "signTransfer",
+        "signP2TR",
+        "signBrc20Transfer",
+        "signBrc20Commit",
+        "signBrc20Reveal"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "monacoin",
+      "coin_id": 22,
+      "blockchain": "Bitcoin",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/22'/0'/0/0",
+          "xpub": "xpub",
+          "xprv": "xprv"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "BitcoinSigner",
+      "legacy_signer_methods": [
+        "signTransfer",
+        "signP2TR",
+        "signBrc20Transfer",
+        "signBrc20Commit",
+        "signBrc20Reveal"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "decred",
+      "coin_id": 42,
+      "blockchain": "Decred",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/42'/0'/0/0",
+          "xpub": "dpub",
+          "xprv": "dprv"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": null,
+      "legacy_signer_methods": [],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "syscoin",
+      "coin_id": 57,
+      "blockchain": "Bitcoin",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/84'/57'/0'/0/0",
+          "xpub": "zpub",
+          "xprv": "zprv"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "BitcoinSigner",
+      "legacy_signer_methods": [
+        "signTransfer",
+        "signP2TR",
+        "signBrc20Transfer",
+        "signBrc20Commit",
+        "signBrc20Reveal"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "base",
+      "coin_id": 8453,
+      "blockchain": "Ethereum",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/60'/0'/0/0"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "EthereumSigner",
+      "legacy_signer_methods": [
+        "signTransfer",
+        "signErc20Transfer",
+        "signMessage",
+        "signTypedData"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "linea",
+      "coin_id": 59144,
+      "blockchain": "Ethereum",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/60'/0'/0/0"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "EthereumSigner",
+      "legacy_signer_methods": [
+        "signTransfer",
+        "signErc20Transfer",
+        "signMessage",
+        "signTypedData"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "mantle",
+      "coin_id": 5000,
+      "blockchain": "Ethereum",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/60'/0'/0/0"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "EthereumSigner",
+      "legacy_signer_methods": [
+        "signTransfer",
+        "signErc20Transfer",
+        "signMessage",
+        "signTypedData"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "zeneon",
+      "coin_id": 7332,
+      "blockchain": "Ethereum",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/60'/0'/0/0"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "EthereumSigner",
+      "legacy_signer_methods": [
+        "signTransfer",
+        "signErc20Transfer",
+        "signMessage",
+        "signTypedData"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "ethereum",
+      "coin_id": 60,
+      "blockchain": "Ethereum",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/60'/0'/0/0"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "EthereumSigner",
+      "legacy_signer_methods": [
+        "signTransfer",
+        "signErc20Transfer",
+        "signMessage",
+        "signTypedData"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "classic",
+      "coin_id": 61,
+      "blockchain": "Ethereum",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/61'/0'/0/0"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "EthereumSigner",
+      "legacy_signer_methods": [
+        "signTransfer",
+        "signErc20Transfer",
+        "signMessage",
+        "signTypedData"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "icon",
+      "coin_id": 74,
+      "blockchain": "Icon",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/74'/0'/0/0"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": null,
+      "legacy_signer_methods": [],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "verge",
+      "coin_id": 77,
+      "blockchain": "Verge",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/84'/77'/0'/0/0",
+          "xpub": "zpub",
+          "xprv": "zprv"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": null,
+      "legacy_signer_methods": [],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "pivx",
+      "coin_id": 119,
+      "blockchain": "Bitcoin",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/119'/0'/0/0",
+          "xpub": "xpub",
+          "xprv": "xprv"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "BitcoinSigner",
+      "legacy_signer_methods": [
+        "signTransfer",
+        "signP2TR",
+        "signBrc20Transfer",
+        "signBrc20Commit",
+        "signBrc20Reveal"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "zen",
+      "coin_id": 121,
+      "blockchain": "Zen",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/121'/0'/0/0",
+          "xpub": "xpub",
+          "xprv": "xprv"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "ZenSigner",
+      "legacy_signer_methods": [
+        "signTransfer"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "aptos",
+      "coin_id": 637,
+      "blockchain": "Aptos",
+      "curve": "ed25519",
+      "derivation": [
+        {
+          "path": "m/44'/637'/0'/0'/0'"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "AptosSigner",
+      "legacy_signer_methods": [
+        "signTransfer"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "sui",
+      "coin_id": 784,
+      "blockchain": "Sui",
+      "curve": "ed25519",
+      "derivation": [
+        {
+          "path": "m/44'/784'/0'/0'/0'"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "SuiSigner",
+      "legacy_signer_methods": [
+        "signTransfer"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "cosmos",
+      "coin_id": 118,
+      "blockchain": "Cosmos",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/118'/0'/0/0"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "CosmosSigner",
+      "legacy_signer_methods": [
+        "signTransfer",
+        "signAuthGrant",
+        "signAuthRevoke"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "stargaze",
+      "coin_id": 20000118,
+      "blockchain": "Cosmos",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/118'/0'/0/0"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "StargazeSigner",
+      "legacy_signer_methods": [
+        "signTransfer",
+        "signWasmExecute"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "juno",
+      "coin_id": 30000118,
+      "blockchain": "Cosmos",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/118'/0'/0/0"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "CosmosSigner",
+      "legacy_signer_methods": [
+        "signTransfer",
+        "signAuthGrant",
+        "signAuthRevoke"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "stride",
+      "coin_id": 40000118,
+      "blockchain": "Cosmos",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/118'/0'/0/0"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "CosmosSigner",
+      "legacy_signer_methods": [
+        "signTransfer",
+        "signAuthGrant",
+        "signAuthRevoke"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "axelar",
+      "coin_id": 50000118,
+      "blockchain": "Cosmos",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/118'/0'/0/0"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "CosmosSigner",
+      "legacy_signer_methods": [
+        "signTransfer",
+        "signAuthGrant",
+        "signAuthRevoke"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "crescent",
+      "coin_id": 60000118,
+      "blockchain": "Cosmos",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/118'/0'/0/0"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "CosmosSigner",
+      "legacy_signer_methods": [
+        "signTransfer",
+        "signAuthGrant",
+        "signAuthRevoke"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "kujira",
+      "coin_id": 70000118,
+      "blockchain": "Cosmos",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/118'/0'/0/0"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "CosmosSigner",
+      "legacy_signer_methods": [
+        "signTransfer",
+        "signAuthGrant",
+        "signAuthRevoke"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "comdex",
+      "coin_id": 80000118,
+      "blockchain": "Cosmos",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/118'/0'/0/0"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "CosmosSigner",
+      "legacy_signer_methods": [
+        "signTransfer",
+        "signAuthGrant",
+        "signAuthRevoke"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "neutron",
+      "coin_id": 90000118,
+      "blockchain": "Cosmos",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/118'/0'/0/0"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "CosmosSigner",
+      "legacy_signer_methods": [
+        "signTransfer",
+        "signAuthGrant",
+        "signAuthRevoke"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "sommelier",
+      "coin_id": 11000118,
+      "blockchain": "Cosmos",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/118'/0'/0/0"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "CosmosSigner",
+      "legacy_signer_methods": [
+        "signTransfer",
+        "signAuthGrant",
+        "signAuthRevoke"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "fetchai",
+      "coin_id": 12000118,
+      "blockchain": "Cosmos",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/118'/0'/0/0"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "CosmosSigner",
+      "legacy_signer_methods": [
+        "signTransfer",
+        "signAuthGrant",
+        "signAuthRevoke"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "mars",
+      "coin_id": 13000118,
+      "blockchain": "Cosmos",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/118'/0'/0/0"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "CosmosSigner",
+      "legacy_signer_methods": [
+        "signTransfer",
+        "signAuthGrant",
+        "signAuthRevoke"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "umee",
+      "coin_id": 14000118,
+      "blockchain": "Cosmos",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/118'/0'/0/0"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "CosmosSigner",
+      "legacy_signer_methods": [
+        "signTransfer",
+        "signAuthGrant",
+        "signAuthRevoke"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "noble",
+      "coin_id": 18000118,
+      "blockchain": "Cosmos",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/118'/0'/0/0"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "CosmosSigner",
+      "legacy_signer_methods": [
+        "signTransfer",
+        "signAuthGrant",
+        "signAuthRevoke"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "sei",
+      "coin_id": 19000118,
+      "blockchain": "Cosmos",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/118'/0'/0/0"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "CosmosSigner",
+      "legacy_signer_methods": [
+        "signTransfer",
+        "signAuthGrant",
+        "signAuthRevoke"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "tia",
+      "coin_id": 21000118,
+      "blockchain": "Cosmos",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/118'/0'/0/0"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "CosmosSigner",
+      "legacy_signer_methods": [
+        "signTransfer",
+        "signAuthGrant",
+        "signAuthRevoke"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "coreum",
+      "coin_id": 10000990,
+      "blockchain": "Cosmos",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/990'/0'/0/0"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "CosmosSigner",
+      "legacy_signer_methods": [
+        "signTransfer",
+        "signAuthGrant",
+        "signAuthRevoke"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "quasar",
+      "coin_id": 15000118,
+      "blockchain": "Cosmos",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/118'/0'/0/0"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "CosmosSigner",
+      "legacy_signer_methods": [
+        "signTransfer",
+        "signAuthGrant",
+        "signAuthRevoke"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "persistence",
+      "coin_id": 16000118,
+      "blockchain": "Cosmos",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/118'/0'/0/0"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "CosmosSigner",
+      "legacy_signer_methods": [
+        "signTransfer",
+        "signAuthGrant",
+        "signAuthRevoke"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "akash",
+      "coin_id": 17000118,
+      "blockchain": "Cosmos",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/118'/0'/0/0"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "CosmosSigner",
+      "legacy_signer_methods": [
+        "signTransfer",
+        "signAuthGrant",
+        "signAuthRevoke"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "zcash",
+      "coin_id": 133,
+      "blockchain": "Zcash",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/133'/0'/0/0",
+          "xpub": "xpub",
+          "xprv": "xprv"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "ZcashSigner",
+      "legacy_signer_methods": [
+        "signTransfer"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "firo",
+      "coin_id": 136,
+      "blockchain": "Bitcoin",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/136'/0'/0/0",
+          "xpub": "xpub",
+          "xprv": "xprv"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "BitcoinSigner",
+      "legacy_signer_methods": [
+        "signTransfer",
+        "signP2TR",
+        "signBrc20Transfer",
+        "signBrc20Commit",
+        "signBrc20Reveal"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "komodo",
+      "coin_id": 141,
+      "blockchain": "Komodo",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/141'/0'/0/0",
+          "xpub": "xpub",
+          "xprv": "xprv"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": null,
+      "legacy_signer_methods": [],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "ripple",
+      "coin_id": 144,
+      "blockchain": "Ripple",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/144'/0'/0/0"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "XrpSigner",
+      "legacy_signer_methods": [
+        "signTransfer"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "bitcoincash",
+      "coin_id": 145,
+      "blockchain": "BitcoinCash",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/145'/0'/0/0",
+          "xpub": "xpub",
+          "xprv": "xprv"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "BitcoinCashSigner",
+      "legacy_signer_methods": [
+        "signTransfer"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "stellar",
+      "coin_id": 148,
+      "blockchain": "Stellar",
+      "curve": "ed25519",
+      "derivation": [
+        {
+          "path": "m/44'/148'/0'"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "StellarSigner",
+      "legacy_signer_methods": [
+        "signTransfer",
+        "signChangeTrust"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "bitcoingold",
+      "coin_id": 156,
+      "blockchain": "Bitcoin",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/84'/156'/0'/0/0",
+          "xpub": "zpub",
+          "xprv": "zprv"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "BitcoinSigner",
+      "legacy_signer_methods": [
+        "signTransfer",
+        "signP2TR",
+        "signBrc20Transfer",
+        "signBrc20Commit",
+        "signBrc20Reveal"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "nano",
+      "coin_id": 165,
+      "blockchain": "Nano",
+      "curve": "ed25519Blake2bNano",
+      "derivation": [
+        {
+          "path": "m/44'/165'/0'"
+        }
+      ],
+      "legacy_batch_derivation": false,
+      "macos_native_derivation": "verified_against_wallet_core_4.4.2",
+      "legacy_signer": "NanoSigner",
+      "legacy_signer_methods": [
+        "signTransfer"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "ravencoin",
+      "coin_id": 175,
+      "blockchain": "Bitcoin",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/175'/0'/0/0",
+          "xpub": "xpub",
+          "xprv": "xprv"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "BitcoinSigner",
+      "legacy_signer_methods": [
+        "signTransfer",
+        "signP2TR",
+        "signBrc20Transfer",
+        "signBrc20Commit",
+        "signBrc20Reveal"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "poa",
+      "coin_id": 178,
+      "blockchain": "Ethereum",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/178'/0'/0/0"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "EthereumSigner",
+      "legacy_signer_methods": [
+        "signTransfer",
+        "signErc20Transfer",
+        "signMessage",
+        "signTypedData"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "eos",
+      "coin_id": 194,
+      "blockchain": "EOS",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/194'/0'/0/0"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "EosSigner",
+      "legacy_signer_methods": [
+        "signTransfer"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "wax",
+      "coin_id": 14001,
+      "blockchain": "EOS",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/194'/0'/0/0"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "EosSigner",
+      "legacy_signer_methods": [
+        "signTransfer"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "tron",
+      "coin_id": 195,
+      "blockchain": "Tron",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/195'/0'/0/0"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "TronSigner",
+      "legacy_signer_methods": [
+        "signDirect",
+        "signTransfer",
+        "signTrc20Transfer"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "fio",
+      "coin_id": 235,
+      "blockchain": "FIO",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/235'/0'/0/0"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "FioSigner",
+      "legacy_signer_methods": [
+        "signTransfer"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "nimiq",
+      "coin_id": 242,
+      "blockchain": "Nimiq",
+      "curve": "ed25519",
+      "derivation": [
+        {
+          "path": "m/44'/242'/0'/0'"
+        }
+      ],
+      "legacy_batch_derivation": false,
+      "macos_native_derivation": "verified_against_wallet_core_4.4.2",
+      "legacy_signer": null,
+      "legacy_signer_methods": [],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "algorand",
+      "coin_id": 283,
+      "blockchain": "Algorand",
+      "curve": "ed25519",
+      "derivation": [
+        {
+          "path": "m/44'/283'/0'/0'/0'"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "AlgorandSigner",
+      "legacy_signer_methods": [
+        "signTransfer"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "iotex",
+      "coin_id": 304,
+      "blockchain": "IoTeX",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/304'/0'/0/0"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "IoTeXSigner",
+      "legacy_signer_methods": [
+        "signTransfer"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "iotexevm",
+      "coin_id": 10004689,
+      "blockchain": "Ethereum",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/304'/0'/0/0"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "EthereumSigner",
+      "legacy_signer_methods": [
+        "signTransfer",
+        "signErc20Transfer",
+        "signMessage",
+        "signTypedData"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "nervos",
+      "coin_id": 309,
+      "blockchain": "Nervos",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/309'/0'/0/0"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "NervosSigner",
+      "legacy_signer_methods": [
+        "signTransfer"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "zilliqa",
+      "coin_id": 313,
+      "blockchain": "Zilliqa",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/313'/0'/0/0"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": null,
+      "legacy_signer_methods": [],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "terra",
+      "coin_id": 330,
+      "blockchain": "Cosmos",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/330'/0'/0/0"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "CosmosSigner",
+      "legacy_signer_methods": [
+        "signTransfer",
+        "signAuthGrant",
+        "signAuthRevoke"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "terrav2",
+      "coin_id": 10000330,
+      "blockchain": "Cosmos",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/330'/0'/0/0"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "TerraSigner",
+      "legacy_signer_methods": [
+        "signTransfer",
+        "signWasmTransfer"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "polkadot",
+      "coin_id": 354,
+      "blockchain": "Polkadot",
+      "curve": "ed25519",
+      "derivation": [
+        {
+          "path": "m/44'/354'/0'/0'/0'"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "PolkadotSigner",
+      "legacy_signer_methods": [
+        "signTransfer"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "everscale",
+      "coin_id": 396,
+      "blockchain": "Everscale",
+      "curve": "ed25519",
+      "derivation": [
+        {
+          "path": "m/44'/396'/0'/0/0"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "EverscaleSigner",
+      "legacy_signer_methods": [
+        "signTransfer"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "near",
+      "coin_id": 397,
+      "blockchain": "NEAR",
+      "curve": "ed25519",
+      "derivation": [
+        {
+          "path": "m/44'/397'/0'"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "NearSigner",
+      "legacy_signer_methods": [
+        "signTransfer"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "aion",
+      "coin_id": 425,
+      "blockchain": "Aion",
+      "curve": "ed25519",
+      "derivation": [
+        {
+          "path": "m/44'/425'/0'/0'/0'"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "AionSigner",
+      "legacy_signer_methods": [
+        "signTransfer"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "kusama",
+      "coin_id": 434,
+      "blockchain": "Kusama",
+      "curve": "ed25519",
+      "derivation": [
+        {
+          "path": "m/44'/434'/0'/0'/0'"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "KusamaSigner",
+      "legacy_signer_methods": [
+        "signTransfer"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "acala",
+      "coin_id": 787,
+      "blockchain": "Polkadot",
+      "curve": "ed25519",
+      "derivation": [
+        {
+          "path": "m/44'/787'/0'/0'/0'"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "AcalaSigner",
+      "legacy_signer_methods": [
+        "signTransfer"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "acalaevm",
+      "coin_id": 10000787,
+      "blockchain": "Ethereum",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/60'/0'/0/0"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "EthereumSigner",
+      "legacy_signer_methods": [
+        "signTransfer",
+        "signErc20Transfer",
+        "signMessage",
+        "signTypedData"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "aeternity",
+      "coin_id": 457,
+      "blockchain": "Aeternity",
+      "curve": "ed25519",
+      "derivation": [
+        {
+          "path": "m/44'/457'/0'/0'/0'"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "AeternitySigner",
+      "legacy_signer_methods": [
+        "signTransfer"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "kava",
+      "coin_id": 459,
+      "blockchain": "Cosmos",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/459'/0'/0/0"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "KavaSigner",
+      "legacy_signer_methods": [
+        "signTransfer"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "filecoin",
+      "coin_id": 461,
+      "blockchain": "Filecoin",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/461'/0'/0/0"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "FilecoinSigner",
+      "legacy_signer_methods": [
+        "signTransfer"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "bluzelle",
+      "coin_id": 483,
+      "blockchain": "Cosmos",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/483'/0'/0/0"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "BluzelleSigner",
+      "legacy_signer_methods": [
+        "signTransfer"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "band",
+      "coin_id": 494,
+      "blockchain": "Cosmos",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/494'/0'/0/0"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "BandChainSigner",
+      "legacy_signer_methods": [
+        "signTransfer"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "theta",
+      "coin_id": 500,
+      "blockchain": "Theta",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/500'/0'/0/0"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": null,
+      "legacy_signer_methods": [],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "tfuelevm",
+      "coin_id": 361,
+      "blockchain": "Ethereum",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/500'/0'/0/0"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "EthereumSigner",
+      "legacy_signer_methods": [
+        "signTransfer",
+        "signErc20Transfer",
+        "signMessage",
+        "signTypedData"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "solana",
+      "coin_id": 501,
+      "blockchain": "Solana",
+      "curve": "ed25519",
+      "derivation": [
+        {
+          "path": "m/44'/501'/0'"
+        },
+        {
+          "name": "solana",
+          "path": "m/44'/501'/0'/0'"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "SolanaSigner",
+      "legacy_signer_methods": [
+        "signTransfer",
+        "signTokenTransfer",
+        "signCreateTokenAccount",
+        "signCreateAndTransferToken"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "elrond",
+      "coin_id": 508,
+      "blockchain": "MultiversX",
+      "curve": "ed25519",
+      "derivation": [
+        {
+          "path": "m/44'/508'/0'/0'/0'"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "MultiversXSigner",
+      "legacy_signer_methods": [
+        "signEGLDTransfer",
+        "signESDTTransfer"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "binance",
+      "coin_id": 714,
+      "blockchain": "Binance",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/714'/0'/0/0"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": null,
+      "legacy_signer_methods": [],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "tbinance",
+      "coin_id": 30000714,
+      "blockchain": "Binance",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/714'/0'/0/0"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": null,
+      "legacy_signer_methods": [],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "vechain",
+      "coin_id": 818,
+      "blockchain": "Vechain",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/818'/0'/0/0"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": null,
+      "legacy_signer_methods": [],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "callisto",
+      "coin_id": 820,
+      "blockchain": "Ethereum",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/820'/0'/0/0"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "EthereumSigner",
+      "legacy_signer_methods": [
+        "signTransfer",
+        "signErc20Transfer",
+        "signMessage",
+        "signTypedData"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "neo",
+      "coin_id": 888,
+      "blockchain": "NEO",
+      "curve": "nist256p1",
+      "derivation": [
+        {
+          "path": "m/44'/888'/0'/0/0"
+        }
+      ],
+      "legacy_batch_derivation": false,
+      "macos_native_derivation": "verified_against_wallet_core_4.4.2",
+      "legacy_signer": "NeoSigner",
+      "legacy_signer_methods": [
+        "signTransfer"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "viction",
+      "coin_id": 889,
+      "blockchain": "Ethereum",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/889'/0'/0/0"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "EthereumSigner",
+      "legacy_signer_methods": [
+        "signTransfer",
+        "signErc20Transfer",
+        "signMessage",
+        "signTypedData"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "bitcoindiamond",
+      "coin_id": 999,
+      "blockchain": "BitcoinDiamond",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/84'/999'/0'/0/0",
+          "xpub": "zpub",
+          "xprv": "zprv"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "BitcoinDiamondSigner",
+      "legacy_signer_methods": [
+        "signTransfer"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "thundertoken",
+      "coin_id": 1001,
+      "blockchain": "Ethereum",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/1001'/0'/0/0"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "EthereumSigner",
+      "legacy_signer_methods": [
+        "signTransfer",
+        "signErc20Transfer",
+        "signMessage",
+        "signTypedData"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "harmony",
+      "coin_id": 1023,
+      "blockchain": "Harmony",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/1023'/0'/0/0"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "HarmonySigner",
+      "legacy_signer_methods": [
+        "signTransfer"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "oasis",
+      "coin_id": 474,
+      "blockchain": "OasisNetwork",
+      "curve": "ed25519",
+      "derivation": [
+        {
+          "path": "m/44'/474'/0'"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "OasisSigner",
+      "legacy_signer_methods": [
+        "signTransfer"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "ontology",
+      "coin_id": 1024,
+      "blockchain": "Ontology",
+      "curve": "nist256p1",
+      "derivation": [
+        {
+          "path": "m/44'/1024'/0'/0/0"
+        }
+      ],
+      "legacy_batch_derivation": false,
+      "macos_native_derivation": "verified_against_wallet_core_4.4.2",
+      "legacy_signer": "OntologySigner",
+      "legacy_signer_methods": [
+        "signQuery",
+        "signTransfer"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "tezos",
+      "coin_id": 1729,
+      "blockchain": "Tezos",
+      "curve": "ed25519",
+      "derivation": [
+        {
+          "path": "m/44'/1729'/0'/0'"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "TezosSigner",
+      "legacy_signer_methods": [
+        "signFA2Transfer",
+        "signFA12Transfer"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "cardano",
+      "coin_id": 1815,
+      "blockchain": "Cardano",
+      "curve": "ed25519ExtendedCardano",
+      "derivation": [
+        {
+          "path": "m/1852'/1815'/0'/0/0"
+        }
+      ],
+      "legacy_batch_derivation": false,
+      "macos_native_derivation": "verified_against_emurgo_csl_13.2.1_icarus",
+      "legacy_signer": "CardanoSigner",
+      "legacy_signer_methods": [
+        "signTransfer"
+      ],
+      "esp32_key_primitive": "pending_icarus_adapter",
+      "esp32_derivation": "pending_icarus_adapter_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "kin",
+      "coin_id": 2017,
+      "blockchain": "Stellar",
+      "curve": "ed25519",
+      "derivation": [
+        {
+          "path": "m/44'/2017'/0'"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "StellarSigner",
+      "legacy_signer_methods": [
+        "signTransfer",
+        "signChangeTrust"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "qtum",
+      "coin_id": 2301,
+      "blockchain": "Bitcoin",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/2301'/0'/0/0",
+          "xpub": "xpub",
+          "xprv": "xprv"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "BitcoinSigner",
+      "legacy_signer_methods": [
+        "signTransfer",
+        "signP2TR",
+        "signBrc20Transfer",
+        "signBrc20Commit",
+        "signBrc20Reveal"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "nebulas",
+      "coin_id": 2718,
+      "blockchain": "Nebulas",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/2718'/0'/0/0"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "NebulasSigner",
+      "legacy_signer_methods": [
+        "signTransfer"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "gochain",
+      "coin_id": 6060,
+      "blockchain": "Ethereum",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/6060'/0'/0/0"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "EthereumSigner",
+      "legacy_signer_methods": [
+        "signTransfer",
+        "signErc20Transfer",
+        "signMessage",
+        "signTypedData"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "nuls",
+      "coin_id": 8964,
+      "blockchain": "NULS",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/8964'/0'/0/0"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "NULSSigner",
+      "legacy_signer_methods": [
+        "signTransfer",
+        "signToken",
+        "signStandardWithFeePayer",
+        "signTokenWithFeePayer"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "zelcash",
+      "coin_id": 19167,
+      "blockchain": "Zcash",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/19167'/0'/0/0",
+          "xpub": "xpub",
+          "xprv": "xprv"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "ZcashSigner",
+      "legacy_signer_methods": [
+        "signTransfer"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "wanchain",
+      "coin_id": 5718350,
+      "blockchain": "Ethereum",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/5718350'/0'/0/0"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "EthereumSigner",
+      "legacy_signer_methods": [
+        "signTransfer",
+        "signErc20Transfer",
+        "signMessage",
+        "signTypedData"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "waves",
+      "coin_id": 5741564,
+      "blockchain": "Waves",
+      "curve": "ed25519",
+      "derivation": [
+        {
+          "path": "m/44'/5741564'/0'/0'/0'"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "WavesSigner",
+      "legacy_signer_methods": [
+        "signTransfer"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "bsc",
+      "coin_id": 10000714,
+      "blockchain": "Ethereum",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/714'/0'/0/0"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "EthereumSigner",
+      "legacy_signer_methods": [
+        "signTransfer",
+        "signErc20Transfer",
+        "signMessage",
+        "signTypedData"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "smartchain",
+      "coin_id": 20000714,
+      "blockchain": "Ethereum",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/60'/0'/0/0"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "EthereumSigner",
+      "legacy_signer_methods": [
+        "signTransfer",
+        "signErc20Transfer",
+        "signMessage",
+        "signTypedData"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "polygon",
+      "coin_id": 966,
+      "blockchain": "Ethereum",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/60'/0'/0/0"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "EthereumSigner",
+      "legacy_signer_methods": [
+        "signTransfer",
+        "signErc20Transfer",
+        "signMessage",
+        "signTypedData"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "rootstock",
+      "coin_id": 137,
+      "blockchain": "Ethereum",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/137'/0'/0/0"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "EthereumSigner",
+      "legacy_signer_methods": [
+        "signTransfer",
+        "signErc20Transfer",
+        "signMessage",
+        "signTypedData"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "thorchain",
+      "coin_id": 931,
+      "blockchain": "Thorchain",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/931'/0'/0/0"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "ThorchainSigner",
+      "legacy_signer_methods": [
+        "signTransfer"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "optimism",
+      "coin_id": 10000070,
+      "blockchain": "Ethereum",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/60'/0'/0/0"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "EthereumSigner",
+      "legacy_signer_methods": [
+        "signTransfer",
+        "signErc20Transfer",
+        "signMessage",
+        "signTypedData"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "polygonzkevm",
+      "coin_id": 10001101,
+      "blockchain": "Ethereum",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/60'/0'/0/0"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "EthereumSigner",
+      "legacy_signer_methods": [
+        "signTransfer",
+        "signErc20Transfer",
+        "signMessage",
+        "signTypedData"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "zksync",
+      "coin_id": 10000324,
+      "blockchain": "Ethereum",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/60'/0'/0/0"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "EthereumSigner",
+      "legacy_signer_methods": [
+        "signTransfer",
+        "signErc20Transfer",
+        "signMessage",
+        "signTypedData"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "scroll",
+      "coin_id": 534352,
+      "blockchain": "Ethereum",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/60'/0'/0/0"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "EthereumSigner",
+      "legacy_signer_methods": [
+        "signTransfer",
+        "signErc20Transfer",
+        "signMessage",
+        "signTypedData"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "arbitrum",
+      "coin_id": 10042221,
+      "blockchain": "Ethereum",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/60'/0'/0/0"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "EthereumSigner",
+      "legacy_signer_methods": [
+        "signTransfer",
+        "signErc20Transfer",
+        "signMessage",
+        "signTypedData"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "arbitrumnova",
+      "coin_id": 10042170,
+      "blockchain": "Ethereum",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/60'/0'/0/0"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "EthereumSigner",
+      "legacy_signer_methods": [
+        "signTransfer",
+        "signErc20Transfer",
+        "signMessage",
+        "signTypedData"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "heco",
+      "coin_id": 10000553,
+      "blockchain": "Ethereum",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/60'/0'/0/0"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "EthereumSigner",
+      "legacy_signer_methods": [
+        "signTransfer",
+        "signErc20Transfer",
+        "signMessage",
+        "signTypedData"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "avalanchec",
+      "coin_id": 10009000,
+      "blockchain": "Ethereum",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/60'/0'/0/0"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "EthereumSigner",
+      "legacy_signer_methods": [
+        "signTransfer",
+        "signErc20Transfer",
+        "signMessage",
+        "signTypedData"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "xdai",
+      "coin_id": 10000100,
+      "blockchain": "Ethereum",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/60'/0'/0/0"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "EthereumSigner",
+      "legacy_signer_methods": [
+        "signTransfer",
+        "signErc20Transfer",
+        "signMessage",
+        "signTypedData"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "fantom",
+      "coin_id": 10000250,
+      "blockchain": "Ethereum",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/60'/0'/0/0"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "EthereumSigner",
+      "legacy_signer_methods": [
+        "signTransfer",
+        "signErc20Transfer",
+        "signMessage",
+        "signTypedData"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "cryptoorg",
+      "coin_id": 394,
+      "blockchain": "Cosmos",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/394'/0'/0/0"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "CryptoOrgSigner",
+      "legacy_signer_methods": [
+        "signTransfer"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "celo",
+      "coin_id": 52752,
+      "blockchain": "Ethereum",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/60'/0'/0/0"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "EthereumSigner",
+      "legacy_signer_methods": [
+        "signTransfer",
+        "signErc20Transfer",
+        "signMessage",
+        "signTypedData"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "ronin",
+      "coin_id": 10002020,
+      "blockchain": "Ronin",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/60'/0'/0/0"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": null,
+      "legacy_signer_methods": [],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "secret",
+      "coin_id": 529,
+      "blockchain": "Cosmos",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/529'/0'/0/0"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "SecretSigner",
+      "legacy_signer_methods": [
+        "signTransfer"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "osmosis",
+      "coin_id": 10000118,
+      "blockchain": "Cosmos",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/118'/0'/0/0"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "OsmosisSigner",
+      "legacy_signer_methods": [
+        "signTransfer"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "ecash",
+      "coin_id": 899,
+      "blockchain": "BitcoinCash",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/899'/0'/0/0",
+          "xpub": "xpub",
+          "xprv": "xprv"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "BitcoinCashSigner",
+      "legacy_signer_methods": [
+        "signTransfer"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "iost",
+      "coin_id": 291,
+      "blockchain": "IOST",
+      "curve": "ed25519",
+      "derivation": [
+        {
+          "path": "m/44'/899'/0'/0/0",
+          "xpub": "xpub",
+          "xprv": "xprv"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": null,
+      "legacy_signer_methods": [],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "cronos",
+      "coin_id": 10000025,
+      "blockchain": "Ethereum",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/60'/0'/0/0"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "EthereumSigner",
+      "legacy_signer_methods": [
+        "signTransfer",
+        "signErc20Transfer",
+        "signMessage",
+        "signTypedData"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "kavaevm",
+      "coin_id": 10002222,
+      "blockchain": "Ethereum",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/60'/0'/0/0"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "EthereumSigner",
+      "legacy_signer_methods": [
+        "signTransfer",
+        "signErc20Transfer",
+        "signMessage",
+        "signTypedData"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "smartbch",
+      "coin_id": 10000145,
+      "blockchain": "Ethereum",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/60'/0'/0/0"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "EthereumSigner",
+      "legacy_signer_methods": [
+        "signTransfer",
+        "signErc20Transfer",
+        "signMessage",
+        "signTypedData"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "kcc",
+      "coin_id": 10000321,
+      "blockchain": "Ethereum",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/60'/0'/0/0"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "EthereumSigner",
+      "legacy_signer_methods": [
+        "signTransfer",
+        "signErc20Transfer",
+        "signMessage",
+        "signTypedData"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "boba",
+      "coin_id": 10000288,
+      "blockchain": "Ethereum",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/60'/0'/0/0"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "EthereumSigner",
+      "legacy_signer_methods": [
+        "signTransfer",
+        "signErc20Transfer",
+        "signMessage",
+        "signTypedData"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "metis",
+      "coin_id": 10001088,
+      "blockchain": "Ethereum",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/60'/0'/0/0"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "EthereumSigner",
+      "legacy_signer_methods": [
+        "signTransfer",
+        "signErc20Transfer",
+        "signMessage",
+        "signTypedData"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "aurora",
+      "coin_id": 1323161554,
+      "blockchain": "Ethereum",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/60'/0'/0/0"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "EthereumSigner",
+      "legacy_signer_methods": [
+        "signTransfer",
+        "signErc20Transfer",
+        "signMessage",
+        "signTypedData"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "evmos",
+      "coin_id": 10009001,
+      "blockchain": "Ethereum",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/60'/0'/0/0"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "EthereumSigner",
+      "legacy_signer_methods": [
+        "signTransfer",
+        "signErc20Transfer",
+        "signMessage",
+        "signTypedData"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "nativeevmos",
+      "coin_id": 20009001,
+      "blockchain": "NativeEvmos",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/60'/0'/0/0"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": null,
+      "legacy_signer_methods": [],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "moonriver",
+      "coin_id": 10001285,
+      "blockchain": "Ethereum",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/60'/0'/0/0"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "EthereumSigner",
+      "legacy_signer_methods": [
+        "signTransfer",
+        "signErc20Transfer",
+        "signMessage",
+        "signTypedData"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "moonbeam",
+      "coin_id": 10001284,
+      "blockchain": "Ethereum",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/60'/0'/0/0"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "EthereumSigner",
+      "legacy_signer_methods": [
+        "signTransfer",
+        "signErc20Transfer",
+        "signMessage",
+        "signTypedData"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "kaia",
+      "coin_id": 10008217,
+      "blockchain": "Ethereum",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/60'/0'/0/0"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "EthereumSigner",
+      "legacy_signer_methods": [
+        "signTransfer",
+        "signErc20Transfer",
+        "signMessage",
+        "signTypedData"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "meter",
+      "coin_id": 18000,
+      "blockchain": "Ethereum",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/60'/0'/0/0"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "EthereumSigner",
+      "legacy_signer_methods": [
+        "signTransfer",
+        "signErc20Transfer",
+        "signMessage",
+        "signTypedData"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "okc",
+      "coin_id": 996,
+      "blockchain": "Ethereum",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/60'/0'/0/0"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "EthereumSigner",
+      "legacy_signer_methods": [
+        "signTransfer",
+        "signErc20Transfer",
+        "signMessage",
+        "signTypedData"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "cfxevm",
+      "coin_id": 1030,
+      "blockchain": "Ethereum",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/60'/0'/0/0"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "EthereumSigner",
+      "legacy_signer_methods": [
+        "signTransfer",
+        "signErc20Transfer",
+        "signMessage",
+        "signTypedData"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "greenfield",
+      "coin_id": 5600,
+      "blockchain": "Greenfield",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/60'/0'/0/0"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "GreenfieldSigner",
+      "legacy_signer_methods": [
+        "signTransfer"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "opbnb",
+      "coin_id": 204,
+      "blockchain": "Ethereum",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/60'/0'/0/0"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "EthereumSigner",
+      "legacy_signer_methods": [
+        "signTransfer",
+        "signErc20Transfer",
+        "signMessage",
+        "signTypedData"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "stratis",
+      "coin_id": 105105,
+      "blockchain": "Bitcoin",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "name": "segwit",
+          "path": "m/44'/105105'/0'/0/0",
+          "xpub": "xpub",
+          "xprv": "xprv"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "BitcoinSigner",
+      "legacy_signer_methods": [
+        "signTransfer",
+        "signP2TR",
+        "signBrc20Transfer",
+        "signBrc20Commit",
+        "signBrc20Reveal"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "Nebl",
+      "coin_id": 146,
+      "blockchain": "Verge",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/146'/0'/0/0",
+          "xpub": "xpub",
+          "xprv": "xprv"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": null,
+      "legacy_signer_methods": [],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "hedera",
+      "coin_id": 3030,
+      "blockchain": "Hedera",
+      "curve": "ed25519",
+      "derivation": [
+        {
+          "path": "m/44'/3030'/0'/0'/0"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "HederaSigner",
+      "legacy_signer_methods": [
+        "signTransfer"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "agoric",
+      "coin_id": 564,
+      "blockchain": "Cosmos",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/564'/0'/0/0"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "AgoricSigner",
+      "legacy_signer_methods": [
+        "signTransfer"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "dydx",
+      "coin_id": 22000118,
+      "blockchain": "Cosmos",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/118'/0'/0/0"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "CosmosSigner",
+      "legacy_signer_methods": [
+        "signTransfer",
+        "signAuthGrant",
+        "signAuthRevoke"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "nativeinjective",
+      "coin_id": 10000060,
+      "blockchain": "NativeInjective",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/60'/0'/0/0"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "NativeInjectiveSigner",
+      "legacy_signer_methods": [
+        "signTransfer"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "nativecanto",
+      "coin_id": 10007700,
+      "blockchain": "Cosmos",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/60'/0'/0/0"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "CosmosSigner",
+      "legacy_signer_methods": [
+        "signTransfer",
+        "signAuthGrant",
+        "signAuthRevoke"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "zetachain",
+      "coin_id": 10007000,
+      "blockchain": "Cosmos",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/60'/0'/0/0"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "NativeZetaChainSigner",
+      "legacy_signer_methods": [
+        "signTransfer"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "zetaevm",
+      "coin_id": 20007000,
+      "blockchain": "Ethereum",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/60'/0'/0/0"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "EthereumSigner",
+      "legacy_signer_methods": [
+        "signTransfer",
+        "signErc20Transfer",
+        "signMessage",
+        "signTypedData"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "ton",
+      "coin_id": 607,
+      "blockchain": "TheOpenNetwork",
+      "curve": "ed25519",
+      "derivation": [
+        {
+          "path": "m/44'/607'/0'"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "TonSigner",
+      "legacy_signer_methods": [
+        "signTransfer"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "neon",
+      "coin_id": 245022934,
+      "blockchain": "Ethereum",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/60'/0'/0/0"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "EthereumSigner",
+      "legacy_signer_methods": [
+        "signTransfer",
+        "signErc20Transfer",
+        "signMessage",
+        "signTypedData"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "internet_computer",
+      "coin_id": 223,
+      "blockchain": "InternetComputer",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/223'/0'/0/0",
+          "xpub": "xpub",
+          "xpriv": "xpriv"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "IcpSigner",
+      "legacy_signer_methods": [
+        "signTransfer"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "manta",
+      "coin_id": 169,
+      "blockchain": "Ethereum",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/60'/0'/0/0"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "EthereumSigner",
+      "legacy_signer_methods": [
+        "signTransfer",
+        "signErc20Transfer",
+        "signMessage",
+        "signTypedData"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "merlin",
+      "coin_id": 4200,
+      "blockchain": "Ethereum",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/60'/0'/0/0"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "EthereumSigner",
+      "legacy_signer_methods": [
+        "signTransfer",
+        "signErc20Transfer",
+        "signMessage",
+        "signTypedData"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "lightlink",
+      "coin_id": 1890,
+      "blockchain": "Ethereum",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/60'/0'/0/0"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "EthereumSigner",
+      "legacy_signer_methods": [
+        "signTransfer",
+        "signErc20Transfer",
+        "signMessage",
+        "signTypedData"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "blast",
+      "coin_id": 81457,
+      "blockchain": "Ethereum",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/60'/0'/0/0"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "EthereumSigner",
+      "legacy_signer_methods": [
+        "signTransfer",
+        "signErc20Transfer",
+        "signMessage",
+        "signTypedData"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "bouncebit",
+      "coin_id": 6001,
+      "blockchain": "Ethereum",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/60'/0'/0/0"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "EthereumSigner",
+      "legacy_signer_methods": [
+        "signTransfer",
+        "signErc20Transfer",
+        "signMessage",
+        "signTypedData"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "zklinknova",
+      "coin_id": 810180,
+      "blockchain": "Ethereum",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/60'/0'/0/0"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "EthereumSigner",
+      "legacy_signer_methods": [
+        "signTransfer",
+        "signErc20Transfer",
+        "signMessage",
+        "signTypedData"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "sonic",
+      "coin_id": 10000146,
+      "blockchain": "Ethereum",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/60'/0'/0/0"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "EthereumSigner",
+      "legacy_signer_methods": [
+        "signTransfer",
+        "signErc20Transfer",
+        "signMessage",
+        "signTypedData"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "pactus",
+      "coin_id": 21888,
+      "blockchain": "Pactus",
+      "curve": "ed25519",
+      "derivation": [
+        {
+          "name": "mainnet",
+          "path": "m/44'/21888'/3'/0'"
+        },
+        {
+          "name": "testnet",
+          "path": "m/44'/21777'/3'/0'"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "PactusSigner",
+      "legacy_signer_methods": [
+        "signTransfer",
+        "signBond"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "polymesh",
+      "coin_id": 595,
+      "blockchain": "Polymesh",
+      "curve": "ed25519",
+      "derivation": [
+        {
+          "path": "m/44'/595'/0'/0'/0'"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "PolymeshSigner",
+      "legacy_signer_methods": [
+        "signTransfer"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "plasma",
+      "coin_id": 9745,
+      "blockchain": "Ethereum",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/60'/0'/0/0"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "EthereumSigner",
+      "legacy_signer_methods": [
+        "signTransfer",
+        "signErc20Transfer",
+        "signMessage",
+        "signTypedData"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    },
+    {
+      "id": "monad",
+      "coin_id": 10143,
+      "blockchain": "Ethereum",
+      "curve": "secp256k1",
+      "derivation": [
+        {
+          "path": "m/44'/60'/0'/0/0"
+        }
+      ],
+      "legacy_batch_derivation": true,
+      "macos_native_derivation": "verified_against_original",
+      "legacy_signer": "EthereumSigner",
+      "legacy_signer_methods": [
+        "signTransfer",
+        "signErc20Transfer",
+        "signMessage",
+        "signTypedData"
+      ],
+      "esp32_key_primitive": "available_four_curve_hd_backend_not_full_coin_validation",
+      "esp32_derivation": "pending_address_and_account_backend",
+      "esp32_signing": "pending_wallet_core_and_native_signer_port"
+    }
+  ]
+}

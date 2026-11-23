@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="wallet_choose">ウォレットを選択</string>
+    <string name="wallet_sync_another">別のウォレットと同期</string>
+    <string name="wallet_name">ウォレット名</string>
+    <string name="wallet_rename">ウォレット名を変更</string>
+    <string name="wallet_sync_help">デバイスで同期を承認してください。アプリは利用可能なウォレットとその名前をインポートし、保存済みのウォレットを保持します。</string>
+    <string name="wallet_name_invalid">改行を含めず、1〜128文字の名前を入力してください。</string>
+</resources>

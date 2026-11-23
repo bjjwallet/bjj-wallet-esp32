@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="error_public_data_invalid">Datos públicos de la cartera no válidos. Vuelve a sincronizar con tu BJJ-Cold-Wallet.</string>
+    <string name="error_public_data_incomplete">El dispositivo no exportó todas las redes compatibles. Actualiza el firmware y vuelve a sincronizar.</string>
+    <string name="error_public_data_sync_required">No hay datos públicos guardados para esta dirección. Sincroniza con el dispositivo.</string>
+    <string name="error_public_data_changed">Los datos públicos de la cartera han cambiado. Se conservaron las cuentas existentes; comprueba el dispositivo y la cartera conectados.</string>
+    <string name="error_address_index_exhausted">Esta cuenta ha alcanzado el límite de derivación de direcciones.</string>
+    <string name="error_bluetooth_permission">Permite el acceso a Bluetooth para sincronizar el dispositivo.</string>
+    <string name="error_bluetooth_unavailable">Bluetooth no disponible. Activa Bluetooth y revisa los permisos de la app.</string>
+    <string name="hardware_select_title">Selecciona tu BJJ-Cold-Wallet</string>
+    <string name="hardware_select_help">Elige tu dispositivo y confirma el código de emparejamiento en el móvil y el hardware. Los datos públicos de todas las redes compatibles se guardarán por separado para la cartera normal y la cartera con passphrase.</string>
+    <string name="offline_accounts_hint">Añade monedas a la lista. Si la dirección pública aún no está guardada, sincronízala después para consultar saldos, recibir y enviar.</string>
+    <string name="common_add_account_action">Añadir</string>
+    <string name="account_already_added">Ya añadida</string>
+    <string name="account_public_data_pending">La dirección pública aún no se ha sincronizado. La moneda ya puede aparecer en Cuentas.</string>
+    <string name="account_sync_public_data">Sincronizar direcciones públicas</string>
+    <string name="common_remove_account_action">Quitar</string>
+    <string name="account_api_unsupported">La API seleccionada no admite esta moneda o token.</string>
+</resources>

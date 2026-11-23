@@ -1,0 +1,10 @@
+{
+  "source_name": "Imagem do ChatGPT 28 de out. de 2026, 23_24_27.png",
+  "source_sha256": "20ba189a3e52610afdb705bff01c64a2f4c30f1223b3e13c13b4751635750bb4",
+  "width": 224,
+  "height": 224,
+  "format": "RGB565 little endian, opaque black background",
+  "flash_data_bytes": 100352,
+  "pixel_sha256": "901a49f73e202c570208a3d3e08c7fd996c0d3c198e959d18d43f00457e3bbbe",
+  "conversion": "Pillow 11.3.0, Lanczos containment; source artwork preserved"
+}

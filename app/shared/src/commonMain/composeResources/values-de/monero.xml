@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="monero_sync">Monero synchronisieren</string>
+    <string name="monero_hardware_help">Warte auf die Cold Wallet. Bestätige die Anfrage am Gerät, falls sie angezeigt wird.</string>
+    <string name="monero_connecting">Bluetooth-Verbindung wird hergestellt…</string>
+    <string name="monero_pairing">Kopplung mit der Cold Wallet… Vergleiche und bestätige den Code auf beiden Geräten, falls er angezeigt wird.</string>
+    <string name="monero_pairing_failed">Die Bluetooth-Verbindung konnte nicht authentifiziert werden. Prüfe beide Geräte auf eine Kopplungsanfrage und versuche es erneut.</string>
+    <string name="monero_connection_failed">Die Bluetooth-Verbindung zur Cold Wallet ist fehlgeschlagen. Entsperre das Gerät, halte es in der Nähe und versuche es erneut.</string>
+    <string name="monero_last_verified">Zuletzt geprüfter Block %1$s</string>
+    <string name="monero_scanner_unavailable">Die Monero-Daten wurden gespeichert. Diese Version hat noch keinen lokalen Monero-Scanner zur Saldoüberprüfung.</string>
+    <string name="monero_scan_pending">Der Monero-Scan hat den Saldo noch nicht überprüft.</string>
+    <string name="monero_sync_rejected">Die Cold Wallet hat die Monero-Anfrage nicht bestätigt.</string>
+    <string name="monero_only_help">Auf diesem Bildschirm wird nur Monero (XMR) synchronisiert. Die Cold Wallet kann dich bitten, die Bluetooth-Anfrage zu bestätigen.</string>
+    <string name="monero_scanning">Monero wird synchronisiert…</string>
+    <string name="monero_needs_images">Neue Ausgänge wurden gefunden. Synchronisiere mit der Cold Wallet, um den Saldo zu prüfen.</string>
+    <string name="monero_key_images_unavailable">Die Cold Wallet unterstützt noch keine signierten Schlüsselbilder für Monero.</string>
+    <string name="monero_view_sync_required">Diese Firmware hat noch keine Monero-Ansichtsdaten bereitgestellt.</string>
+    <string name="monero_waiting_for_wallet">Die App empfängt Monero-Ansichtsdaten beim Synchronisieren mit einer kompatiblen Cold Wallet.</string>
+    <string name="monero_balance_pending">Die Saldoüberprüfung steht aus. Synchronisiere mit einer Cold Wallet, die signierte Schlüsselbilder unterstützt.</string>
+    <string name="monero_connection_title">Monero-Verbindung</string>
+    <string name="monero_connect">Für XMR verbinden</string>
+    <string name="monero_scan_paused">Monero-Scan pausiert. Tippe zum Fortsetzen auf Monero synchronisieren.</string>
+    <string name="monero_scan_timeout">Zeitlimit für den Monero-Scan überschritten. Prüfe deine Internetverbindung und versuche es erneut.</string>
+    <string name="monero_restore_height">Wiederherstellungshöhe</string>
+    <string name="monero_restore_height_help">Wähle eine Blockhöhe vor dem ersten Monero-Eingang. Lasse das Feld leer, um die Höhe der Cold Wallet zu verwenden.</string>
+    <string name="monero_total_balance">Gesamtguthaben: %1$s XMR</string>
+    <string name="monero_unlocked_balance">Verfügbar: %1$s XMR</string>
+    <string name="monero_sync_address_only">Nur Empfangsadresse synchronisieren</string>
+    <string name="monero_send_hardware">Prüfe und bestätige diese Überweisung auf der Cold Wallet.</string>
+</resources>

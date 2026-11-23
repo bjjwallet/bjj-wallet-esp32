@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="me_sync_cold_wallet">Synchroniser avec le portefeuille à froid</string>
+    <string name="me_sync_reset_caption">Réinitialiser l’application et relancer la synchronisation</string>
+    <string name="me_sync_reset_title">Réinitialiser l’application pour synchroniser ?</string>
+    <string name="me_sync_reset_warning">La réinitialisation effacera les portefeuilles enregistrés, les noms, les adresses, les soldes en cache, l’historique, les transactions en attente, le code PIN de l’application et les réglages. La synchronisation redémarrera ensuite. La suppression des opérations en attente n’annule pas les transactions déjà envoyées. Le portefeuille à froid et les fonds sur la blockchain seront conservés.</string>
+    <string name="me_sync_reset_confirm">Réinitialiser et synchroniser</string>
+</resources>

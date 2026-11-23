@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="wallet_choose">选择钱包</string>
+    <string name="wallet_sync_another">同步另一个钱包</string>
+    <string name="wallet_name">钱包名称</string>
+    <string name="wallet_rename">重命名钱包</string>
+    <string name="wallet_sync_help">请在设备上授权同步。应用会导入可用钱包及其名称，并保留已保存的钱包。</string>
+    <string name="wallet_name_invalid">请输入 1 至 128 个字符的名称，不得换行。</string>
+</resources>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="recipient_scan_button">Scansiona il QR del destinatario</string>
+    <string name="recipient_scan_prompt">Punta la fotocamera sul QR dell’indirizzo del destinatario. La fotocamera serve solo a leggere il codice.</string>
+    <string name="recipient_scan_invalid">Questo QR non contiene un indirizzo compatibile con la valuta selezionata.</string>
+    <string name="recipient_scan_permission">Consenti l’accesso alla fotocamera nelle impostazioni dell’app per leggere i QR. Puoi anche digitare l’indirizzo.</string>
+    <string name="recipient_scan_failed">Impossibile aprire la fotocamera. Riprova o digita l’indirizzo.</string>
+    <string name="recipient_scan_settings">Apri impostazioni dell’app</string>
+</resources>

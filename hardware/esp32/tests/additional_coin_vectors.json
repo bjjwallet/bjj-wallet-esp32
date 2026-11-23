@@ -1,0 +1,345 @@
+{
+  "wallet_core": "4.4.2",
+  "cardano_reference": "@emurgo/cardano-serialization-lib-nodejs@13.2.1",
+  "cardano_scheme": "CIP-3 Icarus with UTF-8 passphrase; CIP-1852 Shelley mainnet base address; staking role 2/index 0",
+  "source_urls": [
+    "https://github.com/trustwallet/wallet-core/tree/4.4.2",
+    "https://github.com/Emurgo/cardano-serialization-lib/tree/846d0f274a436403659fa7b197a09c029d7f2126",
+    "https://cips.cardano.org/cip/CIP-0003"
+  ],
+  "registry_sha256": "10b059d99563c9175c3260d446c62a4bede867e515e57f1a9fc96b74a3d8ba2d",
+  "cases": [
+    {
+      "id": "12-without",
+      "rows": 550,
+      "sha256": "6802e089be12daddde065f9ed433e09389a54226dbb02111b842628c863d1d46",
+      "samples": {
+        "nano": {
+          "main": "nano_1p6hocygi1pzjidi3hho3wn85qiw3ykapg7khu9b45dwf7momgqoytn1c1jz",
+          "standard": "nano_1p6hocygi1pzjidi3hho3wn85qiw3ykapg7khu9b45dwf7momgqoytn1c1jz"
+        },
+        "nimiq": {
+          "main": "NQ45 1KUT 73F7 ADV4 UCT8 TX64 2DE4 CHBP SJBF",
+          "standard": "NQ45 1KUT 73F7 ADV4 UCT8 TX64 2DE4 CHBP SJBF"
+        },
+        "neo": {
+          "main": "AJHeWQn2qKKqD4nBE82etebgT3GEM9HDRH",
+          "standard": "AJHeWQn2qKKqD4nBE82etebgT3GEM9HDRH"
+        },
+        "ontology": {
+          "main": "AZMgu1jizeCvwKx89qtKq3Rd92iPXHJQ9W",
+          "standard": "AZMgu1jizeCvwKx89qtKq3Rd92iPXHJQ9W"
+        },
+        "cardano": {
+          "main": "addr1qy8ac7qqy0vtulyl7wntmsxc6wex80gvcyjy33qffrhm7sh927ysx5sftuw0dlft05dz3c7revpf7jx0xnlcjz3g69mq4afdhv",
+          "standard": "addr1qy8ac7qqy0vtulyl7wntmsxc6wex80gvcyjy33qffrhm7sh927ysx5sftuw0dlft05dz3c7revpf7jx0xnlcjz3g69mq4afdhv"
+        }
+      },
+      "coins": {
+        "nano": {
+          "rows": 110,
+          "sha256": "a6ccf3ef35b41ca4fa4aee2225aad41ce46992299176278257237afc2fef96a1"
+        },
+        "nimiq": {
+          "rows": 110,
+          "sha256": "9e7b0f1d451a577696ac42530fb63be61bf758a8123a14df2e8d32dab0c2ab33"
+        },
+        "neo": {
+          "rows": 110,
+          "sha256": "72a3cec3912876e022d714d70651716d81224023d8b964a90da4e568b86cbd7f"
+        },
+        "ontology": {
+          "rows": 110,
+          "sha256": "d285b9d775ca753d069b7eb14e824388c54d36d57378bb09de54cdec88372f59"
+        },
+        "cardano": {
+          "rows": 110,
+          "sha256": "e5c3f94d9b1c344739aaf2df4d01630284597d4f999daa8bbbb4eb41931b7d4d"
+        }
+      }
+    },
+    {
+      "id": "12-with",
+      "rows": 550,
+      "sha256": "fa26191dd75c6ba778e5831f099765a7d36812e170086ac436a7649d41622bf6",
+      "samples": {
+        "nano": {
+          "main": "nano_1gtmdont77gg5q1inouefg4bki3kga1wiiqjtjsacrj65dm5c1m31w64as4h",
+          "standard": "nano_1p6hocygi1pzjidi3hho3wn85qiw3ykapg7khu9b45dwf7momgqoytn1c1jz"
+        },
+        "nimiq": {
+          "main": "NQ16 64AR AR5U EJNP H89H J46X CS90 KB3F 0EVM",
+          "standard": "NQ45 1KUT 73F7 ADV4 UCT8 TX64 2DE4 CHBP SJBF"
+        },
+        "neo": {
+          "main": "AVN8aYG4GWFyKyGwmWc6MmTmchA4TMEoV4",
+          "standard": "AJHeWQn2qKKqD4nBE82etebgT3GEM9HDRH"
+        },
+        "ontology": {
+          "main": "AV6H1sxs8yCFqF56iYtdesxwEMGn87Eobq",
+          "standard": "AZMgu1jizeCvwKx89qtKq3Rd92iPXHJQ9W"
+        },
+        "cardano": {
+          "main": "addr1q8rm060md3qdgukmhpvdrx4n6zd8w0svt6096g052xgex5utmdjcmychu0q3ccqqc8lkv3c6mdqxpryngd46eyntyeuqrx6dqg",
+          "standard": "addr1qy8ac7qqy0vtulyl7wntmsxc6wex80gvcyjy33qffrhm7sh927ysx5sftuw0dlft05dz3c7revpf7jx0xnlcjz3g69mq4afdhv"
+        }
+      },
+      "coins": {
+        "nano": {
+          "rows": 110,
+          "sha256": "c60a8f9017147ad23eee8ff97b49ace8f5b2cc9e16947b1b733e4a4abd34e879"
+        },
+        "nimiq": {
+          "rows": 110,
+          "sha256": "5512e34f681721ec5693f5f136c1bc438881bc2f9882055c9b69ddb49e1dc2c1"
+        },
+        "neo": {
+          "rows": 110,
+          "sha256": "7fad11459f693ff75744f94f5f1e752e2508bec2bdfefb49c39cd02446c1059f"
+        },
+        "ontology": {
+          "rows": 110,
+          "sha256": "e579e20663b39966453903d135a5e5e49bd5ffc6fa79fed0322f98f5d3aa10ce"
+        },
+        "cardano": {
+          "rows": 110,
+          "sha256": "189c99d5ca7db2d45ee2721796735cf14567b1a66e06573b1a8c49238148c4e4"
+        }
+      }
+    },
+    {
+      "id": "18-without",
+      "rows": 550,
+      "sha256": "c1487321cd4b5d79cec87e9f79d54b252d8295368da9c6aced571b6d753db50e",
+      "samples": {
+        "nano": {
+          "main": "nano_1ese9r7n75qh81q4ttriizhipiin3r1zwi8p6egmikg6ec5nygz6yujni6r5",
+          "standard": "nano_1ese9r7n75qh81q4ttriizhipiin3r1zwi8p6egmikg6ec5nygz6yujni6r5"
+        },
+        "nimiq": {
+          "main": "NQ40 YQ2M 7DR2 FEA2 EQD5 LTTN J181 X2VF 8HT6",
+          "standard": "NQ40 YQ2M 7DR2 FEA2 EQD5 LTTN J181 X2VF 8HT6"
+        },
+        "neo": {
+          "main": "Ae5EdSAoqVXVwqkeSL4BkCKnJ7pPJQ6H9G",
+          "standard": "Ae5EdSAoqVXVwqkeSL4BkCKnJ7pPJQ6H9G"
+        },
+        "ontology": {
+          "main": "AN5w3TaPUU6qw3uoRTPsZTxo5rHsHcQME1",
+          "standard": "AN5w3TaPUU6qw3uoRTPsZTxo5rHsHcQME1"
+        },
+        "cardano": {
+          "main": "addr1qyjajtlm5r6wywl9e99zlcsxlawx5y7acvw6hmsw525rdgxhmh0er5gvtm5gh4ywvul7ga60fr9t9axce6f8dran8mgs0lw7gp",
+          "standard": "addr1qyjajtlm5r6wywl9e99zlcsxlawx5y7acvw6hmsw525rdgxhmh0er5gvtm5gh4ywvul7ga60fr9t9axce6f8dran8mgs0lw7gp"
+        }
+      },
+      "coins": {
+        "nano": {
+          "rows": 110,
+          "sha256": "f75d86b543d1045c69576da2fcc5935a039faa4e2f35867d83a6e0ef7816dd81"
+        },
+        "nimiq": {
+          "rows": 110,
+          "sha256": "beeb3abfe121941d846f3ac13081ed3b332bd22d99fe7a2530d8d9314931a9f7"
+        },
+        "neo": {
+          "rows": 110,
+          "sha256": "c2853fea7bc38c77d36aedc25fab7f726c32339eb7d32948af54f25094acec46"
+        },
+        "ontology": {
+          "rows": 110,
+          "sha256": "bfd1c8f53dbf449f21f390fa46fda06f6f6ae708c34aa61cb775cf3b90d49b7f"
+        },
+        "cardano": {
+          "rows": 110,
+          "sha256": "3fa0ef7cc603b51f396edbc8049d806165cd50f21135fa127695f46dcdd640aa"
+        }
+      }
+    },
+    {
+      "id": "18-with",
+      "rows": 550,
+      "sha256": "3ff67b5484f495722d10dd8a987a9da92df1569f2d091ddbdbb9f281a8b839a5",
+      "samples": {
+        "nano": {
+          "main": "nano_3koh7si3nbpe31757wp9icpd6yxh1twhm94ed31ognfjcake3tkwfr3dgpqy",
+          "standard": "nano_1ese9r7n75qh81q4ttriizhipiin3r1zwi8p6egmikg6ec5nygz6yujni6r5"
+        },
+        "nimiq": {
+          "main": "NQ89 6XSL K52X K3G4 RGXU R2RH CAD5 1HJS PY1Q",
+          "standard": "NQ40 YQ2M 7DR2 FEA2 EQD5 LTTN J181 X2VF 8HT6"
+        },
+        "neo": {
+          "main": "AL9HpbmHBLb2Y4KAAditWU6MBKWGsFGW2Y",
+          "standard": "Ae5EdSAoqVXVwqkeSL4BkCKnJ7pPJQ6H9G"
+        },
+        "ontology": {
+          "main": "AKfPcC74szAB6F2ZrrfDxTUqtskyK8QXGi",
+          "standard": "AN5w3TaPUU6qw3uoRTPsZTxo5rHsHcQME1"
+        },
+        "cardano": {
+          "main": "addr1qxvrurr9krh8xvr98w5c9uzaxu2twmck3mu4af7x6faun9kn4p5zleqwm6czaxn2plxcdx6ausydjzytddjc9xjn25hsrss6c6",
+          "standard": "addr1qyjajtlm5r6wywl9e99zlcsxlawx5y7acvw6hmsw525rdgxhmh0er5gvtm5gh4ywvul7ga60fr9t9axce6f8dran8mgs0lw7gp"
+        }
+      },
+      "coins": {
+        "nano": {
+          "rows": 110,
+          "sha256": "4ccaa46f0e76a8930a35f27cacd1389db073a9db55d0a282f4ec1d8335e855b2"
+        },
+        "nimiq": {
+          "rows": 110,
+          "sha256": "2e1c2b57fdf3b319b99367670c96a0aff1c6b62cb51ab48778525fd451c69238"
+        },
+        "neo": {
+          "rows": 110,
+          "sha256": "29cf99f4fde90504847effd0b4afe90a601756545adb56ed9e89d316a4c1c9a3"
+        },
+        "ontology": {
+          "rows": 110,
+          "sha256": "eab2e29f5860679878ac13272c07019ea725d851c6f5c9c0d03e932d45c9349a"
+        },
+        "cardano": {
+          "rows": 110,
+          "sha256": "19ba582bea8263c6ab1be8ef7c04c0736ceaeb958af366dcf0cbe872687e6fb4"
+        }
+      }
+    },
+    {
+      "id": "24-without",
+      "rows": 550,
+      "sha256": "3fc7d46df1cb5fd25f94ea00f9c35fcf6780116171e0bd6e524d57a8dbdc9ab3",
+      "samples": {
+        "nano": {
+          "main": "nano_1ago7jdaipwf9jycz7fjn7s7sc7qz5gqdwrmqhham7fhfih1x9no74r15gwr",
+          "standard": "nano_1ago7jdaipwf9jycz7fjn7s7sc7qz5gqdwrmqhham7fhfih1x9no74r15gwr"
+        },
+        "nimiq": {
+          "main": "NQ82 FFX8 BC3Q 1VMC 1D2L MK3Q T1UE 2EPV KGNN",
+          "standard": "NQ82 FFX8 BC3Q 1VMC 1D2L MK3Q T1UE 2EPV KGNN"
+        },
+        "neo": {
+          "main": "AaKT9vpvAqBo5oTJ3HNz1VoU8aeR83sLnt",
+          "standard": "AaKT9vpvAqBo5oTJ3HNz1VoU8aeR83sLnt"
+        },
+        "ontology": {
+          "main": "AMnGAx4sKQAYJDQYBc3nuWLcvoSTWCd2mS",
+          "standard": "AMnGAx4sKQAYJDQYBc3nuWLcvoSTWCd2mS"
+        },
+        "cardano": {
+          "main": "addr1qyqt0pru382hy9vjlsxv3ye02z50sfvt8xunscg5pgden77z73dpdfng2ctw2ekqplqgrljelz7h4dneac27nn3qx3rqrhqvwd",
+          "standard": "addr1qyqt0pru382hy9vjlsxv3ye02z50sfvt8xunscg5pgden77z73dpdfng2ctw2ekqplqgrljelz7h4dneac27nn3qx3rqrhqvwd"
+        }
+      },
+      "coins": {
+        "nano": {
+          "rows": 110,
+          "sha256": "f75b08e3837f05e13b08b9c0f004f3f18f42c688ce95e047b56259d86b7e1bf3"
+        },
+        "nimiq": {
+          "rows": 110,
+          "sha256": "68a87b7a34e45e76d9f369956fc833807cbfd3f2c8aa18795971dd5f08c408c3"
+        },
+        "neo": {
+          "rows": 110,
+          "sha256": "df688bd6d0cfa7793ba41c5926099c7e1c6c8d7609dda447f64d12527316af82"
+        },
+        "ontology": {
+          "rows": 110,
+          "sha256": "fe0d2c6e19166013cca814333bafe097beab58609d22902f3d439f8991a1ddb8"
+        },
+        "cardano": {
+          "rows": 110,
+          "sha256": "506ed84facdf47afdd4eee9d2efd2ebe37f34530a5d6fda833932812ca1683d9"
+        }
+      }
+    },
+    {
+      "id": "24-with",
+      "rows": 550,
+      "sha256": "2cdf5200c20e182e23e3fa424fa5f3e5069f8ab2cda701ce3dd7400b3880a8c1",
+      "samples": {
+        "nano": {
+          "main": "nano_39igpbxy8s3n51n9xd7mnmorinfuatat6royeufeobz7tzjfc9fgjd77cbmc",
+          "standard": "nano_1ago7jdaipwf9jycz7fjn7s7sc7qz5gqdwrmqhham7fhfih1x9no74r15gwr"
+        },
+        "nimiq": {
+          "main": "NQ24 JQFS X4CA XG1F GK67 QFAC C953 5N73 MJDA",
+          "standard": "NQ82 FFX8 BC3Q 1VMC 1D2L MK3Q T1UE 2EPV KGNN"
+        },
+        "neo": {
+          "main": "AcTtShcB8eykffRHKJJgmuw48tk7J2WNmW",
+          "standard": "AaKT9vpvAqBo5oTJ3HNz1VoU8aeR83sLnt"
+        },
+        "ontology": {
+          "main": "AdRXs6RApEVDog2YRLbvCQVcB4FC9rUn2o",
+          "standard": "AMnGAx4sKQAYJDQYBc3nuWLcvoSTWCd2mS"
+        },
+        "cardano": {
+          "main": "addr1q8505fan0a8tjvhdp2ezte8agnuh3fm5vwkl42ujyhxe72pzrfl345vxjq822t2c6dc43hzvx80kjz6k22hfkmfq403qusywgy",
+          "standard": "addr1qyqt0pru382hy9vjlsxv3ye02z50sfvt8xunscg5pgden77z73dpdfng2ctw2ekqplqgrljelz7h4dneac27nn3qx3rqrhqvwd"
+        }
+      },
+      "coins": {
+        "nano": {
+          "rows": 110,
+          "sha256": "bbc63c79e620d0c3fb7b0f4f60278391620f889e9c8a7e62eeaea70bd54a272c"
+        },
+        "nimiq": {
+          "rows": 110,
+          "sha256": "f54212bfb41e2cb5948c24ac54579b648169e2ff9d31b08f2a0ce84ac45737a6"
+        },
+        "neo": {
+          "rows": 110,
+          "sha256": "66e4c149a2a98e511d8052a1de168ebaf0b84949fce184b5b14237e370b1ec76"
+        },
+        "ontology": {
+          "rows": 110,
+          "sha256": "0dfd4eaed110ba33199d127dd7de97266c51d2269b1a702a50444fce92c66831"
+        },
+        "cardano": {
+          "rows": 110,
+          "sha256": "e7317e8cabb1edf071269c3c0180e617d1e49d9291ae68de27ec4c4b24f366ad"
+        }
+      }
+    }
+  ],
+  "cardano_checks": [
+    {
+      "mnemonic": "eight country switch draw meat scout mystery blade tip drift useless good keep usage title",
+      "passphrase": "",
+      "path": "m/1852'/1815'/0'/0/0",
+      "address": "addr1qyv7qlaucathxkwkc503ujw0rv9lfj2rkj96feyst2rs9ey4tr5knj4fu4adelzqhxg8adu5xca4jra0gtllfrpcawyqzajfkn"
+    },
+    {
+      "mnemonic": "eight country switch draw meat scout mystery blade tip drift useless good keep usage title",
+      "passphrase": "",
+      "path": "m/1852'/1815'/1'/1/7",
+      "address": "addr1q9z54s9d3hcxdlgtwayq29x5y50pdetxwjygw6zxgfrznlqdgvm3wxtrdsv6suask0xv9y2mvlrw47rkq0mshy44ns9s9ee76g"
+    },
+    {
+      "mnemonic": "eight country switch draw meat scout mystery blade tip drift useless good keep usage title",
+      "passphrase": "foo",
+      "path": "m/1852'/1815'/0'/0/0",
+      "address": "addr1qyg0jkjfylxa07p64jw78ydhjznkpt3xgwvxjmjkypv4cd9uzzwj9v0pejdf5qv6mnyvc3wz53ac5phzynav7hrgj36qtlmyls"
+    },
+    {
+      "mnemonic": "eight country switch draw meat scout mystery blade tip drift useless good keep usage title",
+      "passphrase": "foo",
+      "path": "m/1852'/1815'/1'/1/7",
+      "address": "addr1q8ysr9vxjnrrtnlp4pv736lgrxxwwkdkg905twgglmw35ucju62h5sltnjck0ja5m6jwtnnsnhe9u82elsqwf647dx2syxhf3m"
+    },
+    {
+      "mnemonic": "eight country switch draw meat scout mystery blade tip drift useless good keep usage title",
+      "passphrase": "Pássphrase-漢字1!",
+      "path": "m/1852'/1815'/0'/0/0",
+      "address": "addr1q9uxd9e9895ztr43nd4fxx3svnxpyqnm6ns2tth6hyt0nxzdfkaqddcgc2frgxn29d72qasv4zkamd0ac5xpyu68yvzsmsknqg"
+    },
+    {
+      "mnemonic": "eight country switch draw meat scout mystery blade tip drift useless good keep usage title",
+      "passphrase": "Pássphrase-漢字1!",
+      "path": "m/1852'/1815'/1'/1/7",
+      "address": "addr1q9p0zhz84x5fg76mz6lq3d5vq3vmd54krxj4355t4jvall4gh8845fmymfacgyvhxwvftmz4y4e6j4xm56yl76vzh0es4cmt28"
+    }
+  ]
+}

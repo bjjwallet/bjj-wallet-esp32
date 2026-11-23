@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="me_sync_cold_wallet">コールドウォレットと同期</string>
+    <string name="me_sync_reset_caption">アプリをリセットして同期をやり直す</string>
+    <string name="me_sync_reset_title">同期のためにアプリをリセットしますか？</string>
+    <string name="me_sync_reset_warning">アプリをリセットします。保存済みのウォレット、名前、アドレス、キャッシュされた残高、履歴、保留中の取引、アプリのPIN、設定がすべて削除されます。その後、同期をやり直します。保留中の記録を削除しても、送信済みの取引は取り消されません。コールドウォレットやブロックチェーン上の資金は削除されません。</string>
+    <string name="me_sync_reset_confirm">アプリをリセットして同期</string>
+</resources>

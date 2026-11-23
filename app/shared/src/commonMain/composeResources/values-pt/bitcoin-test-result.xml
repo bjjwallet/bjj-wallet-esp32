@@ -1,0 +1,3 @@
+<resources>
+    <string name="bitcoin_signature_test_completed">Assinatura da cold wallet verificada. A API rejeitou o envio de teste com entrada sintética. Nenhum pagamento foi efetuado.</string>
+</resources>

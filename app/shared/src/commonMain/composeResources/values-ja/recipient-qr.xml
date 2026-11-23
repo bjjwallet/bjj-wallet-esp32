@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="recipient_scan_button">送信先のQRコードを読み取る</string>
+    <string name="recipient_scan_prompt">送信先アドレスのQRコードにカメラを向けてください。カメラはコードの読み取りにのみ使用します。</string>
+    <string name="recipient_scan_invalid">このQRコードには、選択した通貨に対応するアドレスが含まれていません。</string>
+    <string name="recipient_scan_permission">QRコードを読み取るには、アプリの設定でカメラへのアクセスを許可してください。アドレスを手入力することもできます。</string>
+    <string name="recipient_scan_failed">カメラを開けませんでした。再試行するか、アドレスを入力してください。</string>
+    <string name="recipient_scan_settings">アプリの設定を開く</string>
+</resources>

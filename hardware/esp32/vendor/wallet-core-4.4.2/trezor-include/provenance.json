@@ -1,0 +1,19 @@
+{
+  "source": "https://github.com/trustwallet/wallet-core/tree/4.4.2/trezor-crypto/include/TrezorCrypto",
+  "version": "4.4.2",
+  "purpose": "Unmodified headers for Cardano primitives already linked in the official WalletCoreCommon library; no replacement cryptographic implementation.",
+  "headers_sha256": {
+    "cardano.h": "e565147f9e767f32f1cf9a0a3abbf15619199c33646fbef58aa7c4d68402af75",
+    "options.h": "d8d67e2fb82ce9c48b544af28f159ccd3aff26a4a065c9cb87d0cfc9968be2c7",
+    "bip32.h": "d9b6c80ad6c89a91cf4c47d9ebfa324f64853765d37c9c8cc7d57d843226de4a",
+    "ed25519.h": "68ca8e3df0ea2622e903a9e786cccebe56584a65f65f84d691e4dd87eb866bc6",
+    "ecdsa.h": "d3cfc9df6649c541e1d33b50305e4e5f48977badd68bb015f798b580bf4ab4a2",
+    "hasher.h": "acd0f2ba428282193ff4f814b81f011b79524f1d44ae92c7da38ea47ea1d5367",
+    "sha3.h": "583558d0423d8f65c83dd5f2195e8eb8833b83212a5665d7f6b28cbe446a149b",
+    "sha2.h": "fb8860a26db3b7447df9f4ec02cf0c3989563dfb679c3e45bb4d3df6b67ba88a",
+    "groestl.h": "720be4c30f81dad3cb96bc2e85c86bb156db77bd74ca564edcb01a158193b837",
+    "blake2b.h": "e317ee2389625075efdfcae31068d46ba240d840d0807f91a7f8a858d283891a",
+    "blake256.h": "2271f04c0e4ea010f6d787d77477f672365c934f3292c1b9f02ddbdeba1296e5",
+    "bignum.h": "9521b1a0eb106c646648345bb7e749dac2c573aa01687097080ce24ebe46a1ff"
+  }
+}

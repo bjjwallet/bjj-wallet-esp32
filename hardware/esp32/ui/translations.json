@@ -1,0 +1,22 @@
+{
+  "languages": [
+    "pt-BR",
+    "en",
+    "es",
+    "fr",
+    "zh",
+    "ja",
+    "it",
+    "de"
+  ],
+  "catalogs": [
+    "pt_br.json",
+    "en.json",
+    "es.json",
+    "fr.json",
+    "zh.json",
+    "ja.json",
+    "it.json",
+    "de.json"
+  ]
+}

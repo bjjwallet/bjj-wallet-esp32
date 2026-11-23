@@ -1,0 +1,738 @@
+{
+  "date": "2026-11-21",
+  "catalog": {
+    "networks": 23,
+    "native": 23,
+    "tokens": 63,
+    "total": 86
+  },
+  "app_tests": {
+    "tests": 251,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "firmware_tests": {
+    "host_ctest": 23,
+    "failures": 0
+  },
+  "monero_tests": {
+    "passed": 2,
+    "failed": 0,
+    "real_clsag": true,
+    "real_bulletproof_plus": true,
+    "real_commitment_balance_check": true
+  },
+  "independent_sdk_new_protocol_vectors": 17,
+  "approval": "Existing physical review lifecycle retained; new app routes tested for missing PIN, rejection, accepted response, and no secret in signing request. These are local tests, not a new physical device run.",
+  "builds": {
+    "android": "passed",
+    "ios_simulator_arm64": "passed",
+    "esp32s3": "passed",
+    "firmware_version": "2026.11.21-allassets1"
+  },
+  "artifacts": {
+    "apk": "/Users/felippe/Desktop/bjj-airlock/app/androidApp/build/outputs/apk/debug/androidApp-debug.apk",
+    "apk_sha256": "3bd44349602303088eca60801b6108c1bed5c603bfe510665c3f3f4e2aca9c18",
+    "firmware_zip": "/Users/felippe/Desktop/bjj-airlock/hardware/instaladores/BJJ-Cold-Wallet-ES3C28P-2026-11-21-allassets1.zip",
+    "firmware_zip_sha256": "6c9666131fd553b68ddfa20b2abb6343eb9116906a4c4829ff273072203a54d5"
+  },
+  "assets": [
+    {
+      "coin": "bitcoin",
+      "symbol": "BTC",
+      "decimals": 8,
+      "token": false,
+      "signature": "passed",
+      "proof": "UTXO firmware + app signature verification"
+    },
+    {
+      "coin": "ethereum",
+      "symbol": "ETH",
+      "decimals": 18,
+      "token": false,
+      "signature": "passed",
+      "proof": "EVM firmware + app signature verification"
+    },
+    {
+      "coin": "ethereum",
+      "symbol": "BNB",
+      "decimals": 18,
+      "token": true,
+      "signature": "passed",
+      "proof": "EVM firmware + app signature verification"
+    },
+    {
+      "coin": "ethereum",
+      "symbol": "USDT",
+      "decimals": 6,
+      "token": true,
+      "signature": "passed",
+      "proof": "EVM firmware + app signature verification"
+    },
+    {
+      "coin": "ethereum",
+      "symbol": "USDC",
+      "decimals": 6,
+      "token": true,
+      "signature": "passed",
+      "proof": "EVM firmware + app signature verification"
+    },
+    {
+      "coin": "ethereum",
+      "symbol": "USDS",
+      "decimals": 18,
+      "token": true,
+      "signature": "passed",
+      "proof": "EVM firmware + app signature verification"
+    },
+    {
+      "coin": "ethereum",
+      "symbol": "USDe",
+      "decimals": 18,
+      "token": true,
+      "signature": "passed",
+      "proof": "EVM firmware + app signature verification"
+    },
+    {
+      "coin": "ethereum",
+      "symbol": "RLUSD",
+      "decimals": 18,
+      "token": true,
+      "signature": "passed",
+      "proof": "EVM firmware + app signature verification"
+    },
+    {
+      "coin": "ethereum",
+      "symbol": "EURC",
+      "decimals": 6,
+      "token": true,
+      "signature": "passed",
+      "proof": "EVM firmware + app signature verification"
+    },
+    {
+      "coin": "ethereum",
+      "symbol": "BRZ",
+      "decimals": 18,
+      "token": true,
+      "signature": "passed",
+      "proof": "EVM firmware + app signature verification"
+    },
+    {
+      "coin": "tron",
+      "symbol": "TRX",
+      "decimals": 6,
+      "token": false,
+      "signature": "passed",
+      "proof": "Firmware + independent official SDK + app verification"
+    },
+    {
+      "coin": "tron",
+      "symbol": "USDC",
+      "decimals": 6,
+      "token": true,
+      "signature": "passed",
+      "proof": "Firmware + independent official SDK + app verification"
+    },
+    {
+      "coin": "tron",
+      "symbol": "USDT",
+      "decimals": 6,
+      "token": true,
+      "signature": "passed",
+      "proof": "Firmware + independent official SDK + app verification"
+    },
+    {
+      "coin": "bsc",
+      "symbol": "BNB",
+      "decimals": 18,
+      "token": false,
+      "signature": "passed",
+      "proof": "EVM firmware + app signature verification"
+    },
+    {
+      "coin": "bsc",
+      "symbol": "BRZ",
+      "decimals": 18,
+      "token": true,
+      "signature": "passed",
+      "proof": "EVM firmware + app signature verification"
+    },
+    {
+      "coin": "bsc",
+      "symbol": "USDT",
+      "decimals": 18,
+      "token": true,
+      "signature": "passed",
+      "proof": "EVM firmware + app signature verification"
+    },
+    {
+      "coin": "bsc",
+      "symbol": "LINK",
+      "decimals": 18,
+      "token": true,
+      "signature": "passed",
+      "proof": "EVM firmware + app signature verification"
+    },
+    {
+      "coin": "bsc",
+      "symbol": "USDC",
+      "decimals": 18,
+      "token": true,
+      "signature": "passed",
+      "proof": "EVM firmware + app signature verification"
+    },
+    {
+      "coin": "bsc",
+      "symbol": "USDe",
+      "decimals": 18,
+      "token": true,
+      "signature": "passed",
+      "proof": "EVM firmware + app signature verification"
+    },
+    {
+      "coin": "bsc",
+      "symbol": "XRP",
+      "decimals": 18,
+      "token": true,
+      "signature": "passed",
+      "proof": "EVM firmware + app signature verification"
+    },
+    {
+      "coin": "ripple",
+      "symbol": "XRP",
+      "decimals": 6,
+      "token": false,
+      "signature": "passed",
+      "proof": "Firmware + independent official SDK + app verification"
+    },
+    {
+      "coin": "ripple",
+      "symbol": "RLUSD",
+      "decimals": 15,
+      "token": true,
+      "signature": "passed",
+      "proof": "Firmware + independent official SDK + app verification"
+    },
+    {
+      "coin": "ripple",
+      "symbol": "USDC",
+      "decimals": 15,
+      "token": true,
+      "signature": "passed",
+      "proof": "Firmware + independent official SDK + app verification"
+    },
+    {
+      "coin": "dogecoin",
+      "symbol": "DOGE",
+      "decimals": 8,
+      "token": false,
+      "signature": "passed",
+      "proof": "UTXO firmware + app signature verification"
+    },
+    {
+      "coin": "solana",
+      "symbol": "SOL",
+      "decimals": 9,
+      "token": false,
+      "signature": "passed",
+      "proof": "Ed25519 firmware + app verification"
+    },
+    {
+      "coin": "solana",
+      "symbol": "BRLP",
+      "decimals": 6,
+      "token": true,
+      "signature": "passed",
+      "proof": "Ed25519 firmware + app verification"
+    },
+    {
+      "coin": "solana",
+      "symbol": "XRP",
+      "decimals": 6,
+      "token": true,
+      "signature": "passed",
+      "proof": "Ed25519 firmware + app verification"
+    },
+    {
+      "coin": "solana",
+      "symbol": "MON",
+      "decimals": 8,
+      "token": true,
+      "signature": "passed",
+      "proof": "Ed25519 firmware + app verification"
+    },
+    {
+      "coin": "solana",
+      "symbol": "USDT",
+      "decimals": 6,
+      "token": true,
+      "signature": "passed",
+      "proof": "Ed25519 firmware + app verification"
+    },
+    {
+      "coin": "solana",
+      "symbol": "USDC",
+      "decimals": 6,
+      "token": true,
+      "signature": "passed",
+      "proof": "Ed25519 firmware + app verification"
+    },
+    {
+      "coin": "solana",
+      "symbol": "BRZ",
+      "decimals": 4,
+      "token": true,
+      "signature": "passed",
+      "proof": "Ed25519 firmware + app verification"
+    },
+    {
+      "coin": "solana",
+      "symbol": "SKR",
+      "decimals": 6,
+      "token": true,
+      "signature": "passed",
+      "proof": "Ed25519 firmware + app verification"
+    },
+    {
+      "coin": "solana",
+      "symbol": "USDS",
+      "decimals": 6,
+      "token": true,
+      "signature": "passed",
+      "proof": "Ed25519 firmware + app verification"
+    },
+    {
+      "coin": "solana",
+      "symbol": "PYUSD",
+      "decimals": 6,
+      "token": true,
+      "signature": "passed",
+      "proof": "Ed25519 firmware + app verification"
+    },
+    {
+      "coin": "solana",
+      "symbol": "EURC",
+      "decimals": 6,
+      "token": true,
+      "signature": "passed",
+      "proof": "Ed25519 firmware + app verification"
+    },
+    {
+      "coin": "solana",
+      "symbol": "LINK",
+      "decimals": 9,
+      "token": true,
+      "signature": "passed",
+      "proof": "Ed25519 firmware + app verification"
+    },
+    {
+      "coin": "solana",
+      "symbol": "JUP",
+      "decimals": 6,
+      "token": true,
+      "signature": "passed",
+      "proof": "Ed25519 firmware + app verification"
+    },
+    {
+      "coin": "cardano",
+      "symbol": "ADA",
+      "decimals": 6,
+      "token": false,
+      "signature": "passed",
+      "proof": "Cardano firmware + app Ed25519 verification"
+    },
+    {
+      "coin": "cardano",
+      "symbol": "SNEK",
+      "decimals": 0,
+      "token": true,
+      "signature": "passed",
+      "proof": "Cardano firmware + app Ed25519 verification"
+    },
+    {
+      "coin": "cardano",
+      "symbol": "MIN",
+      "decimals": 6,
+      "token": true,
+      "signature": "passed",
+      "proof": "Cardano firmware + app Ed25519 verification"
+    },
+    {
+      "coin": "cardano",
+      "symbol": "IAG",
+      "decimals": 6,
+      "token": true,
+      "signature": "passed",
+      "proof": "Cardano firmware + app Ed25519 verification"
+    },
+    {
+      "coin": "cardano",
+      "symbol": "WMTX",
+      "decimals": 6,
+      "token": true,
+      "signature": "passed",
+      "proof": "Cardano firmware + app Ed25519 verification"
+    },
+    {
+      "coin": "cardano",
+      "symbol": "DJED",
+      "decimals": 6,
+      "token": true,
+      "signature": "passed",
+      "proof": "Cardano firmware + app Ed25519 verification"
+    },
+    {
+      "coin": "bitcoincash",
+      "symbol": "BCH",
+      "decimals": 8,
+      "token": false,
+      "signature": "passed",
+      "proof": "UTXO firmware + app signature verification"
+    },
+    {
+      "coin": "ton",
+      "symbol": "TON",
+      "decimals": 9,
+      "token": false,
+      "signature": "passed",
+      "proof": "Firmware + independent official SDK + app verification"
+    },
+    {
+      "coin": "ton",
+      "symbol": "USDT",
+      "decimals": 6,
+      "token": true,
+      "signature": "passed",
+      "proof": "Firmware + independent official SDK + app verification"
+    },
+    {
+      "coin": "avalanche",
+      "symbol": "AVAX",
+      "decimals": 18,
+      "token": false,
+      "signature": "passed",
+      "proof": "EVM firmware + app signature verification"
+    },
+    {
+      "coin": "avalanche",
+      "symbol": "USDT",
+      "decimals": 6,
+      "token": true,
+      "signature": "passed",
+      "proof": "EVM firmware + app signature verification"
+    },
+    {
+      "coin": "avalanche",
+      "symbol": "USDC",
+      "decimals": 6,
+      "token": true,
+      "signature": "passed",
+      "proof": "EVM firmware + app signature verification"
+    },
+    {
+      "coin": "ethereumclassic",
+      "symbol": "ETC",
+      "decimals": 18,
+      "token": false,
+      "signature": "passed",
+      "proof": "EVM firmware + app signature verification"
+    },
+    {
+      "coin": "litecoin",
+      "symbol": "LTC",
+      "decimals": 8,
+      "token": false,
+      "signature": "passed",
+      "proof": "UTXO firmware + app signature verification"
+    },
+    {
+      "coin": "arbitrum",
+      "symbol": "ETH",
+      "decimals": 18,
+      "token": false,
+      "signature": "passed",
+      "proof": "EVM firmware + app signature verification"
+    },
+    {
+      "coin": "arbitrum",
+      "symbol": "BRZ",
+      "decimals": 18,
+      "token": true,
+      "signature": "passed",
+      "proof": "EVM firmware + app signature verification"
+    },
+    {
+      "coin": "arbitrum",
+      "symbol": "USDC",
+      "decimals": 6,
+      "token": true,
+      "signature": "passed",
+      "proof": "EVM firmware + app signature verification"
+    },
+    {
+      "coin": "arbitrum",
+      "symbol": "ARB",
+      "decimals": 18,
+      "token": true,
+      "signature": "passed",
+      "proof": "EVM firmware + app signature verification"
+    },
+    {
+      "coin": "arbitrum",
+      "symbol": "USDT",
+      "decimals": 6,
+      "token": true,
+      "signature": "passed",
+      "proof": "EVM firmware + app signature verification"
+    },
+    {
+      "coin": "arbitrum",
+      "symbol": "USDS",
+      "decimals": 18,
+      "token": true,
+      "signature": "passed",
+      "proof": "EVM firmware + app signature verification"
+    },
+    {
+      "coin": "arbitrum",
+      "symbol": "LINK",
+      "decimals": 18,
+      "token": true,
+      "signature": "passed",
+      "proof": "EVM firmware + app signature verification"
+    },
+    {
+      "coin": "arbitrum",
+      "symbol": "USDe",
+      "decimals": 18,
+      "token": true,
+      "signature": "passed",
+      "proof": "EVM firmware + app signature verification"
+    },
+    {
+      "coin": "polygon",
+      "symbol": "POL",
+      "decimals": 18,
+      "token": false,
+      "signature": "passed",
+      "proof": "EVM firmware + app signature verification"
+    },
+    {
+      "coin": "polygon",
+      "symbol": "USDC",
+      "decimals": 6,
+      "token": true,
+      "signature": "passed",
+      "proof": "EVM firmware + app signature verification"
+    },
+    {
+      "coin": "polygon",
+      "symbol": "USDT",
+      "decimals": 6,
+      "token": true,
+      "signature": "passed",
+      "proof": "EVM firmware + app signature verification"
+    },
+    {
+      "coin": "polygon",
+      "symbol": "LINK",
+      "decimals": 18,
+      "token": true,
+      "signature": "passed",
+      "proof": "EVM firmware + app signature verification"
+    },
+    {
+      "coin": "polygon",
+      "symbol": "BRZ",
+      "decimals": 18,
+      "token": true,
+      "signature": "passed",
+      "proof": "EVM firmware + app signature verification"
+    },
+    {
+      "coin": "sui",
+      "symbol": "SUI",
+      "decimals": 9,
+      "token": false,
+      "signature": "passed",
+      "proof": "Firmware + independent official SDK + app verification"
+    },
+    {
+      "coin": "sui",
+      "symbol": "USDC",
+      "decimals": 6,
+      "token": true,
+      "signature": "passed",
+      "proof": "Firmware + independent official SDK + app verification"
+    },
+    {
+      "coin": "dash",
+      "symbol": "DASH",
+      "decimals": 8,
+      "token": false,
+      "signature": "passed",
+      "proof": "UTXO firmware + app signature verification"
+    },
+    {
+      "coin": "ecash",
+      "symbol": "XEC",
+      "decimals": 2,
+      "token": false,
+      "signature": "passed",
+      "proof": "UTXO firmware + app signature verification"
+    },
+    {
+      "coin": "base",
+      "symbol": "ETH",
+      "decimals": 18,
+      "token": false,
+      "signature": "passed",
+      "proof": "EVM firmware + app signature verification"
+    },
+    {
+      "coin": "base",
+      "symbol": "USDC",
+      "decimals": 6,
+      "token": true,
+      "signature": "passed",
+      "proof": "EVM firmware + app signature verification"
+    },
+    {
+      "coin": "base",
+      "symbol": "USDS",
+      "decimals": 18,
+      "token": true,
+      "signature": "passed",
+      "proof": "EVM firmware + app signature verification"
+    },
+    {
+      "coin": "base",
+      "symbol": "EURC",
+      "decimals": 6,
+      "token": true,
+      "signature": "passed",
+      "proof": "EVM firmware + app signature verification"
+    },
+    {
+      "coin": "base",
+      "symbol": "LINK",
+      "decimals": 18,
+      "token": true,
+      "signature": "passed",
+      "proof": "EVM firmware + app signature verification"
+    },
+    {
+      "coin": "base",
+      "symbol": "BRZ",
+      "decimals": 18,
+      "token": true,
+      "signature": "passed",
+      "proof": "EVM firmware + app signature verification"
+    },
+    {
+      "coin": "base",
+      "symbol": "USDe",
+      "decimals": 18,
+      "token": true,
+      "signature": "passed",
+      "proof": "EVM firmware + app signature verification"
+    },
+    {
+      "coin": "base",
+      "symbol": "USDT",
+      "decimals": 6,
+      "token": true,
+      "signature": "passed",
+      "proof": "EVM firmware + app signature verification"
+    },
+    {
+      "coin": "monero",
+      "symbol": "XMR",
+      "decimals": 12,
+      "token": false,
+      "signature": "passed",
+      "proof": "Real wallet2-format archive -> CLSAG + Bulletproof+ + commitment balance verification (synthetic stagenet fixture)"
+    },
+    {
+      "coin": "stellar",
+      "symbol": "XLM",
+      "decimals": 7,
+      "token": false,
+      "signature": "passed",
+      "proof": "Firmware + independent official SDK + app verification"
+    },
+    {
+      "coin": "stellar",
+      "symbol": "USDC",
+      "decimals": 7,
+      "token": true,
+      "signature": "passed",
+      "proof": "Firmware + independent official SDK + app verification"
+    },
+    {
+      "coin": "stellar",
+      "symbol": "BRLP",
+      "decimals": 7,
+      "token": true,
+      "signature": "passed",
+      "proof": "Firmware + independent official SDK + app verification"
+    },
+    {
+      "coin": "stellar",
+      "symbol": "BRZ",
+      "decimals": 7,
+      "token": true,
+      "signature": "passed",
+      "proof": "Firmware + independent official SDK + app verification"
+    },
+    {
+      "coin": "hyperevm",
+      "symbol": "HYPE",
+      "decimals": 18,
+      "token": false,
+      "signature": "passed",
+      "proof": "EVM firmware + app signature verification"
+    },
+    {
+      "coin": "hyperevm",
+      "symbol": "USDC",
+      "decimals": 6,
+      "token": true,
+      "signature": "passed",
+      "proof": "EVM firmware + app signature verification"
+    },
+    {
+      "coin": "hyperevm",
+      "symbol": "LINK",
+      "decimals": 18,
+      "token": true,
+      "signature": "passed",
+      "proof": "EVM firmware + app signature verification"
+    },
+    {
+      "coin": "robinhood",
+      "symbol": "ETH",
+      "decimals": 18,
+      "token": false,
+      "signature": "passed",
+      "proof": "EVM firmware + app signature verification"
+    },
+    {
+      "coin": "robinhood",
+      "symbol": "USDG",
+      "decimals": 6,
+      "token": true,
+      "signature": "passed",
+      "proof": "EVM firmware + app signature verification"
+    }
+  ],
+  "limitations": [
+    "No transaction was broadcast to a live network. No installation or reset was performed.",
+    "All 86 signatures verified locally; this does not demonstrate real provider acceptance or blockchain confirmation.",
+    "Monero uses the existing stagenet flow and synthetic owned outputs; key material stays in firmware/test-only Rust code.",
+    "Cardano token selection consumes only pure ADA or UTXOs containing the selected token alone; mixed unrelated assets are left untouched.",
+    "TRON and TON use conservative fee estimates; the chain determines actual fees. TRC20 fee_limit and Sui gas budget are enforced in signed data.",
+    "TON USDT wallet derivation pins the current deployed library-reference code hash; a future issuer upgrade requires explicit code review."
+  ]
+}

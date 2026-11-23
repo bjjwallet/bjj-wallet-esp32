@@ -1,0 +1,32 @@
+{
+  "date": "2026-11-20",
+  "board": "ESP32-S3 ES3C28P touch",
+  "firmware_version": "2026.11.20",
+  "build_completed": true,
+  "monero_signer_linked": true,
+  "monero_stagenet_sync": true,
+  "usb_power_only_policy_passed": true,
+  "wifi_microsd_policy_passed": true,
+  "partition_table_matches_prior_release": true,
+  "firmware_sha256": "b9e2b729c83d7302c8b300b65a38939d64551c47e50edd3accc2d93e275b4b66",
+  "installer_zip_sha256": "c8eb9242a7844c517753ce8b130d2eec4a62e25da2c521059c1a712fd2cff925",
+  "native_ffi_rejection_checks": 4,
+  "hardware_installed": true,
+  "flash_application_only": true,
+  "flash_readback_verified": true,
+  "pairing_nvs_preserved_byte_for_byte": true,
+  "wallet_nvs_preserved_byte_for_byte": true,
+  "partition_table_preserved": true,
+  "watchdog_restart_requested": true,
+  "usb_power_only_observations": [
+    [],
+    [],
+    [],
+    []
+  ],
+  "physical_screen_check": "not yet confirmed by user",
+  "backup_permissions": "directory 0700, files 0600",
+  "compatible_mobile_update": "Motorola test device: adb install -r succeeded",
+  "mobile_apk_sha256": "8773dcdcd489069c98608bdd1ba6ddf863cb694cee2199953b50cc70cd1c92dc",
+  "superseded_by": "factory-reset-2026-11-20.json (revision 2026.11.20-reset1; user-authorized clean installation)"
+}

@@ -1,0 +1,11 @@
+idf_component_register(SRCS "setup.cpp" INCLUDE_DIRS "include" "../.."
+    REQUIRES airlock_crypto PRIV_REQUIRES nvs_flash)
+target_compile_features(${COMPONENT_LIB} PUBLIC cxx_std_17)
+target_compile_options(${COMPONENT_LIB} PRIVATE -Wall -Wextra -Werror -fno-exceptions -fno-rtti)
+if(AIRLOCK_MONERO_STAGENET_SYNC)
+    target_compile_definitions(${COMPONENT_LIB} PRIVATE AIRLOCK_MONERO_STAGENET_SYNC=1)
+endif()
+if(AIRLOCK_SETUP_SELFTEST)
+    target_sources(${COMPONENT_LIB} PRIVATE "setup_selftest.cpp")
+    target_compile_definitions(${COMPONENT_LIB} PUBLIC AIRLOCK_SETUP_SELFTEST=1)
+endif()

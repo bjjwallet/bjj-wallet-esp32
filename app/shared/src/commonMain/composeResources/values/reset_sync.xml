@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="me_sync_cold_wallet">Synchronize with the cold wallet</string>
+    <string name="me_sync_reset_caption">Reset the app and restart synchronization</string>
+    <string name="me_sync_reset_title">Reset the app to synchronize?</string>
+    <string name="me_sync_reset_warning">The app will be reset. All saved wallets, names, addresses, cached balances, history, pending transactions, app PIN and settings will be erased. You will then go through synchronization again. Deleting pending records does not cancel transactions already sent. Your cold wallet and funds on the blockchain will not be erased.</string>
+    <string name="me_sync_reset_confirm">Reset app and synchronize</string>
+</resources>

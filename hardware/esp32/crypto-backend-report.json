@@ -1,0 +1,52 @@
+{
+  "schema": 1,
+  "validated_on": "2026-11-04",
+  "status": "hd_derivation_verified_host_and_esp32s3_known_answer_boot",
+  "reference": "official WalletCoreCommon 4.4.2 Apple binary in separate process; public fixtures only",
+  "host": {
+    "bip39_known_vectors": 24,
+    "reference_wallets": 34,
+    "derived_keys": 578,
+    "hd_checks": 8077,
+    "primitive_checks": 217,
+    "crypto_ctests_passed": 5,
+    "simulator_ctests_passed": 12,
+    "sanitizers": "ASan/UBSan including vendored Trezor C sources"
+  },
+  "hardware": {
+    "board": "ES3N28P",
+    "soc": "ESP32-S3",
+    "flash_bytes": 16777216,
+    "psram_bytes": 8388608,
+    "selftest_ms": 708,
+    "four_curve_known_answers": true,
+    "interface_started_after_selftests": true,
+    "source_entropy": "SAR ADC before BLE startup; CTR-DRBG; runtime reseeding requires enabled BLE controller",
+    "wifi_microsd_denials_in_elf": 10,
+    "created_user_wallet": false,
+    "stored_wallet_data": false
+  },
+  "limitations": [
+    "not a complete wallet backend",
+    "no address or account builders on the board",
+    "Cardano Icarus adapter pending",
+    "no persistent wallet storage",
+    "no transaction signing",
+    "wallet_core_seed preserves UTF-8 bytes without NFKD and rejects passphrases over 256 bytes",
+    "paths limited to 16 canonical indices; all Ed25519 indices must be hardened",
+    "hardware boot vectors are representative, not an execution of the entire 578-key host matrix"
+  ],
+  "sha256": {
+    "core/hd_wallet.hpp": "191e7c5e417636840e288558e685b858ad6dbf9f35389d48f7dcc94d73461fcd",
+    "core/hd_wallet.cpp": "1066a1eaee55a0d2294ecbcd1d66f829cdc1a10338f8ef56931057bb94a9ded6",
+    "core/hd_selftest.cpp": "30c84fa06232bcedae806759e3f0a13409cb6296777fe1f41247264489b53948",
+    "core/trezor_random.cpp": "0c29caf61129e8ab53854af77f0187a06929a7507f6c39e0ac3c4249313546e7",
+    "core/trezor_random_scope.hpp": "c10c9d68844dae94853ea229a1a266353f81cb5858ebaf19667137a639d6f0ae",
+    "tests/hd_wallet_vectors.json": "7fbcd7d7134ca69eeca74c942c8b34a362f82c994ca431f016fce57d84ac2d0d",
+    "tests/bip39_vectors.json": "a1f7e56bc84fdec891391654ebc5e6c6cdcd70881b21a28eca4b212ad00713ad",
+    "vendor/trezor-crypto-4.4.2/provenance.json": "f919c18320e56687da59ac725fa96127b663e7a67f25cf8477667f550407e1a2",
+    "historical_firmware_sha256": "c0592abb96bf919edf8d1ccdae34c5a7eefb8ca9798702fdcb5ad3fa48be0be5"
+  },
+  "historical_milestone": true,
+  "current_report": "setup-flow-report.json"
+}

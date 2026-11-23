@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="transfer_network">ネットワーク</string>
+    <string name="transfer_source">送金元アドレス</string>
+    <string name="transfer_network_hint">送金先と同じネットワークを使用してください。各ネットワークには個別の残高があります。この選択を変えても、ネットワーク間で資金は移動しません。</string>
+    <string name="transfer_network_missing">先にアカウント一覧でこのネットワークを追加してください。</string>
+    <string name="transfer_fee_balance">ネットワーク手数料に使用できる残高：%1$s %2$s</string>
+    <string name="token_contract">トークン識別子</string>
+    <string name="error_insufficient_fee_balance">ネットワーク手数料を支払うためのネイティブ通貨の残高が、送金元アドレスで不足しています。</string>
+    <string name="error_invalid_quote">この見積もりは選択した資産またはネットワークと一致しません。再度見積もりを取得してください。</string>
+    <string name="catalog_network_pending">ネットワークの連携待ち</string>
+    <string name="catalog_assets_pending">対応待ちの資産（%1$s）</string>
+    <string name="xrpl_trustline_required">受け取るには、この発行者に対して有効で受取枠に余裕のあるトラストラインが必要です。</string>
+</resources>

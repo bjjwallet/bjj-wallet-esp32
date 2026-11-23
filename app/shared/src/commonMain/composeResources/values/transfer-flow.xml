@@ -1,0 +1,13 @@
+<resources>
+    <string name="transfer_connection_required">Turn on your cold wallet, unlock it and keep it nearby. Connect to request the transfer signature.</string>
+    <string name="transfer_connection_retry_help">Could not connect. Check Bluetooth and keep your cold wallet ready. Try connecting again here.</string>
+    <string name="transfer_connect_sign">Connect and request signature</string>
+    <string name="transfer_sign_title">Transfer signature</string>
+    <string name="transfer_sign_connect">Connecting to your cold wallet. Keep it nearby and ready to receive the request.</string>
+    <string name="transfer_sign_approve">Review the amount and recipient on your cold wallet. Accept there and wait for the signature.</string>
+    <string name="transfer_sign_verify">Verifying the signature returned by your cold wallet…</string>
+    <string name="transfer_sign_submit">Submitting the signed transaction to the network…</string>
+    <string name="transfer_sign_private">Your spending private key stays on the cold wallet.</string>
+    <string name="transfer_transactions_title">%1$s transactions</string>
+    <string name="transfer_pull_refresh">Pull down to refresh transactions and confirmation status.</string>
+</resources>

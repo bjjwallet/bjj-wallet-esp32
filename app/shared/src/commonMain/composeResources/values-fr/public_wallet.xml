@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="error_public_data_invalid">Données publiques du portefeuille invalides. Synchronisez à nouveau avec votre BJJ-Cold-Wallet.</string>
+    <string name="error_public_data_incomplete">L’appareil n’a pas exporté tous les réseaux pris en charge. Mettez à jour le micrologiciel et synchronisez à nouveau.</string>
+    <string name="error_public_data_sync_required">Aucune donnée publique enregistrée pour cette adresse. Synchronisez avec l’appareil.</string>
+    <string name="error_public_data_changed">Les données publiques du portefeuille ont changé. Les comptes existants ont été conservés ; vérifiez l’appareil et le portefeuille connectés.</string>
+    <string name="error_address_index_exhausted">Ce compte a atteint sa limite de dérivation d’adresses.</string>
+    <string name="error_bluetooth_permission">Autorisez l’accès au Bluetooth pour synchroniser votre appareil.</string>
+    <string name="error_bluetooth_unavailable">Bluetooth indisponible. Activez le Bluetooth et vérifiez les autorisations de l’application.</string>
+    <string name="hardware_select_title">Sélectionnez votre BJJ-Cold-Wallet</string>
+    <string name="hardware_select_help">Choisissez votre appareil et confirmez le code de jumelage sur le téléphone et le matériel. Les données publiques de tous les réseaux pris en charge seront enregistrées séparément pour le portefeuille normal et celui avec passphrase.</string>
+    <string name="offline_accounts_hint">Ajoutez des monnaies à la liste. Si leur adresse publique manque, synchronisez-la ensuite pour consulter les soldes, recevoir et envoyer.</string>
+    <string name="common_add_account_action">Ajouter</string>
+    <string name="account_already_added">Déjà ajoutée</string>
+    <string name="account_public_data_pending">L’adresse publique n’a pas encore été synchronisée. La monnaie peut déjà apparaître dans Comptes.</string>
+    <string name="account_sync_public_data">Synchroniser les adresses publiques</string>
+    <string name="common_remove_account_action">Retirer</string>
+    <string name="account_api_unsupported">L’API sélectionnée ne prend pas en charge cette monnaie ou ce jeton.</string>
+</resources>

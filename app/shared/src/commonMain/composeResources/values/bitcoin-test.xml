@@ -1,0 +1,4 @@
+<resources>
+    <string name="bitcoin_signature_test">Bitcoin signature test: synthetic funding, real cold wallet signature. The app will attempt submission; rejection is expected. No spendable funds or blockchain record are created.</string>
+    <string name="bitcoin_signature_test_verified">The cold wallet returned a signature and the app verified it. This was a synthetic funding test; the submission result is separate from signature verification.</string>
+</resources>

@@ -1,0 +1,88 @@
+{
+  "source": "Unmodified js/Utils.js + official Wallet Core WASM 4.4.2",
+  "mnemonic": "abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon about",
+  "passphrase": "Public-Passphrase1!",
+  "rows": 2692,
+  "sha256": "3bb34b3649ed33c5565d7ec25de8faf19b370989b90281c2953770620f9c4142",
+  "failures": [],
+  "samples": [
+    [
+      "bitcoin",
+      "BTC",
+      "Bitcoin",
+      "bc1qcr8te4kr609gcawutmrza0j4xv80jy8z306fyu",
+      "zpub6rFR7y4Q2AijBEqTUquhVz398htDFrtymD9xYYfG1m4wAcvPhXNfE3EfH1r1ADqtfSdVCToUG868RvUUkgDKf31mGDtKsAYz2oz2AGutZYs",
+      "m/84'/0'/0'/0/0",
+      "8",
+      "Bitcoin",
+      "secp256k1",
+      "0",
+      "-1"
+    ],
+    [
+      "bitcoin",
+      "BTC",
+      "Bitcoin",
+      "bc1qjg7ae2t684vv3a93zgq9xa35l879rl365flkly",
+      "zpub6qx6gNSR9km78eoCTqptx1dm5qGu2cr6YD9EuJRHX7K1DCW5aU15Hnm1BUPFTPZ1XxH2ZFfEYj8JLjdYRgvVhrdfbrs6sRLfehrsgmepmza",
+      "m/84'/0'/0'/0/0",
+      "8",
+      "Bitcoin",
+      "secp256k1",
+      "1",
+      "-1"
+    ],
+    [
+      "ethereum",
+      "ETH",
+      "Ethereum",
+      "0x958bAA92cAE51f190404f5382F912f2235BFd0C9",
+      "xpub6DKdmcC6F1aeuy9A9AFw4PHmuh8hgqutnLukwwRgpXLJgXbNp1Mg8CRzqDcBiun5S55HRJukRC2BqUM5un3mGSQGeQwK9AFM2jFpaoKHhJ7",
+      "m/44'/60'/0'/0/0",
+      "18",
+      "Ethereum",
+      "secp256k1",
+      "1",
+      "-1"
+    ],
+    [
+      "ethereum",
+      "ETH",
+      "Ethereum",
+      "0x9858EfFD232B4033E47d90003D41EC34EcaEda94",
+      "xpub6DCoCpSuQZB2jawqnGMEPS63ePKWkwWPH4TU45Q7LPXWuNd8TMtVxRrgjtEshuqpK3mdhaWHPFsBngh5GFZaM6si3yZdUsT8ddYM3PwnATt",
+      "m/44'/60'/0'/0/0",
+      "18",
+      "Ethereum",
+      "secp256k1",
+      "0",
+      "-1"
+    ],
+    [
+      "solana",
+      "SOL",
+      "Solana",
+      "GjJyeC1r2RgkuoCWMyPYkCWSGSGLcz266EaAkLA27AhL",
+      "",
+      "m/44'/501'/0'",
+      "9",
+      "Solana",
+      "ed25519",
+      "0",
+      "0"
+    ],
+    [
+      "solana",
+      "SOL",
+      "Solana",
+      "J5eouN5b87BTThXnbxFKJnEePNgM1JyrpqW7hGbZHaXG",
+      "",
+      "m/44'/501'/0'",
+      "9",
+      "Solana",
+      "ed25519",
+      "1",
+      "0"
+    ]
+  ]
+}

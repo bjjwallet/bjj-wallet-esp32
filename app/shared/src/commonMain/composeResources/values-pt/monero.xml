@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="monero_sync">Sincronizar Monero</string>
+    <string name="monero_hardware_help">Aguardando a cold wallet. Confirme o pedido no dispositivo se ele aparecer.</string>
+    <string name="monero_connecting">Conectando por Bluetooth…</string>
+    <string name="monero_pairing">Pareando com a cold wallet… Se aparecer um código, confira e confirme nos dois dispositivos.</string>
+    <string name="monero_pairing_failed">Não foi possível autenticar a conexão Bluetooth. Confira se há um pedido de pareamento nos dois dispositivos e tente novamente.</string>
+    <string name="monero_connection_failed">Não foi possível conectar à cold wallet por Bluetooth. Desbloqueie o dispositivo, mantenha-o por perto e tente novamente.</string>
+    <string name="monero_last_verified">Último bloco verificado %1$s</string>
+    <string name="monero_scanner_unavailable">Os dados de Monero foram salvos. Esta versão ainda não tem um scanner local de Monero para verificar o saldo.</string>
+    <string name="monero_scan_pending">A varredura de Monero ainda não verificou o saldo.</string>
+    <string name="monero_sync_rejected">A cold wallet não aprovou o pedido de Monero.</string>
+    <string name="monero_only_help">Esta tela sincroniza apenas Monero (XMR). A cold wallet pode pedir que você confirme a solicitação via Bluetooth.</string>
+    <string name="monero_scanning">Sincronizando Monero…</string>
+    <string name="monero_needs_images">Foram encontradas novas saídas. Sincronize com a cold wallet para verificar o saldo.</string>
+    <string name="monero_key_images_unavailable">A cold wallet ainda não oferece key images assinadas para Monero.</string>
+    <string name="monero_view_sync_required">Este firmware ainda não forneceu os dados de visualização de Monero.</string>
+    <string name="monero_waiting_for_wallet">O app recebe os dados de visualização de Monero ao sincronizar com uma cold wallet compatível.</string>
+    <string name="monero_balance_pending">Saldo pendente de verificação. Sincronize com uma cold wallet que ofereça key images assinadas.</string>
+    <string name="monero_connection_title">Conexão Monero</string>
+    <string name="monero_connect">Conectar para sincronizar XMR</string>
+    <string name="monero_scan_paused">Varredura de Monero pausada. Toque em Sincronizar Monero para continuar.</string>
+    <string name="monero_scan_timeout">A varredura de Monero excedeu o tempo limite. Verifique a conexão com a internet e tente novamente.</string>
+    <string name="monero_restore_height">Altura de restauração</string>
+    <string name="monero_restore_height_help">Escolha uma altura de bloco anterior ao primeiro recebimento de Monero. Deixe em branco para usar a altura informada pela cold wallet.</string>
+    <string name="monero_total_balance">Saldo total: %1$s XMR</string>
+    <string name="monero_unlocked_balance">Disponível: %1$s XMR</string>
+    <string name="monero_sync_address_only">Sincronizar só o endereço de recebimento</string>
+    <string name="monero_send_hardware">Confira e confirme este envio na carteira fria.</string>
+</resources>

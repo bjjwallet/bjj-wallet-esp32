@@ -1,0 +1,47 @@
+{
+  "date": "2026-11-21",
+  "scope": "Owned source code in mobile app, ESP32 firmware, legacy implementation and development tools",
+  "owned_source_files_checked": 389,
+  "reformatted_files_in_original_snapshot": 364,
+  "changes": [
+    "Consistent indentation, spacing, line wrapping and documentation layout.",
+    "Updated obsolete Cardano adapter and signing lifecycle comments.",
+    "Formatting configuration and repeatable format/check command added.",
+    "Catalog and inventory parsers accept formatted whitespace, trailing commas and JavaScript property quoting.",
+    "Generated catalog bytes and legacy inventory routing/method metadata remain identical; source hashes refreshed."
+  ],
+  "validation": {
+    "format_check": "passed",
+    "app_unit_tests": {
+      "tests": 251,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "ios_shared_compilation": "passed",
+    "swift_syntax": "passed",
+    "esp32_release_compilation": "passed",
+    "firmware_ctest_cases": 23,
+    "firmware_ctest_note": "22 cases passed in the complete run; migration_inventory passed after refreshing formatting-dependent hashes.",
+    "monero_signature_tests": {
+      "passed": 2,
+      "failed": 0
+    },
+    "javascript_syntax_files": 68,
+    "generated_catalog_parity": "passed",
+    "legacy_inventory_semantics": "unchanged"
+  },
+  "preexisting_check_failures": [
+    {
+      "check": "app/scripts/check-translations.py",
+      "error": "Italian resource catalog missing resources",
+      "baseline": "Original pre-format script reproduced the same assertion against unchanged resources."
+    },
+    {
+      "check": "hardware/js/utxo-plan.test.js",
+      "error": "Wallet Core CoinType undefined during legacy UTXO validation",
+      "baseline": "Original pre-format JavaScript files reproduced the same TypeError with locked Wallet Core 4.4.2."
+    }
+  ],
+  "deployment": "No installation or reset. Existing distributed firmware ZIP and its hashes were not changed."
+}

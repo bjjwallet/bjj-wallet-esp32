@@ -1,0 +1,142 @@
+[
+  {
+    "path": "core/api_handler.py",
+    "before": "23f8ffacb1aa11bcc1ec86a62fa8e24e23a5f080c1098f4afab702f1cd43df4b",
+    "after": "d0c2135ffcb467075119802faccccd7a64411a441a011b1928d0bd69c06c8fb7"
+  },
+  {
+    "path": "core/models.py",
+    "before": "92c9250e6d581d367861e99c35c50d36772bc712e3a80e0af7cf3673834eb444",
+    "after": "f6134d25bf651ccec52d30449a2129e8bf1ec30fdaf9ac870cba8eecbaf5e24e"
+  },
+  {
+    "path": "core/service.py",
+    "before": "03f1304b77624aeec89414fc285506c47ba32adf2cdc2949a829457d9c5ae18d",
+    "after": "4146e5729aee19bcdf5331c816be50e52ffc006315ce32375b8da5db8c1667bd"
+  },
+  {
+    "path": "esp32/CMakeLists.txt",
+    "before": "4bd91cf4e1875e4f9ccc026b51e6d626b82e4e0e8299f2a2e6a5418699fa1e71",
+    "after": "5d12016e569e810a3b5ee709c91ff036a1f03410db8ce4725c1825d69407c0d3"
+  },
+  {
+    "path": "esp32/core/public_wallet_rpc.cpp",
+    "before": "f217a35e85edd064a694bda673e4852f438e4b7394496e5b60cd17f58cb8a1a5",
+    "after": "64a525bfeec552a9906637c393c137caa51fd7a9231b8afa8b43b691360f4727"
+  },
+  {
+    "path": "esp32/core/public_wallet_service.hpp",
+    "before": "ad41c7099825cc282748b3f3d0d1af0e9eaf52adcccb800896d23837e072135c",
+    "after": "a460d9f4e26219c3127e10a38953040397294d31d381a3449e640f9e0cb52e6b"
+  },
+  {
+    "path": "esp32/core/utxo_signer.cpp",
+    "before": null,
+    "after": "b01532927d6e6b350afa4b253d7e83b28a44f0604da8a054382982932bf70bf0"
+  },
+  {
+    "path": "esp32/core/utxo_signer.hpp",
+    "before": null,
+    "after": "9fe83679c3093e80916f814d2f87f00ead22fe2515b36c94fb8275d9cd855740"
+  },
+  {
+    "path": "esp32/docs/UTXO_SIGNING.md",
+    "before": null,
+    "after": "310f03ddd10551d842b75d99b34709cd2d04f6126a6894e2313180bfb6348fb7"
+  },
+  {
+    "path": "esp32/firmware/main/main.cpp",
+    "before": "09359c7814254df772ce0d862f45697bf40d9ba0256567dea6ac6028c8ec3830",
+    "after": "f06608e48457dfc7eade3b0623b0977e47dbb5c1c343459e896592d59fe23441"
+  },
+  {
+    "path": "esp32/idf_components/airlock_ble/CMakeLists.txt",
+    "before": "53e750aa7dcc493952716a4ed2abc0e305325ac0e45cef2ab7aed442c486549a",
+    "after": "7c6003d9435df6be51044918502d499cabcd4ee8831bb9e921589af5624cc91a"
+  },
+  {
+    "path": "esp32/idf_components/airlock_ble/include/airlock_ble.hpp",
+    "before": "a10c2cf4e2aa284575279a36957d63375d5dd0f1b301ae02d6bc367ad2ed1211",
+    "after": "dec8d024345b7411d2afce9df9f02ef6d508dcc7625b4f4adc143702fe933054"
+  },
+  {
+    "path": "esp32/idf_components/airlock_ble/nimble_device.cpp",
+    "before": "e21f22c3eb85e54be9caefd816be319eeb4c0c86d356071a987e168667434fb6",
+    "after": "ea699fbb3ce4beb8f281cf2863d763711257178f5f97c058e9e81e8c477fc4e7"
+  },
+  {
+    "path": "esp32/idf_components/airlock_crypto/CMakeLists.txt",
+    "before": "49842761f25cbac7eb99ac6d1f6f58f472fd98c8964000628988534a2922c4f4",
+    "after": "e63d47c0e1d65d51704adee0b916b4f293f1c0fdc678bd5e836ed6ad5228b5fe"
+  },
+  {
+    "path": "esp32/idf_components/airlock_setup/include/airlock_setup.hpp",
+    "before": "d0d5d2b3003f9546fd146e55732a62f3bcd640a31250a33e3f8c06028233b72f",
+    "after": "4957a481ed69951311e2883584e6f1cba86271d6d01d93bd66f5301159127402"
+  },
+  {
+    "path": "esp32/idf_components/airlock_setup/setup.cpp",
+    "before": "ee5fb771eca7a7a9db3b374bc33b44dd5127a80533f8fd3b77b67b8f8e0b39a6",
+    "after": "da46b2d3d731d17d3e431daf631685548a4fbaa81e2d720022d4539ef765c158"
+  },
+  {
+    "path": "esp32/tests/public_wallet_tests.cpp",
+    "before": "8d56c18498a404ce7d7fbbfab69335d8c20e0f6052c43b7b62f0f87c2da5acdf",
+    "after": "a7477bdb6f579203ab0db7b88d6e768c5300dc09cb2e1a67702a5b41d609e4b4"
+  },
+  {
+    "path": "esp32/tests/utxo_rpc_tests.cpp",
+    "before": null,
+    "after": "1893b57861492b4132e1b2bf4aa0fa7f2d0678ae657642a4d2b43d2441faefca"
+  },
+  {
+    "path": "esp32/tests/utxo_signer_tests.cpp",
+    "before": null,
+    "after": "4d44520a04954e5c99dd3a1f7c421f180d9fd90537adc5905885f437c1ba81e8"
+  },
+  {
+    "path": "esp32/tests/utxo_signing_vectors.json",
+    "before": null,
+    "after": "5683ffe9e1f5cee8358468737d8e72b0ab63a177b88bcadde4de3f01c982e610"
+  },
+  {
+    "path": "esp32/ui/first_login.cpp",
+    "before": "e5857c40427674240389e72f816b21c5b5aade7eb72e2e9357445937ff2adad6",
+    "after": "7b4c7b5b64538bc1422b29c75cb7d4d3d22fec6c5fa257fcb83b95cdb01a7a44"
+  },
+  {
+    "path": "esp32/ui/first_login.hpp",
+    "before": "f6d38385b96c318053b15369f651239e201e5599fa3995724e043cfdc34a3f94",
+    "after": "ec0f8248158060c480a6758aeecdc5d7ff8b6a0eb5ceefd137ebc5802af8994b"
+  },
+  {
+    "path": "js/UtxoPlan.js",
+    "before": null,
+    "after": "7f25fd0f034fd9f0da4eb16c333a2026a012a0942287da0e766d5c1ef5edf5fb"
+  },
+  {
+    "path": "js/crypto_worker.js",
+    "before": "ecd0676f99119763ad2d63af190a69b971a302a7b63a535205141cadc14d52e4",
+    "after": "3a1691c1711e5684f009f59a6642d954f8b7a32f08e12ccb9dcf835d4fc9cd16"
+  },
+  {
+    "path": "js/signer/BitcoinCashSigner.js",
+    "before": "648bfe6bb6c46ad82392d0464b061898beb343598cf5cad5fec5c122fe07930d",
+    "after": "d0ebeea4f7a20485a12846036926da1b92adc401042dd28b0e392809dc7ba022"
+  },
+  {
+    "path": "js/signer/BitcoinSigner.js",
+    "before": "6ce09eb57778c5845fadfc68d620fd70e5ca74442689bc46402d4d6005b132dc",
+    "after": "6706233f79bdb74a4411bb888b469b4adb690ceadcde23488cd486d3a1fee130"
+  },
+  {
+    "path": "js/utxo-plan.test.js",
+    "before": null,
+    "after": "3df0a4d1c408cc92d0ec7a8d10a4e7c4a793278bec3412c1b8b2514b8fa95684"
+  },
+  {
+    "path": "ui/state_sign.py",
+    "before": "932d61351afd06a943a516352f602ea5b96fb802b3edce88c3527eb8bf4a6cf7",
+    "after": "0d8dfc20573aebe0b3a40a5fda041ef187cfe6a049ce224de3f7738e363abe72"
+  }
+]

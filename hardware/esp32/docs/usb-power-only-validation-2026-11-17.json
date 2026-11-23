@@ -1,0 +1,45 @@
+{
+  "date": "2026-11-17",
+  "board": "ESP32-S3 ES3C28P touch",
+  "app_sha256": "1040b80aa240a4b21a574efc0622cf03e60967eea34404419ac0df370eb20620",
+  "flash_verified": true,
+  "configuration_bytes_preserved": true,
+  "wallet_bytes_preserved": true,
+  "usb_before": true,
+  "usb_after": [
+    {
+      "seconds": 0,
+      "espressif_serial_ports": [],
+      "espressif_usb_devices": 0
+    },
+    {
+      "seconds": 2,
+      "espressif_serial_ports": [],
+      "espressif_usb_devices": 0
+    },
+    {
+      "seconds": 4,
+      "espressif_serial_ports": [],
+      "espressif_usb_devices": 0
+    },
+    {
+      "seconds": 6,
+      "espressif_serial_ports": [],
+      "espressif_usb_devices": 0
+    },
+    {
+      "seconds": 8,
+      "espressif_serial_ports": [],
+      "espressif_usb_devices": 0
+    },
+    {
+      "seconds": 10,
+      "espressif_serial_ports": [],
+      "espressif_usb_devices": 0
+    }
+  ],
+  "start_method": "esptool watchdog reset after clearing volatile forced-download flag",
+  "efuse_changes": false,
+  "final_screen_check": "pending user tomorrow",
+  "next_physical_boot_recovery_test": "pending user tomorrow"
+}

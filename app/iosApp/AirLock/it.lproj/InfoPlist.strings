@@ -1,0 +1,3 @@
+"NSBluetoothAlwaysUsageDescription" = "Collega il tuo BJJ-Cold-Wallet per sincronizzare i dati pubblici del portafoglio. Le chiavi private rimangono sul dispositivo.";
+"NSFaceIDUsageDescription" = "Conferma la tua identità per sbloccare BJJ-App-Wallet.";
+"NSCameraUsageDescription" = "Punta la fotocamera sul QR dell’indirizzo del destinatario. La fotocamera serve solo a leggere il codice.";

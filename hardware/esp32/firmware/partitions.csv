@@ -1,0 +1,5 @@
+# Wallet data uses a dedicated internal NVS partition, with application AEAD.
+# Name, Type, SubType, Offset, Size, Flags
+nvs, data, nvs, 0x9000, 0x6000,
+factory, app, factory, 0x10000, 0x800000,
+wallet_nvs, data, nvs, 0x810000, 0x20000,

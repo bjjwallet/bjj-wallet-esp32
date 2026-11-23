@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0"><dict>
+    <key>CFBundleDisplayName</key><string>BJJ-App-Wallet</string>
+    <key>CFBundleExecutable</key><string>$(EXECUTABLE_NAME)</string>
+    <key>CFBundleIdentifier</key><string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+    <key>CFBundleName</key><string>BJJ-App-Wallet</string>
+    <key>CFBundleLocalizations</key><array><string>pt</string><string>en</string><string>es</string><string>fr</string><string>zh-Hans</string><string>ja</string><string>it</string><string>de</string></array>
+    <key>CFBundlePackageType</key><string>APPL</string>
+    <key>CFBundleShortVersionString</key><string>0.1.0</string>
+    <key>CFBundleVersion</key><string>1</string>
+    <key>LSRequiresIPhoneOS</key><true/>
+    <key>NSCameraUsageDescription</key><string>Read the recipient address QR code to fill in a transfer. Camera frames stay on this device.</string>
+    <key>NSBluetoothAlwaysUsageDescription</key><string>Connect to your BJJ-Cold-Wallet to synchronize public wallet data. Private keys remain on the hardware.</string>
+    <key>UILaunchScreen</key><dict>
+        <key>UIColorName</key><string>LaunchBackground</string>
+        <key>UIImageName</key><string>LaunchLogo</string>
+        <key>UIImageRespectsSafeAreaInsets</key><true/>
+    </dict>
+    <key>UIApplicationSceneManifest</key><dict><key>UIApplicationSupportsMultipleScenes</key><false/></dict>
+    <key>CADisableMinimumFrameDurationOnPhone</key><true/>
+    <key>UISupportedInterfaceOrientations</key><array><string>UIInterfaceOrientationPortrait</string><string>UIInterfaceOrientationLandscapeLeft</string><string>UIInterfaceOrientationLandscapeRight</string></array>
+<key>NSFaceIDUsageDescription</key>
+<string>Confirm your identity to unlock BJJ-App-Wallet.</string>
+</dict></plist>

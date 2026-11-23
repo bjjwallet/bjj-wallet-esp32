@@ -1,0 +1,5 @@
+<resources>
+    <string name="transfer_sign_authorize">Verifying your cold wallet access PIN…</string>
+    <string name="transfer_hardware_pin_help">Enter the PIN you use to unlock your cold wallet.</string>
+    <string name="transfer_hardware_pin_required">The cold wallet requires its access PIN before signing.</string>
+</resources>

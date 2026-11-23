@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="me_sync_cold_wallet">Sincronizar con la cartera fría</string>
+    <string name="me_sync_reset_caption">Restablecer la app y reiniciar la sincronización</string>
+    <string name="me_sync_reset_title">¿Restablecer la app para sincronizar?</string>
+    <string name="me_sync_reset_warning">Se eliminarán todas las carteras guardadas, los nombres, las direcciones, los saldos en caché, el historial, las transacciones pendientes, el PIN de la app y los ajustes. Después se reiniciará la sincronización. Borrar los registros pendientes no cancela las transacciones ya enviadas. La cartera fría y los fondos en la cadena de bloques se conservarán.</string>
+    <string name="me_sync_reset_confirm">Restablecer y sincronizar</string>
+</resources>

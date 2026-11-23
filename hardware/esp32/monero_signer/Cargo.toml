@@ -1,0 +1,27 @@
+[package]
+name = "airlock-monero-signer"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.89"
+
+[lib]
+crate-type = ["staticlib"]
+
+[features]
+default = ["std"]
+std = ["monero-wallet/std"]
+
+[dependencies]
+monero-wallet = { git = "https://github.com/monero-oxide/monero-oxide", rev = "a6b46701fb9b331006d7f2f2278bf51f123b1447", default-features = false, features = ["compile-time-generators"] }
+rand_core = { version = "0.6.4", default-features = false }
+rand_chacha = { version = "0.3.1", default-features = false }
+curve25519-dalek = { version = "4.1.3", default-features = false, features = ["precomputed-tables"] }
+zeroize = { version = "1.8", default-features = false, features = ["alloc"] }
+
+[patch."https://github.com/monero-oxide/monero-oxide"]
+monero-bulletproofs-generators = { path = "vendor/bulletproofs-generators" }
+
+[profile.release]
+panic = "abort"
+opt-level = 2
+codegen-units = 1

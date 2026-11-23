@@ -1,0 +1,15 @@
+{
+  "address": "0x142f6f4230934c5555772e4de1E8E39E1105CB2b",
+  "donations": [
+    {
+      "token": "USDT",
+      "network": "Ethereum",
+      "qr": "usdt-ethereum.png"
+    },
+    {
+      "token": "USDT0",
+      "network": "Polygon",
+      "qr": "usdt0-polygon.png"
+    }
+  ]
+}

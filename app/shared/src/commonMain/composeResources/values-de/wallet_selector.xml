@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="wallet_choose">Wallet auswählen</string>
+    <string name="wallet_sync_another">Weitere Wallet synchronisieren</string>
+    <string name="wallet_name">Wallet-Name</string>
+    <string name="wallet_rename">Wallet umbenennen</string>
+    <string name="wallet_sync_help">Bestätige die Synchronisierung auf deinem Gerät. Die App importiert die verfügbaren Wallets mit ihren Namen und behält die bereits gespeicherten Wallets.</string>
+    <string name="wallet_name_invalid">Gib einen Namen mit 1 bis 128 Zeichen ohne Zeilenumbrüche ein.</string>
+</resources>

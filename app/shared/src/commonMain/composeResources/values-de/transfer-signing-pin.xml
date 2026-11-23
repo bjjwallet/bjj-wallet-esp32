@@ -1,0 +1,5 @@
+<resources>
+    <string name="transfer_sign_authorize">Zugangs-PIN der Cold Wallet wird geprüft…</string>
+    <string name="transfer_hardware_pin_help">Gib die PIN zum Entsperren deiner Cold Wallet ein.</string>
+    <string name="transfer_hardware_pin_required">Die Cold Wallet benötigt vor dem Signieren ihre Zugangs-PIN.</string>
+</resources>

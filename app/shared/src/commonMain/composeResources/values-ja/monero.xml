@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="monero_sync">Moneroを同期</string>
+    <string name="monero_hardware_help">コールドウォレットの応答を待っています。デバイスに確認画面が表示されたら承認してください。</string>
+    <string name="monero_connecting">Bluetoothで接続しています…</string>
+    <string name="monero_pairing">コールドウォレットとペアリングしています…確認を求められたら両方のデバイスでコードを確認してください。</string>
+    <string name="monero_pairing_failed">認証済みのBluetooth接続を確立できませんでした。両方のデバイスでペアリング要求を確認して再試行してください。</string>
+    <string name="monero_connection_failed">Bluetoothでコールドウォレットに接続できませんでした。ロックを解除し、近くに置いて再試行してください。</string>
+    <string name="monero_last_verified">最後に検証したブロック：%1$s</string>
+    <string name="monero_scanner_unavailable">Moneroデータを保存しました。このバージョンには残高を検証するローカルMoneroスキャナーがありません。</string>
+    <string name="monero_scan_pending">Moneroのスキャンによる残高の検証がまだ完了していません。</string>
+    <string name="monero_sync_rejected">コールドウォレットがMoneroの要求を承認しませんでした。</string>
+    <string name="monero_only_help">この画面ではMonero（XMR）のみを同期します。コールドウォレットでBluetooth経由の要求の承認が必要になる場合があります。</string>
+    <string name="monero_scanning">Moneroを同期しています…</string>
+    <string name="monero_needs_images">新しい出力が見つかりました。コールドウォレットと同期して残高を検証してください。</string>
+    <string name="monero_key_images_unavailable">コールドウォレットは署名済みMoneroキーイメージにまだ対応していません。</string>
+    <string name="monero_view_sync_required">このファームウェアからMoneroの閲覧データが提供されていません。</string>
+    <string name="monero_waiting_for_wallet">対応するコールドウォレットと同期すると、アプリがMoneroの閲覧データを受信します。</string>
+    <string name="monero_balance_pending">残高の検証待ちです。署名済みキーイメージに対応したコールドウォレットと同期してください。</string>
+    <string name="monero_connection_title">Monero接続</string>
+    <string name="monero_connect">XMR用に接続</string>
+    <string name="monero_scan_paused">Moneroのスキャンを一時停止しました。「Moneroを同期」をタップして続行してください。</string>
+    <string name="monero_scan_timeout">Moneroのスキャンがタイムアウトしました。インターネット接続を確認して再試行してください。</string>
+    <string name="monero_restore_height">復元開始ブロック高</string>
+    <string name="monero_restore_height_help">最初にMoneroを受け取る前のブロック高を指定してください。空欄の場合はコールドウォレットが提供する値を使用します。</string>
+    <string name="monero_total_balance">総残高：%1$s XMR</string>
+    <string name="monero_unlocked_balance">利用可能残高：%1$s XMR</string>
+    <string name="monero_sync_address_only">受取アドレスのみを同期</string>
+    <string name="monero_send_hardware">コールドウォレットで送金内容を確認して承認してください。</string>
+</resources>

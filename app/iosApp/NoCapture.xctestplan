@@ -1,0 +1,23 @@
+{
+  "configurations": [
+    {
+      "id": "2D8809BB-1F0D-47B7-939E-C394AE7982AB",
+      "name": "No captures",
+      "options": {}
+    }
+  ],
+  "defaultOptions": {
+    "uiTestingScreenshotsLifetime": "keepNever",
+    "userAttachmentLifetime": "keepNever"
+  },
+  "testTargets": [
+    {
+      "target": {
+        "containerPath": "container:AirLock.xcodeproj",
+        "identifier": "B00000000000000000000001",
+        "name": "AirLockUITests"
+      }
+    }
+  ],
+  "version": 1
+}

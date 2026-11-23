@@ -1,0 +1,134 @@
+{
+  "tests": 233,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "networks": [
+    {
+      "network": "ethereum",
+      "rpc": "https://ethereum-rpc.publicnode.com",
+      "tokens": [
+        "BRZ",
+        "BNB",
+        "USDT",
+        "USDC",
+        "USDS",
+        "USDe",
+        "RLUSD",
+        "EURC"
+      ],
+      "send_implemented": true
+    },
+    {
+      "network": "bsc",
+      "rpc": "https://bsc-dataseed.bnbchain.org",
+      "tokens": [
+        "BRZ",
+        "USDT",
+        "LINK",
+        "USDC",
+        "USDe",
+        "XRP"
+      ],
+      "send_implemented": true
+    },
+    {
+      "network": "polygon",
+      "rpc": "https://polygon.drpc.org",
+      "tokens": [
+        "USDC",
+        "USDT",
+        "LINK",
+        "BRZ"
+      ],
+      "send_implemented": true
+    },
+    {
+      "network": "arbitrum",
+      "rpc": "https://arb1.arbitrum.io/rpc",
+      "tokens": [
+        "BRZ",
+        "USDC",
+        "ARB",
+        "USDT",
+        "USDS",
+        "LINK",
+        "USDe"
+      ],
+      "send_implemented": true
+    },
+    {
+      "network": "avalanche",
+      "rpc": "https://api.avax.network/ext/bc/C/rpc",
+      "tokens": [
+        "USDT",
+        "USDC"
+      ],
+      "send_implemented": true
+    },
+    {
+      "network": "ethereumclassic",
+      "rpc": "https://rpc.etcplanets.com",
+      "tokens": [],
+      "send_implemented": true
+    },
+    {
+      "network": "base",
+      "rpc": "https://mainnet.base.org",
+      "tokens": [
+        "USDC",
+        "USDS",
+        "EURC",
+        "LINK",
+        "BRZ",
+        "USDe",
+        "USDT"
+      ],
+      "send_implemented": true
+    },
+    {
+      "network": "hyperevm",
+      "rpc": "https://rpc.hyperliquid.xyz/evm",
+      "tokens": [
+        "USDC",
+        "LINK"
+      ],
+      "send_implemented": true
+    },
+    {
+      "network": "robinhood",
+      "rpc": "https://rpc.mainnet.chain.robinhood.com",
+      "tokens": [
+        "USDG"
+      ],
+      "send_implemented": true
+    },
+    {
+      "network": "solana",
+      "rpc": "https://api.mainnet.solana.com",
+      "tokens": [
+        "BRLP",
+        "XRP",
+        "MON",
+        "USDT",
+        "USDC",
+        "BRZ",
+        "SKR",
+        "USDS",
+        "PYUSD",
+        "EURC",
+        "LINK",
+        "JUP"
+      ],
+      "send_implemented": true
+    }
+  ],
+  "token_count": 49,
+  "test_mode_current": true,
+  "android_build": "passed",
+  "ios_build": "passed",
+  "device_install": "passed on Samsung A54 via adb install -r",
+  "scope": "Offline automated tests; no live fund transfer",
+  "android_log": "/private/tmp/bjj-token-rpc-final.log",
+  "ios_log": "/private/tmp/bjj-token-rpc-ios.log"
+}

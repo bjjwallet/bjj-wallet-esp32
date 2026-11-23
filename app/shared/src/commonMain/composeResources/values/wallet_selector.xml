@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="wallet_choose">Choose wallet</string>
+    <string name="wallet_sync_another">Synchronize another wallet</string>
+    <string name="wallet_name">Wallet name</string>
+    <string name="wallet_rename">Rename wallet</string>
+    <string name="wallet_sync_help">Authorize synchronization on your device. The app imports the available wallets with their names and preserves your saved wallets.</string>
+    <string name="wallet_name_invalid">Enter a name between 1 and 128 characters, without line breaks.</string>
+</resources>

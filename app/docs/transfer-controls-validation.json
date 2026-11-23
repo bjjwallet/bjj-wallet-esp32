@@ -1,0 +1,14 @@
+{
+  "tests": 229,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "android_build": "passed",
+  "ios_build": "passed",
+  "test_mode_default": false,
+  "test_mode_file": "shared/src/commonMain/kotlin/pub/airlock/domain/TransferTestConfig.kt",
+  "device": "Samsung SM_A546B",
+  "android_log": "/private/tmp/bjj-transfer-controls-tests.log",
+  "ios_log": "/private/tmp/bjj-transfer-controls-ios.log",
+  "device_install": "passed, adb install -r"
+}

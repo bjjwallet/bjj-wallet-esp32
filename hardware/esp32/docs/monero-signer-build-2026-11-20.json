@@ -1,0 +1,16 @@
+{
+  "date": "2026-11-20",
+  "dependency_revision": "a6b46701fb9b331006d7f2f2278bf51f123b1447",
+  "rust_toolchain": "esp-rs v1.90.0.0 / rustc 1.90.0-nightly abf50ae2e",
+  "target": "xtensa-esp32s3-none-elf",
+  "features": "no default features (no_std); build-std=core,alloc",
+  "library": "hardware/esp32/build-monero-signer-release/xtensa-esp32s3-none-elf/release/libairlock_monero_signer.a",
+  "library_bytes": 3284348,
+  "library_sha256": "6a353b4f91e5e0a10d79bf6810b40ab2c15b88c9015e2c1046206d38c80c0fab",
+  "cargo_lock_sha256": "caaebea45c4cf378bf415d26537261bc1ad3d23047f2e97c650a17da7bdc3022",
+  "source_sha256": "8a495001ecde96256f535b48bc5b5db5f4e44aeec36d0b8e7b9440fe5c7ce3e5",
+  "ffi_symbol": "airlock_monero_sign_archive defined in target archive",
+  "native_ffi_rejection_checks": 4,
+  "final_firmware_symbol_confirmed": true,
+  "firmware_bytes": 2221968
+}

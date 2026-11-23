@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="me_sync_cold_wallet">Sincronizar com a cold wallet</string>
+    <string name="me_sync_reset_caption">Zerar o app e reiniciar o fluxo de sincronização</string>
+    <string name="me_sync_reset_title">Zerar o app para sincronizar?</string>
+    <string name="me_sync_reset_warning">O app será zerado. Todas as carteiras salvas, nomes, endereços, saldos locais, histórico, transações pendentes, PIN do app e configurações serão apagados. Depois, você fará o fluxo de sincronização novamente. Apagar pendências não cancela transações já enviadas. A cold wallet e os fundos na blockchain não serão apagados.</string>
+    <string name="me_sync_reset_confirm">Zerar app e sincronizar</string>
+</resources>

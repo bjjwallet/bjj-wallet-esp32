@@ -1,0 +1,741 @@
+{
+  "date": "2026-11-21",
+  "scope": "offline_host_tests_no_device_no_broadcast",
+  "app_tests": {
+    "tests": 245,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "hardware_tests": {
+    "tests": 22,
+    "failures": 0
+  },
+  "networks": 23,
+  "assets": 86,
+  "native_assets": 23,
+  "tokens": 63,
+  "languages": 8,
+  "input_asset_language_combinations": 688,
+  "signing_results": {
+    "verified_utxo_firmware": 6,
+    "verified_evm_firmware": 46,
+    "transfer_signing_not_implemented": 19,
+    "verified_ed25519_firmware": 13,
+    "verified_cardano_firmware": 1,
+    "flow_mock_only_clsag_not_verified": 1
+  },
+  "fresh_vector_checks": [
+    {
+      "family": "evm",
+      "vectors": 46,
+      "fresh_firmware_output_matches_app_fixtures": true
+    },
+    {
+      "family": "solana",
+      "vectors": 24,
+      "fresh_firmware_output_matches_app_fixtures": true
+    },
+    {
+      "family": "utxo",
+      "vectors": 12,
+      "fresh_firmware_output_matches_app_fixtures": true
+    }
+  ],
+  "assets_results": [
+    {
+      "network": "bitcoin",
+      "symbol": "BTC",
+      "decimals": 8,
+      "token": false,
+      "input": "passed",
+      "signature": "verified_utxo_firmware"
+    },
+    {
+      "network": "ethereum",
+      "symbol": "ETH",
+      "decimals": 18,
+      "token": false,
+      "input": "passed",
+      "signature": "verified_evm_firmware"
+    },
+    {
+      "network": "ethereum",
+      "symbol": "BNB",
+      "decimals": 18,
+      "token": true,
+      "input": "passed",
+      "signature": "verified_evm_firmware"
+    },
+    {
+      "network": "ethereum",
+      "symbol": "USDT",
+      "decimals": 6,
+      "token": true,
+      "input": "passed",
+      "signature": "verified_evm_firmware"
+    },
+    {
+      "network": "ethereum",
+      "symbol": "USDC",
+      "decimals": 6,
+      "token": true,
+      "input": "passed",
+      "signature": "verified_evm_firmware"
+    },
+    {
+      "network": "ethereum",
+      "symbol": "USDS",
+      "decimals": 18,
+      "token": true,
+      "input": "passed",
+      "signature": "verified_evm_firmware"
+    },
+    {
+      "network": "ethereum",
+      "symbol": "USDe",
+      "decimals": 18,
+      "token": true,
+      "input": "passed",
+      "signature": "verified_evm_firmware"
+    },
+    {
+      "network": "ethereum",
+      "symbol": "RLUSD",
+      "decimals": 18,
+      "token": true,
+      "input": "passed",
+      "signature": "verified_evm_firmware"
+    },
+    {
+      "network": "ethereum",
+      "symbol": "EURC",
+      "decimals": 6,
+      "token": true,
+      "input": "passed",
+      "signature": "verified_evm_firmware"
+    },
+    {
+      "network": "ethereum",
+      "symbol": "BRZ",
+      "decimals": 18,
+      "token": true,
+      "input": "passed",
+      "signature": "verified_evm_firmware"
+    },
+    {
+      "network": "tron",
+      "symbol": "TRX",
+      "decimals": 6,
+      "token": false,
+      "input": "passed",
+      "signature": "transfer_signing_not_implemented"
+    },
+    {
+      "network": "tron",
+      "symbol": "USDC",
+      "decimals": 6,
+      "token": true,
+      "input": "passed",
+      "signature": "transfer_signing_not_implemented"
+    },
+    {
+      "network": "tron",
+      "symbol": "USDT",
+      "decimals": 6,
+      "token": true,
+      "input": "passed",
+      "signature": "transfer_signing_not_implemented"
+    },
+    {
+      "network": "bsc",
+      "symbol": "BNB",
+      "decimals": 18,
+      "token": false,
+      "input": "passed",
+      "signature": "verified_evm_firmware"
+    },
+    {
+      "network": "bsc",
+      "symbol": "BRZ",
+      "decimals": 18,
+      "token": true,
+      "input": "passed",
+      "signature": "verified_evm_firmware"
+    },
+    {
+      "network": "bsc",
+      "symbol": "USDT",
+      "decimals": 18,
+      "token": true,
+      "input": "passed",
+      "signature": "verified_evm_firmware"
+    },
+    {
+      "network": "bsc",
+      "symbol": "LINK",
+      "decimals": 18,
+      "token": true,
+      "input": "passed",
+      "signature": "verified_evm_firmware"
+    },
+    {
+      "network": "bsc",
+      "symbol": "USDC",
+      "decimals": 18,
+      "token": true,
+      "input": "passed",
+      "signature": "verified_evm_firmware"
+    },
+    {
+      "network": "bsc",
+      "symbol": "USDe",
+      "decimals": 18,
+      "token": true,
+      "input": "passed",
+      "signature": "verified_evm_firmware"
+    },
+    {
+      "network": "bsc",
+      "symbol": "XRP",
+      "decimals": 18,
+      "token": true,
+      "input": "passed",
+      "signature": "verified_evm_firmware"
+    },
+    {
+      "network": "ripple",
+      "symbol": "XRP",
+      "decimals": 6,
+      "token": false,
+      "input": "passed",
+      "signature": "transfer_signing_not_implemented"
+    },
+    {
+      "network": "ripple",
+      "symbol": "RLUSD",
+      "decimals": 15,
+      "token": true,
+      "input": "passed",
+      "signature": "transfer_signing_not_implemented"
+    },
+    {
+      "network": "ripple",
+      "symbol": "USDC",
+      "decimals": 15,
+      "token": true,
+      "input": "passed",
+      "signature": "transfer_signing_not_implemented"
+    },
+    {
+      "network": "dogecoin",
+      "symbol": "DOGE",
+      "decimals": 8,
+      "token": false,
+      "input": "passed",
+      "signature": "verified_utxo_firmware"
+    },
+    {
+      "network": "solana",
+      "symbol": "SOL",
+      "decimals": 9,
+      "token": false,
+      "input": "passed",
+      "signature": "verified_ed25519_firmware"
+    },
+    {
+      "network": "solana",
+      "symbol": "BRLP",
+      "decimals": 6,
+      "token": true,
+      "input": "passed",
+      "signature": "verified_ed25519_firmware"
+    },
+    {
+      "network": "solana",
+      "symbol": "XRP",
+      "decimals": 6,
+      "token": true,
+      "input": "passed",
+      "signature": "verified_ed25519_firmware"
+    },
+    {
+      "network": "solana",
+      "symbol": "MON",
+      "decimals": 8,
+      "token": true,
+      "input": "passed",
+      "signature": "verified_ed25519_firmware"
+    },
+    {
+      "network": "solana",
+      "symbol": "USDT",
+      "decimals": 6,
+      "token": true,
+      "input": "passed",
+      "signature": "verified_ed25519_firmware"
+    },
+    {
+      "network": "solana",
+      "symbol": "USDC",
+      "decimals": 6,
+      "token": true,
+      "input": "passed",
+      "signature": "verified_ed25519_firmware"
+    },
+    {
+      "network": "solana",
+      "symbol": "BRZ",
+      "decimals": 4,
+      "token": true,
+      "input": "passed",
+      "signature": "verified_ed25519_firmware"
+    },
+    {
+      "network": "solana",
+      "symbol": "SKR",
+      "decimals": 6,
+      "token": true,
+      "input": "passed",
+      "signature": "verified_ed25519_firmware"
+    },
+    {
+      "network": "solana",
+      "symbol": "USDS",
+      "decimals": 6,
+      "token": true,
+      "input": "passed",
+      "signature": "verified_ed25519_firmware"
+    },
+    {
+      "network": "solana",
+      "symbol": "PYUSD",
+      "decimals": 6,
+      "token": true,
+      "input": "passed",
+      "signature": "verified_ed25519_firmware"
+    },
+    {
+      "network": "solana",
+      "symbol": "EURC",
+      "decimals": 6,
+      "token": true,
+      "input": "passed",
+      "signature": "verified_ed25519_firmware"
+    },
+    {
+      "network": "solana",
+      "symbol": "LINK",
+      "decimals": 9,
+      "token": true,
+      "input": "passed",
+      "signature": "verified_ed25519_firmware"
+    },
+    {
+      "network": "solana",
+      "symbol": "JUP",
+      "decimals": 6,
+      "token": true,
+      "input": "passed",
+      "signature": "verified_ed25519_firmware"
+    },
+    {
+      "network": "cardano",
+      "symbol": "ADA",
+      "decimals": 6,
+      "token": false,
+      "input": "passed",
+      "signature": "verified_cardano_firmware"
+    },
+    {
+      "network": "cardano",
+      "symbol": "SNEK",
+      "decimals": 0,
+      "token": true,
+      "input": "passed",
+      "signature": "transfer_signing_not_implemented"
+    },
+    {
+      "network": "cardano",
+      "symbol": "MIN",
+      "decimals": 6,
+      "token": true,
+      "input": "passed",
+      "signature": "transfer_signing_not_implemented"
+    },
+    {
+      "network": "cardano",
+      "symbol": "IAG",
+      "decimals": 6,
+      "token": true,
+      "input": "passed",
+      "signature": "transfer_signing_not_implemented"
+    },
+    {
+      "network": "cardano",
+      "symbol": "WMTX",
+      "decimals": 6,
+      "token": true,
+      "input": "passed",
+      "signature": "transfer_signing_not_implemented"
+    },
+    {
+      "network": "cardano",
+      "symbol": "DJED",
+      "decimals": 6,
+      "token": true,
+      "input": "passed",
+      "signature": "transfer_signing_not_implemented"
+    },
+    {
+      "network": "bitcoincash",
+      "symbol": "BCH",
+      "decimals": 8,
+      "token": false,
+      "input": "passed",
+      "signature": "verified_utxo_firmware"
+    },
+    {
+      "network": "ton",
+      "symbol": "TON",
+      "decimals": 9,
+      "token": false,
+      "input": "passed",
+      "signature": "transfer_signing_not_implemented"
+    },
+    {
+      "network": "ton",
+      "symbol": "USDT",
+      "decimals": 6,
+      "token": true,
+      "input": "passed",
+      "signature": "transfer_signing_not_implemented"
+    },
+    {
+      "network": "avalanche",
+      "symbol": "AVAX",
+      "decimals": 18,
+      "token": false,
+      "input": "passed",
+      "signature": "verified_evm_firmware"
+    },
+    {
+      "network": "avalanche",
+      "symbol": "USDT",
+      "decimals": 6,
+      "token": true,
+      "input": "passed",
+      "signature": "verified_evm_firmware"
+    },
+    {
+      "network": "avalanche",
+      "symbol": "USDC",
+      "decimals": 6,
+      "token": true,
+      "input": "passed",
+      "signature": "verified_evm_firmware"
+    },
+    {
+      "network": "ethereumclassic",
+      "symbol": "ETC",
+      "decimals": 18,
+      "token": false,
+      "input": "passed",
+      "signature": "verified_evm_firmware"
+    },
+    {
+      "network": "litecoin",
+      "symbol": "LTC",
+      "decimals": 8,
+      "token": false,
+      "input": "passed",
+      "signature": "verified_utxo_firmware"
+    },
+    {
+      "network": "arbitrum",
+      "symbol": "ETH",
+      "decimals": 18,
+      "token": false,
+      "input": "passed",
+      "signature": "verified_evm_firmware"
+    },
+    {
+      "network": "arbitrum",
+      "symbol": "BRZ",
+      "decimals": 18,
+      "token": true,
+      "input": "passed",
+      "signature": "verified_evm_firmware"
+    },
+    {
+      "network": "arbitrum",
+      "symbol": "USDC",
+      "decimals": 6,
+      "token": true,
+      "input": "passed",
+      "signature": "verified_evm_firmware"
+    },
+    {
+      "network": "arbitrum",
+      "symbol": "ARB",
+      "decimals": 18,
+      "token": true,
+      "input": "passed",
+      "signature": "verified_evm_firmware"
+    },
+    {
+      "network": "arbitrum",
+      "symbol": "USDT",
+      "decimals": 6,
+      "token": true,
+      "input": "passed",
+      "signature": "verified_evm_firmware"
+    },
+    {
+      "network": "arbitrum",
+      "symbol": "USDS",
+      "decimals": 18,
+      "token": true,
+      "input": "passed",
+      "signature": "verified_evm_firmware"
+    },
+    {
+      "network": "arbitrum",
+      "symbol": "LINK",
+      "decimals": 18,
+      "token": true,
+      "input": "passed",
+      "signature": "verified_evm_firmware"
+    },
+    {
+      "network": "arbitrum",
+      "symbol": "USDe",
+      "decimals": 18,
+      "token": true,
+      "input": "passed",
+      "signature": "verified_evm_firmware"
+    },
+    {
+      "network": "polygon",
+      "symbol": "POL",
+      "decimals": 18,
+      "token": false,
+      "input": "passed",
+      "signature": "verified_evm_firmware"
+    },
+    {
+      "network": "polygon",
+      "symbol": "USDC",
+      "decimals": 6,
+      "token": true,
+      "input": "passed",
+      "signature": "verified_evm_firmware"
+    },
+    {
+      "network": "polygon",
+      "symbol": "USDT",
+      "decimals": 6,
+      "token": true,
+      "input": "passed",
+      "signature": "verified_evm_firmware"
+    },
+    {
+      "network": "polygon",
+      "symbol": "LINK",
+      "decimals": 18,
+      "token": true,
+      "input": "passed",
+      "signature": "verified_evm_firmware"
+    },
+    {
+      "network": "polygon",
+      "symbol": "BRZ",
+      "decimals": 18,
+      "token": true,
+      "input": "passed",
+      "signature": "verified_evm_firmware"
+    },
+    {
+      "network": "sui",
+      "symbol": "SUI",
+      "decimals": 9,
+      "token": false,
+      "input": "passed",
+      "signature": "transfer_signing_not_implemented"
+    },
+    {
+      "network": "sui",
+      "symbol": "USDC",
+      "decimals": 6,
+      "token": true,
+      "input": "passed",
+      "signature": "transfer_signing_not_implemented"
+    },
+    {
+      "network": "dash",
+      "symbol": "DASH",
+      "decimals": 8,
+      "token": false,
+      "input": "passed",
+      "signature": "verified_utxo_firmware"
+    },
+    {
+      "network": "ecash",
+      "symbol": "XEC",
+      "decimals": 2,
+      "token": false,
+      "input": "passed",
+      "signature": "verified_utxo_firmware"
+    },
+    {
+      "network": "base",
+      "symbol": "ETH",
+      "decimals": 18,
+      "token": false,
+      "input": "passed",
+      "signature": "verified_evm_firmware"
+    },
+    {
+      "network": "base",
+      "symbol": "USDC",
+      "decimals": 6,
+      "token": true,
+      "input": "passed",
+      "signature": "verified_evm_firmware"
+    },
+    {
+      "network": "base",
+      "symbol": "USDS",
+      "decimals": 18,
+      "token": true,
+      "input": "passed",
+      "signature": "verified_evm_firmware"
+    },
+    {
+      "network": "base",
+      "symbol": "EURC",
+      "decimals": 6,
+      "token": true,
+      "input": "passed",
+      "signature": "verified_evm_firmware"
+    },
+    {
+      "network": "base",
+      "symbol": "LINK",
+      "decimals": 18,
+      "token": true,
+      "input": "passed",
+      "signature": "verified_evm_firmware"
+    },
+    {
+      "network": "base",
+      "symbol": "BRZ",
+      "decimals": 18,
+      "token": true,
+      "input": "passed",
+      "signature": "verified_evm_firmware"
+    },
+    {
+      "network": "base",
+      "symbol": "USDe",
+      "decimals": 18,
+      "token": true,
+      "input": "passed",
+      "signature": "verified_evm_firmware"
+    },
+    {
+      "network": "base",
+      "symbol": "USDT",
+      "decimals": 6,
+      "token": true,
+      "input": "passed",
+      "signature": "verified_evm_firmware"
+    },
+    {
+      "network": "monero",
+      "symbol": "XMR",
+      "decimals": 12,
+      "token": false,
+      "input": "passed",
+      "signature": "flow_mock_only_clsag_not_verified"
+    },
+    {
+      "network": "stellar",
+      "symbol": "XLM",
+      "decimals": 7,
+      "token": false,
+      "input": "passed",
+      "signature": "transfer_signing_not_implemented"
+    },
+    {
+      "network": "stellar",
+      "symbol": "USDC",
+      "decimals": 7,
+      "token": true,
+      "input": "passed",
+      "signature": "transfer_signing_not_implemented"
+    },
+    {
+      "network": "stellar",
+      "symbol": "BRLP",
+      "decimals": 7,
+      "token": true,
+      "input": "passed",
+      "signature": "transfer_signing_not_implemented"
+    },
+    {
+      "network": "stellar",
+      "symbol": "BRZ",
+      "decimals": 7,
+      "token": true,
+      "input": "passed",
+      "signature": "transfer_signing_not_implemented"
+    },
+    {
+      "network": "hyperevm",
+      "symbol": "HYPE",
+      "decimals": 18,
+      "token": false,
+      "input": "passed",
+      "signature": "verified_evm_firmware"
+    },
+    {
+      "network": "hyperevm",
+      "symbol": "USDC",
+      "decimals": 6,
+      "token": true,
+      "input": "passed",
+      "signature": "verified_evm_firmware"
+    },
+    {
+      "network": "hyperevm",
+      "symbol": "LINK",
+      "decimals": 18,
+      "token": true,
+      "input": "passed",
+      "signature": "verified_evm_firmware"
+    },
+    {
+      "network": "robinhood",
+      "symbol": "ETH",
+      "decimals": 18,
+      "token": false,
+      "input": "passed",
+      "signature": "verified_evm_firmware"
+    },
+    {
+      "network": "robinhood",
+      "symbol": "USDG",
+      "decimals": 6,
+      "token": true,
+      "input": "passed",
+      "signature": "verified_evm_firmware"
+    }
+  ],
+  "limitations": [
+    "No physical Bluetooth or touchscreen testing in this run.",
+    "RPC/API responses are mocked; no public network acceptance or confirmation is claimed.",
+    "Monero flow and key-image tests passed; a complete transaction CLSAG signature has not been verified by this suite.",
+    "Nineteen registered assets do not yet implement transfer signing; input tests do not imply send support."
+  ]
+}

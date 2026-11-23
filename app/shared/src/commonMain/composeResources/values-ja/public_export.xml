@@ -1,0 +1,8 @@
+<resources>
+    <string name="export_public_key">公開鍵</string>
+    <string name="export_public_address">公開アドレス</string>
+    <string name="export_public_pending">公開データの同期を待機中</string>
+    <string name="export_public_empty">有効なアカウントがありません</string>
+    <string name="export_public_qr">%1$sのQRコード</string>
+    <string name="export_public_copy">コピー</string>
+</resources>

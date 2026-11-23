@@ -1,0 +1,3 @@
+<resources>
+    <string name="bitcoin_signature_test_completed">Firma della cold wallet verificata. L’API ha rifiutato l’invio di prova con un input sintetico. Nessun pagamento effettuato.</string>
+</resources>

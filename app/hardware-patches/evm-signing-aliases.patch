@@ -1,0 +1,57 @@
+--- a/core/api_handler.py
++++ b/core/api_handler.py
+@@ -48,6 +48,11 @@
+     }
+ }
+ 
++# EVM aliases are used only for signing. They share Ethereum's derivation,
++# while the approval screen shows the actual target network.
++EVM_SIGNING_ALIASES = {"hyperevm": "999", "robinhood": "4663"}
++
++
+ class APIHandler:
+     def __init__(self, context: AppContext):
+         from core.utils import Utils
+@@ -140,7 +145,14 @@
+                 self._send_error(req_id, f"Model Error: {str(e)}")
+                 return
+ 
+-            coin = self.ctx.registry_map.get(asset_obj.coin)
++            alias_chain = EVM_SIGNING_ALIASES.get(asset_obj.coin)
++            if alias_chain and (
++                tx_obj.chainId != alias_chain or asset_obj.blockchain != "Ethereum"
++                or tx_obj.contractAddress != (asset_obj.contract or None)
++            ):
++                self._send_error(req_id, self._t("params_error"))
++                return
++            coin = self.ctx.registry_map.get("ethereum" if alias_chain else asset_obj.coin)
+             if not coin:
+                 self._send_error(req_id, self._t("unsupported_coin"))
+                 return
+--- a/js/crypto_worker.js
++++ b/js/crypto_worker.js
+@@ -189,7 +189,12 @@
+                 if (!method || !mnemonic || !asset || !txData) {
+                     throw new Error("sign_transaction requires method, mnemonic, derivationPath and txData");
+                 }
+-                const coin = coins.find(c => c.id === asset.coin);
++                const aliases = new Map([["hyperevm", "999"], ["robinhood", "4663"]]);
++                const aliasChain = aliases.get(asset.coin);
++                if (aliasChain && txData.chainId !== aliasChain) {
++                    throw new Error("Invalid chain ID for signing alias");
++                }
++                const coin = coins.find(c => c.id === (aliasChain ? "ethereum" : asset.coin));
+                 if (!coin) {
+                     throw new Error("sign_transaction requires coin");
+                 }
+@@ -239,8 +244,8 @@
+                 } finally {
+                     mnemonic = null;
+                     passphrase = null;
+-                    wallet.delete();
+-                    privateKey.delete();
++                    if (wallet) wallet.delete();
++                    if (privateKey) privateKey.delete();
+                 }
+ 
+                 break;

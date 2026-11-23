@@ -1,0 +1,5 @@
+<resources>
+    <string name="transfer_sign_authorize">正在验证冷钱包访问 PIN…</string>
+    <string name="transfer_hardware_pin_help">请输入用于解锁冷钱包的 PIN。</string>
+    <string name="transfer_hardware_pin_required">冷钱包要求先验证访问 PIN 再签名。</string>
+</resources>

@@ -1,0 +1,57 @@
+{
+  "date": "2026-11-20",
+  "configuration_ui": "hardware: Settings / Devices",
+  "pin_policy": "mandatory ASCII A-Z a-z 0-9, 6-32, requires uppercase lowercase digit",
+  "storage": "default NVS namespace airlock_access, independent of bond rotation",
+  "mobile_tests": {
+    "pub.airlock.BleProtocolTest": {
+      "tests": 9,
+      "failures": 0,
+      "errors": 0
+    },
+    "pub.airlock.PinPolicyTest": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "pub.airlock.MoneroSyncTest": {
+      "tests": 4,
+      "failures": 0,
+      "errors": 0
+    },
+    "pub.airlock.HardwareAccessPinTest": {
+      "tests": 4,
+      "failures": 0,
+      "errors": 0
+    },
+    "pub.airlock.FullWalletFlowTest": {
+      "tests": 8,
+      "failures": 0,
+      "errors": 0
+    },
+    "pub.airlock.StableWalletSyncTest": {
+      "tests": 10,
+      "failures": 0,
+      "errors": 0
+    },
+    "pub.airlock.ConnectionSecurityTest": {
+      "tests": 10,
+      "failures": 0,
+      "errors": 0
+    }
+  },
+  "esp32_s3_changed_modules_compilation": "passed: BLE transport, local UI, vault, RPC, setup service, main and multilingual font; final session-binding guard recompiled",
+  "legacy_ui_suite": "fails at first_login_tests.cpp USDT selection assertion; specific access UI and PIN migration passed",
+  "complete_firmware_and_installer": "generated and verified: release 2026-11-20 with Monero signer linked",
+  "installed_on_hardware": true,
+  "installed_on_mobile": true,
+  "host_tests": {
+    "portable_ctests_passed": 6,
+    "mandatory_pin": "passed",
+    "setup_vault": "passed",
+    "setup_public": "passed",
+    "hardware_access_flow": "passed"
+  },
+  "physical_installation": "installed and readback verified on 2026-11-20; NVS/wallet partitions unchanged",
+  "mobile_update": "Motorola test device updated with adb install -r: Success; app data retained"
+}

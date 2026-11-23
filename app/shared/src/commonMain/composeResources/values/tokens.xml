@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="transfer_network">Network</string>
+    <string name="transfer_source">Source address</string>
+    <string name="transfer_network_hint">Use the same network as the recipient. Each network has its own balance; changing this selection does not move funds between networks.</string>
+    <string name="transfer_network_missing">Add this network in Accounts first.</string>
+    <string name="transfer_fee_balance">Available for network fees: %1$s %2$s</string>
+    <string name="token_contract">Token identifier</string>
+    <string name="error_insufficient_fee_balance">Insufficient native coin balance at the source address to pay the network fee.</string>
+    <string name="error_invalid_quote">This estimate does not match the selected asset or network. Request a new estimate.</string>
+    <string name="catalog_network_pending">Network integration pending</string>
+    <string name="catalog_assets_pending">Pending assets (%1$s)</string>
+    <string name="xrpl_trustline_required">Receiving requires an active trust line with available capacity for this issuer.</string>
+</resources>

@@ -1,0 +1,6691 @@
+{
+  "wallet_core": "4.4.2",
+  "platform": "macOS native C/C++",
+  "scope": "Import, derivation, original 158-entry parity, five new entries against independent references, and encrypted keystore readback; no transaction signing or ESP32 execution",
+  "fixtures": "Public zero-entropy BIP39 vectors; never use for funds",
+  "reference_source_sha256": {
+    "registry.json": "10b059d99563c9175c3260d446c62a4bede867e515e57f1a9fc96b74a3d8ba2d",
+    "js/Utils.js": "29e9c2f3a03e35ce9ac47348217b8d3e464eb1b02f6605098dcf41b92f9f3b50",
+    "js/crypto_worker.js": "3605f37b151e3042c6d255614c3a7aff4027b49663a948a772399889fe88199a",
+    "js/SignerManager.js": "fc9aa94081d20864a729f6b21d90983c09ace8e560a0bd7ed1d0f57ab63ae5f9"
+  },
+  "new_wallet_words": [
+    24
+  ],
+  "new_wallet_requires_passphrase": true,
+  "import_word_counts": [
+    12,
+    15,
+    18,
+    21,
+    24
+  ],
+  "audited_word_counts": [
+    12,
+    18,
+    24
+  ],
+  "native_signing_implemented": false,
+  "esp32_crypto_backend_implemented": false,
+  "default_path_only": true,
+  "cases": [
+    {
+      "id": "12-without",
+      "words": 12,
+      "passphrase": false,
+      "registry_entries": 163,
+      "derived_coins": 163,
+      "not_derived": 0,
+      "account_rows": 3242,
+      "keystores_verified": true,
+      "original_parity": true,
+      "original_parity_entries": 158,
+      "additional_reference_entries": 5,
+      "sha256": "9641f866456f190087be2a224501bf3936073095a1dda6871e466e13ed2bd2ee",
+      "main_and_standard": "same wallet; different pre-generated account counts"
+    },
+    {
+      "id": "12-with",
+      "words": 12,
+      "passphrase": true,
+      "registry_entries": 163,
+      "derived_coins": 163,
+      "not_derived": 0,
+      "account_rows": 3242,
+      "keystores_verified": true,
+      "original_parity": true,
+      "original_parity_entries": 158,
+      "additional_reference_entries": 5,
+      "sha256": "5e7e8d6a15c692c16854e757b5c7d26ee7916a2579a871d6abeda33ca3ba3f24",
+      "main_and_standard": "different"
+    },
+    {
+      "id": "18-without",
+      "words": 18,
+      "passphrase": false,
+      "registry_entries": 163,
+      "derived_coins": 163,
+      "not_derived": 0,
+      "account_rows": 3242,
+      "keystores_verified": true,
+      "original_parity": true,
+      "original_parity_entries": 158,
+      "additional_reference_entries": 5,
+      "sha256": "f263e848ef91ffa208481eccff05e4ca6dad2bb00e5c1b64fd8ad3239f860248",
+      "main_and_standard": "same wallet; different pre-generated account counts"
+    },
+    {
+      "id": "18-with",
+      "words": 18,
+      "passphrase": true,
+      "registry_entries": 163,
+      "derived_coins": 163,
+      "not_derived": 0,
+      "account_rows": 3242,
+      "keystores_verified": true,
+      "original_parity": true,
+      "original_parity_entries": 158,
+      "additional_reference_entries": 5,
+      "sha256": "8b05dbc8980fa7490f9afc6256335ab85f6fed54bc90d5760c37dafedf5dad5d",
+      "main_and_standard": "different"
+    },
+    {
+      "id": "24-without",
+      "words": 24,
+      "passphrase": false,
+      "registry_entries": 163,
+      "derived_coins": 163,
+      "not_derived": 0,
+      "account_rows": 3242,
+      "keystores_verified": true,
+      "original_parity": true,
+      "original_parity_entries": 158,
+      "additional_reference_entries": 5,
+      "sha256": "c0b7c6344eb9a1be7992e0d00aff58da37c7592ab0ebf8e75d67a5871cd77fc1",
+      "main_and_standard": "same wallet; different pre-generated account counts"
+    },
+    {
+      "id": "24-with",
+      "words": 24,
+      "passphrase": true,
+      "registry_entries": 163,
+      "derived_coins": 163,
+      "not_derived": 0,
+      "account_rows": 3242,
+      "keystores_verified": true,
+      "original_parity": true,
+      "original_parity_entries": 158,
+      "additional_reference_entries": 5,
+      "sha256": "315c1bc51a4632d1fd89332c12bb63a6f779674ab1e28b38c21e3720dc9f7824",
+      "main_and_standard": "different"
+    }
+  ],
+  "coins": [
+    {
+      "id": "bitcoin",
+      "name": "Bitcoin",
+      "symbol": "BTC",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/84'/0'/0'/0/0",
+      "other_registered_paths_not_tested": [
+        "m/44'/0'/0'/0/0",
+        "m/84'/1'/0'/0/0",
+        "m/86'/0'/0'/0/0"
+      ],
+      "original_signer_route": "BitcoinSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "litecoin",
+      "name": "Litecoin",
+      "symbol": "LTC",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/84'/2'/0'/0/0",
+      "other_registered_paths_not_tested": [
+        "m/44'/2'/0'/0/0"
+      ],
+      "original_signer_route": "BitcoinSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "doge",
+      "name": "Dogecoin",
+      "symbol": "DOGE",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/3'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "BitcoinSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "dash",
+      "name": "Dash",
+      "symbol": "DASH",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/5'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "BitcoinSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "viacoin",
+      "name": "Viacoin",
+      "symbol": "VIA",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/84'/14'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "BitcoinSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "groestlcoin",
+      "name": "Groestlcoin",
+      "symbol": "GRS",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/84'/17'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "GroestlcoinSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "digibyte",
+      "name": "DigiByte",
+      "symbol": "DGB",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/84'/20'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "BitcoinSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "monacoin",
+      "name": "Monacoin",
+      "symbol": "MONA",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/22'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "BitcoinSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "decred",
+      "name": "Decred",
+      "symbol": "DCR",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/42'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": null,
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "syscoin",
+      "name": "Syscoin",
+      "symbol": "SYS",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/84'/57'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "BitcoinSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "base",
+      "name": "Base",
+      "symbol": "ETH",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/60'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "EthereumSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "linea",
+      "name": "Linea",
+      "symbol": "ETH",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/60'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "EthereumSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "mantle",
+      "name": "Mantle",
+      "symbol": "MNT",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/60'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "EthereumSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "zeneon",
+      "name": "Zen EON",
+      "symbol": "ZEN",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/60'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "EthereumSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "ethereum",
+      "name": "Ethereum",
+      "symbol": "ETH",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/60'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "EthereumSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "classic",
+      "name": "Ethereum Classic",
+      "symbol": "ETC",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/61'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "EthereumSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "icon",
+      "name": "ICON",
+      "symbol": "ICX",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/74'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": null,
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "verge",
+      "name": "Verge",
+      "symbol": "XVG",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/84'/77'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": null,
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "pivx",
+      "name": "Pivx",
+      "symbol": "PIVX",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/119'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "BitcoinSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "zen",
+      "name": "Zen",
+      "symbol": "ZEN",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/121'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "ZenSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "aptos",
+      "name": "Aptos",
+      "symbol": "APT",
+      "curve": "ed25519",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/637'/0'/0'/0'",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "AptosSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 110
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 110
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 110
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 110
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 110
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 110
+        }
+      }
+    },
+    {
+      "id": "sui",
+      "name": "Sui",
+      "symbol": "SUI",
+      "curve": "ed25519",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/784'/0'/0'/0'",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "SuiSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 110
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 110
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 110
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 110
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 110
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 110
+        }
+      }
+    },
+    {
+      "id": "cosmos",
+      "name": "Cosmos",
+      "symbol": "ATOM",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/118'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "CosmosSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "stargaze",
+      "name": "Stargaze",
+      "symbol": "STARS",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/118'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "StargazeSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "juno",
+      "name": "Juno",
+      "symbol": "JUNO",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/118'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "CosmosSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "stride",
+      "name": "Stride",
+      "symbol": "STRD",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/118'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "CosmosSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "axelar",
+      "name": "Axelar",
+      "symbol": "AXL",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/118'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "CosmosSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "crescent",
+      "name": "Crescent",
+      "symbol": "CRE",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/118'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "CosmosSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "kujira",
+      "name": "Kujira",
+      "symbol": "KUJI",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/118'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "CosmosSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "comdex",
+      "name": "Comdex",
+      "symbol": "CMDX",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/118'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "CosmosSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "neutron",
+      "name": "Neutron",
+      "symbol": "NTRN",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/118'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "CosmosSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "sommelier",
+      "name": "Sommelier",
+      "symbol": "SOMM",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/118'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "CosmosSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "fetchai",
+      "name": "FetchAI",
+      "symbol": "FET",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/118'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "CosmosSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "mars",
+      "name": "Mars",
+      "symbol": "MARS",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/118'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "CosmosSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "umee",
+      "name": "Umee",
+      "symbol": "UMEE",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/118'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "CosmosSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "noble",
+      "name": "Noble",
+      "symbol": "USDC",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/118'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "CosmosSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "sei",
+      "name": "Sei",
+      "symbol": "SEI",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/118'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "CosmosSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "tia",
+      "name": "Tia",
+      "symbol": "TIA",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/118'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "CosmosSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "coreum",
+      "name": "Coreum",
+      "symbol": "CORE",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/990'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "CosmosSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "quasar",
+      "name": "Quasar",
+      "symbol": "QSR",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/118'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "CosmosSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "persistence",
+      "name": "Persistence",
+      "symbol": "XPRT",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/118'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "CosmosSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "akash",
+      "name": "Akash",
+      "symbol": "AKT",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/118'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "CosmosSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "zcash",
+      "name": "Zcash",
+      "symbol": "ZEC",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/133'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "ZcashSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "firo",
+      "name": "Firo",
+      "symbol": "FIRO",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/136'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "BitcoinSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "komodo",
+      "name": "Komodo",
+      "symbol": "KMD",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/141'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": null,
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "ripple",
+      "name": "XRP",
+      "symbol": "XRP",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/144'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "XrpSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "bitcoincash",
+      "name": "Bitcoin Cash",
+      "symbol": "BCH",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/145'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "BitcoinCashSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "stellar",
+      "name": "Stellar",
+      "symbol": "XLM",
+      "curve": "ed25519",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/148'/0'",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "StellarSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 110
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 110
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 110
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 110
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 110
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 110
+        }
+      }
+    },
+    {
+      "id": "bitcoingold",
+      "name": "Bitcoin Gold",
+      "symbol": "BTG",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/84'/156'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "BitcoinSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "nano",
+      "name": "Nano",
+      "symbol": "XNO",
+      "curve": "ed25519Blake2bNano",
+      "derivation_reference": "Wallet Core 4.4.2",
+      "path_tested": "m/44'/165'/0'",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "NanoSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 110
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 110
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 110
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 110
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 110
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 110
+        }
+      }
+    },
+    {
+      "id": "ravencoin",
+      "name": "Ravencoin",
+      "symbol": "RVN",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/175'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "BitcoinSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "poa",
+      "name": "POA Network",
+      "symbol": "POA",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/178'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "EthereumSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "eos",
+      "name": "EOS",
+      "symbol": "EOS",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/194'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "EosSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "wax",
+      "name": "WAX",
+      "symbol": "WAXP",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/194'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "EosSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "tron",
+      "name": "Tron",
+      "symbol": "TRX",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/195'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "TronSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "fio",
+      "name": "FIO",
+      "symbol": "FIO",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/235'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "FioSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "nimiq",
+      "name": "Nimiq",
+      "symbol": "NIM",
+      "curve": "ed25519",
+      "derivation_reference": "Wallet Core 4.4.2",
+      "path_tested": "m/44'/242'/0'/0'",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": null,
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 110
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 110
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 110
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 110
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 110
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 110
+        }
+      }
+    },
+    {
+      "id": "algorand",
+      "name": "Algorand",
+      "symbol": "ALGO",
+      "curve": "ed25519",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/283'/0'/0'/0'",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "AlgorandSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 110
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 110
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 110
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 110
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 110
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 110
+        }
+      }
+    },
+    {
+      "id": "iotex",
+      "name": "IoTeX",
+      "symbol": "IOTX",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/304'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "IoTeXSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "iotexevm",
+      "name": "IoTeX EVM",
+      "symbol": "IOTX",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/304'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "EthereumSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "nervos",
+      "name": "Nervos",
+      "symbol": "CKB",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/309'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "NervosSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "zilliqa",
+      "name": "Zilliqa",
+      "symbol": "ZIL",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/313'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": null,
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "terra",
+      "name": "Terra",
+      "symbol": "LUNC",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/330'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "CosmosSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "terrav2",
+      "name": "TerraV2",
+      "symbol": "LUNA",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/330'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "TerraSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "polkadot",
+      "name": "Polkadot",
+      "symbol": "DOT",
+      "curve": "ed25519",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/354'/0'/0'/0'",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "PolkadotSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 110
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 110
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 110
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 110
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 110
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 110
+        }
+      }
+    },
+    {
+      "id": "everscale",
+      "name": "Everscale",
+      "symbol": "EVER",
+      "curve": "ed25519",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/396'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "EverscaleSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 110
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 110
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 110
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 110
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 110
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 110
+        }
+      }
+    },
+    {
+      "id": "near",
+      "name": "NEAR",
+      "symbol": "NEAR",
+      "curve": "ed25519",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/397'/0'",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "NearSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 110
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 110
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 110
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 110
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 110
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 110
+        }
+      }
+    },
+    {
+      "id": "aion",
+      "name": "Aion",
+      "symbol": "AION",
+      "curve": "ed25519",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/425'/0'/0'/0'",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "AionSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 110
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 110
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 110
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 110
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 110
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 110
+        }
+      }
+    },
+    {
+      "id": "kusama",
+      "name": "Kusama",
+      "symbol": "KSM",
+      "curve": "ed25519",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/434'/0'/0'/0'",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "KusamaSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 110
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 110
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 110
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 110
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 110
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 110
+        }
+      }
+    },
+    {
+      "id": "acala",
+      "name": "Acala",
+      "symbol": "ACA",
+      "curve": "ed25519",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/787'/0'/0'/0'",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "AcalaSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 110
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 110
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 110
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 110
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 110
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 110
+        }
+      }
+    },
+    {
+      "id": "acalaevm",
+      "name": "Acala EVM",
+      "symbol": "ACA",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/60'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "EthereumSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "aeternity",
+      "name": "Aeternity",
+      "symbol": "AE",
+      "curve": "ed25519",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/457'/0'/0'/0'",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "AeternitySigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 110
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 110
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 110
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 110
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 110
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 110
+        }
+      }
+    },
+    {
+      "id": "kava",
+      "name": "Kava",
+      "symbol": "KAVA",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/459'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "KavaSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "filecoin",
+      "name": "Filecoin",
+      "symbol": "FIL",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/461'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "FilecoinSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "bluzelle",
+      "name": "Bluzelle",
+      "symbol": "BLZ",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/483'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "BluzelleSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "band",
+      "name": "BandChain",
+      "symbol": "BAND",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/494'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "BandChainSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "theta",
+      "name": "Theta",
+      "symbol": "THETA",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/500'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": null,
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "tfuelevm",
+      "name": "Theta Fuel",
+      "symbol": "TFUEL",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/500'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "EthereumSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "solana",
+      "name": "Solana",
+      "symbol": "SOL",
+      "curve": "ed25519",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/501'/0'",
+      "other_registered_paths_not_tested": [
+        "m/44'/501'/0'/0'"
+      ],
+      "original_signer_route": "SolanaSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 110
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 110
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 110
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 110
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 110
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 110
+        }
+      }
+    },
+    {
+      "id": "elrond",
+      "name": "MultiversX",
+      "symbol": "eGLD",
+      "curve": "ed25519",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/508'/0'/0'/0'",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "MultiversXSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 110
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 110
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 110
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 110
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 110
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 110
+        }
+      }
+    },
+    {
+      "id": "binance",
+      "name": "Binance",
+      "symbol": "BNB",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/714'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": null,
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "tbinance",
+      "name": "TBinance",
+      "symbol": "BNB",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/714'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": null,
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "vechain",
+      "name": "VeChain",
+      "symbol": "VET",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/818'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": null,
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "callisto",
+      "name": "Callisto",
+      "symbol": "CLO",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/820'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "EthereumSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "neo",
+      "name": "NEO",
+      "symbol": "NEO",
+      "curve": "nist256p1",
+      "derivation_reference": "Wallet Core 4.4.2",
+      "path_tested": "m/44'/888'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "NeoSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 110
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 110
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 110
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 110
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 110
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 110
+        }
+      }
+    },
+    {
+      "id": "viction",
+      "name": "Viction",
+      "symbol": "VIC",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/889'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "EthereumSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "bitcoindiamond",
+      "name": "Bitcoin Diamond",
+      "symbol": "BCD",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/84'/999'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "BitcoinDiamondSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "thundertoken",
+      "name": "ThunderCore",
+      "symbol": "TT",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/1001'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "EthereumSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "harmony",
+      "name": "Harmony",
+      "symbol": "ONE",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/1023'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "HarmonySigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "oasis",
+      "name": "Oasis",
+      "symbol": "ROSE",
+      "curve": "ed25519",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/474'/0'",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "OasisSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 110
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 110
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 110
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 110
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 110
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 110
+        }
+      }
+    },
+    {
+      "id": "ontology",
+      "name": "Ontology",
+      "symbol": "ONT",
+      "curve": "nist256p1",
+      "derivation_reference": "Wallet Core 4.4.2",
+      "path_tested": "m/44'/1024'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "OntologySigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 110
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 110
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 110
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 110
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 110
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 110
+        }
+      }
+    },
+    {
+      "id": "tezos",
+      "name": "Tezos",
+      "symbol": "XTZ",
+      "curve": "ed25519",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/1729'/0'/0'",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "TezosSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 110
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 110
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 110
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 110
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 110
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 110
+        }
+      }
+    },
+    {
+      "id": "cardano",
+      "name": "Cardano",
+      "symbol": "ADA",
+      "curve": "ed25519ExtendedCardano",
+      "derivation_reference": "Emurgo CSL 13.2.1 / CIP-3 Icarus",
+      "path_tested": "m/1852'/1815'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "CardanoSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 110
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 110
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 110
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 110
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 110
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 110
+        }
+      },
+      "passphrase_handling": "CIP-3 Icarus UTF-8 passphrase applied via Wallet Core-linked Cardano primitives; upstream 4.4.2 HDWallet ignores it for this coin",
+      "recovery_scheme": "Icarus, not Ledger or Icarus-Trezor 24-word variant"
+    },
+    {
+      "id": "kin",
+      "name": "Kin",
+      "symbol": "KIN",
+      "curve": "ed25519",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/2017'/0'",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "StellarSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 110
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 110
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 110
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 110
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 110
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 110
+        }
+      }
+    },
+    {
+      "id": "qtum",
+      "name": "Qtum",
+      "symbol": "QTUM",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/2301'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "BitcoinSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "nebulas",
+      "name": "Nebulas",
+      "symbol": "NAS",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/2718'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "NebulasSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "gochain",
+      "name": "GoChain",
+      "symbol": "GO",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/6060'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "EthereumSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "nuls",
+      "name": "NULS",
+      "symbol": "NULS",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/8964'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "NULSSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "zelcash",
+      "name": "Zelcash",
+      "symbol": "FLUX",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/19167'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "ZcashSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "wanchain",
+      "name": "Wanchain",
+      "symbol": "WAN",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/5718350'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "EthereumSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "waves",
+      "name": "Waves",
+      "symbol": "WAVES",
+      "curve": "ed25519",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/5741564'/0'/0'/0'",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "WavesSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 110
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 110
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 110
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 110
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 110
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 110
+        }
+      }
+    },
+    {
+      "id": "bsc",
+      "name": "Smart Chain Legacy",
+      "symbol": "BNB",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/714'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "EthereumSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "smartchain",
+      "name": "Smart Chain",
+      "symbol": "BNB",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/60'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "EthereumSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "polygon",
+      "name": "Polygon",
+      "symbol": "POL",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/60'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "EthereumSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "rootstock",
+      "name": "Rootstock",
+      "symbol": "RBTC",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/137'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "EthereumSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "thorchain",
+      "name": "THORChain",
+      "symbol": "RUNE",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/931'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "ThorchainSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "optimism",
+      "name": "Optimism",
+      "symbol": "ETH",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/60'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "EthereumSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "polygonzkevm",
+      "name": "Polygon zkEVM",
+      "symbol": "ETH",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/60'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "EthereumSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "zksync",
+      "name": "Zksync",
+      "symbol": "ETH",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/60'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "EthereumSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "scroll",
+      "name": "Scroll",
+      "symbol": "ETH",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/60'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "EthereumSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "arbitrum",
+      "name": "Arbitrum",
+      "symbol": "ETH",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/60'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "EthereumSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "arbitrumnova",
+      "name": "Arbitrum Nova",
+      "symbol": "ETH",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/60'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "EthereumSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "heco",
+      "name": "ECO Chain",
+      "symbol": "HT",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/60'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "EthereumSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "avalanchec",
+      "name": "Avalanche C-Chain",
+      "symbol": "AVAX",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/60'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "EthereumSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "xdai",
+      "name": "xDai",
+      "symbol": "xDAI",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/60'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "EthereumSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "fantom",
+      "name": "Fantom",
+      "symbol": "FTM",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/60'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "EthereumSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "cryptoorg",
+      "name": "CryptoOrg",
+      "symbol": "CRO",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/394'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "CryptoOrgSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "celo",
+      "name": "Celo",
+      "symbol": "CELO",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/60'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "EthereumSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "ronin",
+      "name": "Ronin",
+      "symbol": "RON",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/60'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": null,
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "secret",
+      "name": "Secret",
+      "symbol": "SCRT",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/529'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "SecretSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "osmosis",
+      "name": "Osmosis",
+      "symbol": "OSMO",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/118'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "OsmosisSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "ecash",
+      "name": "eCash",
+      "symbol": "XEC",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/899'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "BitcoinCashSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "iost",
+      "name": "IOST",
+      "symbol": "IOST",
+      "curve": "ed25519",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/899'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": null,
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 110
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 110
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 110
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 110
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 110
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 110
+        }
+      }
+    },
+    {
+      "id": "cronos",
+      "name": "Cronos Chain",
+      "symbol": "CRO",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/60'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "EthereumSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "kavaevm",
+      "name": "KavaEvm",
+      "symbol": "KAVA",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/60'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "EthereumSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "smartbch",
+      "name": "Smart Bitcoin Cash",
+      "symbol": "BCH",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/60'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "EthereumSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "kcc",
+      "name": "KuCoin Community Chain",
+      "symbol": "KCS",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/60'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "EthereumSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "boba",
+      "name": "Boba",
+      "symbol": "BOBAETH",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/60'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "EthereumSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "metis",
+      "name": "Metis",
+      "symbol": "METIS",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/60'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "EthereumSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "aurora",
+      "name": "Aurora",
+      "symbol": "ETH",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/60'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "EthereumSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "evmos",
+      "name": "Evmos",
+      "symbol": "EVMOS",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/60'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "EthereumSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "nativeevmos",
+      "name": "NativeEvmos",
+      "symbol": "EVMOS",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/60'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": null,
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "moonriver",
+      "name": "Moonriver",
+      "symbol": "MOVR",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/60'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "EthereumSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "moonbeam",
+      "name": "Moonbeam",
+      "symbol": "GLMR",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/60'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "EthereumSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "kaia",
+      "name": "Kaia",
+      "symbol": "KAIA",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/60'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "EthereumSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "meter",
+      "name": "Meter",
+      "symbol": "MTR",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/60'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "EthereumSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "okc",
+      "name": "OKX Chain",
+      "symbol": "OKT",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/60'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "EthereumSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "cfxevm",
+      "name": "Conflux eSpace",
+      "symbol": "CFX",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/60'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "EthereumSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "greenfield",
+      "name": "Greenfield",
+      "symbol": "BNB",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/60'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "GreenfieldSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "opbnb",
+      "name": "OpBNB",
+      "symbol": "BNB",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/60'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "EthereumSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "stratis",
+      "name": "Stratis",
+      "symbol": "STRAX",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/105105'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "BitcoinSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "Nebl",
+      "name": "Nebl",
+      "symbol": "NEBL",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/146'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": null,
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "hedera",
+      "name": "Hedera",
+      "symbol": "HBAR",
+      "curve": "ed25519",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/3030'/0'/0'/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "HederaSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 110
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 110
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 110
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 110
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 110
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 110
+        }
+      }
+    },
+    {
+      "id": "agoric",
+      "name": "Agoric",
+      "symbol": "BLD",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/564'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "AgoricSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "dydx",
+      "name": "Dydx",
+      "symbol": "DYDX",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/118'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "CosmosSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "nativeinjective",
+      "name": "NativeInjective",
+      "symbol": "INJ",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/60'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "NativeInjectiveSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "nativecanto",
+      "name": "NativeCanto",
+      "symbol": "CANTO",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/60'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "CosmosSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "zetachain",
+      "name": "NativeZetaChain",
+      "symbol": "ZETA",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/60'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "NativeZetaChainSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "zetaevm",
+      "name": "Zeta EVM",
+      "symbol": "ZETA",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/60'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "EthereumSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "ton",
+      "name": "TON",
+      "symbol": "TON",
+      "curve": "ed25519",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/607'/0'",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "TonSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 110
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 110
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 110
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 110
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 110
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 110
+        }
+      }
+    },
+    {
+      "id": "neon",
+      "name": "Neon",
+      "symbol": "NEON",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/60'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "EthereumSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "internet_computer",
+      "name": "Internet Computer",
+      "symbol": "ICP",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/223'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "IcpSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "manta",
+      "name": "Manta Pacific",
+      "symbol": "ETH",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/60'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "EthereumSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "merlin",
+      "name": "Merlin",
+      "symbol": "BTC",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/60'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "EthereumSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "lightlink",
+      "name": "Lightlink",
+      "symbol": "ETH",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/60'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "EthereumSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "blast",
+      "name": "Blast",
+      "symbol": "ETH",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/60'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "EthereumSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "bouncebit",
+      "name": "BounceBit",
+      "symbol": "BB",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/60'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "EthereumSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "zklinknova",
+      "name": "ZkLinkNova",
+      "symbol": "ETH",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/60'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "EthereumSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "sonic",
+      "name": "Sonic",
+      "symbol": "S",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/60'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "EthereumSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "pactus",
+      "name": "Pactus",
+      "symbol": "PAC",
+      "curve": "ed25519",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/21888'/3'/0'",
+      "other_registered_paths_not_tested": [
+        "m/44'/21777'/3'/0'"
+      ],
+      "original_signer_route": "PactusSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 110
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 110
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 110
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 110
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 110
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 110
+        }
+      }
+    },
+    {
+      "id": "polymesh",
+      "name": "Polymesh",
+      "symbol": "POLYX",
+      "curve": "ed25519",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/595'/0'/0'/0'",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "PolymeshSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 110
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 110
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 110
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 110
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 110
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 110
+        }
+      }
+    },
+    {
+      "id": "plasma",
+      "name": "Plasma",
+      "symbol": "XPL",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/60'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "EthereumSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    },
+    {
+      "id": "monad",
+      "name": "Monad",
+      "symbol": "MON",
+      "curve": "secp256k1",
+      "derivation_reference": "Unmodified original js/Utils.js / Wallet Core 4.4.2",
+      "path_tested": "m/44'/60'/0'/0/0",
+      "other_registered_paths_not_tested": [],
+      "original_signer_route": "EthereumSigner",
+      "original_signer_execution_tested": false,
+      "native_transaction_signing": false,
+      "esp32_derivation": false,
+      "combinations": {
+        "12-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "12-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "18-with": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-without": {
+          "status": "pass",
+          "rows": 2
+        },
+        "24-with": {
+          "status": "pass",
+          "rows": 2
+        }
+      }
+    }
+  ],
+  "additional_reference": {
+    "wallet_core": "4.4.2",
+    "cardano_reference": "@emurgo/cardano-serialization-lib-nodejs@13.2.1",
+    "cardano_scheme": "CIP-3 Icarus with UTF-8 passphrase; CIP-1852 Shelley mainnet base address; staking role 2/index 0",
+    "source_urls": [
+      "https://github.com/trustwallet/wallet-core/tree/4.4.2",
+      "https://github.com/Emurgo/cardano-serialization-lib/tree/846d0f274a436403659fa7b197a09c029d7f2126",
+      "https://cips.cardano.org/cip/CIP-0003"
+    ],
+    "registry_sha256": "10b059d99563c9175c3260d446c62a4bede867e515e57f1a9fc96b74a3d8ba2d"
+  },
+  "summary": {
+    "registry_entries": 163,
+    "pass_all_six": [
+      "bitcoin",
+      "litecoin",
+      "doge",
+      "dash",
+      "viacoin",
+      "groestlcoin",
+      "digibyte",
+      "monacoin",
+      "decred",
+      "syscoin",
+      "base",
+      "linea",
+      "mantle",
+      "zeneon",
+      "ethereum",
+      "classic",
+      "icon",
+      "verge",
+      "pivx",
+      "zen",
+      "aptos",
+      "sui",
+      "cosmos",
+      "stargaze",
+      "juno",
+      "stride",
+      "axelar",
+      "crescent",
+      "kujira",
+      "comdex",
+      "neutron",
+      "sommelier",
+      "fetchai",
+      "mars",
+      "umee",
+      "noble",
+      "sei",
+      "tia",
+      "coreum",
+      "quasar",
+      "persistence",
+      "akash",
+      "zcash",
+      "firo",
+      "komodo",
+      "ripple",
+      "bitcoincash",
+      "stellar",
+      "bitcoingold",
+      "nano",
+      "ravencoin",
+      "poa",
+      "eos",
+      "wax",
+      "tron",
+      "fio",
+      "nimiq",
+      "algorand",
+      "iotex",
+      "iotexevm",
+      "nervos",
+      "zilliqa",
+      "terra",
+      "terrav2",
+      "polkadot",
+      "everscale",
+      "near",
+      "aion",
+      "kusama",
+      "acala",
+      "acalaevm",
+      "aeternity",
+      "kava",
+      "filecoin",
+      "bluzelle",
+      "band",
+      "theta",
+      "tfuelevm",
+      "solana",
+      "elrond",
+      "binance",
+      "tbinance",
+      "vechain",
+      "callisto",
+      "neo",
+      "viction",
+      "bitcoindiamond",
+      "thundertoken",
+      "harmony",
+      "oasis",
+      "ontology",
+      "tezos",
+      "cardano",
+      "kin",
+      "qtum",
+      "nebulas",
+      "gochain",
+      "nuls",
+      "zelcash",
+      "wanchain",
+      "waves",
+      "bsc",
+      "smartchain",
+      "polygon",
+      "rootstock",
+      "thorchain",
+      "optimism",
+      "polygonzkevm",
+      "zksync",
+      "scroll",
+      "arbitrum",
+      "arbitrumnova",
+      "heco",
+      "avalanchec",
+      "xdai",
+      "fantom",
+      "cryptoorg",
+      "celo",
+      "ronin",
+      "secret",
+      "osmosis",
+      "ecash",
+      "iost",
+      "cronos",
+      "kavaevm",
+      "smartbch",
+      "kcc",
+      "boba",
+      "metis",
+      "aurora",
+      "evmos",
+      "nativeevmos",
+      "moonriver",
+      "moonbeam",
+      "kaia",
+      "meter",
+      "okc",
+      "cfxevm",
+      "greenfield",
+      "opbnb",
+      "stratis",
+      "Nebl",
+      "hedera",
+      "agoric",
+      "dydx",
+      "nativeinjective",
+      "nativecanto",
+      "zetachain",
+      "zetaevm",
+      "ton",
+      "neon",
+      "internet_computer",
+      "manta",
+      "merlin",
+      "lightlink",
+      "blast",
+      "bouncebit",
+      "zklinknova",
+      "sonic",
+      "pactus",
+      "polymesh",
+      "plasma",
+      "monad"
+    ],
+    "not_derived": [],
+    "original_missing_signer_routes": [
+      "decred",
+      "icon",
+      "verge",
+      "komodo",
+      "nimiq",
+      "zilliqa",
+      "theta",
+      "binance",
+      "tbinance",
+      "vechain",
+      "ronin",
+      "iost",
+      "nativeevmos",
+      "Nebl"
+    ],
+    "observed_account_rows": 19452
+  }
+}

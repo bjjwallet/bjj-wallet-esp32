@@ -1,0 +1,4 @@
+<resources>
+    <string name="bitcoin_signature_test">Teste de assinatura Bitcoin: entrada sintética, assinatura real na cold wallet. O app tentará enviar; a rejeição é esperada. Não cria saldo disponível nem registro na blockchain.</string>
+    <string name="bitcoin_signature_test_verified">A cold wallet devolveu a assinatura e o app a verificou. Este foi um teste com entrada sintética; o resultado do envio é separado da verificação da assinatura.</string>
+</resources>

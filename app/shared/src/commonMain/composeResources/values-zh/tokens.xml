@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="transfer_network">网络</string>
+    <string name="transfer_source">发送地址</string>
+    <string name="transfer_network_hint">请使用与收款人相同的网络。各网络的余额独立；更改此选项不会在网络之间转移资金。</string>
+    <string name="transfer_network_missing">请先在账户中添加此网络。</string>
+    <string name="transfer_fee_balance">可用于支付网络费用：%1$s %2$s</string>
+    <string name="token_contract">代币标识符</string>
+    <string name="error_insufficient_fee_balance">发送地址的原生币余额不足以支付网络费用。</string>
+    <string name="error_invalid_quote">此估算与所选资产或网络不匹配。请重新估算。</string>
+    <string name="catalog_network_pending">网络集成待完成</string>
+    <string name="catalog_assets_pending">待支持的资产（%1$s）</string>
+    <string name="xrpl_trustline_required">接收此代币前需要建立 XRPL 信任线。</string>
+</resources>

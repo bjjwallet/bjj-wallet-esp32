@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="error_public_data_invalid">钱包公共数据无效。请重新与 BJJ-Cold-Wallet 同步。</string>
+    <string name="error_public_data_incomplete">设备未导出所有支持的网络。请更新固件后重新同步。</string>
+    <string name="error_public_data_sync_required">此地址没有已保存的公共数据。请与硬件同步。</string>
+    <string name="error_public_data_changed">钱包公共数据已更改。现有账户已保留；请检查连接的设备和钱包。</string>
+    <string name="error_address_index_exhausted">此账户已达到地址派生上限。</string>
+    <string name="error_bluetooth_permission">请允许蓝牙访问以同步硬件。</string>
+    <string name="error_bluetooth_unavailable">蓝牙不可用。请开启蓝牙并检查应用权限。</string>
+    <string name="hardware_select_title">选择您的 BJJ-Cold-Wallet</string>
+    <string name="hardware_select_help">选择设备，并在手机和硬件上确认配对码。所有支持网络的公开数据将分别保存到普通钱包和带附加口令的钱包中。</string>
+    <string name="offline_accounts_hint">将币种添加到列表。如果尚未保存公开地址，请稍后同步，以查询余额、收款和发送交易。</string>
+    <string name="common_add_account_action">添加</string>
+    <string name="account_already_added">已添加</string>
+    <string name="account_public_data_pending">公开地址尚未同步。此币种仍可显示在账户列表中。</string>
+    <string name="account_sync_public_data">同步公开地址</string>
+    <string name="common_remove_account_action">移除</string>
+    <string name="account_api_unsupported">所选 API 不支持此币种或代币。</string>
+</resources>
